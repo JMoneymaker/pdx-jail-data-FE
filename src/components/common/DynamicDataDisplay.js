@@ -3,13 +3,21 @@ import PropTypes from 'prop-types';
 
 
 const DynamicDataDisplay = ({ children, hook }) => {
-  const printableNumber = (n) =>  {return (n > 0) ? '+' + n : n;};
   const { data } = hook();
+  if(data === 0) return (
+
+    <div>
+      <h3>{children}</h3>
+      <div>
+        <p>Loading</p>
+      </div>
+    </div>
+  );
   return (
     <div>
       <h3>{children}</h3>
       <div>
-        <h2>{printableNumber(data)}</h2>
+        <h2>{data}</h2>
       </div>
     </div>
   );
