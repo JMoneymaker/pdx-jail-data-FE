@@ -1,31 +1,26 @@
 .ChartWrapper {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    padding: 1em;
+    width: 98vw;
     margin: auto;
-    background-color: brown;
+    text-align: center;
 }
 
-.Daily {
-    text-align: center;
-    margin: auto;
-    width: 58em;
-    border: 10px solid red;
+.chartTitle {
+    margin-top: 1em;
+    margin-right: .75em;
 }
 
 .ChartContainer {
-    border: 10px solid black;
-    padding: 10px;
-    margin: 10px;
+    width: 100%;
+    padding-left: .75em;
 }
 
-@media screen and (min-width: 350px) {
+@media screen and (min-width: 400px) {
 
-    .Daily {
-      width: 30em;
+    .ChartContainer {
+        text-align: center;
     }
 }
 
