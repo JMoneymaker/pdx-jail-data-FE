@@ -1,0 +1,22 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: green;
+}
+
+.dynamicDisplay {
+    background-color: white;
+    border: 2px solid black;
+    padding: 1em .5em;
+    text-align: center;
+
+    h2 {
+        padding: .5em 0;
+        margin-top: .5em;
+        background-color: grey;
+        color: white;
+     }
+}
+
