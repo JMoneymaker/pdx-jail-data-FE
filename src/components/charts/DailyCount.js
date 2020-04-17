@@ -21,32 +21,28 @@ const DailyDetentionCounts = () => {
   }, []);
 
   return (
-    
-    <div className={styles.ChartContainer}>
-      <Chart
-        chartType="LineChart"
-        loader={<div>Loading Chart</div>}
-        data= {[['', ''], //optional labels for axes
-          ...detentionCounts]}
-        options={{
-          title: 'Daily Detentions since 1/17/2020',
-          titleTextStyle: { 
-            color: 'black', 
-            fontName: 'Roboto', 
-            fontSize: '16' },
-          width:'100%',
-          height:'150%',
-          // backgroundColor: {
-          //   stroke: '#A4CAA4',
-          //   strokeWidth: 10
-          // },
-          vAxis: { viewWindow: { min: 0 } },
-          colors: ['#A2506A', '#1F4763', '#9161A2', '#13646A', '#058F7A'],
-          legend: { position: 'none' }
-        }}
-      />
-    </div>
-   
+    <section className={styles.ChartWrapper}>
+      <h2 className={styles.chartTitle}>Daily Detentions since 1/17/2020</h2>
+      <div className={styles.ChartContainer}>
+        <Chart
+          chartType="LineChart"
+          loader={<div>Loading Chart</div>}
+          data= {[['Detentions', 'Day'], //optional labels for axes
+            ...detentionCounts]}
+          options={{
+            titleTextStyle: { 
+              color: 'black', 
+              fontName: 'Roboto', 
+              fontSize: '16' },
+            width:'100%',
+            height:'auto',
+            vAxis: { viewWindow: { min: 0 } },
+            colors: ['#A2506A', '#1F4763', '#9161A2', '#13646A', '#058F7A'],
+            legend: { position: 'none' }
+          }}
+        />
+      </div>
+    </section>
   );
 };
 

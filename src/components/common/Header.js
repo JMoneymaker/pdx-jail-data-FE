@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.css';
-// import DynamicDataDisplay from '../HomePage/DynamicDataDisplay';
-// import useAverageDetention from '../../hooks/useAverageDetention';
+import DynamicDataDisplay from './DynamicDataDisplay';
+import useDailyChange from '../../hooks/useDailyChange';
 
 
 const Header = () => {
@@ -10,9 +10,8 @@ const Header = () => {
     <section className={styles.Header}>
       <h1>PDX Jail Data</h1>
       <div className={styles.dynamicDisplay}>
-        <h3>Change since yesterday</h3>
-        {/* <DynamicDataDisplay hook={useAverageDetention}>Average Length of Stay</DynamicDataDisplay> */}
-        <h2>Number</h2>
+        <DynamicDataDisplay hook={useDailyChange}>Change Since Yesterday</DynamicDataDisplay>
+        
       </div>
     </section>
   );
