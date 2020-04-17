@@ -22,7 +22,7 @@ const DailyDetentionCounts = () => {
 
   return (
     <section className={styles.ChartWrapper}>
-      <h2 className={styles.chartTitle}>Daily Detentions since 1/17/2020</h2>
+      <h2 className={styles.chartTitle}>Daily 2020 Detention Totals</h2>
       <div className={styles.ChartContainer}>
         <Chart
           chartType="LineChart"
