@@ -18,8 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1em auto;
-    padding: 0 .5em;
+    margin: 1em .25em auto;
     border-radius: .5em;
 }
 
@@ -46,6 +45,7 @@
         flex-direction: column;
         width: 300px;
         padding: .5em 0;
+        margin: 1em auto;
     }
 
     .displayWrapper {
@@ -64,11 +64,79 @@
     }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 550px) {
+    .dynamo {
+        display: flex;
+        flex-direction: column;
+    } 
     .dynamicWrapper {
         display: flex;
         flex-direction: row;
-        width: 600px;
+        width: 480px;
+        padding: .5em 0;
+    }
+    .countyTitle {
+        padding: .15em;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        display: inline;
+        font-style: bold;
+        transition: all .9s;
+        -moz-transform: scale(-1, -1);
+        -webkit-transform: scale(-1, -1);
+        -o-transform: scale(-1, -1);
+        -ms-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+    }
+
+    .dynamicDisplay {
+        width: 175px;
+        margin: .5em;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .dynamo {
+        display: flex;
+        flex-direction: row;
+        width: 768px;
+        margin: auto;
+    }
+
+    .dynamicWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        padding: .5em 0;
+    }
+
+    .countyTitle {
+        writing-mode: horizontal-tb;
+        transform: scale(1, 1);
+    }
+}
+
+@media screen and (min-width: 1360px) {
+    .dynamo {
+        display: flex;
+        width: 1360px;
+        flex-direction: row;
+        margin: auto;
+    }
+
+    .dynamicWrapper {
+        display: flex;
+        flex-direction: row;
+        width: 470px;
+        padding: .25em 0;
     }
 
     .countyTitle {
@@ -84,12 +152,18 @@
         -ms-transform: scale(-1, -1);
         transform: scale(-1, -1);
     }
-}
 
-@media screen and (min-width: 1300px) {
-    .Home {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+    .dynamicDisplay {
+        margin: .25em;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+        }
     }
+
+    
 }
