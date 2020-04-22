@@ -1,11 +1,19 @@
-export const calculateDailyChange = (dailyTotalsArray) => {
-  const countsArray = dailyTotalsArray.counts;
-  const iY = countsArray.length - 2;
-  const iT = countsArray.length - 1;
+export const calculateDailyChange = (counts) => {
 
-  const yCount = countsArray[iY].count;
-  const tCount = countsArray[iT].count;
-  const dailyChange = tCount - yCount;
+  const yesterday = findYesterdayTotal(counts);
+  const today = findTodayTotal(counts);
 
-  return dailyChange;
+  const dailyChange = today - yesterday;
+  return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
+  
+};
+
+const findYesterdayTotal = ({ counts }) => {
+  const iY = counts.length - 2;
+  return counts[iY].count;
+};
+
+export const findTodayTotal = ({ counts }) => {
+  const iT = counts.length - 1;
+  return counts[iT].count;
 };

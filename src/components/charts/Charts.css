@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 98vw;
+    width: 40vw;
     margin: auto;
-    text-align: center;
 }
 
 .chartTitle {
     margin-top: 1em;
-    margin-right: .75em;
+    margin-right: .65em;
 }
 
 .ChartContainer {
@@ -17,10 +16,51 @@
     padding-left: .75em;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 320px) {
+
+    .chartTitle {
+      font-size: 1.5em;
+    }
+
+    .ChartWrapper {
+        width: 100%;
+    }
 
     .ChartContainer {
-        text-align: center;
+        width: 95%;
+        padding-left: .75em;
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+    .chartTitle {
+      font-size: 1.5em;
+    }
+
+    .ChartWrapper {
+        width: 100%;
+    }
+
+    .ChartContainer {
+        width: 95%;
+        padding-left: 3em;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .ChartWrapper {
+        width: 70vw;
+    }
+
+    .ChartContainer {
+        padding-left: 3.25em;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .ChartWrapper  {
+        width: 600px;
     }
 }
 
