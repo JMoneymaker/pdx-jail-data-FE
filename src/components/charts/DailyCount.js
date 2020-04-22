@@ -26,18 +26,17 @@ const DailyDetentionCounts = () => {
       <div className={styles.ChartContainer}>
         <Chart
           chartType="LineChart"
-          loader={<div>Loading Chart</div>}
-          data= {[['Detentions', 'Day'], //optional labels for axes
+          loader={<div>Loading</div>}
+          data= {[['', ''], //optional labels for axes
             ...detentionCounts]}
           options={{
             titleTextStyle: { 
               color: 'black', 
               fontName: 'Roboto', 
               fontSize: '16' },
-            width:'100%',
-            height:'auto',
-            vAxis: { viewWindow: { min: 0 } },
-            colors: ['#A2506A', '#1F4763', '#9161A2', '#13646A', '#058F7A'],
+            chartArea: { width:'80%', height:'60%' },
+            vAxis: { title: 'People in detention' },
+            pointSize: 2,
             legend: { position: 'none' }
           }}
         />

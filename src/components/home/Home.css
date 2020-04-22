@@ -2,20 +2,50 @@
     height: 100vh;
 }
 
-.dynamicWrapper {
-    display: flex;
-    width: 98vw;
-    margin: auto;
+#mult {
+    background-color: rgb(207, 175, 175);
 }
 
+#clack {
+    background-color: rgb(221, 221, 185);
+}
+
+#wash {
+    background-color: rgb(179, 179, 167);
+}
+
+.dynamicWrapper {
+    display: flex;
+    width: 30vw;
+    justify-content: center;
+    align-items: center;
+    margin: 1em auto;
+    padding: 0 .5em;
+    border-radius: .5em;
+}
+
+.countyTitle {
+    padding: .15em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: inline;
+    font-style: bold;
+    transition: all .9s;
+    -moz-transform: scale(-1, -1);
+    -webkit-transform: scale(-1, -1);
+    -o-transform: scale(-1, -1);
+    -ms-transform: scale(-1, -1);
+    transform: scale(-1, -1);
+}
 
 .dynamicDisplay {
     background-color: white;
     border: 2px solid black;
-    width: 45em;
     padding: 1em .5em;
-    margin: 1em;
+    width: 45em;
+    margin: 1em .5em;
     text-align: center;
+    border-radius: .25em;
 
     h2 {
         padding: .5em 0;
@@ -23,4 +53,58 @@
         background-color: grey;
         color: white;
      }
+}
+
+@media screen and (max-width: 360px) {
+    .dynamicWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 85vw;
+        padding: .5em 0;
+    }
+    .countyTitle {
+        writing-mode: horizontal-tb;
+        transform: scale(1, 1);
+    }
+
+    .displayWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;  
+    }
+
+    .dynamicDisplay {
+        display: flex;
+        flex-direction: column;
+        width: 15em;
+        margin: .5em;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .dynamicWrapper {
+        display: flex;
+        flex-direction: row;
+        width: 85vw;
+        padding: .5em 0;
+    }
+
+    .displayWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;  
+    }
+
+    .dynamicDisplay {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 15em;
+        margin: .5em;
+    }
 }
