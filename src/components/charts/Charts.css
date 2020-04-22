@@ -16,7 +16,7 @@
     padding-left: .75em;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (min-width: 320px) {
 
     .chartTitle {
       font-size: 1.5em;
@@ -44,7 +44,23 @@
 
     .ChartContainer {
         width: 95%;
-        padding-left: .75em;
+        padding-left: 3em;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .ChartWrapper {
+        width: 70vw;
+    }
+
+    .ChartContainer {
+        padding-left: 3.25em;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .ChartWrapper  {
+        width: 600px;
     }
 }
 

@@ -16,26 +16,11 @@
 
 .dynamicWrapper {
     display: flex;
-    width: 30vw;
     justify-content: center;
     align-items: center;
     margin: 1em auto;
     padding: 0 .5em;
     border-radius: .5em;
-}
-
-.countyTitle {
-    padding: .15em;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    display: inline;
-    font-style: bold;
-    transition: all .9s;
-    -moz-transform: scale(-1, -1);
-    -webkit-transform: scale(-1, -1);
-    -o-transform: scale(-1, -1);
-    -ms-transform: scale(-1, -1);
-    transform: scale(-1, -1);
 }
 
 .dynamicDisplay {
@@ -55,16 +40,12 @@
      }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (min-width: 320px) {
     .dynamicWrapper {
         display: flex;
         flex-direction: column;
-        width: 85vw;
+        width: 300px;
         padding: .5em 0;
-    }
-    .countyTitle {
-        writing-mode: horizontal-tb;
-        transform: scale(1, 1);
     }
 
     .displayWrapper {
@@ -83,28 +64,32 @@
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
     .dynamicWrapper {
         display: flex;
         flex-direction: row;
-        width: 85vw;
-        padding: .5em 0;
+        width: 600px;
     }
 
-    .displayWrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;  
+    .countyTitle {
+        padding: .15em;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        display: inline;
+        font-style: bold;
+        transition: all .9s;
+        -moz-transform: scale(-1, -1);
+        -webkit-transform: scale(-1, -1);
+        -o-transform: scale(-1, -1);
+        -ms-transform: scale(-1, -1);
+        transform: scale(-1, -1);
     }
+}
 
-    .dynamicDisplay {
+@media screen and (min-width: 1300px) {
+    .Home {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
-        width: 15em;
-        margin: .5em;
     }
 }
