@@ -35,7 +35,7 @@ const DailyDetentionCounts = () => {
               fontName: 'Roboto', 
               fontSize: '16' },
             chartArea: { width:'80%', height:'60%' },
-            vAxis: { title: 'People in detention' },
+            // vAxis: { title: 'People in detention' },
             pointSize: 2,
             legend: { position: 'none' }
           }}
