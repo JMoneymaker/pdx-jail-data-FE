@@ -3,7 +3,7 @@ import { getDailyDetentionCounts } from '../services/getDetentions';
 import { calculateDailyChange } from '../utils/dailyCounts';
 
 const useDailyChange = () => {
-  const [data, setData] = useState(0);
+  const [data, setData] = useState('loading');
 
   const fetchDailyChange = () => {
     getDailyDetentionCounts()

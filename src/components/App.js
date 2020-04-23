@@ -1,13 +1,12 @@
 import React from 'react';
 import Header from './common/Header';
-import DailyDetentionCounts from './charts/DailyCount';
-import './App.css';
+import Home from './home/Home';
 
 export default function App() {
   return (
     <>
       <Header />
-      <DailyDetentionCounts />
+      <Home />
     </>
   );
 }
