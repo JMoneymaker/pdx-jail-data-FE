@@ -23,42 +23,50 @@
     }
 
     .ChartWrapper {
-        width: 100%;
+        width: 290px;
     }
 
     .ChartContainer {
-        width: 95%;
+        width: 320px;
         padding-left: .75em;
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 550px) {
 
     .chartTitle {
       font-size: 1.5em;
     }
 
     .ChartWrapper {
+        width: 600px;
+        margin: auto;
+    }
+
+    .ChartContainer {
         width: 100%;
     }
-
-    .ChartContainer {
-        width: 95%;
-        padding-left: 3em;
-    }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
+
+    .chartTitle {
+        font-size: 1.5em;
+      }
+  
+      .ChartWrapper {
+          width: 90vw;
+      }
+
+}
+
+@media screen and (min-width: 1024px) {
     .ChartWrapper {
-        width: 70vw;
-    }
-
-    .ChartContainer {
-        padding-left: 3.25em;
+        width: 65vw;
     }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1360px) {
     .ChartWrapper  {
         width: 600px;
     }

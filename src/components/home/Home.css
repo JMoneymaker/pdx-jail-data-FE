@@ -1,5 +1,6 @@
 .Home {
     height: 100vh;
+    width: 100vw;
 }
 
 #mult {
@@ -18,6 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: .25em 0;
     margin: 1em .25em auto;
     border-radius: .5em;
 }
@@ -41,23 +43,13 @@
 
 @media screen and (min-width: 320px) {
     .dynamicWrapper {
-        display: flex;
         flex-direction: column;
         width: 300px;
         padding: .5em 0;
         margin: 1em auto;
     }
 
-    .displayWrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;  
-    }
-
     .dynamicDisplay {
-        display: flex;
         flex-direction: column;
         width: 15em;
         margin: .5em;
@@ -67,76 +59,63 @@
 @media screen and (min-width: 550px) {
     .dynamo {
         display: flex;
-        flex-direction: column;
-    } 
-    .dynamicWrapper {
-        display: flex;
         flex-direction: row;
-        width: 480px;
-        padding: .5em 0;
-    }
-    .countyTitle {
-        padding: .15em;
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        display: inline;
-        font-style: bold;
-        transition: all .9s;
-        -moz-transform: scale(-1, -1);
-        -webkit-transform: scale(-1, -1);
-        -o-transform: scale(-1, -1);
-        -ms-transform: scale(-1, -1);
-        transform: scale(-1, -1);
-    }
+        margin: auto;
+        max-width: 550px;
+    } 
 
+    .dynamicWrapper {
+        width: 178px;
+        margin: .5em auto;
+    }
+    
     .dynamicDisplay {
-        width: 175px;
-        margin: .5em;
+        width: 145px;
+        margin: .25em;
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.15rem;
         }
 
         h3 {
-            font-size: 1.15rem;
+            font-size: 1rem;
         }
     }
+
+    
 }
 
 @media screen and (min-width: 768px) {
+
     .dynamo {
-        display: flex;
-        flex-direction: row;
-        width: 768px;
-        margin: auto;
-    }
+        max-width: 90vw;
+    } 
 
     .dynamicWrapper {
-        display: flex;
-        flex-direction: column;
-        width: 250px;
+        width: 204px;
         padding: .5em 0;
+        margin: .75em auto;
     }
 
-    .countyTitle {
-        writing-mode: horizontal-tb;
-        transform: scale(1, 1);
-    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .dynamo {
+        max-width: 65vw;
+    } 
 }
 
 @media screen and (min-width: 1360px) {
     .dynamo {
-        display: flex;
-        width: 1360px;
+        max-width: 1350px;
         flex-direction: row;
         margin: auto;
     }
 
     .dynamicWrapper {
-        display: flex;
         flex-direction: row;
-        width: 470px;
-        padding: .25em 0;
+        width: 430px;
     }
 
     .countyTitle {
@@ -154,7 +133,8 @@
     }
 
     .dynamicDisplay {
-        margin: .25em;
+        width: 165px;
+        margin: .75em .25em;
 
         h2 {
             font-size: 1.5rem;
@@ -164,6 +144,5 @@
             font-size: 1.15rem;
         }
     }
-
     
 }
