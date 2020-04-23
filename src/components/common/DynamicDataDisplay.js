@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './DynamicDataDisplay.css';
 
 const DynamicDataDisplay = ({ children, hook }) => {
   const { data } = hook();
@@ -7,7 +8,7 @@ const DynamicDataDisplay = ({ children, hook }) => {
     <div>
       <h3>{children}</h3>
       <div>
-        <h2>{data}</h2>
+        <h2 className={styles.netChangeNumber}>{data}</h2>
       </div>
     </div>
   );
