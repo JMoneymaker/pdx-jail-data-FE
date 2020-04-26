@@ -1,19 +1,62 @@
-export const calculateDailyChange = (counts) => {
-
-  const yesterday = findYesterdayTotal(counts);
-  const today = findTodayTotal(counts);
+export const calculateMultChange = counts => {
+  
+  const yesterday = findMultYesterday(counts);
+  const today = findMultToday(counts);
 
   const dailyChange = today - yesterday;
   return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
+};
+
+export const calculateWashChange = counts => {
   
+  const yesterday = findWashYesterday(counts);
+  const today = findWashToday(counts);
+
+  const dailyChange = today - yesterday;
+  return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
 };
 
-const findYesterdayTotal = ({ counts }) => {
+export const calculateClackChange = counts => {
+  
+  const yesterday = findClackYesterday(counts);
+  const today = findClackToday(counts);
+
+  const dailyChange = today - yesterday;
+  return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
+};
+
+const findMultYesterday = res => {
+  const counts = res[0].counts;
   const iY = counts.length - 2;
-  return counts[iY].count;
+  return counts[iY].mult;
 };
 
-export const findTodayTotal = ({ counts }) => {
+const findClackYesterday = res => {
+  const counts = res[0].counts;
+  const iY = counts.length - 2;
+  return counts[iY].clack;
+};
+
+const findWashYesterday = res => {
+  const counts = res[0].counts;
+  const iY = counts.length - 2;
+  return counts[iY].wash;
+};
+
+export const findMultToday = res => {
+  const counts = res[0].counts;
   const iT = counts.length - 1;
-  return counts[iT].count;
+  return counts[iT].mult;
+};
+
+export const findClackToday = res => {
+  const counts = res[0].counts;
+  const iT = counts.length - 1;
+  return counts[iT].clack;
+};
+
+export const findWashToday = res => {
+  const counts = res[0].counts;
+  const iT = counts.length - 1;
+  return counts[iT].wash;
 };
