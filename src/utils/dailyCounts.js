@@ -3,8 +3,6 @@ export const calculateMultChange = counts => {
   const yesterday = findMultYesterday(counts);
   const today = findMultToday(counts);
 
-  console.log(yesterday, 'yesterday');
-
   const dailyChange = today - yesterday;
   return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
 };
@@ -14,8 +12,6 @@ export const calculateWashChange = counts => {
   const yesterday = findWashYesterday(counts);
   const today = findWashToday(counts);
 
-  console.log(yesterday, 'yesterday');
-
   const dailyChange = today - yesterday;
   return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
 };
@@ -24,8 +20,6 @@ export const calculateClackChange = counts => {
   
   const yesterday = findClackYesterday(counts);
   const today = findClackToday(counts);
-
-  console.log(yesterday, 'yesterday');
 
   const dailyChange = today - yesterday;
   return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
