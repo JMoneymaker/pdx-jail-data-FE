@@ -13,45 +13,32 @@ const Home = () => {
 
   return (
     <main className={styles.Home}>
-      <section className={styles.dynamo}>
-        <section id={styles.clack} className={styles.dynamicWrapper}>
-          <div className={styles.countyTitle}>
-            <h3>Clackamas</h3>
-          </div>
-          <div className={styles.dynamicDisplay}>
-            <DynamicDataDisplay hook={useClackToday}>Currently in detention</DynamicDataDisplay>
-          </div>
-          <div className={styles.dynamicDisplay}>
-            <DynamicDataDisplay hook={useClackChange}>Net one day change</DynamicDataDisplay>
-          </div>
-        </section>
-        <section id={styles.mult} className={styles.dynamicWrapper}>
-          <div className={styles.countyTitle}>
-            <h3>Multnomah</h3>
-          </div>
-          <div className={styles.dynamicDisplay}>
-            <DynamicDataDisplay hook={useMultToday}>Currently in detention</DynamicDataDisplay>
-          </div>
-          <div className={styles.dynamicDisplay}>
-            <DynamicDataDisplay hook={useMultChange}>Net one day change</DynamicDataDisplay>
-          </div>
+      <section className={styles.dynamoContainer}>
+
+        <section id={styles.clack} className={styles.dynamoWrapper}>
+          <h3 className={styles.countyTitle}>Clackamas</h3>
+          <DynamicDataDisplay hook={useClackToday}># People in custody</DynamicDataDisplay>
+          <DynamicDataDisplay hook={useClackChange}>Net one day change</DynamicDataDisplay>
         </section>
 
-        <section id={styles.wash} className={styles.dynamicWrapper}>
-          <div className={styles.countyTitle}>
-            <h3>Washington</h3>
-          </div>
-          <div className={styles.dynamicDisplay}>
-            <DynamicDataDisplay hook={useWashToday}>Currently in detention</DynamicDataDisplay>
-          </div>
-          <div className={styles.dynamicDisplay}>
-            <DynamicDataDisplay hook={useWashChange}>Net one day change</DynamicDataDisplay>
-          </div>
+        <section id={styles.mult} className={styles.dynamoWrapper}>
+          <h3 className={styles.countyTitle}>Multnomah</h3>
+          <DynamicDataDisplay hook={useMultToday}># People in custody</DynamicDataDisplay>
+          <DynamicDataDisplay hook={useMultChange}>Net one day change</DynamicDataDisplay>
         </section>
+
+        <section id={styles.wash} className={styles.dynamoWrapper}>
+          <h3 className={styles.countyTitle}>Washington</h3>
+          <DynamicDataDisplay hook={useWashToday}># People in custody</DynamicDataDisplay>
+          <DynamicDataDisplay hook={useWashChange}>Net one day change</DynamicDataDisplay>
+        </section>
+
       </section>
-      <section className={styles.chartsWrapper}>
+
+      <section className={styles.chartsContainer}>
         <DailyDetentionCounts />
       </section>
+
     </main>
   );
 };
