@@ -14,36 +14,34 @@ const Landing = () => {
 
   return (
   
-    <div className={styles.bodySection}>
-      <div className={styles.Landing}>
-        <Header upDateHook={useUpDate}/>
-        <main className={styles.mainStats}>
-          <section className={styles.countiesInner}>
-            <div className={styles.counties}>
-              <h3 className={styles.county}>Clackamas</h3>
-              <h3 className={styles.county}>Multnomah</h3>
-              <h3 className={styles.county}>Washington</h3>
-            </div>
-          </section>
-          <section className={styles.mainStatsInner}>
-            <MainStat 
-              totalHook={useClackTotal} 
-              changeHook={useClackChange}>
-            </MainStat>
+    <div className={styles.Landing}>
+      <Header upDateHook={useUpDate}/>
+      <main className={styles.mainStats}>
+        <section className={styles.countiesInner}>
+          <div className={styles.counties}>
+            <h3 className={styles.county}>Clackamas</h3>
+            <h3 className={styles.county}>Multnomah</h3>
+            <h3 className={styles.county}>Washington</h3>
+          </div>
+        </section>
+        <section className={styles.mainStatsInner}>
+          <MainStat 
+            totalHook={useClackTotal} 
+            changeHook={useClackChange}>
+          </MainStat>
 
-            <MainStat 
-              totalHook={useMultTotal} 
-              changeHook={useMultChange}>
-            </MainStat>
+          <MainStat 
+            totalHook={useMultTotal} 
+            changeHook={useMultChange}>
+          </MainStat>
 
-            <MainStat 
-              totalHook={useWashTotal} 
-              changeHook={useWashChange}>
-            </MainStat>
-          </section>
+          <MainStat 
+            totalHook={useWashTotal} 
+            changeHook={useWashChange}>
+          </MainStat>
+        </section>
 
-        </main>
-      </div>
+      </main>
     </div>
 
   );

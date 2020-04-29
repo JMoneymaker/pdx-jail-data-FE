@@ -4,13 +4,9 @@ body {
 	background: #f8f8f8;
 	color: #444444;
 	font-family: 'Archivo Black', sans-serif;
-	font-size: 12px;
 	font-weight: 400;
 	line-height: 1.25;
 	overflow-x: hidden;
-}
-
-.bodySection {
 	position: relative;
 	width: 100%;
 }
@@ -36,7 +32,7 @@ body {
 }
 
 .updateStatus {
-	margin-top: 1.5em;
+	margin-top: 1.25em;
 	display: inline-block;
 	color: #ffffff;
 	opacity: .75;
@@ -76,7 +72,7 @@ h1 {
 h2 {
 	font-size: 1.5rem;
 	font-weight: 400;
-	margin-bottom: 5px;
+	margin-bottom: .15em;
 }
 
 h3 {
@@ -88,7 +84,7 @@ h4 {
 	font-size: inherit;
 	font-weight: 400;
 	line-height: inherit;
-	margin-bottom: 4px;
+	margin-bottom: .15em;
 }
 
 p {
@@ -96,16 +92,25 @@ p {
 	color: #888888;
 }
 
+@media only screen and (max-height: 320px) {
+	h1 {font-size: 2rem;}
+	h2 {font-size: 1.5rem;}
+	h3 {font-size: 1rem;}
+	h4 {font-size: .5rem;}
+}
+
 @media only screen and (min-width: 767px) {
-	h1 {font-size: 2.5rem;}
-	h2 {font-size: 2rem;}
-	h3 {font-size: 1.5rem;}
+	h1 {font-size: 4rem;}
+	h2 {font-size: 3rem;}
+	h3 {font-size: 2rem;}
+	h4 {font-size: 1rem;}
 }
 
 @media only screen and (min-width: 1024px) {
 	h1 {font-size: 5rem;}
 	h2 {font-size: 4rem;}
 	h3 {font-size: 3rem;}
+	h4 {font-size: 1rem;}
 }
 
 .Landing {
@@ -120,7 +125,7 @@ p {
 .mainStats {
 	position: absolute;
 	width: 100%;
-	bottom: 60px;
+	bottom: 50px;
 	z-index: 2;
 	box-sizing: border-box;
 	padding: 0px 20px 0 20px;
@@ -128,27 +133,34 @@ p {
 
 .mainStatsInner {
     padding: 20px 0 0 0;
-    border-top: 1px solid rgba(255,255,255,0.4);
+    border-top: 2px solid rgba(255,255,255,0.4);
 }
 
-
-@media only screen and (max-height: 360px) {
-	.mainStats {
-		bottom: 20px;
-		padding: 0px 30px 0 30px;
+@media only screen and (max-width: 320px) {
+	.mainStatsInner {
+		padding: 10px 0 0 0;
+		border-top: 2px solid rgba(255,255,255,0.4);
 	}
 }
 
-@media only screen and (min-height: 400px) {
+
+@media only screen and (max-height: 420px) {
+	.mainStats {
+		bottom: 20px;
+		padding: 0px 20px 0 30px;
+	}
+}
+
+@media only screen and (min-width: 360px) {
 	.mainStats {
 		bottom: 30px;
-		padding: 0px 30px 0 30px;
+		padding: 0px 20px 0 30px;
 	}
 }
 
 @media only screen and (min-width: 767px) {
 	.mainStats {
-		bottom: 60px;
+		bottom: 40px;
 		padding: 0px 40px 0 40px;
 	}
 }
@@ -175,21 +187,14 @@ p {
 	box-sizing: border-box;
 }
 
-.number {
-    font-size: 20px;
-}
-
 @media only screen and (min-width: 420px) {
 	.number {
 		font-size: 24px;
 	}
 }
 
-.caption {font-size: 11px;}
-
 .change {
-	margin-top: 8px;
-	font-size: 11px;
+	margin-top: 1em;
 	background: #ee1250;
 	color: #ffffff;
 	display: inline-block;
@@ -199,36 +204,11 @@ p {
 }
 
 @media only screen and (min-width: 767px) {
-	.number {
-		font-size: 40px;
-	}
-	.caption {font-size: 14px;}
-	.change {
-		font-size: 13px;
-		padding: 4px 7px;
-	}
 	.mainStat:nth-child(2) {
-		border-right: 1px solid rgba(255,255,255,0.3);
-		border-left: 1px solid rgba(255,255,255,0.3);
+		border-right: 2px solid rgba(255,255,255,0.3);
+		border-left: 2px solid rgba(255,255,255,0.3);
 	}
 }
 
-@media only screen and (min-width: 1025px) {
-	.number {
-		font-size: 48px;
-	}
-}
-
-@media only screen and (min-width: 1200px) {
-	.number {
-		font-size: 54px;
-	}
-}
-
-@media only screen and (min-width: 1300px) {
-	.number {
-		font-size: 60px;
-	}
-}
 
 

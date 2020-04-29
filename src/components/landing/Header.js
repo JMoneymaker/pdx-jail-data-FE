@@ -16,7 +16,7 @@ const Header = ({ upDateHook }) => {
 };
 
 Header.propTypes = {
-  upDateHook: PropTypes.number.isRequired,
+  upDateHook: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -69,6 +69,6 @@ export const findUpDate = res => {
   const iT = counts.length - 1;
   const lastUpdated = counts[iT].date;
 
-  return moment(lastUpdated).format('MMMM Do YYYY, h:mm:ss a');
+  return moment(lastUpdated).format('MMMM Do YYYY, h:mm a');
 };
 

@@ -18,8 +18,6 @@ const MainStat = ({ totalHook, changeHook }) => {
 };
 
 MainStat.propTypes = {
-  total: PropTypes.number.isRequired,
-  change: PropTypes.number.isRequired,
   totalHook: PropTypes.func.isRequired,
   changeHook: PropTypes.func.isRequired
 };
