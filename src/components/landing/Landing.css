@@ -3,7 +3,7 @@ body {
 	padding: 0;
 	background: #f8f8f8;
 	color: #444444;
-	font-family: roboto-mono, Helvetica, Arial, sans-serif;
+	font-family: 'Archivo Black', sans-serif;
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 1.25;
@@ -31,27 +31,32 @@ body {
 	.Header {top: 30px;}
 }
 
+@media only screen and (max-height: 360px) {
+	.Header {top: 10px;}
+}
+
 .updateStatus {
-	margin-top: 20px;
+	margin-top: 1.5em;
 	display: inline-block;
 	color: #ffffff;
-	opacity: 0.5;
+	opacity: .75;
 	font-weight: 500;
-	font-size: 12px;
-	background: url('/img/iconmonstr-refresh.svg') left top no-repeat;
-	background-size: 14px 14px;
-	padding-left: 22px;
+	font-size: 1rem;
+}
+
+@media only screen and (max-height: 360px) {
+	.updateStatus {margin-top: 10px;}
 }
 
 h1, h2, h3 {
 	margin: 0;
 	padding: 0;
 	line-height: 1.2;
-	font-family: 'Carrois Gothic SC', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 .digit {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Archivo Black', sans-serif;
 }
 
 h4, h5, h6 {
@@ -62,20 +67,20 @@ h4, h5, h6 {
 
 h1 {
 	font-weight: 500;
-	font-size: 3em;
+	font-size: 2.5rem;
 	letter-spacing: -0.02em;
 	margin: 0;
 	padding: 0;
 }
 
 h2 {
-	font-size: 18px;
+	font-size: 1.5rem;
 	font-weight: 400;
 	margin-bottom: 5px;
 }
 
 h3 {
-	font-size: 16px;
+	font-size: 1.25rem;
 	font-weight: 500;
 }
 
@@ -92,26 +97,21 @@ p {
 }
 
 @media only screen and (min-width: 767px) {
-	h1 {font-size: 3em;}
-	h2 {font-size: 2em;}
+	h1 {font-size: 2.5rem;}
+	h2 {font-size: 2rem;}
+	h3 {font-size: 1.5rem;}
 }
 
-@media only screen and (min-width: 1025px) {
-	h1 {font-size: 4em;}
-	h2 {font-size: 3em;}
-}
-
-.centerReset {
-    margin: 0 auto;
-	text-align: center;
-    width: 100%;
+@media only screen and (min-width: 1024px) {
+	h1 {font-size: 5rem;}
+	h2 {font-size: 4rem;}
+	h3 {font-size: 3rem;}
 }
 
 .Landing {
     width: 100%;
     height: 100vh;
-    background: url('../../assets/blur-gradient.jpeg') center center no-repeat;
-    background-size: cover;
+    background-color: #0e1111;
     color: #ffffff;
     margin-bottom: 20px;
     position: relative;
@@ -131,6 +131,21 @@ p {
     border-top: 1px solid rgba(255,255,255,0.4);
 }
 
+
+@media only screen and (max-height: 360px) {
+	.mainStats {
+		bottom: 20px;
+		padding: 0px 30px 0 30px;
+	}
+}
+
+@media only screen and (min-height: 400px) {
+	.mainStats {
+		bottom: 30px;
+		padding: 0px 30px 0 30px;
+	}
+}
+
 @media only screen and (min-width: 767px) {
 	.mainStats {
 		bottom: 60px;
@@ -144,13 +159,18 @@ p {
 	}
 }
 
-.txt-light {font-weight: 100;}
-
 .mainStat {
     margin: 0 auto;
 	text-align: center;
 	display: inline-block;
-	vertical-align: top;
+	width: 33.3333333%;
+	box-sizing: border-box;
+}
+
+.county {
+    margin: 0 auto;
+	text-align: center;
+	display: inline-block;
 	width: 33.3333333%;
 	box-sizing: border-box;
 }

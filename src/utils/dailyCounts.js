@@ -1,3 +1,6 @@
+const moment = require('moment');
+moment().format();
+
 export const calculateMultChange = counts => {
   
   const yesterday = findMultYesterday(counts);
@@ -60,3 +63,12 @@ export const findWashToday = res => {
   const iT = counts.length - 1;
   return counts[iT].wash;
 };
+
+export const findUpDate = res => {
+  const counts = res[0].counts;
+  const iT = counts.length - 1;
+  const lastUpdated = counts[iT].date;
+
+  return moment(lastUpdated).format('MMMM Do YYYY, h:mm:ss a');
+};
+
