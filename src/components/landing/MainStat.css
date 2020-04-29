@@ -1,0 +1,16 @@
+.mainStat {
+margin: 0 auto;
+text-align: center;
+display: inline-block;
+vertical-align: top;
+width: 33.3333333%;
+box-sizing: border-box;
+}
+
+.total {
+  border-radius: .25em;
+}
+
+.change {
+  border-radius: .25em;
+}

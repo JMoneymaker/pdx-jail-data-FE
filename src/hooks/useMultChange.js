@@ -3,16 +3,16 @@ import { getDailyCounts } from '../services/getDailyCounts';
 import { calculateMultChange } from '../utils/dailyCounts';
 
 const useMultChange = () => {
-  const [data, setData] = useState('loading');
+  const [change, setChange] = useState('0');
 
   const fetchMultChange = () => {
     getDailyCounts()
       .then(calculateMultChange)
-      .then(setData);  
+      .then(setChange);  
   };
 
   useEffect(fetchMultChange, []);
-  return { data };
+  return { change };
 };
 
 export default useMultChange;

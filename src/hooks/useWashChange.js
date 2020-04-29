@@ -3,16 +3,16 @@ import { getDailyCounts } from '../services/getDailyCounts';
 import { calculateWashChange } from '../utils/dailyCounts';
 
 const useWashChange = () => {
-  const [data, setData] = useState('loading');
+  const [change, setChange] = useState('0');
 
   const fetchWashChange = () => {
     getDailyCounts()
       .then(calculateWashChange)
-      .then(setData);  
+      .then(setChange);  
   };
 
   useEffect(fetchWashChange, []);
-  return { data };
+  return { change };
 };
 
 export default useWashChange;

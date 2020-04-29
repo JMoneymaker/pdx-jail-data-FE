@@ -3,16 +3,16 @@ import { getDailyCounts } from '../services/getDailyCounts';
 import { calculateClackChange } from '../utils/dailyCounts';
 
 const useClackChange = () => {
-  const [data, setData] = useState('loading');
+  const [change, setChange] = useState('0');
 
   const fetchClackChange = () => {
     getDailyCounts()
       .then(calculateClackChange)
-      .then(setData);  
+      .then(setChange);  
   };
 
   useEffect(fetchClackChange, []);
-  return { data };
+  return { change };
 };
 
 export default useClackChange;

@@ -1,13 +1,10 @@
 import React from 'react';
-import Header from './common/Header';
-import Home from './home/Home';
-import styles from './App.css';
+import Landing from './landing/Landing';
 
 export default function App() {
   return (
     <>
-      <Header />
-      <Home />
+      <Landing />
     </>
   );
 }

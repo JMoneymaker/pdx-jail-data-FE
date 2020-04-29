@@ -1,10 +1,13 @@
+const moment = require('moment');
+moment().format();
+
 export const calculateMultChange = counts => {
   
   const yesterday = findMultYesterday(counts);
   const today = findMultToday(counts);
 
   const dailyChange = today - yesterday;
-  return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
+  return (dailyChange > 0) ? '+' + dailyChange : dailyChange;
 };
 
 export const calculateWashChange = counts => {
@@ -13,7 +16,7 @@ export const calculateWashChange = counts => {
   const today = findWashToday(counts);
 
   const dailyChange = today - yesterday;
-  return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
+  return (dailyChange > 0) ? '+' + dailyChange : dailyChange;
 };
 
 export const calculateClackChange = counts => {
@@ -22,7 +25,7 @@ export const calculateClackChange = counts => {
   const today = findClackToday(counts);
 
   const dailyChange = today - yesterday;
-  return (dailyChange > 0) ? '+ ' + dailyChange : dailyChange;
+  return (dailyChange > 0) ? '+' + dailyChange : dailyChange;
 };
 
 const findMultYesterday = res => {
@@ -60,3 +63,12 @@ export const findWashToday = res => {
   const iT = counts.length - 1;
   return counts[iT].wash;
 };
+
+export const findUpDate = res => {
+  const counts = res[0].counts;
+  const iT = counts.length - 1;
+  const lastUpdated = counts[iT].date;
+
+  return moment(lastUpdated).format('MMMM Do YYYY, h:mm:ss a');
+};
+
