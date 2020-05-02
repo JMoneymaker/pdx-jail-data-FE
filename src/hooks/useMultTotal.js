@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getDailyCounts } from '../services/getDailyCounts';
+import { getDailyCounts } from '../services/getTriCountyDaily';
 import { findMultToday } from '../utils/dailyCounts';
 
 const useMultTotal = () => {
