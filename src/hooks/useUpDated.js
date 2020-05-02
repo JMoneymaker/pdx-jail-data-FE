@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getDailyCounts } from '../services/getDailyCounts';
+import { getDailyCounts } from '../services/getTriCountyDaily';
 import { findUpDate } from '../utils/dailyCounts';
 
 const useUpDated = () => {

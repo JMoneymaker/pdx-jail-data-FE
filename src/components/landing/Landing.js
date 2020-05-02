@@ -40,7 +40,6 @@ const Landing = () => {
             changeHook={useWashChange}>
           </MainStat>
         </section>
-
       </main>
     </div>
 
