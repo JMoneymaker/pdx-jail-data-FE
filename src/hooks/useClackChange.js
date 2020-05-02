@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getDailyCounts } from '../services/getDailyCounts';
+import { getDailyCounts } from '../services/getTriCountyDaily';
 import { calculateClackChange } from '../utils/dailyCounts';
 
 const useClackChange = () => {
