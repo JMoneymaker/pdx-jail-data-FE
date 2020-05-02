@@ -31,7 +31,7 @@ const DailyRaceMult = () => {
   
   return (
     <div className={styles.chartPageContainer}>
-      <h3>Number of People in Custordy by Race</h3>
+      <h3>Number of People in Custody by Race</h3>
       <div className={styles.chartWrapper}>
         <ResponsiveBar
           data={mappedData}
