@@ -1,18 +1,20 @@
-import { ResponsiveBar } from '@nivo/bar';
+import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 import { getDailyRaceCount } from '../../services/getMultnomahDaily';
 import React, { useState, useEffect } from 'react';
 import styles from './Charts.css';
+import Header from './Header';
+import useUpDate from '../../hooks/useUpDated';
 
-const DailyRaceMult = () => {
+const DailyRaceMultV = () => {
 
-  const [data, setData] = useState(['loading']);
+  const [rawData, setRawData] = useState([]);
   
   useEffect(() => {
     getDailyRaceCount()
-      .then(res => {setData(res);});
+      .then(res => {setRawData(res);});
   }, []);
 
-  const alphabetical = data.sort(function(a, b){
+  const alphabetical = rawData.sort(function(a, b){
     if(a._id < b._id) { return -1; }
     if(a._id > b._id) { return 1; }
     return 0;
@@ -22,73 +24,68 @@ const DailyRaceMult = () => {
       item._id = 'Pacific Islander';
     } return item;
   });
-  const mappedData = complete.map(item => {
+  let data = complete.map(item => {
     return ({
-      id: item._id,
-      total: item.total
+      x: item._id,
+      y: item.total
     });
   });
+
   
   return (
     <div className={styles.chartPageContainer}>
-      <h3>Number of People in Custody by Race</h3>
+      <Header upDateHook={useUpDate}/>
       <div className={styles.chartWrapper}>
-        <ResponsiveBar
-          data={mappedData}
-          keys={['id', 'total']}
-          indexBy="id"
-          margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-          padding={0.4}
-          colors={'black'}
-          borderColor={'white'}
-          axisBottom={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'race',
-            legendPosition: 'middle',
-            legendOffset: 40
-          }}
-          axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'number of people in jail today',
-            legendPosition: 'middle',
-            legendOffset: -40
-          }}
-          labelTextColor={'white'}
-          legends={[
-            {
-              dataFrom: 'keys',
-              anchor: 'bottom-right',
-              direction: 'column',
-              justify: false,
-              translateX: 120,
-              translateY: 0,
-              itemsSpacing: 2,
-              itemWidth: 100,
-              itemHeight: 20,
-              itemDirection: 'left-to-right',
-              itemOpacity: 0.85,
-              symbolSize: 20,
-              effects: [
-                {
-                  on: 'hover',
-                  style: {
-                    itemOpacity: 1
-                  }
-                }
-              ]
-            }
-          ]}
-          animate={true}
-          motionStiffness={90}
-          motionDamping={15}
-        />
+        <VictoryChart
+          domainPadding={25}
+          width={400}
+          height={200}
+        >
+          <VictoryBar
+            barRatio={0.8}
+            style={{
+              data: {
+                fill: 'black',
+              },
+              labels: {
+                fontSize: 5,
+              }
+            }}
+         
+            data={data}
+            padding={{ top: 20, bottom: 60 }}
+            labels={({ datum }) => datum.y}
+          />
+          <VictoryAxis
+            label='race'
+            style={{
+              axisLabel: { padding: 15, fontSize: 8 },
+              tickLabels: {
+                fontSize: 4.5,
+                fontFamily: 'inherit',
+                fillOpacity: 1,
+                margin: 0,
+                padding: 2
+              }
+            }} 
+          />
+          <VictoryAxis dependentAxis
+            label='number'
+            style={{
+              axisLabel: { padding: 20, fontSize: 8 },
+              tickLabels: {
+                fontSize: 5,
+                fontFamily: 'inherit',
+                fillOpacity: 1,
+                margin: 0,
+                padding: 0
+              }
+            }}
+          />
+        </VictoryChart>
       </div>
     </div>
   );
 };
 
-export default DailyRaceMult;
+export default DailyRaceMultV;
