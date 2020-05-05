@@ -5,16 +5,13 @@ import styles from './Charts.css';
 const Header = ({ upDateHook }) => {
   const { upDated } = upDateHook();
   const [county, setCounty] = useState('multnomah');
-  const [isChecked, setIsChecked] = useState(false);
 
-  const handleChange = event => {
-    // setIsChecked(event.target.value);
-    setCounty(event.target.value);
-    setIsChecked(isChecked);
+  const handleChange = ({ target }) => {
+    setCounty({ county: target.value });
   };
 
-  console.log(county, 'county');
-  console.log(isChecked, 'ischecked');
+  console.log(county);
+
   return (
     
     <header className={styles.Header}>
@@ -23,35 +20,34 @@ const Header = ({ upDateHook }) => {
         <div className={styles.updateStatus}>Last Updated: {upDated}</div>
       </div>
       <div className={styles.radioGroup}>
-        <label>
-          <input
-            type='radio'
-            value='clackamas'
-            checked={county === 'clackamas'}
-            onChange={handleChange}
-          />
-    Clackamas
-        </label>
+        
+        <input
+          type='radio'
+          value='clackamas'
+          name='county'
+          id='clackamas'
+          onChange={handleChange}
+        />
+        <label htmlFor='clackamas'>Clackamas</label>
 
-        <label>
-          <input
-            type='radio'
-            value='multnomah'
-            checked={county === 'multnomah'}
-            onChange={handleChange}
-          />
-    Multnomah
-        </label>
+        <input
+          type='radio'
+          value='multnomah'
+          name='county'
+          id='multnomah'
+          defaultChecked
+          onChange={handleChange}
+        />
+        <label htmlFor='multnomah'>Multnomah</label>
 
-        <label>
-          <input
-            type='radio'
-            value='washington'
-            checked={county === 'washington'}
-            onChange={handleChange}
-          />
-    Washington
-        </label>
+        <input
+          type='radio'
+          value='washington'
+          name='county'
+          id='washington'
+          onChange={handleChange}
+        />
+        <label htmlFor='washington'>Washington</label>
       </div>
     </header>
   );
