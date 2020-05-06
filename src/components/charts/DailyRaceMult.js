@@ -1,4 +1,4 @@
-import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import { getDailyRaceCount } from '../../services/getMultnomahDaily';
 import React, { useState, useEffect } from 'react';
 import styles from './Charts.css';
@@ -14,22 +14,23 @@ const DailyRaceMultV = () => {
       .then(res => {setRawData(res);});
   }, []);
 
-  const alphabetical = rawData.sort(function(a, b){
-    if(a._id < b._id) { return -1; }
-    if(a._id > b._id) { return 1; }
-    return 0;
-  });
-  const complete = alphabetical.map(item => {
-    if(item._id === 'P'){
-      item._id = 'Pacific Islander';
-    } return item;
-  });
-  let data = complete.map(item => {
-    return ({
-      x: item._id,
-      y: item.total
+  const data = rawData
+    .sort(function(a, b){
+      if(a._id < b._id) { return -1; }
+      if(a._id > b._id) { return 1; }
+      return 0;
+    })
+    .map(item => {
+      if(item._id === 'P'){
+        item._id = 'Pacific Islander';
+      } return item;
+    })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
     });
-  });
 
   
   return (
@@ -41,6 +42,11 @@ const DailyRaceMultV = () => {
           width={400}
           height={200}
         >
+          <VictoryLabel 
+            text={'Multnomah County'}
+            x={140} 
+            y={30}
+          />
           <VictoryBar
             barRatio={0.8}
             style={{
