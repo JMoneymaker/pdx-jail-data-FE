@@ -1,10 +1,10 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
-import { getDailyRaceCount } from '../../services/getMultnomahDaily';
-import { shapeMult } from '../../utils/dailyCounts';
+import { getDailyRaceCount } from '../../services/getWashingtonDaily';
 import React, { useState, useEffect } from 'react';
+import { shapeWash } from '../../utils/dailyCounts';
 import styles from './Charts.css';
 
-const DailyRaceMult = () => {
+const DailyRaceWash = () => {
 
   const [rawData, setRawData] = useState([]);
   
@@ -13,9 +13,8 @@ const DailyRaceMult = () => {
       .then(res => {setRawData(res);});
   }, []);
 
-  const data = shapeMult(rawData);
-  console.log(data);
-  
+  const data = shapeWash(rawData);
+   
   return (
     <div className={styles.chartPageContainer}>
       <div className={styles.chartWrapper}>
@@ -25,7 +24,7 @@ const DailyRaceMult = () => {
           height={200}
         >
           <VictoryLabel 
-            text={'Multnomah County'} //county
+            text={'Washington County'}
             x={140} 
             y={30}
           />
@@ -76,4 +75,4 @@ const DailyRaceMult = () => {
   );
 };
 
-export default DailyRaceMult;
+export default DailyRaceWash;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Charts.css';
-import RadioControls from './RadioControls';
+import styles from '../charts/Charts.css';
+import RadioControls from '../charts/RadioControls';
 
 const Header = ({ upDateHook }) => {
   const { upDated } = upDateHook();
