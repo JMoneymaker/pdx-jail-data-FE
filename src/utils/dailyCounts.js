@@ -148,3 +148,33 @@ export const shapeAgency = res => {
     });
 };
 
+export const shapeFacility = res => {
+  return res.sort(function(a, b){
+    if(a._id < b._id) { return -1; }
+    if(a._id > b._id) { return 1; }
+    return 0;
+  })
+    .map(item => {
+      if(item._id === 'MCDC'){
+        item._id = 'Multnomah County' + '\n' + 'Detention Center';
+      } else if(item._id === 'MCIJ'){
+        item._id = 'Inverness Jail';
+      } else if(item._id === 'CC'){
+        item._id = 'Community Corrections Center';
+      } else if(item._id === 'JL'){
+        item._id = 'Washington County Jail';
+      } else if(item._id === 'OA'){
+        item._id = 'Non-Washington County Facility';
+      } else if(!item._id){
+        item._id = 'Clackamas County Jail';
+      }
+      return item;
+    })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
+    });
+};
+
