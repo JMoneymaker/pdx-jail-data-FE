@@ -8,7 +8,7 @@ const Header = ({ upDateHook }) => {
 
   return (
     <header className={styles.Header}>
-      <h1>Jail Data PDX</h1>
+      <h1>Number of People in Custody by Race</h1>
       <div className={styles.updateStatus}>Last Updated: {upDated}</div>
     </header>
   );

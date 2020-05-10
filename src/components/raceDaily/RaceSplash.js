@@ -7,13 +7,10 @@ import Header from './Header';
 
 const RaceSplash = () => {
   const [county, setCounty] = useState('multnomah');
-  console.log(county, '10');
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
-  console.log(county, '16');
 
   return (
     <>

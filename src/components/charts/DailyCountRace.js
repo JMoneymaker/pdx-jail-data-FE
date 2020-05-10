@@ -1,23 +1,21 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
-import { getDailyRaceCount } from '../../services/getWashingtonDaily';
+import { getDailyRaceCount } from '../../services/getDailyCounts';
 import React, { useState, useEffect } from 'react';
 import { shapeWash, shapeClack, shapeMult } from '../../utils/dailyCounts';
 import styles from './Charts.css';
 import PropTypes from 'prop-types';
 
 const DailyCountRace = ({ county }) => {
-  console.log(county);
   const [rawData, setRawData] = useState([]);
   
   useEffect(() => {
     getDailyRaceCount(county)
       .then(res => {setRawData(res);});
-  }, []);
+  }, [county]);
 
+  const data = (county === 'multnomah') ? shapeMult(rawData)
+    : (county === 'clackamas') ? shapeClack(rawData) : shapeWash(rawData); 
 
-  const data = county === 'multnomah' ? shapeMult(rawData) : county === 'clackamas' ? shapeClack(rawData) : shapeWash(rawData);
-
-   
   return (
     <div className={styles.chartPageContainer}>
       <div className={styles.chartWrapper}>
@@ -27,7 +25,7 @@ const DailyCountRace = ({ county }) => {
           height={200}
         >
           <VictoryLabel 
-            text={county.toUpperCase() + 'County'}
+            text={county + ' County'}
             x={140} 
             y={30}
           />

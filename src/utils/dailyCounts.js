@@ -80,6 +80,7 @@ export const shapeClack = res => {
   })
     .map(item => {
       return ({
+        //add regex here for spaces
         x: item._id.charAt(0).toUpperCase() + item._id.substr(1).toLowerCase(),
         y: item.total
       });
