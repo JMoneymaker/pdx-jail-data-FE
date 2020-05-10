@@ -3,6 +3,7 @@
 exports[`App component renders App 1`] = `
 <Fragment>
   <Landing />
-  <RaceSplash />
+  <HorizontalBar />
+  <VerticalBar />
 </Fragment>
 `;
