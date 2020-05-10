@@ -134,3 +134,17 @@ export const shapeWash = res => {
     });
 };
 
+export const shapeAgency = res => {
+  return res.sort(function(a, b){
+    if(a._id < b._id) { return -1; }
+    if(a._id > b._id) { return 1; }
+    return 0;
+  })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
+    });
+};
+
