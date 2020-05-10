@@ -72,3 +72,79 @@ export const findUpDate = res => {
   return moment(lastUpdated).format('MMMM Do YYYY, h:mm a');
 };
 
+export const shapeClack = res => {
+  return res.sort(function(a, b){
+    if(a._id < b._id) { return -1; }
+    if(a._id > b._id) { return 1; }
+    return 0;
+  })
+    .map(item => {
+      return ({
+        //add regex here for spaces
+        x: item._id.charAt(0).toUpperCase() + item._id.substr(1).toLowerCase(),
+        y: item.total
+      });
+    });
+};
+
+export const shapeMult = res => {
+  return res.sort(function(a, b){
+    if(a._id < b._id) { return -1; }
+    if(a._id > b._id) { return 1; }
+    return 0;
+  })
+    .map(item => {
+      if(item._id === 'P'){
+        item._id = 'Pacific Islander';
+      } return item;
+    })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
+    });
+};
+
+export const shapeWash = res => {
+  return res.sort(function(a, b){
+    if(a._id < b._id) { return -1; }
+    if(a._id > b._id) { return 1; }
+    return 0;
+  })
+    .map(item => {
+      if(item._id === 'A'){
+        item._id = 'Asian';
+      } else if(item._id === 'B'){
+        item._id = 'Black';
+      } else if(item._id === 'I'){
+        item._id = 'Native American';
+      } else if(item._id === 'U'){
+        item._id = 'Unknown';
+      } else if(item._id === 'W'){
+        item._id = 'White';
+      } 
+      return item;
+    })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
+    });
+};
+
+export const shapeAgency = res => {
+  return res.sort(function(a, b){
+    if(a._id < b._id) { return -1; }
+    if(a._id > b._id) { return 1; }
+    return 0;
+  })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
+    });
+};
+
