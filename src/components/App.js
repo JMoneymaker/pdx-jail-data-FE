@@ -1,12 +1,12 @@
 import React from 'react';
 import Landing from './landing/Landing';
-import RaceLanding from './raceDaily/RaceLanding';
+import RaceSplash from './raceDaily/RaceSplash';
 
 export default function App() {
   return (
     <>
       <Landing />
-      <RaceLanding/>
+      <RaceSplash />
     </>
   );
 }
