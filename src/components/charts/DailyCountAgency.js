@@ -1,20 +1,21 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
-import { getDailyRaceCount } from '../../services/getDailyCounts';
-import { shapeWash, shapeClack, shapeMult } from '../../utils/dailyCounts';
+import { getDailyAgencyCount } from '../../services/getDailyCounts';
+import { shapeAgency } from '../../utils/dailyCounts';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyCountRace = ({ county }) => {
-  const [rawRaceData, setRawRaceData] = useState([]);
+const DailyCountAgency = ({ county }) => {
+  const [agencyData, setAgencyData] = useState([]);
+  console.log(county);
   
   useEffect(() => {
-    getDailyRaceCount(county)
-      .then(res => {setRawRaceData(res);});
+    getDailyAgencyCount(county)
+      .then(res => {setAgencyData(res);});
   }, [county]);
 
-  const data = (county === 'multnomah') ? shapeMult(rawRaceData)
-    : (county === 'clackamas') ? shapeClack(rawRaceData) : shapeWash(rawRaceData); 
+  const data = shapeAgency(agencyData);
+
 
   return (
     <div className={styles.ChartWrapper}>
@@ -43,11 +44,11 @@ const DailyCountRace = ({ county }) => {
           }}
          
           data={data}
+          horizontal={true}
           padding={{ top: 20, bottom: 60 }}
           labels={({ datum }) => datum.y}
         />
         <VictoryAxis
-          label='race'
           style={{
             axisLabel: { padding: 15, fontSize: 8 },
             tickLabels: {
@@ -77,8 +78,8 @@ const DailyCountRace = ({ county }) => {
   );
 };
 
-DailyCountRace.propTypes = {
+DailyCountAgency.propTypes = {
   county: PropTypes.string.isRequired,
 };
 
-export default DailyCountRace;
+export default DailyCountAgency;
