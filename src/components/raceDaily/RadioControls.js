@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Charts.css';
+import styles from '../charts/Charts.css';
 
 const RadioControls = ({ handleChange }) => {
   return (

@@ -1,41 +1,23 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
-import { getDailyRaceCount } from '../../services/getMultnomahDaily';
+import { getDailyRaceCount } from '../../services/getDailyCounts';
 import React, { useState, useEffect } from 'react';
+import { shapeWash, shapeClack, shapeMult } from '../../utils/dailyCounts';
 import styles from './Charts.css';
-import Header from './Header';
-import useUpDate from '../../hooks/useUpDated';
+import PropTypes from 'prop-types';
 
-const DailyRaceMultV = () => {
-
+const DailyCountRace = ({ county }) => {
   const [rawData, setRawData] = useState([]);
   
   useEffect(() => {
-    getDailyRaceCount()
+    getDailyRaceCount(county)
       .then(res => {setRawData(res);});
-  }, []);
+  }, [county]);
 
-  const data = rawData
-    .sort(function(a, b){
-      if(a._id < b._id) { return -1; }
-      if(a._id > b._id) { return 1; }
-      return 0;
-    })
-    .map(item => {
-      if(item._id === 'P'){
-        item._id = 'Pacific Islander';
-      } return item;
-    })
-    .map(item => {
-      return ({
-        x: item._id,
-        y: item.total
-      });
-    });
+  const data = (county === 'multnomah') ? shapeMult(rawData)
+    : (county === 'clackamas') ? shapeClack(rawData) : shapeWash(rawData); 
 
-  
   return (
     <div className={styles.chartPageContainer}>
-      <Header upDateHook={useUpDate}/>
       <div className={styles.chartWrapper}>
         <VictoryChart
           domainPadding={25}
@@ -43,7 +25,7 @@ const DailyRaceMultV = () => {
           height={200}
         >
           <VictoryLabel 
-            text={'Multnomah County'}
+            text={county + ' County'}
             x={140} 
             y={30}
           />
@@ -94,4 +76,8 @@ const DailyRaceMultV = () => {
   );
 };
 
-export default DailyRaceMultV;
+DailyCountRace.propTypes = {
+  county: PropTypes.string.isRequired,
+};
+
+export default DailyCountRace;

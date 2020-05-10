@@ -1,12 +1,12 @@
 import React from 'react';
 import Landing from './landing/Landing';
-import DailyRaceMult from './charts/DailyRaceMult';
+import RaceSplash from './raceDaily/RaceSplash';
 
 export default function App() {
   return (
     <>
       <Landing />
-      <DailyRaceMult/>
+      <RaceSplash />
     </>
   );
 }
