@@ -9,7 +9,7 @@ const Pie = () => {
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
-          <Header upDateHook={useUpDated}>Number of People in Custody by Facility</Header>
+          <Header upDateHook={useUpDated}>Number of People in Custody Trend Data</Header>
         </header>
         <TrendTotals />
       </section>
