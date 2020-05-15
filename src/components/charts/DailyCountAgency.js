@@ -7,7 +7,6 @@ import styles from './Charts.css';
 
 const DailyCountAgency = ({ county }) => {
   const [agencyData, setAgencyData] = useState([]);
-  console.log(county);
   
   useEffect(() => {
     getDailyAgencyCount(county)

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from './Header';
-import PieRadioControls from './PieRadioControls';
 import styles from './VerticalBar.css';
 import DailyCountFacility from '../charts/DailyCountFacility';
+import RadioControls from './RadioControls';
 
 const Pie = () => {
   const [county, setCounty] = useState('multnomah');
@@ -17,7 +17,7 @@ const Pie = () => {
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header upDateHook={useUpDated}>Number of People in Custody by Facility</Header>
-          <PieRadioControls handleChange={handleChange} name={'facility-radio'}/>
+          <RadioControls handleChange={handleChange} name={'facility-radio'} id={'facility'}/>
         </header>
         <DailyCountFacility county={county} />
       </section>

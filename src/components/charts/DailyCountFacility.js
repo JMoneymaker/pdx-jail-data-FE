@@ -7,25 +7,19 @@ import styles from './Charts.css';
 
 const DailyCountFacility = ({ county }) => {
   const [facilityData, setFacilityData] = useState([]);
-  console.log(county);
   
   useEffect(() => {
     getDailyFacilityCount(county)
       .then(res => {setFacilityData(res);});
   }, [county]);
 
-  const data = shapeFacility(facilityData);
-  console.log(facilityData);
-  
+  const data = shapeFacility(facilityData);  
 
   const labelData = (facilityData) => {
     return facilityData.map(facility => ({
       name: facility._id
     }));
   };
-
-  console.log(labelData(facilityData));
-
 
   return (
     <div className={styles.chartWrapper}>

@@ -11,13 +11,13 @@ const VerticalBar = () => {
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
+  console.log(county);
   return (
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header upDateHook={useUpDated}>Number of People in Custody by Race</Header>
-          <RadioControls handleChange={handleChange} name={'race-radio'}/>
+          <RadioControls handleChange={handleChange} name={'race-radio'} id={'race'}/>
         </header>
         <DailyCountRace county={county} />
       </section>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from './Header';
-import HorizontalRadioControls from './HorizontalRadioControls';
+import RadioControls from './RadioControls';
 import styles from './VerticalBar.css';
 import DailyCountAgency from '../charts/DailyCountAgency';
 
@@ -17,7 +17,7 @@ const HorizontalBar = () => {
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header upDateHook={useUpDated}>Number of People in Custody by Arresting Agency</Header>
-          <HorizontalRadioControls handleChange={handleChange} name={'agency-radio'}/>
+          <RadioControls handleChange={handleChange} name={'agency-radio'} id={'agency'}/>
         </header>
         <DailyCountAgency county={county} />
       </section>
