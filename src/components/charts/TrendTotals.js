@@ -1,4 +1,4 @@
-import { VictoryLine, VictoryStack, VictoryChart, VictoryAxis } from 'victory';
+import { VictoryArea, VictoryChart, VictoryAxis } from 'victory';
 import React, { useState, useEffect } from 'react';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
 import styles from './Charts.css';
@@ -34,59 +34,57 @@ const TrendTotals = () => {
   
   const data = shapeTrend(rawTrendData);
 
-  console.log(data, 'data');
-
-  console.log(data[0], 'data0');
-  console.log(data[1], 'data1');
-  console.log(data[2], 'data2');
-
   return (
     <div className={styles.ChartWrapper}>
       <VictoryChart
-        domainPadding={5}
+        // domainPadding={5}
         width={400}
         height={200}
       >
-        <VictoryStack>
-          <VictoryLine 
-            data={[...data[0]]} 
-            style={{
-              data: { stroke: '#c43a31' },
-              parent: { border: '1px solid #ccc' },
-              labels: {
-                fontSize: 5,
-                fontFamily: 'Roboto Condensed, sans-serif',
-              }
-            }}
-            labels={({ datum }) => datum.y}
-          />
-          <VictoryLine 
-            data={[...data[2]]}
-            style={{
-              data: { stroke: '#000000' },
-              parent: { border: '1px solid #ccc' },
-              labels: {
-                fontSize: 5,
-                fontFamily: 'Roboto Condensed, sans-serif',
-              }
-            }}
-            labels={({ datum }) => datum.y}
-          />
-          <VictoryLine 
-            data={[...data[1]]}
-            style={{
-              data: { stroke: '#696969' },
-              parent: { border: '1px solid #ccc' },
-              labels: {
-                fontSize: 5,
-                fontFamily: 'Roboto Condensed, sans-serif',
-              }
-            }}
-            labels={({ datum }) => datum.y}
-          />
-        </VictoryStack>
+        <VictoryArea 
+          data={[...data[1]]}
+          fixLabelOverlap={true}
+          style={{
+            data: { stroke: '#252525', fill: '#252525' },
+            parent: { border: '1px solid #ccc' },
+            labels: {
+              fontSize: 4,
+              fontFamily: 'Roboto Condensed, sans-serif',
+            }
+          }}
+          labels={({ datum }) => datum.y}
+        />
+        <VictoryArea 
+          data={[...data[2]]}
+          style={{
+            data: { stroke: '#525252', fill: '#525252' },
+            parent: { border: '1px solid #ccc' },
+            labels: {
+              fontSize: 4,
+              fontFamily: 'Roboto Condensed, sans-serif',
+              fill: 'white'
+            }
+          }}
+          labels={({ datum }) => datum.y}
+          // labels={({ data, index }) => index == data.length - 1 ? 'last label' : index}
+          tickFormat={(t) => `${Math.round(t)}k`}
+        />
+        <VictoryArea 
+          data={[...data[0]]} 
+          style={{
+            data: { stroke: '#737373', fill: '#737373' },
+            parent: { border: '1px solid #ccc' },
+            labels: {
+              fontSize: 4,
+              fontFamily: 'Roboto Condensed, sans-serif',
+              fill: 'white'
+            }
+          }}
+          labels={({ datum }) => datum.y}
+        />
         <VictoryAxis
           label='date'
+          fixLabelOverlap={true}
           style={{
             axisLabel: { padding: 20, fontSize: 8 },
             tickLabels: {
@@ -95,7 +93,7 @@ const TrendTotals = () => {
               fillOpacity: 1,
               margin: 2,
               padding: 8,
-              angle: 40
+              // angle: 40
             }
           }} 
         />
@@ -113,7 +111,7 @@ const TrendTotals = () => {
           }}
         />
       </VictoryChart>
-    </div>
+å    </div>
   );
 };
 
