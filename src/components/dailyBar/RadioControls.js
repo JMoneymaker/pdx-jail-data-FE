@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './RadioControls.css';
 
-const RadioControls = ({ handleChange, name }) => {
+const RadioControls = ({ handleChange, name, id }) => {
+
   return (
     <div className={styles.radioGroup}>
         
@@ -10,36 +11,37 @@ const RadioControls = ({ handleChange, name }) => {
         type='radio'
         value='clackamas'
         name={name}
-        id='clackamas-race'
+        id={id + '-clackamas'}
         onChange={handleChange}
       />
-      <label htmlFor='clackamas-race'>Clackamas</label>
+      <label htmlFor={id + '-clackamas'}>Clackamas</label>
 
       <input
         type='radio'
         value='multnomah'
         name={name}
-        id='multnomah-race'
+        id={id + '-multnomah'}
         defaultChecked
         onChange={handleChange}
       />
-      <label htmlFor='multnomah-race'>Multnomah</label>
+      <label htmlFor={id + '-multnomah'}>Multnomah</label>
 
       <input
         type='radio'
         value='washington'
         name={name}
-        id='washington-race'
+        id={id + '-washington'}
         onChange={handleChange}
       />
-      <label htmlFor='washington-race'>Washington</label>
+      <label htmlFor={id + '-washington'}>Washington</label>
     </div>
   );
 };
 
 RadioControls.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export default RadioControls;

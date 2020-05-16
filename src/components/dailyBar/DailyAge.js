@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from './Header';
 import RadioControls from './RadioControls';
-import DailyCountRace from '../charts/DailyCountRace';
+import DailyCountAge from '../charts/DailyCountAge';
 import styles from './VerticalBar.css';
 
-const VerticalBar = () => {
+const DailyAge = () => {
   const [county, setCounty] = useState('multnomah');
 
   const handleChange = ({ target }) => {
@@ -16,14 +16,14 @@ const VerticalBar = () => {
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
-          <Header upDateHook={useUpDated}>Number of People in Custody by Race</Header>
-          <RadioControls handleChange={handleChange} name={'race-radio'} id={'race'}/>
+          <Header upDateHook={useUpDated}>Number of People in Custody by Age</Header>
+          <RadioControls handleChange={handleChange} name={'age-radio'} id={'age'}/>
         </header>
-        <DailyCountRace county={county} />
+        <DailyCountAge county={county} />
       </section>
     </>
   );
 };
 
-export default VerticalBar;
+export default DailyAge;
 

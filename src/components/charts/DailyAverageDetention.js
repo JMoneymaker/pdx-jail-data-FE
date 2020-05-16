@@ -13,9 +13,6 @@ const DailyAverageDetention = ({ county }) => {
       .then(res => {setRawDetentionData(res);});
   }, [county]);
 
-  //   const data = (county === 'multnomah') ? shapeMultDetAvg(rawDetentionData)
-  //     : (county === 'clackamas') ? shapeClack(rawDetentionData) : shapeWash(rawDetentionData); 
-
   const data = shapeMultDetAvg(rawDetentionData);
 
   return (
