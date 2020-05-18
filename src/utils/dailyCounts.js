@@ -80,7 +80,6 @@ export const shapeClack = res => {
   })
     .map(item => {
       return ({
-        //add regex here for spaces
         x: item._id.charAt(0).toUpperCase() + item._id.substr(1).toLowerCase(),
         y: item.total
       });
@@ -188,7 +187,7 @@ export const shapeAge = res => {
       if(item._id === 0){
         item._id = 'Under 18';
       } else if(item._id === 18){
-        item._id = '18 - 24';
+        item._id = '18 - 20';
       } else if(item._id === 21){
         item._id = '21 - 25';
       } else if(item._id === 26){
@@ -217,4 +216,25 @@ export const shapeAge = res => {
       });
     });
 };
+
+export const shapeCharge = res => {
+  return res.map(item => {
+    return ({
+      x: item._id,
+      y: item.category
+    });
+  });
+};
+
+export const shapeDescription = res => {
+  return res.map((item, i) => {
+    while(i <= 19)
+      return ({
+        x: item._id,
+        y: item.description
+      });
+    return null;
+  });
+};
+
 

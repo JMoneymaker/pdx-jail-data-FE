@@ -66,7 +66,6 @@ const TrendTotals = () => {
             }
           }}
           labels={({ datum }) => datum.y}
-          // labels={({ data, index }) => index == data.length - 1 ? 'last label' : index}
           tickFormat={(t) => `${Math.round(t)}k`}
         />
         <VictoryArea 
