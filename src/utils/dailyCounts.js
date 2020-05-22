@@ -72,12 +72,16 @@ export const findUpDate = res => {
   return moment(lastUpdated).format('MMMM Do YYYY, h:mm a');
 };
 
-export const shapeClack = res => {
+const alphabetize = res => {
   return res.sort(function(a, b){
     if(a._id < b._id) { return -1; }
     if(a._id > b._id) { return 1; }
     return 0;
-  })
+  });
+};
+
+export const shapeClack = res => {
+  return alphabetize(res)
     .map(item => {
       return ({
         x: item._id.charAt(0).toUpperCase() + item._id.substr(1).toLowerCase(),
@@ -87,11 +91,7 @@ export const shapeClack = res => {
 };
 
 export const shapeMult = res => {
-  return res.sort(function(a, b){
-    if(a._id < b._id) { return -1; }
-    if(a._id > b._id) { return 1; }
-    return 0;
-  })
+  return alphabetize(res)
     .map(item => {
       if(item._id === 'P'){
         item._id = 'Pacific Islander';
@@ -106,11 +106,7 @@ export const shapeMult = res => {
 };
 
 export const shapeWash = res => {
-  return res.sort(function(a, b){
-    if(a._id < b._id) { return -1; }
-    if(a._id > b._id) { return 1; }
-    return 0;
-  })
+  return alphabetize(res)
     .map(item => {
       if(item._id === 'A'){
         item._id = 'Asian';
