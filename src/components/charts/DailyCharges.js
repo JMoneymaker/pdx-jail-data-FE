@@ -7,14 +7,12 @@ import styles from './Charts.css';
 
 const DailyCharges = ({ county }) => {
   const [chargeData, setChargeData] = useState([]);
-  console.log(chargeData, 'chargeData');
   useEffect(() => {
     getDailyChargeCount(county)
       .then(res => {setChargeData(res);});
   }, [county]);
 
   const data = shapeCharge(chargeData);
-
 
   return (
     <div className={styles.ChartWrapper}>
@@ -34,14 +32,9 @@ const DailyCharges = ({ county }) => {
         <VictoryBar
           barRatio={0.8}
           style={{
-            data: {
-              fill: 'black',
-            },
-            labels: {
-              fontSize: 5,
-            }
+            data: { fill: 'black' },
+            labels: { fontSize: 5 }
           }}
-         
           data={data}
           horizontal={true}
           padding={{ top: 20, bottom: 60 }}
