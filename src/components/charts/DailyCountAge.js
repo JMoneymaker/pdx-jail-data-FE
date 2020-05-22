@@ -1,20 +1,19 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
-import { getDailyAgencyCount } from '../../services/getDailyCounts';
-import { shapeAgency } from '../../utils/dailyCounts';
+import { getDailyAgeCount } from '../../services/getDailyCounts';
+import { shapeAge } from '../../utils/dailyCounts';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyCountAgency = ({ county }) => {
-  const [agencyData, setAgencyData] = useState([]);
+const DailyCountAge = ({ county }) => {
+  const [rawAgeData, setRawAgeData] = useState([]);
   
   useEffect(() => {
-    getDailyAgencyCount(county)
-      .then(res => {setAgencyData(res);});
+    getDailyAgeCount(county)
+      .then(res => {setRawAgeData(res);});
   }, [county]);
 
-  const data = shapeAgency(agencyData);
-
+  const data = shapeAge(rawAgeData);
 
   return (
     <div className={styles.ChartWrapper}>
@@ -43,11 +42,11 @@ const DailyCountAgency = ({ county }) => {
           }}
          
           data={data}
-          horizontal={true}
           padding={{ top: 20, bottom: 60 }}
           labels={({ datum }) => datum.y}
         />
         <VictoryAxis
+          label='age'
           style={{
             axisLabel: { padding: 15, fontSize: 8 },
             tickLabels: {
@@ -77,8 +76,8 @@ const DailyCountAgency = ({ county }) => {
   );
 };
 
-DailyCountAgency.propTypes = {
+DailyCountAge.propTypes = {
   county: PropTypes.string.isRequired,
 };
 
-export default DailyCountAgency;
+export default DailyCountAge;

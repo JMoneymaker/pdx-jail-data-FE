@@ -80,7 +80,6 @@ export const shapeClack = res => {
   })
     .map(item => {
       return ({
-        //add regex here for spaces
         x: item._id.charAt(0).toUpperCase() + item._id.substr(1).toLowerCase(),
         y: item.total
       });
@@ -177,4 +176,65 @@ export const shapeFacility = res => {
       });
     });
 };
+
+export const shapeAge = res => {
+  return res.sort(function(a, b){
+    if(a._id < b._id) { return -1; }
+    if(a._id > b._id) { return 1; }
+    return 0;
+  })
+    .map(item => {
+      if(item._id === 0){
+        item._id = 'Under 18';
+      } else if(item._id === 18){
+        item._id = '18 - 20';
+      } else if(item._id === 21){
+        item._id = '21 - 25';
+      } else if(item._id === 26){
+        item._id = '26 - 30';
+      } else if(item._id === 31){
+        item._id = '31 - 35';
+      } else if(item._id === 36){
+        item._id = '36 - 40';
+      } else if(item._id === 41){
+        item._id = '41 - 45';
+      } else if(item._id === 46){
+        item._id = '46 - 50';
+      } else if(item._id === 51){
+        item._id = '51 - 60';
+      } else if(item._id === 61){
+        item._id = '61 - 65';
+      } else {
+        item._id = '65 +';
+      }
+      return item;
+    })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
+    });
+};
+
+export const shapeCharge = res => {
+  return res.map(item => {
+    return ({
+      x: item._id,
+      y: item.category
+    });
+  });
+};
+
+export const shapeDescription = res => {
+  return res.map((item, i) => {
+    while(i <= 19)
+      return ({
+        x: item._id,
+        y: item.description
+      });
+    return null;
+  });
+};
+
 

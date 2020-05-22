@@ -1,19 +1,19 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
-import { getDailyAgencyCount } from '../../services/getDailyCounts';
-import { shapeAgency } from '../../utils/dailyCounts';
+import { getDailyDescripitions } from '../../services/getDailyCounts';
+import { shapeDescription } from '../../utils/dailyCounts';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyCountAgency = ({ county }) => {
-  const [agencyData, setAgencyData] = useState([]);
-  
+const DailyDescriptions = ({ county }) => {
+  const [descriptionData, setDescriptionData] = useState([]);
+  console.log(descriptionData, 'descriptionData');
   useEffect(() => {
-    getDailyAgencyCount(county)
-      .then(res => {setAgencyData(res);});
+    getDailyDescripitions(county)
+      .then(res => {setDescriptionData(res);});
   }, [county]);
 
-  const data = shapeAgency(agencyData);
+  const data = shapeDescription(descriptionData);
 
 
   return (
@@ -77,8 +77,8 @@ const DailyCountAgency = ({ county }) => {
   );
 };
 
-DailyCountAgency.propTypes = {
+DailyDescriptions.propTypes = {
   county: PropTypes.string.isRequired,
 };
 
-export default DailyCountAgency;
+export default DailyDescriptions;

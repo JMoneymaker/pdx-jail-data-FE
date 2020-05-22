@@ -1,20 +1,19 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
-import { getDailyAgencyCount } from '../../services/getDailyCounts';
-import { shapeAgency } from '../../utils/dailyCounts';
+import { getDailyAverageDetention } from '../../services/getDailyAverages';
+import { shapeMultDetAvg } from '../../utils/dailyAverages';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyCountAgency = ({ county }) => {
-  const [agencyData, setAgencyData] = useState([]);
+const DailyAverageDetention = ({ county }) => {
+  const [rawDetentionData, setRawDetentionData] = useState([]);
   
   useEffect(() => {
-    getDailyAgencyCount(county)
-      .then(res => {setAgencyData(res);});
+    getDailyAverageDetention(county)
+      .then(res => {setRawDetentionData(res);});
   }, [county]);
 
-  const data = shapeAgency(agencyData);
-
+  const data = shapeMultDetAvg(rawDetentionData);
 
   return (
     <div className={styles.ChartWrapper}>
@@ -43,11 +42,11 @@ const DailyCountAgency = ({ county }) => {
           }}
          
           data={data}
-          horizontal={true}
           padding={{ top: 20, bottom: 60 }}
           labels={({ datum }) => datum.y}
         />
         <VictoryAxis
+          label='race'
           style={{
             axisLabel: { padding: 15, fontSize: 8 },
             tickLabels: {
@@ -60,7 +59,7 @@ const DailyCountAgency = ({ county }) => {
           }} 
         />
         <VictoryAxis dependentAxis
-          label='number'
+          label='average number of days detained'
           style={{
             axisLabel: { padding: 20, fontSize: 8 },
             tickLabels: {
@@ -77,8 +76,8 @@ const DailyCountAgency = ({ county }) => {
   );
 };
 
-DailyCountAgency.propTypes = {
+DailyAverageDetention.propTypes = {
   county: PropTypes.string.isRequired,
 };
 
-export default DailyCountAgency;
+export default DailyAverageDetention;

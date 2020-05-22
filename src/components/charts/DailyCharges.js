@@ -1,20 +1,18 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
-import { getDailyAgencyCount } from '../../services/getDailyCounts';
-import { shapeAgency } from '../../utils/dailyCounts';
+import { getDailyChargeCount } from '../../services/getDailyCounts';
+import { shapeCharge } from '../../utils/dailyCounts';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyCountAgency = ({ county }) => {
-  const [agencyData, setAgencyData] = useState([]);
-  
+const DailyCharges = ({ county }) => {
+  const [chargeData, setChargeData] = useState([]);
   useEffect(() => {
-    getDailyAgencyCount(county)
-      .then(res => {setAgencyData(res);});
+    getDailyChargeCount(county)
+      .then(res => {setChargeData(res);});
   }, [county]);
 
-  const data = shapeAgency(agencyData);
-
+  const data = shapeCharge(chargeData);
 
   return (
     <div className={styles.ChartWrapper}>
@@ -34,14 +32,9 @@ const DailyCountAgency = ({ county }) => {
         <VictoryBar
           barRatio={0.8}
           style={{
-            data: {
-              fill: 'black',
-            },
-            labels: {
-              fontSize: 5,
-            }
+            data: { fill: 'black' },
+            labels: { fontSize: 5 }
           }}
-         
           data={data}
           horizontal={true}
           padding={{ top: 20, bottom: 60 }}
@@ -77,8 +70,8 @@ const DailyCountAgency = ({ county }) => {
   );
 };
 
-DailyCountAgency.propTypes = {
+DailyCharges.propTypes = {
   county: PropTypes.string.isRequired,
 };
 
-export default DailyCountAgency;
+export default DailyCharges;
