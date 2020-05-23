@@ -2,20 +2,20 @@ import React from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from './Header';
 import styles from './VerticalBar.css';
-import TrendTotals from '../charts/TrendTotals';
+import TrendTriCountyTotals from '../charts/TrendTriCountyTotals';
 
-const Pie = () => {
+const TrendTriCountyTotalsStack = () => {
   return (
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header upDateHook={useUpDated}>Number of People in Custody Trend Data</Header>
         </header>
-        <TrendTotals />
+        <TrendTriCountyTotals />
       </section>
     </>
   );
 };
 
-export default Pie;
+export default TrendTriCountyTotalsStack;
 

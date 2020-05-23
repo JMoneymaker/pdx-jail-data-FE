@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from './Header';
-import styles from './VerticalBar.css';
-import DailyCountFacility from '../charts/DailyCountFacility';
 import RadioControls from './RadioControls';
+import DailyCountRace from '../charts/DailyCountRace';
+import styles from './VerticalBar.css';
 
-const Pie = () => {
+const DailyCountRaceVBar = () => {
   const [county, setCounty] = useState('multnomah');
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
+  
   return (
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
-          <Header upDateHook={useUpDated}>Number of People in Custody by Facility</Header>
-          <RadioControls handleChange={handleChange} name={'facility-radio'} id={'facility'}/>
+          <Header upDateHook={useUpDated}>Number of People in Custody by Race</Header>
+          <RadioControls handleChange={handleChange} name={'race-radio'} id={'race'}/>
         </header>
-        <DailyCountFacility county={county} />
+        <DailyCountRace county={county} />
       </section>
     </>
   );
 };
 
-export default Pie;
+export default DailyCountRaceVBar;
 

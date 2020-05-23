@@ -1,26 +1,25 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
-import { getDailyDescripitions } from '../../services/getDailyCounts';
-import { shapeDescription } from '../../utils/dailyCounts';
+import { getDailyChargeCount } from '../../services/getDailyCounts';
+import { shapeCharge } from '../../utils/dailyCounts';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyDescriptions = ({ county }) => {
-  const [descriptionData, setDescriptionData] = useState([]);
-
+const DailyCountChargeSev = ({ county }) => {
+  const [chargeData, setChargeData] = useState([]);
   useEffect(() => {
     if(county !== 'multnomah'){
       console.log('error');
     } else {
-      getDailyDescripitions(county)
-        .then(res => {setDescriptionData(res);});
+      getDailyChargeCount(county)
+        .then(res => {setChargeData(res);});
     }
   }, [county]);
-  
+
   if(county !== 'multnomah') {
     return <div className={styles.countyError}>Data not available for {county} county</div>;
   } else {
-    const data = shapeDescription(descriptionData);
+    const data = shapeCharge(chargeData);
 
     return (
       <div className={styles.ChartWrapper}>
@@ -40,14 +39,9 @@ const DailyDescriptions = ({ county }) => {
           <VictoryBar
             barRatio={0.8}
             style={{
-              data: {
-                fill: 'black',
-              },
-              labels: {
-                fontSize: 5,
-              }
+              data: { fill: 'black' },
+              labels: { fontSize: 5 }
             }}
-         
             data={data}
             horizontal={true}
             padding={{ top: 20, bottom: 60 }}
@@ -83,8 +77,9 @@ const DailyDescriptions = ({ county }) => {
     );
   }
 };
-DailyDescriptions.propTypes = {
+
+DailyCountChargeSev.propTypes = {
   county: PropTypes.string.isRequired,
 };
 
-export default DailyDescriptions;
+export default DailyCountChargeSev;
