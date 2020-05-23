@@ -2,11 +2,14 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
 import { getDailyAverageDetention } from '../../services/getDailyAverages';
 import { shapeMultDetAvg, shapeClackDetAvg, shapeWashDetAvg } from '../../utils/dailyAverages';
+// import Loading from '../common/Loading';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
 const DailyAverageDetention = ({ county }) => {
   const [rawDetentionData, setRawDetentionData] = useState([]);
+  // const [loading, setLoading] = useState(true);
+
   
   useEffect(() => {
     getDailyAverageDetention(county)
@@ -18,7 +21,7 @@ const DailyAverageDetention = ({ county }) => {
 
   return (
     <div className={styles.ChartWrapper}>
-      <VictoryChart
+      (<VictoryChart
         domainPadding={25}
         width={400}
         height={225}
@@ -72,7 +75,7 @@ const DailyAverageDetention = ({ county }) => {
             }
           }}
         />
-      </VictoryChart>
+      </VictoryChart>)
     </div>
   );
 };
