@@ -37,7 +37,7 @@ const TrendTotals = () => {
       <VictoryChart
         // domainPadding={5}
         width={400}
-        height={250}
+        height={215}
       >
         <VictoryArea 
           data={[...data[1]]}
