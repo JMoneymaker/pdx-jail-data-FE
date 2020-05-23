@@ -1,0 +1,15 @@
+.VerticalBar {
+  height: 100vh;
+  background-color: white;
+  padding: 5em;
+}
+
+.headWrapper {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.chartArea {
+text-align: center;
+}
