@@ -3,13 +3,13 @@
 exports[`App component renders App 1`] = `
 <Fragment>
   <Landing />
-  <HorizontalBar />
-  <VerticalBar />
-  <Pie />
-  <Pie />
-  <AverageVBar />
-  <DailyAge />
-  <ChargesBar />
-  <DescriptionsBar />
+  <DailyCountAgencyHBar />
+  <DailyCountRaceVBar />
+  <DailyCountFacilityPie />
+  <TrendTriCountyTotalsStack />
+  <DailyAverageDetentionHBar />
+  <DailyCountAgeVBar />
+  <DailyCountChargeSevHBar />
+  <DailyCountChargeDescHBar />
 </Fragment>
 `;
