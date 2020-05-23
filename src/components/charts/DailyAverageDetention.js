@@ -16,8 +16,6 @@ const DailyAverageDetention = ({ county }) => {
   const data = (county === 'multnomah') ? shapeMultDetAvg(rawDetentionData)
     : (county === 'clackamas') ? shapeClackDetAvg(rawDetentionData) : shapeWashDetAvg(rawDetentionData);
 
-  console.log(data, 'averages');
-
   return (
     <div className={styles.ChartWrapper}>
       <VictoryChart

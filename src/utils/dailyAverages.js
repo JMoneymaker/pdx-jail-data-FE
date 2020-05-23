@@ -26,7 +26,6 @@ export const shapeMultDetAvg = res => {
 };
 
 export const shapeClackDetAvg = res => {
-  console.log(res, 'clackres');
   return alphabetize(res)
     .map(item => {
       return ({

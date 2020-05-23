@@ -7,14 +7,13 @@ import styles from './Charts.css';
 
 const DailyDescriptions = ({ county }) => {
   const [descriptionData, setDescriptionData] = useState([]);
-  console.log(descriptionData, 'descriptionData');
+
   useEffect(() => {
     getDailyDescripitions(county)
       .then(res => {setDescriptionData(res);});
   }, [county]);
 
   const data = shapeDescription(descriptionData);
-
 
   return (
     <div className={styles.ChartWrapper}>

@@ -1,4 +1,4 @@
-import { VictoryArea, VictoryChart, VictoryAxis, VictoryTooltip, VictoryLegend } from 'victory';
+import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend } from 'victory';
 import React, { useState, useEffect } from 'react';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
 import styles from './Charts.css';
@@ -10,8 +10,6 @@ const TrendTotals = () => {
     getDailyCounts()
       .then(res => {setRawTrendData(res[0].counts);});
   }, []);
-
-  console.log(rawTrendData, 'rawdata');
 
   const shapeTrend = rawData => {
     let clackamas = [];
