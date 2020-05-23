@@ -1,4 +1,4 @@
-import { VictoryArea, VictoryChart, VictoryAxis, VictoryTooltip } from 'victory';
+import { VictoryArea, VictoryChart, VictoryAxis, VictoryTooltip, VictoryLegend } from 'victory';
 import React, { useState, useEffect } from 'react';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
 import styles from './Charts.css';
@@ -39,7 +39,7 @@ const TrendTotals = () => {
       <VictoryChart
         // domainPadding={5}
         width={400}
-        height={200}
+        height={250}
       >
         <VictoryArea 
           data={[...data[1]]}
@@ -56,7 +56,6 @@ const TrendTotals = () => {
         />
         <VictoryArea 
           data={[...data[2]]}
-          labelComponent={<VictoryTooltip/>}
           style={{
             data: { stroke: '#737373', fill: '#737373' },
             parent: { border: '1px solid #ccc' },
@@ -66,11 +65,10 @@ const TrendTotals = () => {
               fill: 'white'
             }
           }}
-          labels={({ datum }) => datum.y}
+          // labels={({ datum }) => datum.y}
         />
         <VictoryArea 
           data={[...data[0]]} 
-          labelComponent={<VictoryTooltip/>}
           style={{
             data: { stroke: '#525252', fill: '#525252' },
             parent: { border: '1px solid #ccc' },
@@ -109,6 +107,24 @@ const TrendTotals = () => {
               padding: 0
             }
           }}
+        />
+        <VictoryLegend x={108} y={10}
+          title="County"
+          centerTitle
+          orientation="horizontal"
+          gutter={20}
+          style={{ 
+            // border: { stroke: 'black' }, 
+            labels: { 
+              fontSize: 6, 
+              fontFamily: 'Roboto Condensed, sans-serif'
+            },
+            title: { fontSize: 8 }
+          }}
+          colorScale={['#252525', '#737373', '#525252']}
+          data={[
+            { name: 'Multnomah' }, { name: 'Washington' }, { name: 'Clackamas' }
+          ]}
         />
       </VictoryChart>
     </div>
