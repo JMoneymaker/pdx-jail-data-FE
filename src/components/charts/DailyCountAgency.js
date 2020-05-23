@@ -1,4 +1,4 @@
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
 import { getDailyAgencyCount } from '../../services/getDailyCounts';
 import { shapeAgency } from '../../utils/dailyCounts';
@@ -26,9 +26,10 @@ const DailyCountAgency = ({ county }) => {
     return (
       <div className={styles.ChartWrapper}>
         <VictoryChart
-          domainPadding={25}
+          domainPadding={5}
           width={400}
-          height={225}
+          height={220}
+          containerComponent={<VictoryContainer/>}
         >
           <VictoryLabel 
             text={county.toUpperCase() + ' COUNTY'}
@@ -51,7 +52,7 @@ const DailyCountAgency = ({ county }) => {
          
             data={data}
             horizontal={true}
-            padding={{ top: 20, bottom: 60 }}
+            padding={{ bottom: 60 }}
             labels={({ datum }) => datum.y}
           />
           <VictoryAxis
@@ -69,7 +70,7 @@ const DailyCountAgency = ({ county }) => {
           <VictoryAxis dependentAxis
             label='number'
             style={{
-              axisLabel: { padding: 20, fontSize: 8 },
+              axisLabel: { padding: 15, fontSize: 8 },
               tickLabels: {
                 fontSize: 5,
                 fontFamily: 'Roboto Condensed, sans-serif',

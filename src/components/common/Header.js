@@ -1,21 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Header.css';
+import styles from '../chart-scroll/VerticalBar.css';
+import RadioControls from './RadioControls';
 
-const Header = ({ upDateHook, children }) => {
-  const { upDated } = upDateHook();
+const Header = ({ title, category, handleChange, name, id }) => {
 
   return (
-    <header className={styles.Header}>
-      <h3>{children}</h3>
-      <div className={styles.updateStatus}>Last Updated: {upDated}</div>
-    </header>
+    <>
+      <header className={styles.titleWrapper}>
+        <h3>{title}</h3>
+        <h2>{category}</h2>
+      </header>
+      <RadioControls 
+        handleChange={handleChange}  
+        name={name}  
+        id={id} />
+    </>
   );
 };
 
 Header.propTypes = {
   upDateHook: PropTypes.func.isRequired,
-  children: PropTypes.string.isRequired
+  category: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export default Header;
