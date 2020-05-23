@@ -19,7 +19,10 @@ const ChargesBar = () => {
           <Header upDateHook={useUpDated}>Number of People in Custody by Charge Severity</Header>
           <RadioControls handleChange={handleChange} name={'charge-radio'} id={'charge'}/>
         </header>
-        <DailyCharges county={county} />
+        <section className={styles.chartArea}>
+
+          <DailyCharges county={county} />
+        </section>
       </section>
     </>
   );

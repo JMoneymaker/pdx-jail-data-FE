@@ -17,9 +17,11 @@ const HorizontalBar = () => {
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header upDateHook={useUpDated}>Number of People in Custody by Arresting Agency</Header>
-          <RadioControls handleChange={handleChange} name={'agency-radio'} id={'agency'}/>
+          <RadioControls handleChange={handleChange} name={'agency-radio'} id={'agency'} />
         </header>
-        <DailyCountAgency county={county} />
+        <section className={styles.chartArea}>
+          <DailyCountAgency county={county} />
+        </section>
       </section>
     </>
   );
