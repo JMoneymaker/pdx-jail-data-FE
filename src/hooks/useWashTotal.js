@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getDailyCounts } from '../services/getTriCountyDaily';
 import { findWashToday } from '../utils/dailyCounts';
+import Loading from '../components/common/Loading';
 
 const useWashTotal = () => {
-  const [total, setTotal] = useState('loading');
+  const [total, setTotal] = useState(<Loading />);
 
   const fetchWashToday = () => {
     getDailyCounts()
