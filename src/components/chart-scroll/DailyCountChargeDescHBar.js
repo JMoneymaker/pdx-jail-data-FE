@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
-import RadioControls from '../common/RadioControls';
 import styles from './VerticalBar.css';
 import DailyCountChargeDesc from '../charts/DailyCountChargeDesc';
 
@@ -16,8 +15,14 @@ const DailyCountChargeDescHBar = () => {
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
-          <Header upDateHook={useUpDated}>Twenty Most Common Charges</Header>
-          <RadioControls handleChange={handleChange} name={'description-radio'} id={'description'}/>
+          <Header 
+            upDateHook={useUpDated} 
+            handleChange={handleChange} 
+            name={'description-radio'} 
+            id={'description'}
+            title={'Twenty Most Common Charges'}   
+          >
+          </Header>
         </header>
         <section className={styles.chartArea}>
           <DailyCountChargeDesc county={county} />

@@ -2,14 +2,35 @@
   height: 100vh;
   background-color: white;
   padding: 5em;
-}
 
-.headWrapper {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
+  .headWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
 
-.chartArea {
-text-align: center;
+  @media screen and (min-width: 350px) {
+    .headWrapper {
+    display: flex;
+    }
+  }
+
+  header {
+    display: flex;
+  }
+
+  .chartWrapper {
+  width: 100%;
+  }
+
+  .titleWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 350px) {
+    .chartWrapper {
+    width: 100%
+    }
+  }
 }

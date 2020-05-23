@@ -6,7 +6,6 @@ const RadioControls = ({ handleChange, name, id }) => {
 
   return (
     <div className={styles.radioGroup}>
-        
       <input
         type='radio'
         value='clackamas'

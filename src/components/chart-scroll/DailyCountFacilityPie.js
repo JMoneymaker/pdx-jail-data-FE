@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
-import RadioControls from '../common/RadioControls';
 import DailyCountFacility from '../charts/DailyCountFacility';
 import styles from './VerticalBar.css';
 
@@ -16,8 +15,14 @@ const DailyCountFacilityPie = () => {
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
-          <Header upDateHook={useUpDated}>Number of People in Custody by Facility</Header>
-          <RadioControls handleChange={handleChange} name={'facility-radio'} id={'facility'}/>
+          <Header 
+            upDateHook={useUpDated}
+            handleChange={handleChange}
+            name={'facility-radio'}
+            id={'facility'}
+            title={'Number of People in Custody'}
+            category={'by Facility'}> 
+          </Header>
         </header>
         <DailyCountFacility county={county} />
       </section>

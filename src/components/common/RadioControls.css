@@ -1,6 +1,13 @@
 .radioGroup {
     display: flex;
   }
+
+  @media screen and (min-width: 350px) {
+    .radioGroup {
+      display: inline-flex;
+      align-self: flex-start;
+    }
+  }
   
   input[type=radio] {
     opacity: 0;
@@ -13,6 +20,16 @@
     padding: 10px 20px;
     font-size: 16px;
     border: 2px solid white;
+  }
+
+  @media screen and (min-width: 350px) {
+    label {
+      display: inline-block;
+      background-color: white;
+      padding: 5px 10px;
+      font-size: 12px;
+      border: 2px solid white;
+    }
   }
   
   input[type=radio]:checked + label {

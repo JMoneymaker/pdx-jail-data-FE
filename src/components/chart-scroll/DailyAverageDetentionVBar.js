@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
-import RadioControls from '../common/RadioControls';
 import DailyAverageDetention from '../charts/DailyAverageDetention';
 import styles from './VerticalBar.css';
 
@@ -16,10 +15,18 @@ const DailyAverageDetentionHBar = () => {
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
-          <Header upDateHook={useUpDated}>Average Detention Duration for People in Jail Today</Header>
-          <RadioControls handleChange={handleChange} name={'avg-detention-radio'} id={'avg-detention'}/>
+          <Header 
+            upDateHook={useUpDated} 
+            handleChange={handleChange} 
+            name={'avg-detention-radio'} 
+            id={'avg-detention'} 
+            title={'Average Detention Duration'}
+            category={'by Race'}> 
+          </Header>
         </header>
-        <DailyAverageDetention county={county} />
+        <section className={styles.chartWrapper}>
+          <DailyAverageDetention county={county} />
+        </section>
       </section>
     </>
   );
