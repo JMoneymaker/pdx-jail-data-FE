@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
-import styles from './VerticalBar.css';
+import RadioControls from '../common/RadioControls';
 import DailyCountFacility from '../charts/DailyCountFacility';
-import RadioControls from './RadioControls';
+import styles from './VerticalBar.css';
 
 const DailyCountFacilityPie = () => {
   const [county, setCounty] = useState('multnomah');
