@@ -1,7 +1,7 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
 import { getDailyAverageDetention } from '../../services/getDailyAverages';
-import { shapeMultDetAvg } from '../../utils/dailyAverages';
+import { shapeMultDetAvg, shapeClackDetAvg, shapeWashDetAvg } from '../../utils/dailyAverages';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
@@ -13,7 +13,8 @@ const DailyAverageDetention = ({ county }) => {
       .then(res => {setRawDetentionData(res);});
   }, [county]);
 
-  const data = shapeMultDetAvg(rawDetentionData);
+  const data = (county === 'multnomah') ? shapeMultDetAvg(rawDetentionData)
+    : (county === 'clackamas') ? shapeClackDetAvg(rawDetentionData) : shapeWashDetAvg(rawDetentionData);
 
   return (
     <div className={styles.ChartWrapper}>
