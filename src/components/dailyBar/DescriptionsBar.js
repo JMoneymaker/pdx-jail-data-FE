@@ -19,7 +19,9 @@ const DescriptionsBar = () => {
           <Header upDateHook={useUpDated}>Twenty Most Common Charges</Header>
           <RadioControls handleChange={handleChange} name={'description-radio'} id={'description'}/>
         </header>
-        <DailyDescriptions county={county} />
+        <section className={styles.chartArea}>
+          <DailyDescriptions county={county} />
+        </section>
       </section>
     </>
   );
