@@ -1,27 +1,27 @@
 import React from 'react';
 import Landing from './landing/Landing';
-import VerticalBar from './dailyBar/VerticalBar';
-import HorizontalBar from './dailyBar/HorizontalBar';
-import AverageVBar from './dailyBar/AverageVBar';
-import DailyAge from './dailyBar/DailyAge';
-import Pie from './dailyBar/Pie';
-import Line from './dailyBar/Line';
+import DailyCountRaceVBar from './dailyBar/DailyCountRaceVBar';
+import DailyCountAgencyHBar from './dailyBar/DailyCountAgencyHBar';
+import DailyAverageDetentionVBar from './dailyBar/DailyAverageDetentionVBar';
+import DailyCountAgeVBar from './dailyBar/DailyCountAgeVBar';
+import DailyCountFacilityPie from './dailyBar/DailyCountFacilityPie';
+import TrendTriCountyTotalsStack from './dailyBar/TrendTriCountyTotalsStack';
 import './App.css';
-import ChargesBar from './dailyBar/ChargesBar';
-import DescriptionsBar from './dailyBar/DescriptionsBar';
+import DailyCountChargeSevHBar from './dailyBar/DailyCountChargeSevHBar';
+import DailyCountChargeDescHBar from './dailyBar/DailyCountChargeDescHBar';
 
 export default function App() {
   return (
     <>
       <Landing />
-      <HorizontalBar />
-      <VerticalBar />
-      <Pie />
-      <Line />
-      <AverageVBar />
-      <DailyAge />
-      <ChargesBar />
-      <DescriptionsBar />
+      <DailyCountAgencyHBar />
+      <DailyCountRaceVBar />
+      <DailyCountFacilityPie />
+      <TrendTriCountyTotalsStack />
+      <DailyAverageDetentionVBar />
+      <DailyCountAgeVBar />
+      <DailyCountChargeSevHBar />
+      <DailyCountChargeDescHBar />
     </>
   );
 }

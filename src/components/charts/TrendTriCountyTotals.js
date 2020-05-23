@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
 import styles from './Charts.css';
 
-const TrendTotals = () => {
+const TrendTriCountyTotals = () => {
   const [rawTrendData, setRawTrendData] = useState([]);
   
   useEffect(() => {
@@ -130,4 +130,4 @@ const TrendTotals = () => {
 };
 
 
-export default TrendTotals;
+export default TrendTriCountyTotals;

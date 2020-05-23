@@ -3,9 +3,9 @@ import useUpDated from '../../hooks/useUpDated';
 import Header from './Header';
 import RadioControls from './RadioControls';
 import styles from './VerticalBar.css';
-import DailyCharges from '../charts/DailyCharges';
+import DailyCountChargeSev from '../charts/DailyCountChargeSev';
 
-const ChargesBar = () => {
+const DailyCountChargeSevHBar = () => {
   const [county, setCounty] = useState('multnomah');
 
   const handleChange = ({ target }) => {
@@ -21,12 +21,12 @@ const ChargesBar = () => {
         </header>
         <section className={styles.chartArea}>
 
-          <DailyCharges county={county} />
+          <DailyCountChargeSev county={county} />
         </section>
       </section>
     </>
   );
 };
 
-export default ChargesBar;
+export default DailyCountChargeSevHBar;
 

@@ -2,28 +2,30 @@ import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from './Header';
 import RadioControls from './RadioControls';
-import DailyCountAge from '../charts/DailyCountAge';
 import styles from './VerticalBar.css';
+import DailyCountChargeDesc from '../charts/DailyCountChargeDesc';
 
-const DailyAge = () => {
+const DailyCountChargeDescHBar = () => {
   const [county, setCounty] = useState('multnomah');
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-  console.log(county);
+
   return (
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
-          <Header upDateHook={useUpDated}>Number of People in Custody by Age</Header>
-          <RadioControls handleChange={handleChange} name={'age-radio'} id={'age'}/>
+          <Header upDateHook={useUpDated}>Twenty Most Common Charges</Header>
+          <RadioControls handleChange={handleChange} name={'description-radio'} id={'description'}/>
         </header>
-        <DailyCountAge county={county} />
+        <section className={styles.chartArea}>
+          <DailyCountChargeDesc county={county} />
+        </section>
       </section>
     </>
   );
 };
 
-export default DailyAge;
+export default DailyCountChargeDescHBar;
 
