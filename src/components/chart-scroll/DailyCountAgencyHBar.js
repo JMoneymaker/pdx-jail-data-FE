@@ -34,8 +34,8 @@ const DailyCountAgencyHBar = () => {
             handleChange={handleChange}
             name={'agency-radio'} 
             id={'agency'}
-            title={'Number of People in Custody'}   
-            category={'by Arresting Agency'}>
+            title={'Daily Snapshot'}   
+            category={'Population by Arresting Agency'}>
           </Header>
         </header>
         <section className={styles.chartArea}>
@@ -44,7 +44,7 @@ const DailyCountAgencyHBar = () => {
             : <HBar 
               data={data} 
               county={county} 
-              xLabel={'Number of People in Custody'} />}
+              xLabel={'Number of People in Detention'} />}
         </section>
       </section>
     </>

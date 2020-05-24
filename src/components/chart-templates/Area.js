@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const Area = ({ data }) => {
+const Area = ({ data, yLabel, xLabel }) => {
 
   return (
     <div className={styles.ChartWrapper}>
@@ -52,7 +52,7 @@ const Area = ({ data }) => {
           // labels={({ datum }) => datum.y}
         />
         <VictoryAxis
-          label='date'
+          label={yLabel}
           fixLabelOverlap={true}
           style={{
             axisLabel: { padding: 20, fontSize: 8 },
@@ -67,7 +67,7 @@ const Area = ({ data }) => {
           }} 
         />
         <VictoryAxis dependentAxis
-          label='people in custody'
+          label={xLabel}
           style={{
             axisLabel: { padding: 20, fontSize: 8 },
             tickLabels: {
@@ -103,7 +103,9 @@ const Area = ({ data }) => {
 };
 
 Area.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  yLabel: PropTypes.string.isRequired,
+  xLabel: PropTypes.string.isRequired
 };
 
 export default Area;
