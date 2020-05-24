@@ -15,8 +15,12 @@ const DailyCountChargeDescHBar = () => {
   };
 
   useEffect(() => {
-    getDailyDescripitions(county)
-      .then(res => {setDescriptionData(res);});
+    if(county !== 'multnomah'){
+      console.log('error');
+    } else {
+      getDailyDescripitions(county)
+        .then(res => {setDescriptionData(res);});
+    }
   }, [county]);
   
   const data = shapeDescription(descriptionData);
@@ -35,7 +39,9 @@ const DailyCountChargeDescHBar = () => {
           </Header>
         </header>
         <section className={styles.chartArea}>
-          <HBar county={county} data={data} />
+          {county === 'multnomah' ?
+            <HBar data={data} county={county} /> 
+            : <div className={styles.countyError}>No Data Available</div> }
         </section>
       </section>
     </>

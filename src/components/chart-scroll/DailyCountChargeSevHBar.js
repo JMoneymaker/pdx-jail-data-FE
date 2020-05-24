@@ -14,8 +14,12 @@ const DailyCountChargeSevHBar = () => {
   };
 
   useEffect(() => {
-    getDailyAgencyCount(county)
-      .then(res => {setAgencyData(res);});
+    if(county !== 'multnomah'){
+      console.log('error');
+    } else {
+      getDailyAgencyCount(county)
+        .then(res => {setAgencyData(res);});
+    }
   }, [county]);
 
   const data = shapeAgency(agencyData);
@@ -33,8 +37,9 @@ const DailyCountChargeSevHBar = () => {
           </Header>
         </header>
         <section className={styles.chartArea}>
-
-          <HBar county={county} data={data} />
+          {county === 'multnomah' ?
+            <HBar data={data} county={county} /> 
+            : <div className={styles.countyError}>No Data Available</div> }
         </section>
       </section>
     </>
