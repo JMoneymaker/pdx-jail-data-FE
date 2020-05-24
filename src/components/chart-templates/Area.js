@@ -1,36 +1,9 @@
 import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend } from 'victory';
-import React, { useState, useEffect } from 'react';
-import { getDailyCounts } from '../../services/getTriCountyDaily';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const TrendTriCountyTotals = () => {
-  const [rawTrendData, setRawTrendData] = useState([]);
-  
-  useEffect(() => {
-    getDailyCounts()
-      .then(res => {setRawTrendData(res[0].counts);});
-  }, []);
-
-  const shapeTrend = rawData => {
-    let clackamas = [];
-    let washington = [];
-    let multnomah = [];
-
-    rawData.map(i => {
-      clackamas.push({
-        x: i.date.slice(0, 10),
-        y: i.clack });
-      multnomah.push({
-        x: i.date.slice(0, 10),
-        y: i.mult });
-      washington.push({
-        x: i.date.slice(0, 10),
-        y: i.wash });
-    });
-    return [clackamas, multnomah, washington];
-  };
-  
-  const data = shapeTrend(rawTrendData);
+const Area = ({ data }) => {
 
   return (
     <div className={styles.ChartWrapper}>
@@ -129,5 +102,8 @@ const TrendTriCountyTotals = () => {
   );
 };
 
+Area.propTypes = {
+  data: PropTypes.array.isRequired
+};
 
-export default TrendTriCountyTotals;
+export default Area;

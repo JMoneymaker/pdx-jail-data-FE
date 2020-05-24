@@ -1,19 +1,9 @@
 import { VictoryChart, VictoryLabel, VictoryPie, VictoryAxis, VictoryLegend } from 'victory';
-import React, { useState, useEffect } from 'react';
-import { getDailyFacilityCount } from '../../services/getDailyCounts';
-import { shapeFacility } from '../../utils/dailyCounts';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyCountFacility = ({ county }) => {
-  const [facilityData, setFacilityData] = useState([]);
-  
-  useEffect(() => {
-    getDailyFacilityCount(county)
-      .then(res => {setFacilityData(res);});
-  }, [county]);
-
-  const data = shapeFacility(facilityData);  
+const Pie = ({ county, data, facilityData }) => {
 
   const labelData = (facilityData) => {
     return facilityData.map(facility => ({
@@ -75,8 +65,10 @@ const DailyCountFacility = ({ county }) => {
   );
 };
 
-DailyCountFacility.propTypes = {
+Pie.propTypes = {
   county: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+  facilityData: PropTypes.array.isRequired
 };
 
-export default DailyCountFacility;
+export default Pie;

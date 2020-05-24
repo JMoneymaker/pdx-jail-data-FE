@@ -1,7 +1,7 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel } from 'victory';
 import React, { useState, useEffect } from 'react';
-import { getDailyAgencyCount } from '../../services/getDailyCounts';
-import { shapeAgency } from '../../utils/dailyCounts';
+import { getDailyAgencyCount } from '../services/getDailyCounts';
+import { shapeAgency } from '../utils/dailyCounts';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 

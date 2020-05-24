@@ -20,7 +20,6 @@ const Header = ({ title, category, handleChange, name, id }) => {
 };
 
 Header.propTypes = {
-  upDateHook: PropTypes.func.isRequired,
   category: PropTypes.string,
   title: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,

@@ -1,26 +1,17 @@
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
-import React, { useState, useEffect } from 'react';
-import { getDailyAgeCount } from '../../services/getDailyCounts';
-import { shapeAge } from '../../utils/dailyCounts';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel } from 'victory';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyCountAge = ({ county }) => {
-  const [rawAgeData, setRawAgeData] = useState([]);
-  
-  useEffect(() => {
-    getDailyAgeCount(county)
-      .then(res => {setRawAgeData(res);});
-  }, [county]);
-
-  const data = shapeAge(rawAgeData);
-
+const HBar = ({ data, county }) => {
+    
   return (
     <div className={styles.ChartWrapper}>
       <VictoryChart
-        domainPadding={25}
+        domainPadding={5}
         width={400}
-        height={225}
+        height={220}
+        containerComponent={<VictoryContainer/>}
       >
         <VictoryLabel 
           text={county.toUpperCase() + ' COUNTY'}
@@ -42,11 +33,11 @@ const DailyCountAge = ({ county }) => {
           }}
          
           data={data}
-          padding={{ top: 20, bottom: 60 }}
+          horizontal={true}
+          padding={{ bottom: 60 }}
           labels={({ datum }) => datum.y}
         />
         <VictoryAxis
-          label='age'
           style={{
             axisLabel: { padding: 15, fontSize: 8 },
             tickLabels: {
@@ -61,7 +52,7 @@ const DailyCountAge = ({ county }) => {
         <VictoryAxis dependentAxis
           label='number'
           style={{
-            axisLabel: { padding: 20, fontSize: 8 },
+            axisLabel: { padding: 15, fontSize: 8 },
             tickLabels: {
               fontSize: 5,
               fontFamily: 'Roboto Condensed, sans-serif',
@@ -76,8 +67,10 @@ const DailyCountAge = ({ county }) => {
   );
 };
 
-DailyCountAge.propTypes = {
+
+HBar.propTypes = {
   county: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired
 };
 
-export default DailyCountAge;
+export default HBar;
