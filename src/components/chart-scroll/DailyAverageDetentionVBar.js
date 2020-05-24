@@ -35,7 +35,8 @@ const DailyAverageDetentionHBar = () => {
           </Header>
         </header>
         <section className={styles.chartWrapper}>
-          <VBar data={data} county={county} />
+          {!data ? <div>data not available</div> :
+            <VBar data={data} county={county} />}
         </section>
       </section>
     </>

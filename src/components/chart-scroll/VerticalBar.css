@@ -23,6 +23,17 @@
   width: 100%;
   }
 
+  .chartArea {
+    width: 100%;
+    text-align: center;
+  }
+
+  .countyError {
+    font-family: 'Roboto Condensed, sans-serif';
+    font-size: 2rem;
+    margin-top: 20vh;
+  }
+
   .titleWrapper {
     display: flex;
     flex-direction: column;
@@ -34,3 +45,4 @@
     }
   }
 }
+
