@@ -34,7 +34,8 @@ const DailyCountChargeDescHBar = () => {
             handleChange={handleChange} 
             name={'description-radio'} 
             id={'description'}
-            title={'Twenty Most Common Charges'}   
+            title={'Daily Snapshot'}
+            category={'Most Common Charges'}   
           >
           </Header>
         </header>
@@ -43,7 +44,7 @@ const DailyCountChargeDescHBar = () => {
             <HBar 
               data={data} 
               county={county} 
-              xLabel={'Number of people in Custody'} /> 
+              xLabel={'Number of people in Detention'} /> 
             : <div className={styles.countyError}>No Data Available</div> }
         </section>
       </section>

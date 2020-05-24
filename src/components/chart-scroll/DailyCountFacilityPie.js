@@ -28,11 +28,14 @@ const DailyCountFacilityPie = () => {
             handleChange={handleChange}
             name={'facility-radio'}
             id={'facility'}
-            title={'Number of People in Custody'}
-            category={'by Facility'}> 
+            title={'Daily Snapshot'}
+            category={'Pupulation by Facility'}> 
           </Header>
         </header>
-        <Pie county={county} data={data} facilityData={facilityData}/>
+        <Pie 
+          county={county} 
+          data={data} 
+          facilityData={facilityData}/>
       </section>
     </>
   );

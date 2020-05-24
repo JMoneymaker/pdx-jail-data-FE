@@ -30,8 +30,8 @@ const DailyAverageDetentionHBar = () => {
             handleChange={handleChange} 
             name={'avg-detention-radio'} 
             id={'avg-detention'} 
-            title={'Average Detention Duration'}
-            category={'by Race'}> 
+            title={'Daily Snapshot'}
+            category={'Average Length of Stay by Race'}> 
           </Header>
         </header>
         <section className={styles.chartWrapper}>
@@ -39,7 +39,7 @@ const DailyAverageDetentionHBar = () => {
             <VBar 
               data={data} 
               county={county} 
-              xLabel={'Average Number of Days in Custody'} 
+              xLabel={'Number of Days in Detention'} 
               yLabel={'Race'} />
           }
         </section>

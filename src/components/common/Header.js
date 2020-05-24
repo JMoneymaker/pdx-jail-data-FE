@@ -8,8 +8,8 @@ const Header = ({ title, category, handleChange, name, id }) => {
   return (
     <>
       <header className={styles.titleWrapper}>
-        <h3>{title}</h3>
-        <h2>{category}</h2>
+        <h4>{title}</h4>
+        <h3>{category}</h3>
       </header>
       <RadioControls 
         handleChange={handleChange}  
