@@ -34,7 +34,11 @@ const DailyCountAgeVBar = () => {
             category={'by Age'}>
           </Header>
         </header>
-        <VBar county={county} data={data} />
+        <VBar 
+          county={county} 
+          data={data} 
+          xLabel={'Number of People in Custody'} 
+          yLabel={'Age Range'} />
       </section>
     </>
   );

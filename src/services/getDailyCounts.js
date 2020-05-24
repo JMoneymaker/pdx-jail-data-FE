@@ -23,12 +23,12 @@ export const getDailyCount = (county, category) => {
     .then(res => res.json());
 };
 
-export const getDailyChargeCount = county => {
+export const getDailyChargeSeverityCount = county => {
   return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyChargeCount`)
     .then(res => res.json());
 };
 
-export const getDailyDescripitions = county => {
+export const getDailyChargeDescripitions = county => {
   return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyChargeDescriptions`)
     .then(res => res.json());
 };

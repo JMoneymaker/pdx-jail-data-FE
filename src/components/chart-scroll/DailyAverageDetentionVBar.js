@@ -36,7 +36,12 @@ const DailyAverageDetentionHBar = () => {
         </header>
         <section className={styles.chartWrapper}>
           {!data ? <div>data not available</div> :
-            <VBar data={data} county={county} />}
+            <VBar 
+              data={data} 
+              county={county} 
+              xLabel={'Average Number of Days in Custody'} 
+              yLabel={'Race'} />
+          }
         </section>
       </section>
     </>

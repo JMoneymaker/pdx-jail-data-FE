@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const HBar = ({ data, county }) => {
+const HBar = ({ data, county, xLabel }) => {
     
   return (
     <div className={styles.ChartWrapper}>
@@ -50,7 +50,7 @@ const HBar = ({ data, county }) => {
           }} 
         />
         <VictoryAxis dependentAxis
-          label='number'
+          label={xLabel}
           style={{
             axisLabel: { padding: 15, fontSize: 8 },
             tickLabels: {
@@ -70,7 +70,8 @@ const HBar = ({ data, county }) => {
 
 HBar.propTypes = {
   county: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  xLabel: PropTypes.string.isRequired
 };
 
 export default HBar;

@@ -213,7 +213,7 @@ export const shapeAge = res => {
     });
 };
 
-export const shapeCharge = res => {
+export const shapeChargeSeverity = res => {
   return res.map(item => {
     return ({
       x: item._id,

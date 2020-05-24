@@ -41,7 +41,10 @@ const DailyCountAgencyHBar = () => {
         <section className={styles.chartArea}>
           {county === 'clackamas' ? 
             <div className={styles.countyError}>No Data Available</div> 
-            : <HBar data={data} county={county} />}
+            : <HBar 
+              data={data} 
+              county={county} 
+              xLabel={'Number of People in Custody'} />}
         </section>
       </section>
     </>

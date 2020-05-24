@@ -14,12 +14,12 @@ export default function App() {
   return (
     <>
       <Landing />
-      <DailyCountAgencyHBar />
-      <DailyCountRaceVBar />
-      <DailyCountFacilityPie />
       <TrendTriCountyTotalsStack />
-      <DailyAverageDetentionVBar />
       <DailyCountAgeVBar />
+      <DailyCountAgencyHBar />
+      <DailyCountFacilityPie />
+      <DailyCountRaceVBar />
+      <DailyAverageDetentionVBar />
       <DailyCountChargeSevHBar />
       <DailyCountChargeDescHBar />
     </>

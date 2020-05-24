@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
-import { getDailyAgencyCount } from '../../services/getDailyCounts';
-import { shapeAgency } from '../../utils/dailyCounts';
+import { getDailyChargeSeverityCount } from '../../services/getDailyCounts';
+import { shapeChargeSeverity } from '../../utils/dailyCounts';
 import HBar from '../chart-templates/HBar';
 
 const DailyCountChargeSevHBar = () => {
   const [county, setCounty] = useState('multnomah');
-  const [agencyData, setAgencyData] = useState([]);
+  const [chargeSeverityData, setChargeSeverityData] = useState([]);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
@@ -17,12 +17,12 @@ const DailyCountChargeSevHBar = () => {
     if(county !== 'multnomah'){
       console.log('error');
     } else {
-      getDailyAgencyCount(county)
-        .then(res => {setAgencyData(res);});
+      getDailyChargeSeverityCount(county)
+        .then(res => {setChargeSeverityData(res);});
     }
   }, [county]);
 
-  const data = shapeAgency(agencyData);
+  const data = shapeChargeSeverity(chargeSeverityData);
 
   return (
     <>
@@ -38,7 +38,10 @@ const DailyCountChargeSevHBar = () => {
         </header>
         <section className={styles.chartArea}>
           {county === 'multnomah' ?
-            <HBar data={data} county={county} /> 
+            <HBar 
+              data={data} 
+              county={county} 
+              xLabel={'Number of People in Custody'} /> 
             : <div className={styles.countyError}>No Data Available</div> }
         </section>
       </section>

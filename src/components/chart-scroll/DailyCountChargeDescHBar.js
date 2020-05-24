@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getDailyDescripitions } from '../../services/getDailyCounts';
+import { getDailyChargeDescripitions } from '../../services/getDailyCounts';
 import { shapeDescription } from '../../utils/dailyCounts';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
@@ -18,7 +18,7 @@ const DailyCountChargeDescHBar = () => {
     if(county !== 'multnomah'){
       console.log('error');
     } else {
-      getDailyDescripitions(county)
+      getDailyChargeDescripitions(county)
         .then(res => {setDescriptionData(res);});
     }
   }, [county]);
@@ -40,7 +40,10 @@ const DailyCountChargeDescHBar = () => {
         </header>
         <section className={styles.chartArea}>
           {county === 'multnomah' ?
-            <HBar data={data} county={county} /> 
+            <HBar 
+              data={data} 
+              county={county} 
+              xLabel={'Number of people in Custody'} /> 
             : <div className={styles.countyError}>No Data Available</div> }
         </section>
       </section>

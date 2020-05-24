@@ -2,7 +2,7 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const VBar = ({ data, county }) => {
+const VBar = ({ data, county, yLabel, xLabel }) => {
     
   return (
     <VictoryChart
@@ -34,7 +34,7 @@ const VBar = ({ data, county }) => {
         labels={({ datum }) => datum.y}
       />
       <VictoryAxis
-        label='race'
+        label={yLabel}
         style={{
           axisLabel: { padding: 15, fontSize: 8 },
           tickLabels: {
@@ -47,7 +47,7 @@ const VBar = ({ data, county }) => {
         }} 
       />
       <VictoryAxis dependentAxis
-        label='average number of days detained'
+        label={xLabel}
         style={{
           axisLabel: { padding: 20, fontSize: 8 },
           tickLabels: {
@@ -65,7 +65,9 @@ const VBar = ({ data, county }) => {
 
 VBar.propTypes = {
   county: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  yLabel: PropTypes.string.isRequired,
+  xLabel: PropTypes.string.isRequired
 };
 
 export default VBar;
