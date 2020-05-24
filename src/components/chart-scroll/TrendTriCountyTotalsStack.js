@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './VerticalBar.css';
-import Area from '../charts/Area';
+import Area from '../chart-templates/Area';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
 import HeaderBasic from '../common/HeaderBasic';
 
