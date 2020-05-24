@@ -56,11 +56,15 @@
 
   @media screen and (min-width: 320px) {
     .countyError {
+      width: 30%;
       font-family: 'Roboto Condensed', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 8vh;
+      margin: auto;
+      border: 2px solid black;
+      padding: 2em;
     }
   }
 
@@ -72,7 +76,7 @@
 
   @media only screen and (min-width: 1024px) {
     .countyError {
-      font-size: 4em;
+      font-size: 3em;
     }
   }
 
