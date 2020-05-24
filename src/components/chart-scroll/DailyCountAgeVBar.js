@@ -30,14 +30,14 @@ const DailyCountAgeVBar = () => {
             handleChange={handleChange} 
             name={'age-radio'} 
             id={'age'}
-            title={'Number of People in Custody'}   
-            category={'by Age'}>
+            title={'Daily Snapshot'}   
+            category={'Pupulation by Age'}>
           </Header>
         </header>
         <VBar 
           county={county} 
           data={data} 
-          xLabel={'Number of People in Custody'} 
+          xLabel={'Number of People in Detention'} 
           yLabel={'Age Range'} />
       </section>
     </>

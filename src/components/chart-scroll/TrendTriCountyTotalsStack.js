@@ -38,11 +38,15 @@ const TrendTriCountyTotalsStack = () => {
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <HeaderBasic
-            title={'Number of People in Custody'}
-            category={'Trend Data'}> 
+            title={'Trend Data'}
+            category={'Daily Population Total'}
+          > 
           </HeaderBasic >
         </header>
-        <Area data={data}/>
+        <Area data={data}
+          xLabel={'Number of People in Detention'} 
+          yLabel={'Date'}
+        />
       </section>
     </>
   );
