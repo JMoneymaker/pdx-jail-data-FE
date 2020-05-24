@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
-import useUpDated from '../../hooks/useUpDated';
+import React, { useState, useEffect } from 'react';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
-import DailyCountChargeSev from '../charts/DailyCountChargeSev';
+import { getDailyAgencyCount } from '../../services/getDailyCounts';
+import { shapeAgency } from '../../utils/dailyCounts';
+import HBar from '../chart-templates/HBar';
 
 const DailyCountChargeSevHBar = () => {
   const [county, setCounty] = useState('multnomah');
+  const [agencyData, setAgencyData] = useState([]);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
+
+  useEffect(() => {
+    getDailyAgencyCount(county)
+      .then(res => {setAgencyData(res);});
+  }, [county]);
+
+  const data = shapeAgency(agencyData);
 
   return (
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header 
-            upDateHook={useUpDated}
             handleChange={handleChange}
             name={'charge-radio'}
             id={'charge'}
@@ -26,7 +34,7 @@ const DailyCountChargeSevHBar = () => {
         </header>
         <section className={styles.chartArea}>
 
-          <DailyCountChargeSev county={county} />
+          <HBar county={county} data={data} />
         </section>
       </section>
     </>

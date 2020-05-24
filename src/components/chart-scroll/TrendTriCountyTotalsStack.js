@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './VerticalBar.css';
-import TrendTriCountyTotals from '../charts/TrendTriCountyTotals';
+import Area from '../charts/Area';
+import { getDailyCounts } from '../../services/getTriCountyDaily';
 import HeaderBasic from '../common/HeaderBasic';
 
 const TrendTriCountyTotalsStack = () => {
+  const [rawTrendData, setRawTrendData] = useState([]);
+
+  useEffect(() => {
+    getDailyCounts()
+      .then(res => {setRawTrendData(res[0].counts);});
+  }, []);
+
+  const shapeTrend = rawData => {
+    let clackamas = [];
+    let washington = [];
+    let multnomah = [];
+
+    rawData.map(i => {
+      clackamas.push({
+        x: i.date.slice(0, 10),
+        y: i.clack });
+      multnomah.push({
+        x: i.date.slice(0, 10),
+        y: i.mult });
+      washington.push({
+        x: i.date.slice(0, 10),
+        y: i.wash });
+    });
+    return [clackamas, multnomah, washington];
+  };
+  
+  const data = shapeTrend(rawTrendData);
+
   return (
     <>
       <section className={styles.VerticalBar}>
@@ -11,9 +40,9 @@ const TrendTriCountyTotalsStack = () => {
           <HeaderBasic
             title={'Number of People in Custody'}
             category={'Trend Data'}> 
-          </HeaderBasic>
+          </HeaderBasic >
         </header>
-        <TrendTriCountyTotals />
+        <Area data={data}/>
       </section>
     </>
   );

@@ -1,23 +1,9 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
-import React, { useState, useEffect } from 'react';
-import { getDailyAverageDetention } from '../../services/getDailyAverages';
-import { shapeMultDetAvg, shapeClackDetAvg, shapeWashDetAvg } from '../../utils/dailyAverages';
-// import Loading from '../common/Loading';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const DailyAverageDetention = ({ county }) => {
-  const [rawDetentionData, setRawDetentionData] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
-  
-  useEffect(() => {
-    getDailyAverageDetention(county)
-      .then(res => {setRawDetentionData(res);});
-  }, [county]);
-
-  const data = (county === 'multnomah') ? shapeMultDetAvg(rawDetentionData)
-    : (county === 'clackamas') ? shapeClackDetAvg(rawDetentionData) : shapeWashDetAvg(rawDetentionData);
-
+const VBar = ({ data, county }) => {
+    
   return (
     <VictoryChart
       domainPadding={25}
@@ -77,8 +63,9 @@ const DailyAverageDetention = ({ county }) => {
   );
 };
 
-DailyAverageDetention.propTypes = {
+VBar.propTypes = {
   county: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired
 };
 
-export default DailyAverageDetention;
+export default VBar;

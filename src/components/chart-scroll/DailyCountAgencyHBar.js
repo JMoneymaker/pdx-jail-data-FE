@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
-import DailyCountAgency from '../charts/DailyCountAgency';
+import { getDailyAgencyCount } from '../../services/getDailyCounts';
+import { shapeAgency } from '../../utils/dailyCounts';
+import HBar from '../chart-templates/HBar';
 
 const DailyCountAgencyHBar = () => {
   const [county, setCounty] = useState('multnomah');
+  const [agencyData, setAgencyData] = useState([]);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
+
+  useEffect(() => {
+    getDailyAgencyCount(county)
+      .then(res => {setAgencyData(res);});
+  }, [county]);
+
+  const data = shapeAgency(agencyData);
 
   return (
     <>
@@ -25,7 +35,7 @@ const DailyCountAgencyHBar = () => {
           </Header>
         </header>
         <section className={styles.chartArea}>
-          <DailyCountAgency county={county} />
+          <HBar county={county} data={data} />
         </section>
       </section>
     </>

@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
-import useUpDated from '../../hooks/useUpDated';
+import React, { useState, useEffect } from 'react';
+import { getDailyFacilityCount } from '../../services/getDailyCounts';
+import { shapeFacility } from '../../utils/dailyCounts';
 import Header from '../common/Header';
-import DailyCountFacility from '../charts/DailyCountFacility';
+import Pie from '../chart-templates/Pie';
 import styles from './VerticalBar.css';
 
 const DailyCountFacilityPie = () => {
   const [county, setCounty] = useState('multnomah');
+  const [facilityData, setFacilityData] = useState([]);
+
+  useEffect(() => {
+    getDailyFacilityCount(county)
+      .then(res => {setFacilityData(res);});
+  }, [county]);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
+
+  const data = shapeFacility(facilityData);
 
   return (
     <>
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header 
-            upDateHook={useUpDated}
             handleChange={handleChange}
             name={'facility-radio'}
             id={'facility'}
@@ -24,7 +32,7 @@ const DailyCountFacilityPie = () => {
             category={'by Facility'}> 
           </Header>
         </header>
-        <DailyCountFacility county={county} />
+        <Pie county={county} data={data} facilityData={facilityData}/>
       </section>
     </>
   );
