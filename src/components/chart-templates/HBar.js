@@ -1,27 +1,17 @@
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
-import React, { useState, useEffect } from 'react';
-import { getDailyRaceCount } from '../../services/getDailyCounts';
-import { shapeWash, shapeClack, shapeMult } from '../../utils/dailyCounts';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel } from 'victory';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const DailyCountRace = ({ county }) => {
-  const [rawRaceData, setRawRaceData] = useState([]);
-  
-  useEffect(() => {
-    getDailyRaceCount(county)
-      .then(res => {setRawRaceData(res);});
-  }, [county]);
-
-  const data = (county === 'multnomah') ? shapeMult(rawRaceData)
-    : (county === 'clackamas') ? shapeClack(rawRaceData) : shapeWash(rawRaceData); 
-
+const HBar = ({ data, county, xLabel }) => {
+    
   return (
     <div className={styles.ChartWrapper}>
       <VictoryChart
-        domainPadding={25}
+        domainPadding={5}
         width={400}
-        height={225}
+        height={220}
+        containerComponent={<VictoryContainer/>}
       >
         <VictoryLabel 
           text={county.toUpperCase() + ' COUNTY'}
@@ -43,11 +33,11 @@ const DailyCountRace = ({ county }) => {
           }}
          
           data={data}
-          padding={{ top: 20, bottom: 60 }}
+          horizontal={true}
+          padding={{ bottom: 60 }}
           labels={({ datum }) => datum.y}
         />
         <VictoryAxis
-          label='race'
           style={{
             axisLabel: { padding: 15, fontSize: 8 },
             tickLabels: {
@@ -60,9 +50,9 @@ const DailyCountRace = ({ county }) => {
           }} 
         />
         <VictoryAxis dependentAxis
-          label='number'
+          label={xLabel}
           style={{
-            axisLabel: { padding: 20, fontSize: 8 },
+            axisLabel: { padding: 15, fontSize: 8 },
             tickLabels: {
               fontSize: 5,
               fontFamily: 'Roboto Condensed, sans-serif',
@@ -77,8 +67,11 @@ const DailyCountRace = ({ county }) => {
   );
 };
 
-DailyCountRace.propTypes = {
+
+HBar.propTypes = {
   county: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+  xLabel: PropTypes.string.isRequired
 };
 
-export default DailyCountRace;
+export default HBar;

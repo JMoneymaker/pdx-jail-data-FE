@@ -1,0 +1,48 @@
+.VerticalBar {
+  height: 100vh;
+  background-color: white;
+  padding: 5em;
+
+  .headWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+  @media screen and (min-width: 350px) {
+    .headWrapper {
+    display: flex;
+    }
+  }
+
+  header {
+    display: flex;
+  }
+
+  .chartWrapper {
+  width: 100%;
+  }
+
+  .chartArea {
+    width: 100%;
+    text-align: center;
+  }
+
+  .countyError {
+    font-family: 'Roboto Condensed, sans-serif';
+    font-size: 2rem;
+    margin-top: 20vh;
+  }
+
+  .titleWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 350px) {
+    .chartWrapper {
+    width: 100%
+    }
+  }
+}
+

@@ -5,7 +5,7 @@ import styles from './Landing.css';
 const MainStat = ({ totalHook, changeHook }) => {
   const { total } = totalHook();
   const { change } = changeHook();
-  
+
   return (
     <>
       <div className={styles.mainStat}>
@@ -13,8 +13,7 @@ const MainStat = ({ totalHook, changeHook }) => {
         <h4 className={styles.caption}>In Custody</h4>
         <h4 className={styles.change}>{change}</h4>
       </div>
-    </>
-  );
+    </>);
 };
 
 MainStat.propTypes = {
