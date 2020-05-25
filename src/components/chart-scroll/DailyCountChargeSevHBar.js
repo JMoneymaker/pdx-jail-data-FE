@@ -33,7 +33,7 @@ const DailyCountChargeSevHBar = () => {
             name={'charge-radio'}
             id={'charge'}
             title={'Daily Snapshot'}
-            category={'Pupulation by Top Charge'}> 
+            category={'Population by Top Charge'}> 
           </Header>
         </header>
         <section className={styles.chartArea}>
