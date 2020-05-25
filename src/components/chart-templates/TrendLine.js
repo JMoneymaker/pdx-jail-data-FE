@@ -1,77 +1,84 @@
-import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryVoronoiContainer, VictoryTooltip } from 'victory';
+import { VictoryLine, VictoryChart, VictoryAxis, VictoryLegend } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const Area = ({ data, yLabel, xLabel }) => {
+const TrendLine = ({ data, yLabel, xLabel }) => {
 
   return (
     <div className={styles.ChartWrapper}>
       <VictoryChart
+        domainPadding={1}
         width={400}
         height={215}
-        containerComponent={
-          <VictoryVoronoiContainer
-            // mouseFollowTooltips
-            labels={({ datum }) => `Date: ${datum.x}\n # in Detention: ${datum.y}`}
-            labelComponent={
-              <VictoryTooltip
-                cornerRadius={1.5}
-                pointerLength={12} 
-                flyoutStyle={{
-                  fontSize: 3,
-                  fontFamily: 'Roboto Condensed, sans-serif',
-                  stroke: '#525252',
-                  strokeWidth: .5,
-                  fill: '#FFFFFF',
-                  padding: 0
-                }}
-              />
-            }
-          />
-        }
+        
       >
-        <VictoryArea 
+        <VictoryLine 
           data={[...data[1]]}
+          fixLabelOverlap={true}
+          animate={{
+            animationWhitelist: ['style', 'data'],
+            onEnter: {
+              duration: 1000,
+              before: () => ({ opacity: 0.3, _y: 0 }),
+              after: (datum) => ({ opacity: 1, _y: datum._y })
+            }
+          }}
           style={{
-            data: { 
-              stroke: '#FFFFFF', 
-              fill: '#252525' 
-            },
+            data: { stroke: '#252525' },
             labels: {
               fontSize: 4,
               fontFamily: 'Roboto Condensed, sans-serif',
             }
           }}
+          labels={({ datum }) => datum.y}
         />
-        <VictoryArea 
+        <VictoryLine 
           data={[...data[2]]}
+          animate={{
+            animationWhitelist: ['style', 'data'],
+            onEnter: {
+              duration: 1000,
+              before: () => ({ opacity: 0.3, _y: 0 }),
+              after: (datum) => ({ opacity: 1, _y: datum._y })
+            }
+          }}
           style={{
-            data: { 
-              stroke: '#FFFFFF', 
-              fill: '#737373' 
-            },
+            data: { stroke: '#737373' },
+            parent: { border: '1px solid #ccc' },
             labels: {
               fontSize: 4,
               fontFamily: 'Roboto Condensed, sans-serif',
+              fill: 'white'
             }
           }}
+          labels={({ datum }) => datum.y}
         />
-        <VictoryArea 
-          data={[...data[0]]}
+        <VictoryLine 
+          data={[...data[0]]} 
+          animate={{
+            animationWhitelist: ['style', 'data'],
+            onEnter: {
+              duration: 1000,
+              before: () => ({ opacity: 0.3, _y: 0 }),
+              after: (datum) => ({ opacity: 1, _y: datum._y })
+            }
+          }}
+
           style={{
-            data: { 
-              stroke: '#FFFFFF', 
-              fill: '#525252' },
+            data: { stroke: '#525252' },
+            parent: { border: '1px solid #ccc' },
             labels: {
               fontSize: 4,
               fontFamily: 'Roboto Condensed, sans-serif',
+              fill: 'white'
             }
           }}
+          labels={({ datum }) => datum.y}
         />
         <VictoryAxis
           label={yLabel}
-          // fixLabelOverlap={true}
+          fixLabelOverlap={true}
           style={{
             axisLabel: { padding: 20, fontSize: 8 },
             tickLabels: {
@@ -80,7 +87,7 @@ const Area = ({ data, yLabel, xLabel }) => {
               fillOpacity: 1,
               margin: 2,
               padding: 8,
-              angle: 40
+              // angle: 40
             }
           }} 
         />
@@ -112,9 +119,7 @@ const Area = ({ data, yLabel, xLabel }) => {
           }}
           colorScale={['#252525', '#737373', '#525252']}
           data={[
-            { name: 'Multnomah' }, 
-            { name: 'Washington' }, 
-            { name: 'Clackamas' }
+            { name: 'Multnomah' }, { name: 'Washington' }, { name: 'Clackamas' }
           ]}
         />
       </VictoryChart>
@@ -122,10 +127,10 @@ const Area = ({ data, yLabel, xLabel }) => {
   );
 };
 
-Area.propTypes = {
+TrendLine.propTypes = {
   data: PropTypes.array.isRequired,
   yLabel: PropTypes.string.isRequired,
   xLabel: PropTypes.string.isRequired
 };
 
-export default Area;
+export default TrendLine;
