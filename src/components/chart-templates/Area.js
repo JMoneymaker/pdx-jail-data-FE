@@ -1,4 +1,4 @@
-import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryTooltip } from 'victory';
+import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryVoronoiContainer, VictoryTooltip } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
@@ -10,17 +10,24 @@ const Area = ({ data, yLabel, xLabel }) => {
       <VictoryChart
         width={400}
         height={215}
+        containerComponent={
+          <VictoryVoronoiContainer
+            labels={({ datum }) => `Date: ${datum.x}\n Number Detained: ${datum.y}`}
+            labelComponent={
+              <VictoryTooltip  
+                flyoutStyle={{
+                  fontSize: 4,
+                  fontFamily: 'Roboto Condensed, sans-serif',
+                  stroke: '#FFFFFF,',
+                  fill: '#FFFFFF'
+                }}
+              />
+            }
+          />
+        }
       >
         <VictoryArea 
           data={[...data[1]]}
-          animate={{
-            animationWhitelist: ['style', 'data'],
-            onEnter: {
-              duration: 500,
-              before: () => ({ opacity: 0.3, _y: 0 }),
-              after: (datum) => ({ opacity: 1, _y: datum._y })
-            }
-          }}
           style={{
             data: { stroke: '#252525', fill: '#252525' },
             parent: { border: '1px solid #ccc' },
@@ -29,67 +36,28 @@ const Area = ({ data, yLabel, xLabel }) => {
               fontFamily: 'Roboto Condensed, sans-serif',
             }
           }}
-          labels={({ datum }) => `x: ${datum.x}, y: ${datum.y}`}          
-          labelComponent={
-            <VictoryTooltip
-              style={{ fill:'white' }}
-              constrainToVisibleArea
-            />
-          }
         />
         <VictoryArea 
           data={[...data[2]]}
-          animate={{
-            animationWhitelist: ['style', 'data'],
-            onEnter: {
-              duration: 500,
-              before: () => ({ opacity: 0.3, _y: 0 }),
-              after: (datum) => ({ opacity: 1, _y: datum._y })
-            }
-          }}
           style={{
             data: { stroke: '#737373', fill: '#737373' },
             parent: { border: '1px solid #ccc' },
             labels: {
               fontSize: 4,
               fontFamily: 'Roboto Condensed, sans-serif',
-              fill: 'white',
             }
           }}
-          labels={({ datum }) => `x: ${datum.x}, y: ${datum.y}`}
-          labelComponent={
-            <VictoryTooltip
-              style={{ fill:'white' }}
-              constrainToVisibleArea
-            />
-          }
         />
         <VictoryArea 
           data={[...data[0]]}
-          animate={{
-            animationWhitelist: ['style', 'data'],
-            onEnter: {
-              duration: 500,
-              before: () => ({ opacity: 0.3, _y: 0 }),
-              after: (datum) => ({ opacity: 1, _y: datum._y })
-            }
-          }} 
           style={{
             data: { stroke: '#525252', fill: '#525252' },
             parent: { border: '1px solid #ccc' },
             labels: {
               fontSize: 4,
               fontFamily: 'Roboto Condensed, sans-serif',
-              fill: 'white',
             }
           }}
-          labels={({ datum }) => `x: ${datum.x}, y: ${datum.y}`}
-          labelComponent={
-            <VictoryTooltip
-              style={{ fill:'white' }}
-              constrainToVisibleArea
-            />
-          }
         />
         <VictoryAxis
           label={yLabel}
