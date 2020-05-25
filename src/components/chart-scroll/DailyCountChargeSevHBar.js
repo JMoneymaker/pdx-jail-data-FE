@@ -41,7 +41,9 @@ const DailyCountChargeSevHBar = () => {
             <HBar 
               data={data} 
               county={county} 
-              xLabel={'Number of People in Detention'} /> 
+              xLabel={'Number of People in Detention'} 
+              legend={true}
+            /> 
             : <div className={styles.countyError}>No Data Available</div> }
         </section>
       </section>
