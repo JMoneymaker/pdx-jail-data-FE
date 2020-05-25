@@ -19,18 +19,23 @@
     }
   }
 
-  @media screen and (min-width: 650px) {
+  @media screen and (min-width: 550px) {
     .headWrapper {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
     }
   }
 
   @media only screen and (min-width: 1024px) {
-
+    .headWrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      }
   }
 
   header {
@@ -51,7 +56,7 @@
     font-family: 'Roboto Condensed, sans-serif';
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
 }
 
   @media screen and (min-width: 320px) {
@@ -99,7 +104,7 @@
   }
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 550px) {
   .VerticalBar {
     height: 100vh;
     padding: 5em;
@@ -108,6 +113,7 @@
 
 @media only screen and (min-width: 1024px) {
   .VerticalBar {
-    padding: 12em;
+    height: 80vh;
+    padding: 8em;
   }
 }

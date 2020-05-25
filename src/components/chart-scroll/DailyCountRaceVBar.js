@@ -31,7 +31,7 @@ const DailyCountRaceVBar = () => {
             name={'race-radio'} 
             id={'race'}
             title={'Daily Snapshot'}
-            category={'Pupulation by Race'}> 
+            category={'Population by Race'}> 
           </Header>
         </header>
         <VBar 

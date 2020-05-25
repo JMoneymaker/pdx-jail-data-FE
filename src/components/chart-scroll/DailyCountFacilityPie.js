@@ -29,7 +29,7 @@ const DailyCountFacilityPie = () => {
             name={'facility-radio'}
             id={'facility'}
             title={'Daily Snapshot'}
-            category={'Pupulation by Facility'}> 
+            category={'Population by Facility'}> 
           </Header>
         </header>
         <Pie 

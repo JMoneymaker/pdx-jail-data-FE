@@ -130,11 +130,31 @@ export const shapeWash = res => {
 };
 
 export const shapeAgency = res => {
-  return res.sort(function(a, b){
-    if(a._id < b._id) { return -1; }
-    if(a._id > b._id) { return 1; }
-    return 0;
-  })
+  return alphabetize(res)
+    .map(item => {
+      if(item._id === 'Portland Police, North Precinct'){
+        item._id = 'PPB, North Precinct';
+      } else if(item._id === 'Portland Police, Central Precinct'){
+        item._id = 'PPB, Central Precinct';
+      } else if(item._id === 'Portland Police, East Precinct'){
+        item._id = 'PPB, East Precinct';
+      } else if(item._id === 'Portland Police, Other'){
+        item._id = 'PPB, Other';
+      } else if(item._id === 'Multnomah County Sheriff Booking'){
+        item._id = 'MCSO Booking';
+      } else if(item._id === 'Gresham Police Department'){
+        item._id = 'Gresham PD';
+      } else if(item._id === 'Drug Enforcement Administration'){
+        item._id = 'DEA';
+      } else if(item._id === 'WASHINGTON COUNTY COMM CORR'){
+        item._id = 'WACO COMM CORR';
+      } else if(item._id === 'SO WASHINGTON COUNTY JAIL'){
+        item._id = 'SO WACO JAIL';
+      } else if(item._id === 'SO WASHINGTON COUNTY'){
+        item._id = 'WACO SO';
+      }
+      return item;
+    })
     .map(item => {
       return ({
         x: item._id,

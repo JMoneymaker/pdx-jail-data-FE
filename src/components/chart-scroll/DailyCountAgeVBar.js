@@ -31,7 +31,7 @@ const DailyCountAgeVBar = () => {
             name={'age-radio'} 
             id={'age'}
             title={'Daily Snapshot'}   
-            category={'Pupulation by Age'}>
+            category={'Population by Age'}>
           </Header>
         </header>
         <VBar 
