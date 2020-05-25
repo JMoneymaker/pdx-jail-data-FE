@@ -81,12 +81,12 @@ const HBar = ({ data, county, xLabel, legend }) => {
           }}
           colorScale={['#FFFFFF', '#FFFFFF', '#FFFFFF']}
           data={[
-            { name: 'A Misdemeanor - 364 days / $6,250' },
-            { name: 'B Misdemeanor - 6 months / $2,500' },
-            { name: 'C Misdemeanor - 30 days / $1,250' },
-            { name: 'A Felony - 20 years / $375,000' },
-            { name: 'B Felony - 10 years / $250,000 ' },
-            { name: 'C Felony - 5 years / $125,000' },
+            { name: 'A Misdemeanor - 364 days +/ $6,250' },
+            { name: 'B Misdemeanor - 6 months +/ $2,500' },
+            { name: 'C Misdemeanor - 30 days +/ $1,250' },
+            { name: 'A Felony - 20 years +/ $375,000' },
+            { name: 'B Felony - 10 years +/ $250,000 ' },
+            { name: 'C Felony - 5 years +/ $125,000' },
             { name: 'U - Unclassified - Varies' }
           ]}
         /> : <></>}
