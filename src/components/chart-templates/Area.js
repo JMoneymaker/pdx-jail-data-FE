@@ -12,14 +12,19 @@ const Area = ({ data, yLabel, xLabel }) => {
         height={215}
         containerComponent={
           <VictoryVoronoiContainer
-            labels={({ datum }) => `Date: ${datum.x}\n Number Detained: ${datum.y}`}
+            // mouseFollowTooltips
+            labels={({ datum }) => `Date: ${datum.x}\n # in Detention: ${datum.y}`}
             labelComponent={
-              <VictoryTooltip  
+              <VictoryTooltip
+                cornerRadius={1.5}
+                pointerLength={12} 
                 flyoutStyle={{
-                  fontSize: 4,
+                  fontSize: 3,
                   fontFamily: 'Roboto Condensed, sans-serif',
-                  stroke: '#FFFFFF,',
-                  fill: '#FFFFFF'
+                  stroke: '#525252',
+                  strokeWidth: .5,
+                  fill: '#FFFFFF',
+                  padding: 0
                 }}
               />
             }
@@ -29,8 +34,10 @@ const Area = ({ data, yLabel, xLabel }) => {
         <VictoryArea 
           data={[...data[1]]}
           style={{
-            data: { stroke: '#252525', fill: '#252525' },
-            parent: { border: '1px solid #ccc' },
+            data: { 
+              stroke: '#FFFFFF', 
+              fill: '#252525' 
+            },
             labels: {
               fontSize: 4,
               fontFamily: 'Roboto Condensed, sans-serif',
@@ -40,8 +47,10 @@ const Area = ({ data, yLabel, xLabel }) => {
         <VictoryArea 
           data={[...data[2]]}
           style={{
-            data: { stroke: '#737373', fill: '#737373' },
-            parent: { border: '1px solid #ccc' },
+            data: { 
+              stroke: '#FFFFFF', 
+              fill: '#737373' 
+            },
             labels: {
               fontSize: 4,
               fontFamily: 'Roboto Condensed, sans-serif',
@@ -51,8 +60,9 @@ const Area = ({ data, yLabel, xLabel }) => {
         <VictoryArea 
           data={[...data[0]]}
           style={{
-            data: { stroke: '#525252', fill: '#525252' },
-            parent: { border: '1px solid #ccc' },
+            data: { 
+              stroke: '#FFFFFF', 
+              fill: '#525252' },
             labels: {
               fontSize: 4,
               fontFamily: 'Roboto Condensed, sans-serif',
@@ -61,7 +71,7 @@ const Area = ({ data, yLabel, xLabel }) => {
         />
         <VictoryAxis
           label={yLabel}
-          fixLabelOverlap={true}
+          // fixLabelOverlap={true}
           style={{
             axisLabel: { padding: 20, fontSize: 8 },
             tickLabels: {
@@ -70,7 +80,7 @@ const Area = ({ data, yLabel, xLabel }) => {
               fillOpacity: 1,
               margin: 2,
               padding: 8,
-              // angle: 40
+              angle: 40
             }
           }} 
         />
@@ -102,7 +112,9 @@ const Area = ({ data, yLabel, xLabel }) => {
           }}
           colorScale={['#252525', '#737373', '#525252']}
           data={[
-            { name: 'Multnomah' }, { name: 'Washington' }, { name: 'Clackamas' }
+            { name: 'Multnomah' }, 
+            { name: 'Washington' }, 
+            { name: 'Clackamas' }
           ]}
         />
       </VictoryChart>
