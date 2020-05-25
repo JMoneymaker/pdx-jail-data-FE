@@ -1,9 +1,9 @@
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, VictoryLegend } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const HBar = ({ data, county, xLabel }) => {
+const HBar = ({ data, county, xLabel, legend }) => {
     
   return (
     <div className={styles.ChartWrapper}>
@@ -11,7 +11,6 @@ const HBar = ({ data, county, xLabel }) => {
         domainPadding={5}
         width={400}
         height={220}
-        containerComponent={<VictoryContainer/>}
       >
         <VictoryLabel 
           text={county.toUpperCase() + ' COUNTY'}
@@ -62,6 +61,35 @@ const HBar = ({ data, county, xLabel }) => {
             }
           }}
         />
+        {legend ? <VictoryLegend 
+          x={276} y={46}
+          title="Maximum Penalty"
+          titleOrientation='top'
+          centerTitle
+          orientation="vertical"
+          // symbolSpacer={5}
+          rowGutter={{ top: -1, bottom: -1 }}
+          borderPadding={{ top: 0, bottom: 2, right: -20 }}
+          style={{ 
+            border: { stroke: 'black' },
+            labels: { 
+              fontSize: 4, 
+              fontFamily: 'Roboto Condensed, sans-serif',
+            },
+            title: { fontSize: 5 },
+            fill: 'black'
+          }}
+          colorScale={['#FFFFFF', '#FFFFFF', '#FFFFFF']}
+          data={[
+            { name: 'A Misdemeanor - 364 days / $6,250' },
+            { name: 'B Misdemeanor - 6 months / $2,500' },
+            { name: 'C Misdemeanor - 30 days / $1,250' },
+            { name: 'A Felony - 20 years / $375,000' },
+            { name: 'B Felony - 10 years / $250,000 ' },
+            { name: 'C Felony - 5 years / $125,000' },
+            { name: 'U - Unclassified - Varies' }
+          ]}
+        /> : <></>}
       </VictoryChart>
     </div>
   );
@@ -71,7 +99,8 @@ const HBar = ({ data, county, xLabel }) => {
 HBar.propTypes = {
   county: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
-  xLabel: PropTypes.string.isRequired
+  xLabel: PropTypes.string.isRequired,
+  legend: PropTypes.bool
 };
 
 export default HBar;
