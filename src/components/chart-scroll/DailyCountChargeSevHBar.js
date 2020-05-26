@@ -1,28 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../common/Header';
+import useDailyChargeSeverityCount from '../../hooks/useDailyChargeSeverity';
 import styles from './VerticalBar.css';
-import { getDailyChargeSeverityCount } from '../../services/getDailyCounts';
-import { shapeChargeSeverity } from '../../utils/dailyCounts';
 import HBar from '../chart-templates/HBar';
 
 const DailyCountChargeSevHBar = () => {
   const [county, setCounty] = useState('multnomah');
-  const [chargeSeverityData, setChargeSeverityData] = useState([]);
+  const data = useDailyChargeSeverityCount(county);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
-  useEffect(() => {
-    if(county !== 'multnomah'){
-      console.log('error');
-    } else {
-      getDailyChargeSeverityCount(county)
-        .then(res => {setChargeSeverityData(res);});
-    }
-  }, [county]);
-
-  const data = shapeChargeSeverity(chargeSeverityData);
 
   return (
     <>
