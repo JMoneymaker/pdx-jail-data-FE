@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
 
-const Pie = ({ county, data, facilityData }) => {
+const Pie = ({ county, data }) => {
 
-  const labelData = (facilityData) => {
-    return facilityData.map(facility => ({
-      name: facility._id
+  const labelData = (data) => {
+    return data.map(facility => ({
+      name: facility.x
     }));
   };
 
@@ -46,7 +46,7 @@ const Pie = ({ county, data, facilityData }) => {
           }} 
         />
         <VictoryLegend x={280} y={47}
-          data={labelData(facilityData)}
+          data={labelData(data)}
           title='Facility'
           orientation='vertical'
           gutter={0}
@@ -67,8 +67,7 @@ const Pie = ({ county, data, facilityData }) => {
 
 Pie.propTypes = {
   county: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired,
-  facilityData: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired
 };
 
 export default Pie;
