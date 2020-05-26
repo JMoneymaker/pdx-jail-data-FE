@@ -1,29 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
-import { getDailyAgencyCount } from '../../services/getDailyCounts';
-import { shapeAgency } from '../../utils/dailyCounts';
 import HBar from '../chart-templates/HBar';
+import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
 
 const DailyCountAgencyHBar = () => {
   const [county, setCounty] = useState('multnomah');
-  const [agencyData, setAgencyData] = useState([]);
+  const data = useDailyAgencyCount(county);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
-  useEffect(() => {
-    if(county === 'clackamas'){
-      console.log('error');
-    } else {
-      getDailyAgencyCount(county)
-        .then(res => {setAgencyData(res);});
-    }
-  }, [county]);
-
-  const data = shapeAgency(agencyData);
 
   return (
     <>

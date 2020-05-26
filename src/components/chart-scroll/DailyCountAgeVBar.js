@@ -25,10 +25,10 @@ const DailyCountAgeVBar = () => {
           </Header>
         </header>
         <VBar 
+          data={data}
           county={county} 
           xLabel={'Number of People in Detention'} 
           yLabel={'Age Range'}
-          data={data}
         />
       </section>
     </>
