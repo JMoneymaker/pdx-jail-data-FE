@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { getDailyAverageDetention } from '../../services/getDailyAverages';
-import { shapeMultDetAvg, shapeClackDetAvg, shapeWashDetAvg } from '../../utils/dailyAverages';
+import React, { useState } from 'react';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import styles from './VerticalBar.css';
+import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
 
 const DailyAverageDetentionHBar = () => {
   const [county, setCounty] = useState('multnomah');
-  const [rawDetentionData, setRawDetentionData] = useState([]);
+  const data = useDailyAverageDetentionByRace(county);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
-  useEffect(() => {
-    getDailyAverageDetention(county)
-      .then(res => {setRawDetentionData(res);});
-  }, [county]);
-
-  const data = (county === 'multnomah') ? shapeMultDetAvg(rawDetentionData)
-    : (county === 'clackamas') ? shapeClackDetAvg(rawDetentionData) 
-      : shapeWashDetAvg(rawDetentionData);
 
   return (
     <>
