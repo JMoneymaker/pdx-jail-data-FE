@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
-import { getDailyAgeCount } from '../../services/getDailyCounts';
-import { shapeAge } from '../../utils/dailyCounts';
+import useDailyAge from '../../hooks/useDailyAgeRange';
 import styles from './VerticalBar.css';
 
 const DailyCountAgeVBar = () => {
   const [county, setCounty] = useState('multnomah');
-  const [rawAgeData, setRawAgeData] = useState([]);
+  const data = useDailyAge(county);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
-  useEffect(() => {
-    getDailyAgeCount(county)
-      .then(res => {setRawAgeData(res);});
-  }, [county]);
-
-  const data = shapeAge(rawAgeData);
   
   return (
     <>
@@ -36,9 +28,10 @@ const DailyCountAgeVBar = () => {
         </header>
         <VBar 
           county={county} 
-          data={data} 
           xLabel={'Number of People in Detention'} 
-          yLabel={'Age Range'} />
+          yLabel={'Age Range'}
+          data={data}
+        />
       </section>
     </>
   );
