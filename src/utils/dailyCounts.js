@@ -1,8 +1,6 @@
 // let numbers = [0, 1, 2, 3, 10, 20, 30];
 // numbers.sort((a, b) => a - b);
 
-import { shape } from 'prop-types';
-
 const moment = require('moment');
 moment().format();
 
@@ -242,7 +240,7 @@ export const shapeChargeSeverity = res => {
   });
 };
 
-export const shapeDescription = res => {
+export const shapeChargeDescription = res => {
   return res.map((item, i) => {
     while(i <= 19)
       return ({
