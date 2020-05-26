@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import useDailyAge from '../../hooks/useDailyAgeRange';
@@ -18,7 +17,6 @@ const DailyCountAgeVBar = () => {
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header 
-            upDateHook={useUpDated} 
             handleChange={handleChange} 
             name={'age-radio'} 
             id={'age'}
