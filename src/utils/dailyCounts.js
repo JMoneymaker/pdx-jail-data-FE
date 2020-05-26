@@ -1,3 +1,6 @@
+// let numbers = [0, 1, 2, 3, 10, 20, 30];
+// numbers.sort((a, b) => a - b);
+
 const moment = require('moment');
 moment().format();
 
@@ -72,10 +75,11 @@ export const findUpDate = res => {
   return moment(lastUpdated).format('MMMM Do YYYY, h:mm a');
 };
 
+
 const alphabetize = res => {
-  return res.sort(function(a, b){
-    if(a._id < b._id) { return -1; }
-    if(a._id > b._id) { return 1; }
+  return res.sort((a, b) => {
+    if(a._id > b._id) return 1;
+    if(a._id < b._id) return -1;
     return 0;
   });
 };
@@ -164,9 +168,9 @@ export const shapeAgency = res => {
 };
 
 export const shapeFacility = res => {
-  return res.sort(function(a, b){
-    if(a._id < b._id) { return -1; }
-    if(a._id > b._id) { return 1; }
+  return res.sort((a, b) => {
+    if(a._id > b._id) return 1;
+    if(a._id < b._id) return -1; 
     return 0;
   })
     .map(item => {
@@ -194,11 +198,8 @@ export const shapeFacility = res => {
 };
 
 export const shapeAge = res => {
-  return res.sort(function(a, b){
-    if(a._id < b._id) { return -1; }
-    if(a._id > b._id) { return 1; }
-    return 0;
-  })
+  console.log(res);
+  return res
     .map(item => {
       if(item._id === 0){
         item._id = 'Under 18';
@@ -218,10 +219,12 @@ export const shapeAge = res => {
         item._id = '46 - 50';
       } else if(item._id === 51){
         item._id = '51 - 60';
+      } else if(item._id === 56){
+        item._id = '56 - 60';
       } else if(item._id === 61){
         item._id = '61 - 65';
       } else {
-        item._id = '65 +';
+        item._id = 'Over 65';
       }
       return item;
     })
