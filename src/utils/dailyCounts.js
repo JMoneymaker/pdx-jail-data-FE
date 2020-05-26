@@ -168,11 +168,7 @@ export const shapeAgency = res => {
 };
 
 export const shapeFacility = res => {
-  return res.sort((a, b) => {
-    if(a._id > b._id) return 1;
-    if(a._id < b._id) return -1; 
-    return 0;
-  })
+  return alphabetize(res)
     .map(item => {
       if(item._id === 'MCDC'){
         item._id = 'Multnomah County' + '\n' + 'Detention Center';
@@ -198,7 +194,6 @@ export const shapeFacility = res => {
 };
 
 export const shapeAge = res => {
-  console.log(res);
   return res
     .map(item => {
       if(item._id === 0){
