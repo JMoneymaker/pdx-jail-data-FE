@@ -19,7 +19,7 @@ export const getDailyRaceCount = county => {
 };
 
 export const getDailyCount = (county, category) => {
-  return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/${category}`)
+  return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/daily${category}Count`)
     .then(res => res.json());
 };
 

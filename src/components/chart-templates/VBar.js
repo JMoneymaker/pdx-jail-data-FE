@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const VBar = ({ data, county, yLabel, xLabel }) => {
-    
+
   return (
     <VictoryChart
       domainPadding={25}
