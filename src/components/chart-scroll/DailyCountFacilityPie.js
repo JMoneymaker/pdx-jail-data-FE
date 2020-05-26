@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { getDailyFacilityCount } from '../../services/getDailyCounts';
-import { shapeFacility } from '../../utils/dailyCounts';
+import React, { useState } from 'react';
+import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 import Header from '../common/Header';
 import Pie from '../chart-templates/Pie';
 import styles from './VerticalBar.css';
 
 const DailyCountFacilityPie = () => {
   const [county, setCounty] = useState('multnomah');
-  const [facilityData, setFacilityData] = useState([]);
-
-  useEffect(() => {
-    getDailyFacilityCount(county)
-      .then(res => {setFacilityData(res);});
-  }, [county]);
+  const data = useDailyCountFacility(county);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
-  const data = shapeFacility(facilityData);
 
   return (
     <>
@@ -35,7 +27,7 @@ const DailyCountFacilityPie = () => {
         <Pie 
           county={county} 
           data={data} 
-          facilityData={facilityData}/>
+        />
       </section>
     </>
   );
