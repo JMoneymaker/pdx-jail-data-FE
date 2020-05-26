@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { getDailyRaceCount } from '../../services/getDailyCounts';
-import { shapeWash, shapeClack, shapeMult } from '../../utils/dailyCounts';
+import React, { useState } from 'react';
+import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import styles from './VerticalBar.css';
 
 const DailyCountRaceVBar = () => {
   const [county, setCounty] = useState('multnomah');
-  const [rawRaceData, setRawRaceData] = useState([]);
+  const data = useDailyRaceCount(county);
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
-  useEffect(() => {
-    getDailyRaceCount(county)
-      .then(res => {setRawRaceData(res);});
-  }, [county]);
-
-  const data = (county === 'multnomah') ? shapeMult(rawRaceData)
-    : (county === 'clackamas') ? shapeClack(rawRaceData) 
-      : shapeWash(rawRaceData); 
 
   return (
     <>
