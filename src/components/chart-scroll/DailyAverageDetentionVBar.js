@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
+import { CSVLink } from 'react-csv';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import styles from './VerticalBar.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
+import useCSVUpdated from '../../hooks/useCSVUpdated';
 
 const DailyAverageDetentionHBar = () => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyAverageDetentionByRace(county);
+  const updated = useCSVUpdated();
+  const csvData = data.map(item => {
+    return ({
+      date: updated,
+      county: county,
+      stay: item.x,
+      count: item.y
+    });
+  });
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
@@ -23,15 +34,18 @@ const DailyAverageDetentionHBar = () => {
             title={'Daily Snapshot'}
             category={'Average Length of Stay by Race'}> 
           </Header>
+          <CSVLink 
+            data={[...csvData]}
+            filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
+            target='_blank'
+          >Download Data</CSVLink>
         </header>
         <section className={styles.chartWrapper}>
-          {!data ? <div>data not available</div> :
-            <VBar 
-              data={data} 
-              county={county} 
-              xLabel={'Number of Days in Detention'} 
-              yLabel={'Race'} />
-          }
+          <VBar 
+            data={data} 
+            county={county} 
+            xLabel={'Number of Days in Detention'} 
+            yLabel={'Race'} />
         </section>
       </section>
     </>
