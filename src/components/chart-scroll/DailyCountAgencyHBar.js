@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
-import useUpDated from '../../hooks/useUpDated';
+import { CSVLink } from 'react-csv';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
 import HBar from '../chart-templates/HBar';
 import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
+import useCSVUpdated from '../../hooks/useCSVUpdated';
 
 const DailyCountAgencyHBar = () => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyAgencyCount(county);
+  const updated = useCSVUpdated();
+  const csvData = data.map(item => {
+    return ({
+      date: updated,
+      county: county,
+      agency: item.x,
+      count: item.y
+    });
+  });
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
@@ -18,13 +28,17 @@ const DailyCountAgencyHBar = () => {
       <section className={styles.VerticalBar}>
         <header className={styles.headWrapper}>
           <Header 
-            upDateHook={useUpDated}
             handleChange={handleChange}
             name={'agency-radio'} 
             id={'agency'}
             title={'Daily Snapshot'}   
             category={'Population by Arresting Agency'}>
           </Header>
+          <CSVLink 
+            data={[...csvData]}
+            filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
+            target='_blank'
+          >Download Data</CSVLink>
         </header>
         <section className={styles.chartArea}>
           {county === 'clackamas' ? 
