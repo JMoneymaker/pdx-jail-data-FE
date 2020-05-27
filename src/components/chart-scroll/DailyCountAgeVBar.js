@@ -14,7 +14,7 @@ const DailyCountAgeVBar = () => {
     return ({
       date: upDated,
       county: county,
-      'age-range': item.x,
+      age: item.x,
       count: item.y
     });
   });

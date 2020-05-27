@@ -268,12 +268,3 @@ export const findCSVUpDate = res => {
   const lastUpdated = res[i].date;
   return moment(lastUpdated).format('YYYY-MM-DD');
 };
-
-export const makeCSVDailyAge = ageData => {
-  return ageData.map(item => {
-    return ({
-      ageRange: item.x,
-      count: item.y
-    });
-  });
-};
