@@ -75,23 +75,6 @@ export const findUpDate = res => {
   return moment(lastUpdated).format('MMMM Do YYYY, h:mm a');
 };
 
-export const makeCSVData = counts => {
-  return counts.map(count => {
-    return ({
-      date: moment(count.date).format('YYYY-MM-DD'),
-      clackamas: count.clackamas,
-      multnomah: count.multnomah,
-      washington: count.washington
-    });
-  });
-};
-
-export const findCSVUpDate = res => {
-  const i = res.length - 1;
-  const lastUpdated = res[i].date;
-  return moment(lastUpdated).format('YYYY-MM-DD');
-};
-
 const alphabetize = res => {
   return res.sort((a, b) => {
     if(a._id > b._id) return 1;
@@ -267,4 +250,30 @@ export const shapeChargeDescription = res => {
   });
 };
 
+//CSV Shapers
 
+export const makeCSVTriCountyTrend = counts => {
+  return counts.map(count => {
+    return ({
+      date: moment(count.date).format('YYYY-MM-DD'),
+      clackamas: count.clackamas,
+      multnomah: count.multnomah,
+      washington: count.washington
+    });
+  });
+};
+
+export const findCSVUpDate = res => {
+  const i = res.length - 1;
+  const lastUpdated = res[i].date;
+  return moment(lastUpdated).format('YYYY-MM-DD');
+};
+
+export const makeCSVDailyAge = ageData => {
+  return ageData.map(item => {
+    return ({
+      ageRange: item.x,
+      count: item.y
+    });
+  });
+};
