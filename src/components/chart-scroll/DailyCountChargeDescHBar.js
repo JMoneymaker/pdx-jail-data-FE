@@ -16,8 +16,8 @@ const DailyCountChargeDescHBar = () => {
     return ({
       date: updated,
       county: county,
-      count: item.x,
-      charge: item.y
+      charge: item.x,
+      count: item.y
     });
   });
 
