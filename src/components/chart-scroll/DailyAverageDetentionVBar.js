@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { CSVLink } from 'react-csv';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
+import CSV from '../common/CSV';
 import styles from './VerticalBar.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
 import useCSVUpdated from '../../hooks/useCSVUpdated';
-import downloadImage from '../../assets/download.png';
 
 const DailyAverageDetentionHBar = () => {
   const [county, setCounty] = useState('multnomah');
@@ -35,12 +34,11 @@ const DailyAverageDetentionHBar = () => {
             title={'Daily Snapshot'}
             category={'Average Length of Stay by Race'}> 
           </Header>
-          <CSVLink 
+          <CSV
             data={[...csvData]}
             filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
-            target='_blank'
-          ><p className={styles.downloadContainer}><img className={styles.downloadImage} src={downloadImage} alt='download' /><span className={styles.toolTip}>Download Data</span></p>
-          </CSVLink>
+          >
+          </CSV>
         </header>
         <section className={styles.chartWrapper}>
           <VBar 

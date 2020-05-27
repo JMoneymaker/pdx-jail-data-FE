@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CSVLink } from 'react-csv';
+import CSV from '../common/CSV';
 import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
@@ -35,11 +35,10 @@ const DailyCountRaceVBar = () => {
             title={'Daily Snapshot'}
             category={'Population by Race'}> 
           </Header>
-          <CSVLink 
+          <CSV 
             data={[...csvData]}
-            filename={`jdpdx-daily-race-${updated}-${county}.csv`}
-            target='_blank'
-          >Download Data</CSVLink>
+            filename={`jdpdx-daily-race-${updated}-${county}.csv`}>
+          </CSV>
         </header>
         <VBar 
           county={county} 

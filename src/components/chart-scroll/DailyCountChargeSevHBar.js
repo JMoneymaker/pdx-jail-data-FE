@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CSVLink } from 'react-csv';
+import CSV from '../common/CSV';
 import Header from '../common/Header';
 import useDailyChargeSeverityCount from '../../hooks/useDailyChargeSeverity';
 import styles from './VerticalBar.css';
@@ -36,11 +36,10 @@ const DailyCountChargeSevHBar = () => {
             title={'Daily Snapshot'}
             category={'Population by Top Charge'}> 
           </Header>
-          <CSVLink 
+          <CSV 
             data={[...csvData]}
-            filename={`jdpdx-daily-chargeSeverity-${updated}-${county}.csv`}
-            target='_blank'
-          >Download Data</CSVLink>
+            filename={`jdpdx-daily-chargeSeverity-${updated}-${county}.csv`}>
+          </CSV>
         </header>
         <section className={styles.chartArea}>
           {county === 'multnomah' ?

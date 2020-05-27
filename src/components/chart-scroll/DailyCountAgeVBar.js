@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CSVLink } from 'react-csv';
+import CSV from '../common/CSV';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import useDailyAge from '../../hooks/useDailyAgeRange';
@@ -34,11 +34,10 @@ const DailyCountAgeVBar = () => {
             title={'Daily Snapshot'}   
             category={'Population by Age'}>
           </Header>
-          <CSVLink 
+          <CSV 
             data={[...csvData]}
             filename={`jdpdx-daily-age-count-${upDated}-${county}.csv`}
-            target='_blank'
-          >Download Data</CSVLink>
+          ></CSV>
         </header>
         <VBar 
           data={data}

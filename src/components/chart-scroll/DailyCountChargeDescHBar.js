@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CSVLink } from 'react-csv';
+import CSV from '../common/CSV';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
@@ -38,11 +38,10 @@ const DailyCountChargeDescHBar = () => {
             category={'Most Common Charges'}   
           >
           </Header>
-          <CSVLink 
+          <CSV 
             data={[...csvData]}
             filename={`jdpdx-daily-chargeDescription-${updated}-${county}.csv`}
-            target='_blank'
-          >Download Data</CSVLink>
+          ></CSV>
         </header>
         <section className={styles.chartArea}>
           {county === 'multnomah' ?

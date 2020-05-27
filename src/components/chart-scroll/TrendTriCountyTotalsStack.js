@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import CSV from '../common/CSV';
 import styles from './VerticalBar.css';
 import Area from '../chart-templates/Area';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
+import useCSVTriCountyTrend from '../../hooks/useCSVTriCountyTrend';
+import useCSVUpdated from '../../hooks/useCSVUpdated';
+
 import HeaderBasic from '../common/HeaderBasic';
 
 const TrendTriCountyTotalsStack = () => {
   const [rawTrendData, setRawTrendData] = useState([]);
+  const CSVData = useCSVTriCountyTrend();
+  const upDated = useCSVUpdated();
+
 
   useEffect(() => {
     getDailyCounts()
@@ -42,6 +49,10 @@ const TrendTriCountyTotalsStack = () => {
             category={'Daily Population Total'}
           > 
           </HeaderBasic >
+          <CSV 
+            data={[...CSVData]}
+            filename={`jdpdx-TriCountyTotals-${upDated}.csv`}>
+          </CSV>
         </header>
         <Area 
           data={data}
