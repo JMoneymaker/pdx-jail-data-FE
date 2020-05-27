@@ -240,13 +240,20 @@ export const shapeChargeSeverity = res => {
 };
 
 export const shapeChargeDescription = res => {
-  return res.map((item, i) => {
-    while(i <= 19)
-      return ({
-        x: item._id,
-        y: item.description
-      });
-    return null;
+  return res.map((item,) => {
+    return ({
+      x: item._id,
+      y: item.description
+    });
+  });
+};
+
+export const shapeCSVCharge = res => {
+  return res.map((item) => {
+    return ({
+      x: item._id,
+      y: item.description
+    });
   });
 };
 
