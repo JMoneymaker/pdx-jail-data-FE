@@ -75,6 +75,22 @@ export const findUpDate = res => {
   return moment(lastUpdated).format('MMMM Do YYYY, h:mm a');
 };
 
+export const makeCSVData = counts => {
+  return counts.map(count => {
+    return ({
+      date: moment(count.date).format('YYYY-MM-DD'),
+      clackamas: count.clackamas,
+      multnomah: count.multnomah,
+      washington: count.washington
+    });
+  });
+};
+
+export const findCSVUpDate = res => {
+  const iT = res.length - 1;
+  const lastUpdated = res[iT].date;
+  return moment(lastUpdated).format('YYYY-MM-DD');
+};
 
 const alphabetize = res => {
   return res.sort((a, b) => {
