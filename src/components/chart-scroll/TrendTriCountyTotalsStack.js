@@ -43,9 +43,10 @@ const TrendTriCountyTotalsStack = () => {
           > 
           </HeaderBasic >
         </header>
-        <Area data={data}
+        <Area 
+          data={data}
           xLabel={'Number of People in Detention'} 
-          yLabel={'Date'}
+          yLabel={'Race'}
         />
       </section>
     </>

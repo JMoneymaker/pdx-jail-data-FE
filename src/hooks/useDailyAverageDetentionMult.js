@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react';
-import { dailyDetentionAverageByRace } from '../services/getTriCountyDaily';
+import { getDailyAverageDetentionByRace } from '../services/getDailyAverages';
+import { shapeMultDetAvg, shapeClackDetAvg, shapeWashDetAvg } from '../utils/dailyAverages';
 
-const useDailyAverage = () => {
-  const [average, setAverage] = useState('0');
 
-  const fetchDailyAverage = () => {
-    dailyDetentionAverageByRace()
+const useDailyAverageDetentionByRace = county => {
+  const [average, setAverage] = useState([]);
+
+  const fetchDailyAverageDetentionByRace = () => {
+    getDailyAverageDetentionByRace(county)
+      .then((county === 'multnomah') ? shapeMultDetAvg
+        : (county === 'clackamas') ? shapeClackDetAvg
+          : shapeWashDetAvg)
       .then(setAverage);  
   };
 
-  useEffect(fetchDailyAverage, []);
-  return { average };
+  useEffect(fetchDailyAverageDetentionByRace, [county]);
+  return average;
 };
 
-export default useDailyAverage;
+export default useDailyAverageDetentionByRace;

@@ -1,4 +1,4 @@
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, VictoryLegend } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel, VictoryLegend } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Charts.css';
