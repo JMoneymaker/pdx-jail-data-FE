@@ -39,7 +39,7 @@ const DailyAverageDetentionHBar = () => {
             data={[...csvData]}
             filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
             target='_blank'
-          ><p className={styles.downloadContainer}><img className={styles.downloadImage} src={downloadImage} /><span className={styles.toolTip}>Download Data</span></p>
+          ><p className={styles.downloadContainer}><img className={styles.downloadImage} src={downloadImage} alt='download' /><span className={styles.toolTip}>Download Data</span></p>
           </CSVLink>
         </header>
         <section className={styles.chartWrapper}>
