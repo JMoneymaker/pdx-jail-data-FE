@@ -13,7 +13,7 @@ const RadioControls = ({ handleChange, name, id }) => {
         id={id + '-clackamas'}
         onChange={handleChange}
       />
-      <label htmlFor={id + '-clackamas'}>Clackamas</label>
+      <label htmlFor={id + '-clackamas'}>C</label>
 
       <input
         type='radio'
@@ -23,7 +23,7 @@ const RadioControls = ({ handleChange, name, id }) => {
         defaultChecked
         onChange={handleChange}
       />
-      <label htmlFor={id + '-multnomah'}>Multnomah</label>
+      <label htmlFor={id + '-multnomah'}>M</label>
 
       <input
         type='radio'
@@ -32,7 +32,7 @@ const RadioControls = ({ handleChange, name, id }) => {
         id={id + '-washington'}
         onChange={handleChange}
       />
-      <label htmlFor={id + '-washington'}>Washington</label>
+      <label htmlFor={id + '-washington'}>W</label>
     </div>
   );
 };
