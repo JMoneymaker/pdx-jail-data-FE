@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
 import { getCSV } from '../services/getCSV';
-import dummyData from '../data/daily-counts';
+import { makeCSVData } from '../utils/dailyCounts';
 
 const useCSV = () => {
-  const [downLoadData, setDownLoadData] = useState([dummyData]);
+  const [data, setData] = useState([]);
 
   const fetchCSV = () => {
     getCSV()
-    //shape CSV?
-      .then(setDownLoadData);
+      .then(makeCSVData)
+      .then(setData);
   };
 
   useEffect(fetchCSV, []);
-  console.log(downLoadData);
-  return downLoadData;
+  return data;
 };
 
 export default useCSV;
