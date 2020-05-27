@@ -34,11 +34,13 @@ const DailyAverageDetentionHBar = () => {
             title={'Daily Snapshot'}
             category={'Average Length of Stay by Race'}> 
           </Header>
-          <CSV
-            data={[...csvData]}
-            filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
-          >
-          </CSV>
+          <div className={styles.csvWrapper}>
+            <CSV
+              data={[...csvData]}
+              filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
+            >
+            </CSV>
+          </div>
         </header>
         <section className={styles.chartWrapper}>
           <VBar 

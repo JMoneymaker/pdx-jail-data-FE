@@ -9,7 +9,7 @@ const Header = ({ title, category, handleChange, name, id }) => {
   const date = upDated.slice(0, 13);
 
   return (
-    <>
+    <div className={styles.headerWrapper}>
       <header className={styles.titleWrapper}>
         <h4>{title} - {date}</h4>
         <h3>{category}</h3>
@@ -18,7 +18,7 @@ const Header = ({ title, category, handleChange, name, id }) => {
         handleChange={handleChange}  
         name={name}  
         id={id} />
-    </>
+    </div>
   );
 };
 
