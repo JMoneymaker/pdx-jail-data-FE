@@ -5,6 +5,7 @@ import VBar from '../chart-templates/VBar';
 import styles from './VerticalBar.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
 import useCSVUpdated from '../../hooks/useCSVUpdated';
+import downloadImage from '../../assets/download.png';
 
 const DailyAverageDetentionHBar = () => {
   const [county, setCounty] = useState('multnomah');
@@ -38,7 +39,8 @@ const DailyAverageDetentionHBar = () => {
             data={[...csvData]}
             filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
             target='_blank'
-          >Download Data</CSVLink>
+          ><p className={styles.downloadContainer}><img className={styles.downloadImage} src={downloadImage} /><span className={styles.toolTip}>Download Data</span></p>
+          </CSVLink>
         </header>
         <section className={styles.chartWrapper}>
           <VBar 

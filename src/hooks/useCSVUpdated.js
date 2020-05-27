@@ -3,7 +3,7 @@ import { getDailyCounts } from '../services/getTriCountyDaily';
 import { findCSVUpDate } from '../utils/dailyCounts';
 
 const useCSVUpdated = () => {
-  const [upDated, setUpDated] = useState('loading');
+  const [upDated, setUpDated] = useState();
 
   const fetchWashToday = () => {
     getDailyCounts()
