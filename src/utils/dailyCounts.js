@@ -87,8 +87,8 @@ export const makeCSVData = counts => {
 };
 
 export const findCSVUpDate = res => {
-  const iT = res.length - 1;
-  const lastUpdated = res[iT].date;
+  const i = res.length - 1;
+  const lastUpdated = res[i].date;
   return moment(lastUpdated).format('YYYY-MM-DD');
 };
 
