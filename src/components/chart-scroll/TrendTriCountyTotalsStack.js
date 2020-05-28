@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import CSV from '../common/CSV';
 import styles from './VerticalBar.css';
 import Area from '../chart-templates/Area';
@@ -7,7 +8,7 @@ import useCSVTriCountyTrend from '../../hooks/useCSVTriCountyTrend';
 
 import HeaderBasic from '../common/HeaderBasic';
 
-const TrendTriCountyTotalsStack = (updated) => {
+const TrendTriCountyTotalsStack = ({ updated }) => {
   const [rawTrendData, setRawTrendData] = useState([]);
   const CSVData = useCSVTriCountyTrend();
 
@@ -55,11 +56,15 @@ const TrendTriCountyTotalsStack = (updated) => {
         <Area 
           data={data}
           xLabel={'Number of People in Detention'} 
-          yLabel={'Race'}
+          yLabel={'Date'}
         />
       </section>
     </>
   );
+};
+
+TrendTriCountyTotalsStack.propTypes = {
+  updated: PropTypes.string.isRequired
 };
 
 export default TrendTriCountyTotalsStack;

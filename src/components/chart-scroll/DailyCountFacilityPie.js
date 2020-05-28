@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import CSV from '../common/CSV';
 import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 import Header from '../common/Header';
 import Pie from '../chart-templates/Pie';
 import styles from './VerticalBar.css';
 
-const DailyCountFacilityPie = (updated) => {
+const DailyCountFacilityPie = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyCountFacility(county);
 
@@ -46,6 +47,10 @@ const DailyCountFacilityPie = (updated) => {
       </section>
     </>
   );
+};
+
+DailyCountFacilityPie.propTypes = {
+  updated: PropTypes.string.isRequired
 };
 
 export default DailyCountFacilityPie;

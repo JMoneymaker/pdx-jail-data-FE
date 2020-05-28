@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import CSV from '../common/CSV';
 import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import styles from './VerticalBar.css';
 
-const DailyCountRaceVBar = (updated) => {
+const DailyCountRaceVBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyRaceCount(county);
 
@@ -46,6 +47,10 @@ const DailyCountRaceVBar = (updated) => {
       </section>
     </>
   );
+};
+
+DailyCountRaceVBar.propTypes = {
+  updated: PropTypes.string.isRequired
 };
 
 export default DailyCountRaceVBar;

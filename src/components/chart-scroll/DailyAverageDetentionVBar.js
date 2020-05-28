@@ -6,7 +6,7 @@ import CSV from '../common/CSV';
 import styles from './VerticalBar.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
 
-const DailyAverageDetentionHBar = (updated) => {
+const DailyAverageDetentionHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyAverageDetentionByRace(county);
 

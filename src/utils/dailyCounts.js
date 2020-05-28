@@ -234,7 +234,7 @@ export const shapeChargeSeverity = res => {
   return res.map(item => {
     return ({
       x: item._id,
-      y: item.category
+      y: item.total
     });
   });
 };
@@ -243,7 +243,7 @@ export const shapeChargeDescription = res => {
   return res.map((item,) => {
     return ({
       x: item._id,
-      y: item.description
+      y: item.total
     });
   });
 };
@@ -252,7 +252,7 @@ export const shapeCSVCharge = res => {
   return res.map((item) => {
     return ({
       x: item._id,
-      y: item.description
+      y: item.total
     });
   });
 };

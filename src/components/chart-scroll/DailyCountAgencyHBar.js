@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import CSV from '../common/CSV';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
@@ -6,7 +7,7 @@ import HBar from '../chart-templates/HBar';
 import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
 import ChartLoading from '../common/ChartLoading';
 
-const DailyCountAgencyHBar = (updated) => {
+const DailyCountAgencyHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyAgencyCount(county);
   const csvData = data.map(item => {
@@ -52,6 +53,11 @@ const DailyCountAgencyHBar = (updated) => {
     </>
   );
 };
+
+DailyCountAgencyHBar.propTypes = {
+  updated: PropTypes.string.isRequired
+};
+
 
 export default DailyCountAgencyHBar;
 

@@ -24,11 +24,16 @@ export const getDailyCount = (county, category) => {
 };
 
 export const getDailyChargeSeverityCount = county => {
-  return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyChargeCount`)
+  return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyChargeCategory`)
     .then(res => res.json());
 };
 
 export const getDailyChargeDescriptions = county => {
   return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyChargeDescriptions`)
+    .then(res => res.json());
+};
+
+export const getDailyTopCharges = county => {
+  return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/top20charges`)
     .then(res => res.json());
 };

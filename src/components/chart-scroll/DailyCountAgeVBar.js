@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import CSV from '../common/CSV';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import useDailyAge from '../../hooks/useDailyAgeRange';
 import styles from './VerticalBar.css';
 
-const DailyCountAgeVBar = (updated) => {
+const DailyCountAgeVBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyAge(county);
   const csvData = data.map(item => {
@@ -46,6 +47,10 @@ const DailyCountAgeVBar = (updated) => {
       </section>
     </>
   );
+};
+
+DailyCountAgeVBar.propTypes = {
+  updated: PropTypes.string.isRequired
 };
 
 export default DailyCountAgeVBar;

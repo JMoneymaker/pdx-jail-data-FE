@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import CSV from '../common/CSV';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
@@ -6,7 +7,7 @@ import styles from './VerticalBar.css';
 import HBar from '../chart-templates/HBar';
 import useDailyChargeDescription from '../../hooks/useDailyChargeDescription';
 
-const DailyCountChargeDescHBar = (updated) => {
+const DailyCountChargeDescHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const chargeDescriptions = useDailyChargeDescription(county);
 
@@ -42,17 +43,20 @@ const DailyCountChargeDescHBar = (updated) => {
           ></CSV>
         </header>
         <section className={styles.chartArea}>
-          {county === 'multnomah' ?
-            <HBar 
-              data={chargeDescriptions.slice(0, 20)} 
-              county={county} 
-              xLabel={'Number of people in Detention'} /> 
-            : <div className={styles.countyError}>No Data Available</div> }
+          <HBar 
+            data={chargeDescriptions} 
+            county={county} 
+            xLabel={'Number of people in Detention'} /> 
         </section>
       </section>
     </>
   );
 };
+
+DailyCountChargeDescHBar.propTypes = {
+  updated: PropTypes.string.isRequired
+};
+
 
 export default DailyCountChargeDescHBar;
 
