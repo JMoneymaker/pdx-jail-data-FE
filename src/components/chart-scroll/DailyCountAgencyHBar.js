@@ -4,10 +4,11 @@ import Header from '../common/Header';
 import styles from './VerticalBar.css';
 import HBar from '../chart-templates/HBar';
 import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
+import ChartLoading from '../common/ChartLoading';
 
 const DailyCountAgencyHBar = (updated) => {
   const [county, setCounty] = useState('multnomah');
-  const data = useDailyAgencyCount(county);
+  const [data, loading] = useDailyAgencyCount(county);
   const csvData = data.map(item => {
     return ({
       date: updated,
@@ -37,14 +38,16 @@ const DailyCountAgencyHBar = (updated) => {
             filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
           ></CSV>
         </header>
-        <section className={styles.chartArea}>
-          {county === 'clackamas' ? 
-            <div className={styles.countyError}>No Data Available</div> 
-            : <HBar 
-              data={data} 
-              county={county} 
-              xLabel={'Number of People in Detention'} />}
-        </section>
+        {loading ? <ChartLoading /> :
+          <section className={styles.chartArea}>
+            {county === 'clackamas' ? 
+              <div className={styles.countyError}>No Data Available</div> 
+              : <HBar 
+                data={data} 
+                county={county} 
+                xLabel={'Number of People in Detention'} />}
+          </section>
+        }
       </section>
     </>
   );
