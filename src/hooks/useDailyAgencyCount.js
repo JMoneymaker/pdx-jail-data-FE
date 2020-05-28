@@ -7,15 +7,15 @@ const useDailyAgencyCount = county => {
   const [loading, setLoading] = useState(true);
 
   const fetchDailyAgencyCount = () => {
-    setLoading(true);
     if(county === 'clackamas'){
       console.log('error');
     } else {
+      setLoading(true);
       getDailyAgencyCount(county)
         .then(shapeAgency)
-        .then(setAgencyData);
+        .then(setAgencyData)
+        .finally(setLoading(false));
     }
-    setLoading(false);
   };
   
   useEffect(fetchDailyAgencyCount, [county]);

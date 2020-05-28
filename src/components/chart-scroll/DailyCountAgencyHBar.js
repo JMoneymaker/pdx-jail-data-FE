@@ -4,7 +4,7 @@ import Header from '../common/Header';
 import styles from './VerticalBar.css';
 import HBar from '../chart-templates/HBar';
 import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
-import Loading from '../common/Loading';
+import ChartLoading from '../common/ChartLoading';
 
 const DailyCountAgencyHBar = (updated) => {
   const [county, setCounty] = useState('multnomah');
@@ -38,7 +38,7 @@ const DailyCountAgencyHBar = (updated) => {
             filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
           ></CSV>
         </header>
-        {loading ? <Loading /> :
+        {loading ? <ChartLoading /> :
           <section className={styles.chartArea}>
             {county === 'clackamas' ? 
               <div className={styles.countyError}>No Data Available</div> 
