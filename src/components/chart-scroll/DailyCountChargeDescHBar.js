@@ -5,12 +5,10 @@ import Header from '../common/Header';
 import styles from './VerticalBar.css';
 import HBar from '../chart-templates/HBar';
 import useDailyChargeDescription from '../../hooks/useDailyChargeDescription';
-import useCSVUpdated from '../../hooks/useCSVUpdated';
 
-const DailyCountChargeDescHBar = () => {
+const DailyCountChargeDescHBar = (updated) => {
   const [county, setCounty] = useState('multnomah');
   const chargeDescriptions = useDailyChargeDescription(county);
-  const updated = useCSVUpdated();
 
   const csvData = chargeDescriptions.map(item => {
     return ({

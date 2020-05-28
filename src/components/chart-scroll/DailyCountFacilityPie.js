@@ -4,13 +4,10 @@ import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 import Header from '../common/Header';
 import Pie from '../chart-templates/Pie';
 import styles from './VerticalBar.css';
-import useCSVUpdated from '../../hooks/useCSVUpdated';
 
-
-const DailyCountFacilityPie = () => {
+const DailyCountFacilityPie = (updated) => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyCountFacility(county);
-  const updated = useCSVUpdated();
 
   const csvData = data.map(item => {
     return ({

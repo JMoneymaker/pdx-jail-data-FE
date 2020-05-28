@@ -4,15 +4,13 @@ import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import useDailyAge from '../../hooks/useDailyAgeRange';
 import styles from './VerticalBar.css';
-import useCSVUpdated from '../../hooks/useCSVUpdated';
 
-const DailyCountAgeVBar = () => {
+const DailyCountAgeVBar = (updated) => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyAge(county);
-  const upDated = useCSVUpdated();
   const csvData = data.map(item => {
     return ({
-      date: upDated,
+      date: updated,
       county: county,
       age: item.x,
       count: item.y
@@ -36,7 +34,7 @@ const DailyCountAgeVBar = () => {
           </Header>
           <CSV 
             data={[...csvData]}
-            filename={`jdpdx-daily-age-count-${upDated}-${county}.csv`}
+            filename={`jdpdx-daily-age-count-${updated}-${county}.csv`}
           ></CSV>
         </header>
         <VBar 

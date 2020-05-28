@@ -4,12 +4,10 @@ import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import styles from './VerticalBar.css';
-import useCSVUpdated from '../../hooks/useCSVUpdated';
 
-const DailyCountRaceVBar = () => {
+const DailyCountRaceVBar = (updated) => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyRaceCount(county);
-  const updated = useCSVUpdated();
 
   const csvData = data.map(item => {
     return ({

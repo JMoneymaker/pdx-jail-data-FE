@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import CSV from '../common/CSV';
 import styles from './VerticalBar.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
-import useCSVUpdated from '../../hooks/useCSVUpdated';
 
-const DailyAverageDetentionHBar = () => {
+const DailyAverageDetentionHBar = (updated) => {
   const [county, setCounty] = useState('multnomah');
   const data = useDailyAverageDetentionByRace(county);
-  const updated = useCSVUpdated();
+
   const csvData = data.map(item => {
     return ({
       date: updated,
@@ -52,6 +52,10 @@ const DailyAverageDetentionHBar = () => {
       </section>
     </>
   );
+};
+
+DailyAverageDetentionHBar.propTypes = {
+  updated: PropTypes.string.isRequired
 };
 
 export default DailyAverageDetentionHBar;
