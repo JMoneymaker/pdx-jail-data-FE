@@ -33,7 +33,7 @@ const DailyCountChargeSevHBar = ({ updated }) => {
             name={'charge-radio'}
             id={'charge'}
             title={'Daily Snapshot'}
-            category={'Population by Top Charge'}> 
+            category={'Population by Top Charge Severity'}> 
           </Header>
           <CSV 
             data={[...csvData]}

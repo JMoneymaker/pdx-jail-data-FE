@@ -10,7 +10,7 @@ const Area = ({ data, yLabel, xLabel }) => {
     <div className={styles.ChartWrapper}>
       <VictoryChart
         width={400}
-        height={255}
+        height={245}
         containerComponent={
           <VictoryVoronoiContainer
             // mouseFollowTooltips
