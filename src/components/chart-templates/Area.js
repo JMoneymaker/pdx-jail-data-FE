@@ -1,6 +1,7 @@
 import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryVoronoiContainer, VictoryTooltip } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { makePrettyDate } from '../../utils/dailyCounts';
 import styles from './Charts.css';
 
 const Area = ({ data, yLabel, xLabel }) => {
@@ -9,22 +10,25 @@ const Area = ({ data, yLabel, xLabel }) => {
     <div className={styles.ChartWrapper}>
       <VictoryChart
         width={400}
-        height={215}
+        height={255}
         containerComponent={
           <VictoryVoronoiContainer
             // mouseFollowTooltips
-            labels={({ datum }) => `Date: ${datum.x}\n # in Detention: ${datum.y}`}
+            labels={({ datum }) => `${makePrettyDate(datum.x).slice(0, -9)}\n People in Detention: ${datum.y} `}
             labelComponent={
               <VictoryTooltip
                 cornerRadius={1.5}
-                pointerLength={12} 
+                pointerLength={12}
+                style={{
+                  fontSize: 5
+                }} 
                 flyoutStyle={{
-                  fontSize: 3,
                   fontFamily: 'Roboto Condensed, sans-serif',
                   stroke: '#525252',
                   strokeWidth: .5,
                   fill: '#FFFFFF',
-                  padding: 0
+                  padding: 0,
+                  paddingLeft: -5
                 }}
               />
             }
@@ -71,7 +75,7 @@ const Area = ({ data, yLabel, xLabel }) => {
         />
         <VictoryAxis
           label={yLabel}
-          // fixLabelOverlap={true}
+          fixLabelOverlap={true}
           style={{
             axisLabel: { padding: 20, fontSize: 8 },
             tickLabels: {
@@ -79,8 +83,8 @@ const Area = ({ data, yLabel, xLabel }) => {
               fontFamily: 'Roboto Condensed, sans-serif',
               fillOpacity: 1,
               margin: 2,
-              padding: 8,
-              angle: 40
+              padding: 8
+              // angle: 40
             }
           }} 
         />

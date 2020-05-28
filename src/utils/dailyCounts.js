@@ -4,6 +4,10 @@
 const moment = require('moment');
 moment().format();
 
+export const makePrettyDate = date => {
+  return moment(date).format('LLLL');
+};
+
 export const calculateMultChange = counts => {
   
   const yesterday = findMultYesterday(counts);

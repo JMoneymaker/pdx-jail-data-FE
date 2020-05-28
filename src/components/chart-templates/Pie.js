@@ -15,7 +15,7 @@ const Pie = ({ county, data }) => {
     <div className={styles.chartWrapper}>
       <VictoryChart
         width={400}
-        height={225}
+        height={255}
       >
         <VictoryLabel 
           text={county.toUpperCase() + ' COUNTY'}
