@@ -4,8 +4,10 @@ import { shapeAgency } from '../utils/dailyCounts';
 
 const useDailyAgencyCount = county => {
   const [agencyData, setAgencyData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchDailyAgencyCount = () => {
+    setLoading(true);
     if(county === 'clackamas'){
       console.log('error');
     } else {
@@ -13,11 +15,12 @@ const useDailyAgencyCount = county => {
         .then(shapeAgency)
         .then(setAgencyData);
     }
+    setLoading(false);
   };
   
   useEffect(fetchDailyAgencyCount, [county]);
 
-  return agencyData;
+  return [agencyData, loading];
 };
 
 export default useDailyAgencyCount;
