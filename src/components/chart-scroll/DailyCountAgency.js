@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../common/Header';
-import styles from './VerticalBar.css';
-import HBar from '../chart-templates/HBar';
-import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
+import BarH from '../chart-templates/BarH';
+import styles from './ChartScroll.css';
+import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
 
-const DailyCountAgencyHBar = ({ updated }) => {
+const DailyCountAgency = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyAgencyCount(county);
   
@@ -25,7 +25,7 @@ const DailyCountAgencyHBar = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange}
           name={'agency-radio'} 
@@ -40,7 +40,7 @@ const DailyCountAgencyHBar = ({ updated }) => {
           {loading ? <ChartLoading /> :
             county === 'clackamas' ? 
               <div className={styles.countyError}>No Data Available</div> 
-              : <HBar 
+              : <BarH 
                 data={data} 
                 county={county} 
                 xLabel={'Number of People in Detention'} />}
@@ -50,10 +50,10 @@ const DailyCountAgencyHBar = ({ updated }) => {
   );
 };
 
-DailyCountAgencyHBar.propTypes = {
+DailyCountAgency.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
 
-export default DailyCountAgencyHBar;
+export default DailyCountAgency;
 

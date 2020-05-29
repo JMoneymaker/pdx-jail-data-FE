@@ -1,50 +1,48 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../common/Header';
-import VBar from '../chart-templates/VBar';
 import ChartLoading from '../common/ChartLoading';
-import useDailyAge from '../../hooks/useDailyAgeRange';
-import styles from './VerticalBar.css';
+import Header from '../common/Header';
+import BarV from '../chart-templates/BarV';
+import styles from './ChartScroll.css';
+import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 
-const DailyCountAgeVBar = ({ updated }) => {
+const DailyCountRace = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const [data, loading] = useDailyAge(county);
+  const [data, loading] = useDailyRaceCount(county);
 
   const csvData = data.map(item => {
     return ({
       date: updated,
       county: county,
-      age: item.x,
+      race: item.x,
       count: item.y
     });
   });
- 
+
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-  
+
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange} 
-          name={'age-radio'} 
-          id={'age'}
-          title={'Daily Snapshot'}   
-          category={'Population by Age'}
-          data={csvData}
-          filename={`jdpdx-daily-age-count-${updated}-${county}.csv`}
+          name={'race-radio'} 
+          id={'race'}
+          title={'Daily Snapshot'}
           updated={updated}
-          county={county} >
+          data={csvData}
+          filename={`jdpdx-daily-race-${updated}-${county}.csv`}
+          category={'Population by Race'}> 
         </Header>
         <section className={styles.chartArea}>
           {loading ? <ChartLoading /> :
-            <VBar 
-              data={data}
+            <BarV 
               county={county} 
+              data={data} 
               xLabel={'Number of People in Detention'} 
-              yLabel={'Age Range'}
-            />
+              yLabel={'Race'} />
           }
         </section>
       </section>
@@ -52,9 +50,9 @@ const DailyCountAgeVBar = ({ updated }) => {
   );
 };
 
-DailyCountAgeVBar.propTypes = {
+DailyCountRace.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountAgeVBar;
+export default DailyCountRace;
 

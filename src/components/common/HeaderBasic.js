@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../chart-scroll/VerticalBar.css';
+import styles from '../chart-scroll/ChartScroll.css';
 import CSV from './CSV';
 
 const HeaderBasic = ({ title, category, data, updated, filename  }) => {

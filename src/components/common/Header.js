@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../chart-scroll/VerticalBar.css';
+import styles from '../chart-scroll/ChartScroll.css';
 import RadioControls from './RadioControls';
 import CSV from './CSV';
-
 
 const Header = ({ title, category, handleChange, name, id, data, updated, filename }) => {
 

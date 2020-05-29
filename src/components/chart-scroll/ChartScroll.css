@@ -1,4 +1,4 @@
-.VerticalBar {
+.ChartScroll {
   height: 100vh;
   background-color: white;
   padding: 5em;
@@ -123,21 +123,21 @@
   }
 
 @media screen and (min-width: 320px) {
-  .VerticalBar {
+  .ChartScroll {
     height: 50vh;
     padding: 3em;
   }
 }
 
 @media screen and (min-width: 550px) {
-  .VerticalBar {
+  .ChartScroll {
     height: 100vh;
     padding: 5em;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .VerticalBar {
+  .ChartScroll {
     height: 80vh;
     padding: 8em;
   }
