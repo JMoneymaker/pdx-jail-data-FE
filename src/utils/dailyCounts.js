@@ -246,7 +246,7 @@ export const shapeChargeSeverity = res => {
 };
 
 export const shapeChargeDescription = res => {
-  return res.map((item,) => {
+  return res.map((item) => {
     return ({
       x: item._id,
       y: item.total

@@ -15,17 +15,17 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
         x={155} 
         y={30}
         style={{
-          fontSize: 7.5,
+          fontSize: 7.5
         }}
       />
       <VictoryBar
         barRatio={0.8}
         style={{
           data: {
-            fill: 'black',
+            fill: 'black'
           },
           labels: {
-            fontSize: 5,
+            fontSize: 5
           }
         }}
          

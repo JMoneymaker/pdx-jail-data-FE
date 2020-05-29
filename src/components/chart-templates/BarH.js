@@ -15,17 +15,17 @@ const HBar = ({ data, county, xLabel, legend }) => {
         x={155} 
         y={30}
         style={{
-          fontSize: 7.5,
+          fontSize: 7.5
         }}
       />
       <VictoryBar
         barRatio={0.8}
         style={{
           data: {
-            fill: 'black',
+            fill: 'black'
           },
           labels: {
-            fontSize: 5,
+            fontSize: 5
           }
         }}
          
@@ -65,7 +65,6 @@ const HBar = ({ data, county, xLabel, legend }) => {
         titleOrientation='top'
         centerTitle
         orientation="vertical"
-        // symbolSpacer={5}
         rowGutter={{ top: -1, bottom: -1 }}
         borderPadding={{ top: 0, bottom: 2, right: -20 }}
         style={{ 

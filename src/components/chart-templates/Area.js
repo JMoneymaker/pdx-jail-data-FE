@@ -42,7 +42,7 @@ const Area = ({ data, yLabel, xLabel }) => {
           },
           labels: {
             fontSize: 4,
-            fontFamily: 'Roboto Condensed, sans-serif',
+            fontFamily: 'Roboto Condensed, sans-serif'
           }
         }}
       />
@@ -55,7 +55,7 @@ const Area = ({ data, yLabel, xLabel }) => {
           },
           labels: {
             fontSize: 4,
-            fontFamily: 'Roboto Condensed, sans-serif',
+            fontFamily: 'Roboto Condensed, sans-serif'
           }
         }}
       />
@@ -67,7 +67,7 @@ const Area = ({ data, yLabel, xLabel }) => {
             fill: '#525252' },
           labels: {
             fontSize: 4,
-            fontFamily: 'Roboto Condensed, sans-serif',
+            fontFamily: 'Roboto Condensed, sans-serif'
           }
         }}
       />
@@ -105,7 +105,6 @@ const Area = ({ data, yLabel, xLabel }) => {
         orientation="horizontal"
         gutter={20}
         style={{ 
-          // border: { stroke: 'black' }, 
           labels: { 
             fontSize: 6, 
             fontFamily: 'Roboto Condensed, sans-serif'
