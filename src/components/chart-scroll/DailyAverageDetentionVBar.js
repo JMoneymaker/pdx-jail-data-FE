@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
-// import CSV from '../common/CSV';
 import styles from './VerticalBar.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
+import ChartLoading from '../common/ChartLoading';
 
 const DailyAverageDetentionHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const data = useDailyAverageDetentionByRace(county);
+  const [data, loading] = useDailyAverageDetentionByRace(county);
 
   const csvData = data.map(item => {
     return ({
@@ -38,14 +38,14 @@ const DailyAverageDetentionHBar = ({ updated }) => {
           filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
         > 
         </Header>
-        <div className={styles.csvWrapper}>
-        </div>
         <section className={styles.chartWrapper}>
-          <VBar 
-            data={data} 
-            county={county} 
-            xLabel={'Number of Days in Detention'} 
-            yLabel={'Race'} />
+          {loading ? <ChartLoading /> :
+            <VBar 
+              data={data} 
+              county={county} 
+              xLabel={'Number of Days in Detention'} 
+              yLabel={'Race'} />
+          }
         </section>
       </section>
     </>

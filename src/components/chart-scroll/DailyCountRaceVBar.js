@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 import Header from '../common/Header';
+import ChartLoading from '../common/ChartLoading';
 import VBar from '../chart-templates/VBar';
 import styles from './VerticalBar.css';
 
 const DailyCountRaceVBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const data = useDailyRaceCount(county);
+  const [data, loading] = useDailyRaceCount(county);
 
   const csvData = data.map(item => {
     return ({
@@ -35,11 +36,15 @@ const DailyCountRaceVBar = ({ updated }) => {
           filename={`jdpdx-daily-race-${updated}-${county}.csv`}
           category={'Population by Race'}> 
         </Header>
-        <VBar 
-          county={county} 
-          data={data} 
-          xLabel={'Number of People in Detention'} 
-          yLabel={'Race'} />
+        <section className={styles.chartArea}>
+          {loading ? <ChartLoading /> :
+            <VBar 
+              county={county} 
+              data={data} 
+              xLabel={'Number of People in Detention'} 
+              yLabel={'Race'} />
+          }
+        </section>
       </section>
     </>
   );

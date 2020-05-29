@@ -4,13 +4,14 @@ import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
 import HBar from '../chart-templates/HBar';
+import ChartLoading from '../common/ChartLoading';
 import useDailyChargeDescription from '../../hooks/useDailyChargeDescription';
 
 const DailyCountChargeDescHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const chargeDescriptions = useDailyChargeDescription(county);
+  const [data, loading] = useDailyChargeDescription(county);
 
-  const csvData = chargeDescriptions.map(item => {
+  const csvData = data.map(item => {
     return ({
       date: updated,
       county: county,
@@ -39,10 +40,12 @@ const DailyCountChargeDescHBar = ({ updated }) => {
         >
         </Header>
         <section className={styles.chartArea}>
-          <HBar 
-            data={chargeDescriptions} 
-            county={county} 
-            xLabel={'Number of people in Detention'} /> 
+          {loading ? <ChartLoading /> :
+            <HBar 
+              data={data} 
+              county={county} 
+              xLabel={'Number of people in Detention'} /> 
+          }
         </section>
       </section>
     </>

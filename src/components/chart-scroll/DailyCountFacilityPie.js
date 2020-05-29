@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 import Header from '../common/Header';
+import ChartLoading from '../common/ChartLoading';
 import Pie from '../chart-templates/Pie';
 import styles from './VerticalBar.css';
 
 const DailyCountFacilityPie = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const data = useDailyCountFacility(county);
+  const [data, loading] = useDailyCountFacility(county);
 
   const csvData = data.map(item => {
     return ({
@@ -36,10 +37,14 @@ const DailyCountFacilityPie = ({ updated }) => {
           filename={`jdpdx-daily-facility-${updated}-${county}.csv`}
           category={'Population by Facility'}> 
         </Header>
-        <Pie 
-          county={county} 
-          data={data} 
-        />
+        <section className={styles.chartArea}>
+          {loading ? <ChartLoading /> :
+            <Pie 
+              county={county} 
+              data={data} 
+            />
+          }
+        </section>
       </section>
     </>
   );

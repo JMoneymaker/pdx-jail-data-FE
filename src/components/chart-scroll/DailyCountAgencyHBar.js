@@ -36,16 +36,15 @@ const DailyCountAgencyHBar = ({ updated }) => {
           filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
           category={'Population by Arresting Agency'}>
         </Header>
-        {loading ? <ChartLoading /> :
-          <section className={styles.chartArea}>
-            {county === 'clackamas' ? 
+        <section className={styles.chartArea}>
+          {loading ? <ChartLoading /> :
+            county === 'clackamas' ? 
               <div className={styles.countyError}>No Data Available</div> 
               : <HBar 
                 data={data} 
                 county={county} 
                 xLabel={'Number of People in Detention'} />}
-          </section>
-        }
+        </section>
       </section>
     </>
   );
