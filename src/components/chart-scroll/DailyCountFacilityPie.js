@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import CSV from '../common/CSV';
 import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 import Header from '../common/Header';
 import Pie from '../chart-templates/Pie';
@@ -27,19 +26,16 @@ const DailyCountFacilityPie = ({ updated }) => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <Header 
-            handleChange={handleChange}
-            name={'facility-radio'}
-            id={'facility'}
-            title={'Daily Snapshot'}
-            category={'Population by Facility'}> 
-          </Header>
-          <CSV 
-            data={[...csvData]}
-            filename={`jdpdx-daily-facility-${updated}-${county}.csv`}>
-          </CSV>
-        </header>
+        <Header 
+          handleChange={handleChange}
+          name={'facility-radio'}
+          id={'facility'}
+          title={'Daily Snapshot'}
+          updated={updated}
+          data={csvData}
+          filename={`jdpdx-daily-facility-${updated}-${county}.csv`}
+          category={'Population by Facility'}> 
+        </Header>
         <Pie 
           county={county} 
           data={data} 
