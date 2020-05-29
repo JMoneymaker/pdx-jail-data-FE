@@ -2,49 +2,48 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
-import VBar from '../chart-templates/VBar';
+import BarH from '../chart-templates/BarH';
 import styles from './ChartScroll.css';
-import useDailyAge from '../../hooks/useDailyAgeRange';
+import useDailyChargeSeverityCount from '../../hooks/useDailyChargeSeverity';
 
-const DailyCountAgeVBar = ({ updated }) => {
+const DailyCountChargeSev = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const [data, loading] = useDailyAge(county);
+  const [data, loading] = useDailyChargeSeverityCount(county);
 
   const csvData = data.map(item => {
     return ({
       date: updated,
       county: county,
-      age: item.x,
+      charge: item.x,
       count: item.y
     });
   });
- 
+
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-  
+
   return (
     <>
       <section className={styles.ChartScroll}>
         <Header 
-          handleChange={handleChange} 
-          name={'age-radio'} 
-          id={'age'}
-          title={'Daily Snapshot'}   
-          category={'Population by Age'}
+          handleChange={handleChange}
+          name={'charge-radio'}
+          id={'charge'}
+          title={'Daily Snapshot'}
           data={csvData}
-          filename={`jdpdx-daily-age-count-${updated}-${county}.csv`}
           updated={updated}
-          county={county} >
+          filename={`jdpdx-daily-chargeSeverity-${updated}-${county}.csv`}
+          category={'Population by Top Charge Severity'}> 
         </Header>
         <section className={styles.chartArea}>
           {loading ? <ChartLoading /> :
-            <VBar 
-              data={data}
+            <BarH 
+              data={data} 
               county={county} 
               xLabel={'Number of People in Detention'} 
-              yLabel={'Age Range'}
-            />
+              legend={true}
+            /> 
           }
         </section>
       </section>
@@ -52,9 +51,9 @@ const DailyCountAgeVBar = ({ updated }) => {
   );
 };
 
-DailyCountAgeVBar.propTypes = {
+DailyCountChargeSev.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountAgeVBar;
+export default DailyCountChargeSev;
 

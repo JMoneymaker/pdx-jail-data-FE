@@ -1,7 +1,6 @@
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from './Charts.css';
 
 const VBar = ({ data, county, yLabel, xLabel }) => {
 

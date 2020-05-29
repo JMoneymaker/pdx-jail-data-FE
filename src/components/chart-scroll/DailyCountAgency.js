@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
-import HBar from '../chart-templates/HBar';
+import BarH from '../chart-templates/BarH';
 import styles from './ChartScroll.css';
-import useDailyChargeSeverityCount from '../../hooks/useDailyChargeSeverity';
+import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
 
-const DailyCountChargeSevHBar = ({ updated }) => {
+const DailyCountAgency = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const [data, loading] = useDailyChargeSeverityCount(county);
-
+  const [data, loading] = useDailyAgencyCount(county);
+  
   const csvData = data.map(item => {
     return ({
       date: updated,
       county: county,
-      charge: item.x,
+      agency: item.x,
       count: item.y
     });
   });
@@ -28,32 +28,32 @@ const DailyCountChargeSevHBar = ({ updated }) => {
       <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange}
-          name={'charge-radio'}
-          id={'charge'}
-          title={'Daily Snapshot'}
+          name={'agency-radio'} 
+          id={'agency'}
+          title={'Daily Snapshot'}  
+          updated={updated} 
           data={csvData}
-          updated={updated}
-          filename={`jdpdx-daily-chargeSeverity-${updated}-${county}.csv`}
-          category={'Population by Top Charge Severity'}> 
+          filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
+          category={'Population by Arresting Agency'}>
         </Header>
         <section className={styles.chartArea}>
           {loading ? <ChartLoading /> :
-            <HBar 
-              data={data} 
-              county={county} 
-              xLabel={'Number of People in Detention'} 
-              legend={true}
-            /> 
-          }
+            county === 'clackamas' ? 
+              <div className={styles.countyError}>No Data Available</div> 
+              : <BarH 
+                data={data} 
+                county={county} 
+                xLabel={'Number of People in Detention'} />}
         </section>
       </section>
     </>
   );
 };
 
-DailyCountChargeSevHBar.propTypes = {
+DailyCountAgency.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountChargeSevHBar;
+
+export default DailyCountAgency;
 

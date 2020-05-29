@@ -2,47 +2,49 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
-import VBar from '../chart-templates/VBar';
+import BarV from '../chart-templates/BarV';
 import styles from './ChartScroll.css';
-import useDailyRaceCount from '../../hooks/useDailyRaceCount';
+import useDailyAge from '../../hooks/useDailyAgeRange';
 
-const DailyCountRaceVBar = ({ updated }) => {
+const DailyCountAge = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const [data, loading] = useDailyRaceCount(county);
+  const [data, loading] = useDailyAge(county);
 
   const csvData = data.map(item => {
     return ({
       date: updated,
       county: county,
-      race: item.x,
+      age: item.x,
       count: item.y
     });
   });
-
+ 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
-
+  
   return (
     <>
       <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange} 
-          name={'race-radio'} 
-          id={'race'}
-          title={'Daily Snapshot'}
-          updated={updated}
+          name={'age-radio'} 
+          id={'age'}
+          title={'Daily Snapshot'}   
+          category={'Population by Age'}
           data={csvData}
-          filename={`jdpdx-daily-race-${updated}-${county}.csv`}
-          category={'Population by Race'}> 
+          filename={`jdpdx-daily-age-count-${updated}-${county}.csv`}
+          updated={updated}
+          county={county} >
         </Header>
         <section className={styles.chartArea}>
           {loading ? <ChartLoading /> :
-            <VBar 
+            <BarV 
+              data={data}
               county={county} 
-              data={data} 
               xLabel={'Number of People in Detention'} 
-              yLabel={'Race'} />
+              yLabel={'Age Range'}
+            />
           }
         </section>
       </section>
@@ -50,9 +52,9 @@ const DailyCountRaceVBar = ({ updated }) => {
   );
 };
 
-DailyCountRaceVBar.propTypes = {
+DailyCountAge.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountRaceVBar;
+export default DailyCountAge;
 

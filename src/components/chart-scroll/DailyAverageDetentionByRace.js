@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
-import Pie from '../chart-templates/Pie';
+import BarV from '../chart-templates/BarV';
 import styles from './ChartScroll.css';
-import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
+import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
 
-const DailyCountFacilityPie = ({ updated }) => {
+const DailyAverageDetentionByRace = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const [data, loading] = useDailyCountFacility(county);
+  const [data, loading] = useDailyAverageDetentionByRace(county);
 
   const csvData = data.map(item => {
     return ({
       date: updated,
       county: county,
-      facility: item.x,
+      stay: item.x,
       count: item.y
     });
   });
@@ -27,21 +27,24 @@ const DailyCountFacilityPie = ({ updated }) => {
     <>
       <section className={styles.ChartScroll}>
         <Header 
-          handleChange={handleChange}
-          name={'facility-radio'}
-          id={'facility'}
+          handleChange={handleChange} 
+          name={'avg-detention-radio'} 
+          id={'avg-detention'} 
           title={'Daily Snapshot'}
           updated={updated}
+          county={county}
+          category={'Average Length of Stay by Race'}
           data={csvData}
-          filename={`jdpdx-daily-facility-${updated}-${county}.csv`}
-          category={'Population by Facility'}> 
+          filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
+        > 
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
-            <Pie 
-              county={county} 
+            <BarV 
               data={data} 
-            />
+              county={county} 
+              xLabel={'Number of Days in Detention'} 
+              yLabel={'Race'} />
           }
         </section>
       </section>
@@ -49,9 +52,9 @@ const DailyCountFacilityPie = ({ updated }) => {
   );
 };
 
-DailyCountFacilityPie.propTypes = {
+DailyAverageDetentionByRace.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountFacilityPie;
+export default DailyAverageDetentionByRace;
 

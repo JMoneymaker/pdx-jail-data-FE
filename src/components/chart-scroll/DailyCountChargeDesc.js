@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
-import VBar from '../chart-templates/VBar';
+import BarH from '../chart-templates/BarH';
 import styles from './ChartScroll.css';
-import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
+import useDailyChargeDescription from '../../hooks/useDailyChargeDescription';
 
-const DailyAverageDetentionHBar = ({ updated }) => {
+const DailyCountChargeDesc = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const [data, loading] = useDailyAverageDetentionByRace(county);
+  const [data, loading] = useDailyChargeDescription(county);
 
   const csvData = data.map(item => {
     return ({
       date: updated,
       county: county,
-      stay: item.x,
+      charge: item.x,
       count: item.y
     });
   });
@@ -28,23 +28,21 @@ const DailyAverageDetentionHBar = ({ updated }) => {
       <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange} 
-          name={'avg-detention-radio'} 
-          id={'avg-detention'} 
+          name={'description-radio'} 
+          id={'description'}
           title={'Daily Snapshot'}
-          updated={updated}
-          county={county}
-          category={'Average Length of Stay by Race'}
-          data={csvData}
-          filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
-        > 
+          category={'Most Common Charges'}
+          updated={updated} 
+          filename={`jdpdx-daily-chargeDescription-${updated}-${county}.csv`}
+          data={csvData}  
+        >
         </Header>
-        <section className={styles.chartWrapper}>
+        <section className={styles.chartArea}>
           {loading ? <ChartLoading /> :
-            <VBar 
+            <BarH 
               data={data} 
               county={county} 
-              xLabel={'Number of Days in Detention'} 
-              yLabel={'Race'} />
+              xLabel={'Number of people in Detention'} /> 
           }
         </section>
       </section>
@@ -52,9 +50,10 @@ const DailyAverageDetentionHBar = ({ updated }) => {
   );
 };
 
-DailyAverageDetentionHBar.propTypes = {
+DailyCountChargeDesc.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyAverageDetentionHBar;
+
+export default DailyCountChargeDesc;
 

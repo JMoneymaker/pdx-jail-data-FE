@@ -6,7 +6,7 @@ import { getDailyCounts } from '../../services/getTriCountyDaily';
 import useCSVTriCountyTrend from '../../hooks/useCSVTriCountyTrend';
 import styles from './ChartScroll.css';
 
-const TrendTriCountyTotalsStack = ({ updated }) => {
+const TrendTriCountyTotals = ({ updated }) => {
   const [rawTrendData, setRawTrendData] = useState([]);
   const csvData = useCSVTriCountyTrend();
 
@@ -57,9 +57,9 @@ const TrendTriCountyTotalsStack = ({ updated }) => {
   );
 };
 
-TrendTriCountyTotalsStack.propTypes = {
+TrendTriCountyTotals.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default TrendTriCountyTotalsStack;
+export default TrendTriCountyTotals;
 
