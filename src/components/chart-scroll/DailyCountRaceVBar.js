@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import CSV from '../common/CSV';
 import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
@@ -26,19 +25,16 @@ const DailyCountRaceVBar = ({ updated }) => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <Header 
-            handleChange={handleChange} 
-            name={'race-radio'} 
-            id={'race'}
-            title={'Daily Snapshot'}
-            category={'Population by Race'}> 
-          </Header>
-          <CSV 
-            data={[...csvData]}
-            filename={`jdpdx-daily-race-${updated}-${county}.csv`}>
-          </CSV>
-        </header>
+        <Header 
+          handleChange={handleChange} 
+          name={'race-radio'} 
+          id={'race'}
+          title={'Daily Snapshot'}
+          updated={updated}
+          data={csvData}
+          filename={`jdpdx-daily-race-${updated}-${county}.csv`}
+          category={'Population by Race'}> 
+        </Header>
         <VBar 
           county={county} 
           data={data} 

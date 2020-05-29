@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
-import CSV from '../common/CSV';
+// import CSV from '../common/CSV';
 import styles from './VerticalBar.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
 
@@ -26,22 +26,20 @@ const DailyAverageDetentionHBar = ({ updated }) => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <Header 
-            handleChange={handleChange} 
-            name={'avg-detention-radio'} 
-            id={'avg-detention'} 
-            title={'Daily Snapshot'}
-            category={'Average Length of Stay by Race'}> 
-          </Header>
-          <div className={styles.csvWrapper}>
-            <CSV
-              data={[...csvData]}
-              filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
-            >
-            </CSV>
-          </div>
-        </header>
+        <Header 
+          handleChange={handleChange} 
+          name={'avg-detention-radio'} 
+          id={'avg-detention'} 
+          title={'Daily Snapshot'}
+          updated={updated}
+          county={county}
+          category={'Average Length of Stay by Race'}
+          data={csvData}
+          filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
+        > 
+        </Header>
+        <div className={styles.csvWrapper}>
+        </div>
         <section className={styles.chartWrapper}>
           <VBar 
             data={data} 

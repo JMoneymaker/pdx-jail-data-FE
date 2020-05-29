@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import CSV from '../common/CSV';
 import styles from './VerticalBar.css';
 import Area from '../chart-templates/Area';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
@@ -10,7 +9,7 @@ import HeaderBasic from '../common/HeaderBasic';
 
 const TrendTriCountyTotalsStack = ({ updated }) => {
   const [rawTrendData, setRawTrendData] = useState([]);
-  const CSVData = useCSVTriCountyTrend();
+  const csvData = useCSVTriCountyTrend();
 
 
   useEffect(() => {
@@ -42,17 +41,14 @@ const TrendTriCountyTotalsStack = ({ updated }) => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <HeaderBasic
-            title={'Trend Data: Last updated'}
-            category={'Daily Population Total'}
-          > 
-          </HeaderBasic >
-          <CSV 
-            data={[...CSVData]}
-            filename={`jdpdx-TriCountyTotals-${updated}.csv`}>
-          </CSV>
-        </header>
+        <HeaderBasic
+          title={'Trend Data: Last updated'}
+          category={'Daily Population Total'}
+          updated={updated}
+          data={csvData}
+          filename={`jdpdx-TriCountyTotals-${updated}.csv`}
+        > 
+        </HeaderBasic >
         <Area 
           data={data}
           xLabel={'Number of People in Detention'} 

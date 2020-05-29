@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import CSV from '../common/CSV';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
 import HBar from '../chart-templates/HBar';
@@ -10,6 +9,7 @@ import ChartLoading from '../common/ChartLoading';
 const DailyCountAgencyHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyAgencyCount(county);
+  
   const csvData = data.map(item => {
     return ({
       date: updated,
@@ -26,19 +26,16 @@ const DailyCountAgencyHBar = ({ updated }) => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <Header 
-            handleChange={handleChange}
-            name={'agency-radio'} 
-            id={'agency'}
-            title={'Daily Snapshot'}   
-            category={'Population by Arresting Agency'}>
-          </Header>
-          <CSV 
-            data={[...csvData]}
-            filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
-          ></CSV>
-        </header>
+        <Header 
+          handleChange={handleChange}
+          name={'agency-radio'} 
+          id={'agency'}
+          title={'Daily Snapshot'}  
+          updated={updated} 
+          data={csvData}
+          filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
+          category={'Population by Arresting Agency'}>
+        </Header>
         {loading ? <ChartLoading /> :
           <section className={styles.chartArea}>
             {county === 'clackamas' ? 

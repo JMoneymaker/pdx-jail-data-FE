@@ -9,11 +9,14 @@ import TrendTriCountyTotalsStack from './chart-scroll/TrendTriCountyTotalsStack'
 import './App.css';
 import DailyCountChargeSevHBar from './chart-scroll/DailyCountChargeSevHBar';
 import DailyCountChargeDescHBar from './chart-scroll/DailyCountChargeDescHBar';
-import useCSVUpdated from '../hooks/useCSVUpdated';
+// import useCSVUpdated from '../hooks/useCSVUpdated';
+import useUpDate from '../hooks/useUpDated';
 
 export default function App() {
   
-  const updated = useCSVUpdated();
+  // const updated = useCSVUpdated();
+  const { upDated } = useUpDate();
+  const updated = upDated .slice(0, 8);
 
   return (
     <>

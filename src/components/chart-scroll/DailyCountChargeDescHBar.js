@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import CSV from '../common/CSV';
 import useUpDated from '../../hooks/useUpDated';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
@@ -27,21 +26,18 @@ const DailyCountChargeDescHBar = ({ updated }) => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <Header 
-            upDateHook={useUpDated} 
-            handleChange={handleChange} 
-            name={'description-radio'} 
-            id={'description'}
-            title={'Daily Snapshot'}
-            category={'Most Common Charges'}   
-          >
-          </Header>
-          <CSV 
-            data={[...csvData]}
-            filename={`jdpdx-daily-chargeDescription-${updated}-${county}.csv`}
-          ></CSV>
-        </header>
+        <Header 
+          upDateHook={useUpDated} 
+          handleChange={handleChange} 
+          name={'description-radio'} 
+          id={'description'}
+          title={'Daily Snapshot'}
+          category={'Most Common Charges'}
+          updated={updated} 
+          filename={`jdpdx-daily-chargeDescription-${updated}-${county}.csv`}
+          data={csvData}  
+        >
+        </Header>
         <section className={styles.chartArea}>
           <HBar 
             data={chargeDescriptions} 
