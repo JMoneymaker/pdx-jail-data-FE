@@ -59,6 +59,7 @@
 
   .chartWrapper {
   width: 100%;
+  height: 100%;
   }
 
   .chartArea {
@@ -102,10 +103,19 @@
 
   .titleWrapper {
     display: flex;
+    align-items: center;
+  }
+
+  .basicHeadWrapper {
+    display: block;
+  }
+
+  .basicTitleWrapper {
+    display: flex;
   }
 
   .csv {
-    margin-left: 2em;
+    margin-left: 1.5em;
   }
 
   @media screen and (min-width: 320px) {

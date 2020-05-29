@@ -1,3 +1,7 @@
+.Loading {
+  align-self: center;
+  justify-self: center;
+}
 
 .spinner {
   margin: auto;
