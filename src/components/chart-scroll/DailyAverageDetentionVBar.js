@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
 import styles from './VerticalBar.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
+import ChartLoading from '../common/ChartLoading';
 
-const DailyAverageDetentionHBar = () => {
+const DailyAverageDetentionHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const data = useDailyAverageDetentionByRace(county);
+  const [data, loading] = useDailyAverageDetentionByRace(county);
+
+  const csvData = data.map(item => {
+    return ({
+      date: updated,
+      county: county,
+      stay: item.x,
+      count: item.y
+    });
+  });
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
@@ -15,17 +26,20 @@ const DailyAverageDetentionHBar = () => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <Header 
-            handleChange={handleChange} 
-            name={'avg-detention-radio'} 
-            id={'avg-detention'} 
-            title={'Daily Snapshot'}
-            category={'Average Length of Stay by Race'}> 
-          </Header>
-        </header>
+        <Header 
+          handleChange={handleChange} 
+          name={'avg-detention-radio'} 
+          id={'avg-detention'} 
+          title={'Daily Snapshot'}
+          updated={updated}
+          county={county}
+          category={'Average Length of Stay by Race'}
+          data={csvData}
+          filename={`jdpdx-avg-stay-byRace-${updated}-${county}.csv`}
+        > 
+        </Header>
         <section className={styles.chartWrapper}>
-          {!data ? <div>data not available</div> :
+          {loading ? <ChartLoading /> :
             <VBar 
               data={data} 
               county={county} 
@@ -36,6 +50,10 @@ const DailyAverageDetentionHBar = () => {
       </section>
     </>
   );
+};
+
+DailyAverageDetentionHBar.propTypes = {
+  updated: PropTypes.string.isRequired
 };
 
 export default DailyAverageDetentionHBar;

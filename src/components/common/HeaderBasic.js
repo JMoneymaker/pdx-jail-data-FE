@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../chart-scroll/VerticalBar.css';
+import CSV from './CSV';
 
-const HeaderBasic = ({ title, category }) => {
+const HeaderBasic = ({ title, category, data, updated, filename  }) => {
 
   return (
-    <header className={styles.titleWrapper}>
-      <h4>{title}</h4>
+    <header className={styles.basicHeadWrapper}>
+      <div className={styles.basicTitleWrapper}>
+        <h4>{title} - {updated}</h4>
+        <CSV 
+          data={data}
+          filename={filename}
+        ></CSV>
+      </div>
       <h3>{category}</h3>
     </header>
   );
@@ -15,6 +22,9 @@ const HeaderBasic = ({ title, category }) => {
 HeaderBasic.propTypes = {
   category: PropTypes.string,
   title: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+  updated: PropTypes.string.isRequired,
+  filename: PropTypes.string.isRequired
 };
 
 export default HeaderBasic;

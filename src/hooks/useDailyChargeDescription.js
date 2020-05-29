@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
-import { getDailyChargeDescriptions } from '../services/getDailyCounts';
+import { getDailyTopCharges } from '../services/getDailyCounts';
 import { shapeChargeDescription } from '../utils/dailyCounts';
 
 const useDailyChargeDescription = county => {
   const [chargeDescriptions, setChargeDescriptions] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchDailyChargeDescriptions = () => {
-    getDailyChargeDescriptions(county)
+    setLoading(true);
+    getDailyTopCharges(county)
       .then(shapeChargeDescription)
-      .then(setChargeDescriptions);
+      .then(setChargeDescriptions)
+      .finally(() => setLoading(false));
   };
 
   useEffect(fetchDailyChargeDescriptions, [county]);
 
-  return chargeDescriptions;
+  return [chargeDescriptions, loading];
 };
 
 export default useDailyChargeDescription;

@@ -4,16 +4,19 @@ import { shapeFacility } from '../utils/dailyCounts';
 
 const useDailyCountFacility = county => {
   const [facilityData, setFacilityData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchDailyFacilityCount = () => {
+    setLoading(true);
     getDailyFacilityCount(county)
       .then(shapeFacility)
-      .then(setFacilityData);
+      .then(setFacilityData)
+      .finally(() => setLoading(false));
   };
 
   useEffect(fetchDailyFacilityCount, [county]);
 
-  return facilityData;
+  return [facilityData, loading];
 };
 
 export default useDailyCountFacility;

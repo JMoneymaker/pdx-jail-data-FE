@@ -4,16 +4,19 @@ import { shapeChargeSeverity } from '../utils/dailyCounts';
 
 const useDailyChargeDescription = county => {
   const [chargeSeverityCount, setChargeSeverityCount] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchDailyChargeSeverityCount = () => {
+    setLoading(true);
     getDailyChargeSeverityCount(county)
       .then(shapeChargeSeverity)
-      .then(setChargeSeverityCount);
+      .then(setChargeSeverityCount)
+      .finally(() => setLoading(false));
   };
 
   useEffect(fetchDailyChargeSeverityCount, [county]);
 
-  return chargeSeverityCount;
+  return [chargeSeverityCount, loading];
 };
 
 export default useDailyChargeDescription;

@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import styles from './VerticalBar.css';
 import Area from '../chart-templates/Area';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
+import useCSVTriCountyTrend from '../../hooks/useCSVTriCountyTrend';
+
 import HeaderBasic from '../common/HeaderBasic';
 
-const TrendTriCountyTotalsStack = () => {
+const TrendTriCountyTotalsStack = ({ updated }) => {
   const [rawTrendData, setRawTrendData] = useState([]);
+  const csvData = useCSVTriCountyTrend();
+
 
   useEffect(() => {
     getDailyCounts()
@@ -36,21 +41,26 @@ const TrendTriCountyTotalsStack = () => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <HeaderBasic
-            title={'Trend Data'}
-            category={'Daily Population Total'}
-          > 
-          </HeaderBasic >
-        </header>
+        <HeaderBasic
+          title={'Trend Data: Last updated'}
+          category={'Daily Population Total'}
+          updated={updated}
+          data={csvData}
+          filename={`jdpdx-TriCountyTotals-${updated}.csv`}
+        > 
+        </HeaderBasic >
         <Area 
           data={data}
           xLabel={'Number of People in Detention'} 
-          yLabel={'Race'}
+          yLabel={'Date'}
         />
       </section>
     </>
   );
+};
+
+TrendTriCountyTotalsStack.propTypes = {
+  updated: PropTypes.string.isRequired
 };
 
 export default TrendTriCountyTotalsStack;

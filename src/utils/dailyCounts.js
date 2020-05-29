@@ -4,6 +4,10 @@
 const moment = require('moment');
 moment().format();
 
+export const makePrettyDate = date => {
+  return moment(date).format('LLLL');
+};
+
 export const calculateMultChange = counts => {
   
   const yesterday = findMultYesterday(counts);
@@ -74,7 +78,6 @@ export const findUpDate = res => {
 
   return moment(lastUpdated).format('MMMM Do YYYY, h:mm a');
 };
-
 
 const alphabetize = res => {
   return res.sort((a, b) => {
@@ -235,20 +238,44 @@ export const shapeChargeSeverity = res => {
   return res.map(item => {
     return ({
       x: item._id,
-      y: item.category
+      y: item.total
     });
   });
 };
 
 export const shapeChargeDescription = res => {
-  return res.map((item, i) => {
-    while(i <= 19)
-      return ({
-        x: item._id,
-        y: item.description
-      });
-    return null;
+  return res.map((item,) => {
+    return ({
+      x: item._id,
+      y: item.total
+    });
   });
 };
 
+export const shapeCSVCharge = res => {
+  return res.map((item) => {
+    return ({
+      x: item._id,
+      y: item.total
+    });
+  });
+};
 
+//CSV Shapers
+
+export const makeCSVTriCountyTrend = counts => {
+  return counts.map(count => {
+    return ({
+      date: moment(count.date).format('YYYY-MM-DD'),
+      clackamas: count.clackamas,
+      multnomah: count.multnomah,
+      washington: count.washington
+    });
+  });
+};
+
+export const findCSVUpDate = res => {
+  const i = res.length - 1;
+  const lastUpdated = res[i].date;
+  return moment(lastUpdated).format('YYYY-MM-DD');
+};

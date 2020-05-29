@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
-import useUpDated from '../../hooks/useUpDated';
+import PropTypes from 'prop-types';
 import Header from '../common/Header';
 import styles from './VerticalBar.css';
 import HBar from '../chart-templates/HBar';
 import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
+import ChartLoading from '../common/ChartLoading';
 
-const DailyCountAgencyHBar = () => {
+const DailyCountAgencyHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const data = useDailyAgencyCount(county);
+  const [data, loading] = useDailyAgencyCount(county);
+  
+  const csvData = data.map(item => {
+    return ({
+      date: updated,
+      county: county,
+      agency: item.x,
+      count: item.y
+    });
+  });
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
@@ -16,28 +26,34 @@ const DailyCountAgencyHBar = () => {
   return (
     <>
       <section className={styles.VerticalBar}>
-        <header className={styles.headWrapper}>
-          <Header 
-            upDateHook={useUpDated}
-            handleChange={handleChange}
-            name={'agency-radio'} 
-            id={'agency'}
-            title={'Daily Snapshot'}   
-            category={'Population by Arresting Agency'}>
-          </Header>
-        </header>
+        <Header 
+          handleChange={handleChange}
+          name={'agency-radio'} 
+          id={'agency'}
+          title={'Daily Snapshot'}  
+          updated={updated} 
+          data={csvData}
+          filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
+          category={'Population by Arresting Agency'}>
+        </Header>
         <section className={styles.chartArea}>
-          {county === 'clackamas' ? 
-            <div className={styles.countyError}>No Data Available</div> 
-            : <HBar 
-              data={data} 
-              county={county} 
-              xLabel={'Number of People in Detention'} />}
+          {loading ? <ChartLoading /> :
+            county === 'clackamas' ? 
+              <div className={styles.countyError}>No Data Available</div> 
+              : <HBar 
+                data={data} 
+                county={county} 
+                xLabel={'Number of People in Detention'} />}
         </section>
       </section>
     </>
   );
 };
+
+DailyCountAgencyHBar.propTypes = {
+  updated: PropTypes.string.isRequired
+};
+
 
 export default DailyCountAgencyHBar;
 
