@@ -3,20 +3,20 @@ import { getDailyAgeCount } from '../services/getDailyCounts';
 import { shapeAge } from '../utils/dailyCounts';
 
 const useDailyAge = county => {
-  const [ageData, setAgeData] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchDailyAge = () => {
     setLoading(true);
     getDailyAgeCount(county)
       .then(shapeAge)
-      .then(setAgeData)
+      .then(setData)
       .finally(() => setLoading(false));
   };
 
   useEffect(fetchDailyAge, [county]);
 
-  return [ageData, loading];
+  return [data, loading];
 };
 
 export default useDailyAge;

@@ -3,21 +3,20 @@ import { getTriCountyDaily } from '../services/getTriCountyDaily';
 import { shapeTrend } from '../utils/trends';
 
 const useTrendTriCountyTotals = () => {
-  const [trendData, setTrendData] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchTriCountyTrendTotals = () => {
     setLoading(true);
     getTriCountyDaily()
       .then(shapeTrend)
-      .then(setTrendData)
+      .then(setData)
       .finally(() => setLoading(false));
   };
   
-  console.log(trendData, 'hook');
   useEffect(fetchTriCountyTrendTotals, []);
 
-  return [trendData, loading];
+  return [data, loading];
 };
 
 export default useTrendTriCountyTotals;

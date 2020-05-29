@@ -3,7 +3,7 @@ import { getDailyRaceCount } from '../services/getDailyCounts';
 import { shapeMult, shapeClack, shapeWash } from '../utils/dailyCounts';
 
 const useDailyRaceCount = county => {
-  const [raceData, setRaceData] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchDailyRaceCount = () => {
@@ -12,13 +12,13 @@ const useDailyRaceCount = county => {
       .then((county === 'multnomah') ? shapeMult
         : (county === 'clackamas') ? shapeClack
           : shapeWash)
-      .then(setRaceData)
+      .then(setData)
       .finally(() => setLoading(false));
   };
 
   useEffect(fetchDailyRaceCount, [county]);
 
-  return [raceData, loading];
+  return [data, loading];
 };
 
 export default useDailyRaceCount;

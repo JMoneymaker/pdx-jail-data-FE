@@ -6,7 +6,7 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
 
   return (
     <VictoryChart
-      domainPadding={25}
+      domainPadding={[20 + (100 / data.length), 20 + (100 / data.length)]}
       width={400}
       height={225}
     >
@@ -29,7 +29,7 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
           }
         }}
          
-        data={data}
+        data={[...data]}
         padding={{ top: 20, bottom: 60 }}
         labels={({ datum }) => datum.y}
       />
