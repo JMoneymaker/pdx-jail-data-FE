@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../common/Header';
-import styles from './VerticalBar.css';
-import HBar from '../chart-templates/HBar';
-import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
+import HBar from '../chart-templates/HBar';
+import styles from './ChartScroll.css';
+import useDailyAgencyCount from '../../hooks/useDailyAgencyCount';
 
 const DailyCountAgencyHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
@@ -25,7 +25,7 @@ const DailyCountAgencyHBar = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange}
           name={'agency-radio'} 

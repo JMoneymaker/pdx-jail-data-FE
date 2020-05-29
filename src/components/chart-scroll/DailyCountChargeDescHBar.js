@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import useUpDated from '../../hooks/useUpDated';
-import Header from '../common/Header';
-import styles from './VerticalBar.css';
-import HBar from '../chart-templates/HBar';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
+import HBar from '../chart-templates/HBar';
+import styles from './ChartScroll.css';
 import useDailyChargeDescription from '../../hooks/useDailyChargeDescription';
 
 const DailyCountChargeDescHBar = ({ updated }) => {
@@ -26,9 +25,8 @@ const DailyCountChargeDescHBar = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
-          upDateHook={useUpDated} 
           handleChange={handleChange} 
           name={'description-radio'} 
           id={'description'}

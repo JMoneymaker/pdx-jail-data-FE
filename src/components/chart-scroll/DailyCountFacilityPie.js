@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
-import Header from '../common/Header';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
 import Pie from '../chart-templates/Pie';
-import styles from './VerticalBar.css';
+import styles from './ChartScroll.css';
+import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 
 const DailyCountFacilityPie = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
@@ -19,14 +19,13 @@ const DailyCountFacilityPie = ({ updated }) => {
     });
   });
 
-
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange}
           name={'facility-radio'}

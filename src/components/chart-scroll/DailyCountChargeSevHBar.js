@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../common/Header';
 import ChartLoading from '../common/ChartLoading';
-import useDailyChargeSeverityCount from '../../hooks/useDailyChargeSeverity';
-import styles from './VerticalBar.css';
+import Header from '../common/Header';
 import HBar from '../chart-templates/HBar';
+import styles from './ChartScroll.css';
+import useDailyChargeSeverityCount from '../../hooks/useDailyChargeSeverity';
 
 const DailyCountChargeSevHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
@@ -19,14 +19,13 @@ const DailyCountChargeSevHBar = ({ updated }) => {
     });
   });
 
-
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange}
           name={'charge-radio'}

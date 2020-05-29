@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSVLink } from 'react-csv';
 import PropTypes from 'prop-types';
-import styles from '../chart-scroll/VerticalBar.css';
+import styles from '../chart-scroll/ChartScroll.css';
 import downloadImage from '../../assets/download6.png';
 
 const CSV = ({ data, filename }) => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
-import styles from './VerticalBar.css';
+import styles from './ChartScroll.css';
 import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
-import ChartLoading from '../common/ChartLoading';
 
 const DailyAverageDetentionHBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
@@ -25,7 +25,7 @@ const DailyAverageDetentionHBar = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange} 
           name={'avg-detention-radio'} 

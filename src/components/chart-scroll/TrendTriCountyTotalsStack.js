@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import styles from './VerticalBar.css';
+import HeaderBasic from '../common/HeaderBasic';
 import Area from '../chart-templates/Area';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
 import useCSVTriCountyTrend from '../../hooks/useCSVTriCountyTrend';
-
-import HeaderBasic from '../common/HeaderBasic';
+import styles from './ChartScroll.css';
 
 const TrendTriCountyTotalsStack = ({ updated }) => {
   const [rawTrendData, setRawTrendData] = useState([]);
   const csvData = useCSVTriCountyTrend();
-
 
   useEffect(() => {
     getDailyCounts()
@@ -40,7 +38,7 @@ const TrendTriCountyTotalsStack = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <HeaderBasic
           title={'Trend Data: Last updated'}
           category={'Daily Population Total'}

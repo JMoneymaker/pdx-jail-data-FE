@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import useDailyRaceCount from '../../hooks/useDailyRaceCount';
-import Header from '../common/Header';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
 import VBar from '../chart-templates/VBar';
-import styles from './VerticalBar.css';
+import styles from './ChartScroll.css';
+import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 
 const DailyCountRaceVBar = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
@@ -25,7 +25,7 @@ const DailyCountRaceVBar = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange} 
           name={'race-radio'} 
