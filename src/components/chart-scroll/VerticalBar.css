@@ -2,7 +2,7 @@
   height: 100vh;
   background-color: white;
   padding: 5em;
-
+}
   .headWrapper {
     display: flex;
     width: 100%;
@@ -23,7 +23,6 @@
     justify-content: space-between;
     align-items: center;
     }
-  }
   }
 
   .titleContainer {
@@ -55,9 +54,6 @@
      visibility: visible;
   }
 
-  .radioContainer {
-
-  }
 
   .chartWrapper {
   width: 100%;
