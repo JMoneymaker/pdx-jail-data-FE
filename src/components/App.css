@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-html {
-  font-family: 'Open Sans', sans-serif;
+body {
+	margin: 0;
+	padding: 0;
+	background: #f8f8f8;
+	color: #444444;
+	font-family: 'Archivo Black', sans-serif;
+	line-height: 1.25;
+	overflow-x: hidden;
+	position: relative;
+	width: 100%;
 }
 
 h1, h2, h3 {
@@ -48,18 +56,18 @@ p {
 	color: #888888;
 }
 
-@media only screen and (max-height: 320px) {
-	h1 {font-size: 2rem;}
-	h2 {font-size: 1.5rem;}
+@media only screen and (min-width: 320px) {
+	h1 {font-size: 1.5rem;}
+	h2 {font-size: 1rem;}
 	h3 {font-size: 1rem;}
 	h4 {font-size: .5rem;}
 }
 
-@media only screen and (min-width: 767px) {
-	h1 {font-size: 4rem;}
-	h2 {font-size: 3rem;}
-	h3 {font-size: 2rem;}
-	h4 {font-size: 1rem;}
+@media only screen and (min-width: 760px) {
+	h1 {font-size: 2rem;}
+	h2 {font-size: 1.5rem;}
+	h3 {font-size: 1rem;}
+	h4 {font-size: .75rem;}
 }
 
 @media only screen and (min-width: 1024px) {
