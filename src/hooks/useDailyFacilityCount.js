@@ -3,20 +3,20 @@ import { getDailyFacilityCount } from '../services/getDailyCounts';
 import { shapeFacility } from '../utils/dailyCounts';
 
 const useDailyCountFacility = county => {
-  const [facilityData, setFacilityData] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchDailyFacilityCount = () => {
     setLoading(true);
     getDailyFacilityCount(county)
       .then(shapeFacility)
-      .then(setFacilityData)
+      .then(setData)
       .finally(() => setLoading(false));
   };
 
   useEffect(fetchDailyFacilityCount, [county]);
 
-  return [facilityData, loading];
+  return [data, loading];
 };
 
 export default useDailyCountFacility;

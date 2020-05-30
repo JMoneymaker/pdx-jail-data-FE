@@ -7,28 +7,24 @@ import CSV from './CSV';
 const Header = ({ title, category, handleChange, name, id, data, updated, filename }) => {
 
   return (
-    <div className={styles.headContainer}>
-      <header className={styles.headWrapper}>
-        <div className={styles.titleContainer}>
-          <div className={styles.titleWrapper}>
-            <h4>{title} - {updated}</h4>
-            <CSV 
-              data={data}
-              filename={filename}
-            ></CSV>
-          </div>
-          <div className={styles.categoryWrapper}>
-            <h3>{category}</h3>
-          </div>
+    <header className={styles.headWrapper}>
+      <div className={styles.titleContainer}>
+        <div className={styles.titleWrapper}>
+          <h3>{title} - {updated}</h3>
+          <h1>{category}</h1>
         </div>
-        <div className={styles.radioContainer}>
-          <RadioControls 
-            handleChange={handleChange}  
-            name={name}  
-            id={id} />
-        </div>
-      </header>
-    </div>
+        <CSV 
+          data={data}
+          filename={filename}
+        ></CSV>
+      </div>
+      <div className={styles.radioContainer}>
+        <RadioControls 
+          handleChange={handleChange}  
+          name={name}  
+          id={id} />
+      </div>
+    </header>
   );
 };
 

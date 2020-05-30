@@ -36,7 +36,7 @@ const DailyCountFacility = ({ updated }) => {
           filename={`jdpdx-daily-facility-${updated}-${county}.csv`}
           category={'Population by Facility'}> 
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <Pie 
               county={county} 

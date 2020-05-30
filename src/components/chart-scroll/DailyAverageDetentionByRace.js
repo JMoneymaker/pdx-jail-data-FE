@@ -4,7 +4,7 @@ import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
 import BarV from '../chart-templates/BarV';
 import styles from './ChartScroll.css';
-import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
+import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionByRace';
 
 const DailyAverageDetentionByRace = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');

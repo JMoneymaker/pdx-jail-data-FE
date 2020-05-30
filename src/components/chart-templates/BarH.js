@@ -7,31 +7,31 @@ const HBar = ({ data, county, xLabel, legend }) => {
   return (
     <VictoryChart
       domainPadding={5}
-      width={400}
+      // width={400}
       height={220}
+      padding={{ top: 30, bottom: 30, left: 45, right: 30 }}
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={155} 
-        y={30}
+        x={189} 
+        y={10}
         style={{
-          fontSize: 7.5,
+          fontSize: 7.5
         }}
       />
       <VictoryBar
         barRatio={0.8}
         style={{
           data: {
-            fill: 'black',
+            fill: 'black'
           },
           labels: {
-            fontSize: 5,
+            fontSize: 5
           }
         }}
-         
         data={data}
         horizontal={true}
-        padding={{ bottom: 60 }}
+        padding={{ bottom: 20 }}
         labels={({ datum }) => datum.y}
       />
       <VictoryAxis
@@ -65,7 +65,6 @@ const HBar = ({ data, county, xLabel, legend }) => {
         titleOrientation='top'
         centerTitle
         orientation="vertical"
-        // symbolSpacer={5}
         rowGutter={{ top: -1, bottom: -1 }}
         borderPadding={{ top: 0, bottom: 2, right: -20 }}
         style={{ 
