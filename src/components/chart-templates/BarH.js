@@ -8,12 +8,13 @@ const HBar = ({ data, county, xLabel, legend }) => {
     <VictoryChart
       domainPadding={5}
       width={400}
-      height={220}
+      height={180}
+      padding={{ top: 20, bottom: 30, left: 45, right: 30 }}
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={155} 
-        y={30}
+        x={170} 
+        y={10}
         style={{
           fontSize: 7.5
         }}
@@ -28,10 +29,9 @@ const HBar = ({ data, county, xLabel, legend }) => {
             fontSize: 5
           }
         }}
-         
         data={data}
         horizontal={true}
-        padding={{ bottom: 60 }}
+        padding={{ bottom: 20 }}
         labels={({ datum }) => datum.y}
       />
       <VictoryAxis

@@ -8,7 +8,7 @@ const Area = ({ data, yLabel, xLabel }) => {
   return (
     <VictoryChart
       width={400}
-      height={245}
+      height={235}
       containerComponent={
         <VictoryVoronoiContainer
           // mouseFollowTooltips

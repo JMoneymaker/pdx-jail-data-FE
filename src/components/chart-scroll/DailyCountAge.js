@@ -37,7 +37,7 @@ const DailyCountAge = ({ updated }) => {
           updated={updated}
           county={county} >
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <BarV 
               data={data}

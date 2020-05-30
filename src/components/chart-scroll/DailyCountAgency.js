@@ -36,7 +36,7 @@ const DailyCountAgency = ({ updated }) => {
           filename={`jdpdx-daily-agency-${updated}-${county}.csv`}
           category={'Population by Arresting Agency'}>
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             county === 'clackamas' ? 
               <div className={styles.countyError}>No Data Available</div> 

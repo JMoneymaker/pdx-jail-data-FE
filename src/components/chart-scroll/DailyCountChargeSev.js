@@ -36,7 +36,7 @@ const DailyCountChargeSev = ({ updated }) => {
           filename={`jdpdx-daily-chargeSeverity-${updated}-${county}.csv`}
           category={'Population by Top Charge Severity'}> 
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <BarH 
               data={data} 

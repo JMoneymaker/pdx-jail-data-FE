@@ -36,7 +36,7 @@ const DailyCountRace = ({ updated }) => {
           filename={`jdpdx-daily-race-${updated}-${county}.csv`}
           category={'Population by Race'}> 
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <BarV 
               county={county} 

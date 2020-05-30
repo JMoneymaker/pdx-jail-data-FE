@@ -37,7 +37,7 @@ const DailyCountChargeDesc = ({ updated }) => {
           data={csvData}  
         >
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <BarH 
               data={data} 

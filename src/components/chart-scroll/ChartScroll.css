@@ -3,124 +3,6 @@
   background-color: white;
   padding: 5em;
 }
-  .headWrapper {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-    }
-
-  @media screen and (min-width: 320px) {
-    .headWrapper {
-    width: 100%;
-    }
-  }
-
-  @media screen and (min-width: 550px) {
-    .headWrapper {
-    width: 90%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    }
-  }
-
-  .titleContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .downloadImage {
-    width: 1.25rem;
-    position: relative;
-    display: inline-block;
-  }
-
-  .downloadContainer .toolTip {
-    visibility: hidden;
-    width: 60px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    position: absolute;
-    z-index: 1;
-  }
-
-  .downloadContainer:hover .toolTip {
-     visibility: visible;
-  }
-
-
-  .chartWrapper {
-  width: 100%;
-  height: 100%;
-  }
-
-  .chartArea {
-    width: 100%;
-    text-align: center;
-    align-self: center;
-  }
-
-  .countyError {
-    font-family: 'Roboto Condensed, sans-serif';
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-}
-
-  @media screen and (min-width: 320px) {
-    .countyError {
-      width: 30%;
-      font-family: 'Roboto Condensed', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 8vh;
-      margin: auto;
-      border: 2px solid black;
-      padding: 2em;
-    }
-  }
-
-  @media screen and (min-width: 650px) {
-    .countyError {
-      margin-top: 20vh;
-    }
-  }
-
-  @media only screen and (min-width: 1024px) {
-    .countyError {
-      font-size: 3em;
-    }
-  }
-
-  .titleWrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .basicHeadWrapper {
-    display: block;
-  }
-
-  .basicTitleWrapper {
-    display: flex;
-  }
-
-  .csv {
-    margin-left: 1.5em;
-  }
-
-  @media screen and (min-width: 320px) {
-    .chartWrapper {
-    width: 100%
-    }
-  }
 
 @media screen and (min-width: 320px) {
   .ChartScroll {
@@ -142,3 +24,171 @@
     padding: 8em;
   }
 }
+
+.chartWrapper {
+width: 100%;
+height: 100%;
+}
+
+@media screen and (min-width: 320px) {
+  .chartWrapper {
+  width: 100%
+  }
+}
+
+.headWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  }
+
+@media screen and (min-width: 320px) {
+  .headWrapper {
+  width: 90%;
+  flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .headWrapper {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .headWrapper {
+    width: 96%;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .titleContainer {
+    align-items: center;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media screen and (min-width: 550px) {
+  .titleWrapper {
+  justify-content: flex-start;
+  }
+}
+
+.radioContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 320px) {
+  .radioContainer {
+  width: 100%;
+  height: 3vh;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .radioContainer {
+  width: 100%;
+  height: 8vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .radioContainer {
+  width: 100%;
+  height: 5vh;
+  }
+}
+
+.downloadImage {
+  width: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .downloadImage {
+    width: 2rem;
+  }
+}
+
+.downloadContainer .toolTip {
+  visibility: hidden;
+  width: 60px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.downloadContainer:hover .toolTip {
+    visibility: visible;
+}
+
+.countyError {
+  font-family: 'Roboto Condensed, sans-serif';
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+@media screen and (min-width: 320px) {
+  .countyError {
+    width: 30%;
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vh;
+    margin: auto;
+    border: 2px solid black;
+    padding: 2em;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .countyError {
+    margin-top: 20vh;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .countyError {
+    font-size: 3em;
+  }
+}
+
+.basicHeadWrapper {
+  display: block;
+}
+
+.basicTitleWrapper {
+  display: flex;
+}
+
+.csv {
+  margin-left: 1.5em;
+}
+
+
