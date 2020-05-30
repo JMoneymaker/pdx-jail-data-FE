@@ -6,15 +6,17 @@ import CSV from './CSV';
 const HeaderBasic = ({ title, category, data, updated, filename  }) => {
 
   return (
-    <header className={styles.basicHeadWrapper}>
-      <div className={styles.basicTitleWrapper}>
-        <h4>{title} - {updated}</h4>
+    <header className={styles.headWrapper}>
+      <div className={styles.titleContainer}>
+        <div className={styles.titleWrapper}>
+          <h3>{title} - {updated}</h3>
+          <h1>{category}</h1>
+        </div>
         <CSV 
           data={data}
           filename={filename}
         ></CSV>
       </div>
-      <h3>{category}</h3>
     </header>
   );
 };

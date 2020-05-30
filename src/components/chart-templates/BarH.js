@@ -9,11 +9,11 @@ const HBar = ({ data, county, xLabel, legend }) => {
       domainPadding={5}
       width={400}
       height={180}
-      padding={{ top: 20, bottom: 30, left: 45, right: 30 }}
+      padding={{ top: 30, bottom: 30, left: 45, right: 30 }}
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={170} 
+        x={165} 
         y={10}
         style={{
           fontSize: 7.5

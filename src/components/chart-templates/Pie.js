@@ -13,12 +13,13 @@ const Pie = ({ county, data }) => {
   return (
     <VictoryChart
       width={400}
-      height={255}
+      height={180}
+      padding={{ top: 30, bottom: 30, left: 30, right: 30 }}
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={160} 
-        y={25}
+        x={162} 
+        y={10}
         style={{
           fontSize: 7.5
         }}          
@@ -42,7 +43,7 @@ const Pie = ({ county, data }) => {
           tickLabels: { fill: 'none' }
         }} 
       />
-      <VictoryLegend x={280} y={47}
+      <VictoryLegend x={280} y={30}
         data={labelData(data)}
         title='Facility'
         orientation='vertical'

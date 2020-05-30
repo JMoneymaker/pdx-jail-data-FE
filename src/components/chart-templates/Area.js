@@ -8,7 +8,8 @@ const Area = ({ data, yLabel, xLabel }) => {
   return (
     <VictoryChart
       width={400}
-      height={235}
+      height={190}
+      padding={{ top: 40, bottom: 30, left: 45, right: 30 }}
       containerComponent={
         <VictoryVoronoiContainer
           // mouseFollowTooltips
@@ -99,8 +100,7 @@ const Area = ({ data, yLabel, xLabel }) => {
           }
         }}
       />
-      <VictoryLegend x={108} y={10}
-        title="County"
+      <VictoryLegend x={85} y={15}
         centerTitle
         orientation="horizontal"
         gutter={20}
@@ -113,9 +113,9 @@ const Area = ({ data, yLabel, xLabel }) => {
         }}
         colorScale={['#252525', '#737373', '#525252']}
         data={[
-          { name: 'Multnomah' }, 
-          { name: 'Washington' }, 
-          { name: 'Clackamas' }
+          { name: 'Multnomah County' }, 
+          { name: 'Washington County' }, 
+          { name: 'Clackamas County' }
         ]}
       />
     </VictoryChart>
