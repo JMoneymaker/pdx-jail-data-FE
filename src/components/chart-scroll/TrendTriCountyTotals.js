@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import ChartLoading from '../common/ChartLoading';
 import HeaderBasic from '../common/HeaderBasic';
 import Area from '../chart-templates/Area';
 import { getDailyCounts } from '../../services/getTriCountyDaily';
@@ -9,10 +10,13 @@ import styles from './ChartScroll.css';
 const TrendTriCountyTotals = ({ updated }) => {
   const [rawTrendData, setRawTrendData] = useState([]);
   const csvData = useCSVTriCountyTrend();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     getDailyCounts()
-      .then(res => {setRawTrendData(res[0].counts);});
+      .then(res => {setRawTrendData(res[0].counts);})
+      .finally(() => setLoading(false));
   }, []);
 
   const shapeTrend = rawData => {
@@ -47,11 +51,15 @@ const TrendTriCountyTotals = ({ updated }) => {
           filename={`jdpdx-TriCountyTotals-${updated}.csv`}
         > 
         </HeaderBasic >
-        <Area 
-          data={data}
-          xLabel={'Number of People in Detention'} 
-          yLabel={'Date'}
-        />
+        <section className={styles.chartWrapper}>
+          {loading ? <ChartLoading /> :
+            <Area 
+              data={data}
+              xLabel={'Number of People in Detention'} 
+              yLabel={'Date'}
+            />
+          }
+        </section>
       </section>
     </>
   );
