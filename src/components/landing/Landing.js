@@ -19,9 +19,9 @@ const Landing = () => {
       <main className={styles.mainStats}>
         <section className={styles.countiesInner}>
           <div className={styles.counties}>
-            <h3 className={styles.county}>Clackamas</h3>
-            <h3 className={styles.county}>Multnomah</h3>
-            <h3 className={styles.county}>Washington</h3>
+            <h1 className={styles.county}>Clackamas</h1>
+            <h1 className={styles.county}>Multnomah</h1>
+            <h1 className={styles.county}>Washington</h1>
           </div>
         </section>
         <section className={styles.mainStatsInner}>
