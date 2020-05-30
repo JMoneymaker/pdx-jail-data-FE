@@ -8,7 +8,7 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
     <VictoryChart
       domainPadding={[10 + (100 / data.length), 10 + (100 / data.length)]}
       // width={400}
-      height={220}
+      height={210}
       padding={{ top: 30, bottom: 30, left: 45, right: 30 }}
 
     >

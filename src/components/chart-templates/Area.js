@@ -8,7 +8,7 @@ const Area = ({ data, yLabel, xLabel }) => {
   return (
     <VictoryChart
       // width={400}
-      height={230}
+      height={220}
       padding={{ top: 40, bottom: 30, left: 45, right: 30 }}
       containerComponent={
         <VictoryVoronoiContainer
