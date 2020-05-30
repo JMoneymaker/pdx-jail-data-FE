@@ -9,14 +9,14 @@ const HBar = ({ data, county, xLabel, legend }) => {
       domainPadding={5}
       // width={400}
       height={210}
-      padding={{ top: 30, bottom: 30, left: 45, right: 30 }}
+      padding={{ top: 15, bottom: 30, left: 45, right: 30 }}
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
         x={189} 
-        y={10}
+        y={4}
         style={{
-          fontSize: 7.5
+          fontSize: 9
         }}
       />
       <VictoryBar
@@ -59,7 +59,7 @@ const HBar = ({ data, county, xLabel, legend }) => {
           }
         }}
       />
-      {legend ? <VictoryLegend 
+      {/* {legend ? <VictoryLegend 
         x={276} y={46}
         title="Maximum Penalty"
         titleOrientation='top'
@@ -86,7 +86,7 @@ const HBar = ({ data, county, xLabel, legend }) => {
           { name: 'C Misdemeanor - 30 days +/ $1,250' },
           { name: 'U - Unclassified - Varies' }
         ]}
-      /> : <></>}
+      /> : <></>} */}
     </VictoryChart>
   );
 };

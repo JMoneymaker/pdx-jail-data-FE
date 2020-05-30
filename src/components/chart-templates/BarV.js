@@ -9,15 +9,15 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
       domainPadding={[10 + (100 / data.length), 10 + (100 / data.length)]}
       // width={400}
       height={210}
-      padding={{ top: 30, bottom: 30, left: 45, right: 30 }}
+      padding={{ top: 15, bottom: 30, left: 45, right: 30 }}
 
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
         x={188} 
-        y={10}
+        y={4}
         style={{
-          fontSize: 7.5
+          fontSize: 9
         }}
       />
       <VictoryBar

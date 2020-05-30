@@ -14,14 +14,14 @@ const Pie = ({ county, data }) => {
     <VictoryChart
       // width={400}
       height={220}
-      padding={{ top: 40, bottom: 30, left: 30, right: 120 }}
+      padding={{ top: 30, bottom: 30, left: 30, right: 120 }}
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
         x={188} 
-        y={10}
+        y={4}
         style={{
-          fontSize: 7.5
+          fontSize: 9
         }}          
       />
       <VictoryPie

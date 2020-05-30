@@ -26,37 +26,42 @@
   input[type=radio] {
     opacity: 0;
     position: absolute;
+    z-index: -1;
   }
   
   label {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-    font-size: 16px;
-    width: 6em;
     height: 1.25em;
     text-align: center;
   }
 
   @media screen and (min-width: 320px) {
     label {
-      padding: .35em 0 .5em .35em;
-      font-size: .25rem;
-      border-left: .5em solid white;
-      border-right: .5em solid white;
-      border-bottom: .5em solid black;
-      border-top: .5em solid black;
-      border-radius: .35em;
+      padding: .25em 0 .25em 0;
+      margin-right: .25em;
+      font-size: .35rem;
+      width: 5.5em;
+      border-left: .25em solid white;
+      border-right: .25em solid white;
+      border-bottom: .25em solid black;
+      border-top: .25em solid black;
+      border-radius: .45em;
     }
   }
 
   @media only screen and (min-width: 560px) {
     label {
-      padding: .5em;
-      font-size: .35rem;
-      border-left: .25em solid white;
-      border-right: .25em solid white;
-      border-bottom: .25em solid black;
-      border-top: .25em solid black;
+      padding: .25em 0 .25em 0;
+      margin-right: .25em;
+      width: 5em;
+      font-size: .4rem;
+      border-left: .2em solid white;
+      border-right: .2em solid white;
+      border-bottom: .2em solid black;
+      border-top: .2em solid black;
       border-radius: .5em;
     }
   }

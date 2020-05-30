@@ -9,9 +9,9 @@ const MainStat = ({ totalHook, changeHook }) => {
   return (
     <>
       <div className={styles.mainStat}>
-        <h2 className={styles.digit}>{total}</h2>
-        <h4 className={styles.caption}>In Custody</h4>
-        <h4 className={styles.change}>{change}</h4>
+        <h1 className={styles.digit}>{total}</h1>
+        <h3 className={styles.caption}>In Custody</h3>
+        <h3 className={styles.change}>{change}</h3>
       </div>
     </>);
 };

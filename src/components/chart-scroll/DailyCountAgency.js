@@ -39,7 +39,7 @@ const DailyCountAgency = ({ updated }) => {
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             county === 'clackamas' ? 
-              <div className={styles.countyError}>No Data Available</div> 
+              <div className={styles.countyError}><h3>No Data Available</h3></div> 
               : <BarH 
                 data={data} 
                 county={county} 

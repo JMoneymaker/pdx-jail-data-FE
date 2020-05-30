@@ -31,7 +31,7 @@ const DailyCountAge = ({ updated }) => {
           name={'age-radio'} 
           id={'age'}
           title={'Daily Snapshot'}   
-          category={'Population by Age'}
+          category={'Population by Age Range'}
           data={csvData}
           filename={`jdpdx-daily-age-count-${updated}-${county}.csv`}
           updated={updated}
