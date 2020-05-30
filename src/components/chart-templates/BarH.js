@@ -8,7 +8,7 @@ const HBar = ({ data, county, xLabel, legend }) => {
     <VictoryChart
       domainPadding={5}
       // width={400}
-      height={220}
+      height={210}
       padding={{ top: 30, bottom: 30, left: 45, right: 30 }}
     >
       <VictoryLabel 
