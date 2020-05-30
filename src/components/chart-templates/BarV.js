@@ -6,31 +6,34 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
 
   return (
     <VictoryChart
-      domainPadding={25}
-      width={400}
-      height={225}
+      domainPadding={[10 + (100 / data.length), 10 + (100 / data.length)]}
+      // width={400}
+      height={220}
+      padding={{ top: 30, bottom: 30, left: 45, right: 30 }}
+
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={155} 
-        y={30}
+        x={188} 
+        y={10}
         style={{
-          fontSize: 7.5,
+          fontSize: 7.5
         }}
       />
       <VictoryBar
+        responsive={false}
         barRatio={0.8}
         style={{
           data: {
-            fill: 'black',
+            fill: 'black'
           },
           labels: {
-            fontSize: 5,
+            fontSize: 5
           }
         }}
          
-        data={data}
-        padding={{ top: 20, bottom: 60 }}
+        data={[...data]}
+        padding={{ bottom: 20 }}
         labels={({ datum }) => datum.y}
       />
       <VictoryAxis

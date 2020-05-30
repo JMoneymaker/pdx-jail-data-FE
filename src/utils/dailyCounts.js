@@ -100,7 +100,9 @@ export const shapeClack = res => {
 export const shapeMult = res => {
   return alphabetize(res)
     .map(item => {
-      if(item._id === 'P'){
+      if(item._id === ''){
+        item._id === 'Undefined';
+      } else if(item._id === 'P'){
         item._id = 'Pacific Islander';
       } return item;
     })
@@ -244,7 +246,7 @@ export const shapeChargeSeverity = res => {
 };
 
 export const shapeChargeDescription = res => {
-  return res.map((item,) => {
+  return res.map((item) => {
     return ({
       x: item._id,
       y: item.total

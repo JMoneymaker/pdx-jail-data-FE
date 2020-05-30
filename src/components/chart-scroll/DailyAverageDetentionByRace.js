@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../common/Header';
-import VBar from '../chart-templates/VBar';
-import styles from './VerticalBar.css';
-import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionMult';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
+import BarV from '../chart-templates/BarV';
+import styles from './ChartScroll.css';
+import useDailyAverageDetentionByRace from '../../hooks/useDailyAverageDetentionByRace';
 
-const DailyAverageDetentionHBar = ({ updated }) => {
+const DailyAverageDetentionByRace = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyAverageDetentionByRace(county);
 
@@ -25,7 +25,7 @@ const DailyAverageDetentionHBar = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange} 
           name={'avg-detention-radio'} 
@@ -40,7 +40,7 @@ const DailyAverageDetentionHBar = ({ updated }) => {
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
-            <VBar 
+            <BarV 
               data={data} 
               county={county} 
               xLabel={'Number of Days in Detention'} 
@@ -52,9 +52,9 @@ const DailyAverageDetentionHBar = ({ updated }) => {
   );
 };
 
-DailyAverageDetentionHBar.propTypes = {
+DailyAverageDetentionByRace.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyAverageDetentionHBar;
+export default DailyAverageDetentionByRace;
 

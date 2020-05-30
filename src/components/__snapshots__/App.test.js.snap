@@ -3,28 +3,28 @@
 exports[`App component renders App 1`] = `
 <Fragment>
   <Landing />
-  <TrendTriCountyTotalsStack
+  <TrendTriCountyTotals
     updated="loading"
   />
-  <DailyCountAgeVBar
+  <DailyCountAge
     updated="loading"
   />
-  <DailyCountAgencyHBar
+  <DailyCountAgency
     updated="loading"
   />
-  <DailyCountFacilityPie
+  <DailyCountFacility
     updated="loading"
   />
-  <DailyCountRaceVBar
+  <DailyCountRace
     updated="loading"
   />
-  <DailyAverageDetentionHBar
+  <DailyAverageDetentionByRace
     updated="loading"
   />
-  <DailyCountChargeSevHBar
+  <DailyCountChargeSev
     updated="loading"
   />
-  <DailyCountChargeDescHBar
+  <DailyCountChargeDesc
     updated="loading"
   />
 </Fragment>

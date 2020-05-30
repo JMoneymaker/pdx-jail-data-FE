@@ -4,7 +4,7 @@ import { shapeMultDetAvg, shapeClackDetAvg, shapeWashDetAvg } from '../utils/dai
 
 
 const useDailyAverageDetentionByRace = county => {
-  const [average, setAverage] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchDailyAverageDetentionByRace = () => {      setLoading(true);
@@ -12,12 +12,12 @@ const useDailyAverageDetentionByRace = county => {
       .then((county === 'multnomah') ? shapeMultDetAvg
         : (county === 'clackamas') ? shapeClackDetAvg
           : shapeWashDetAvg)
-      .then(setAverage)
+      .then(setData)
       .finally(() => setLoading(false));  
   };
 
   useEffect(fetchDailyAverageDetentionByRace, [county]);
-  return [average, loading];
+  return [data, loading];
 };
 
 export default useDailyAverageDetentionByRace;

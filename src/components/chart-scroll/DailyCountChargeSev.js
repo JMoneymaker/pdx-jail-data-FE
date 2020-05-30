@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../common/Header';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
+import BarH from '../chart-templates/BarH';
+import styles from './ChartScroll.css';
 import useDailyChargeSeverityCount from '../../hooks/useDailyChargeSeverity';
-import styles from './VerticalBar.css';
-import HBar from '../chart-templates/HBar';
 
-const DailyCountChargeSevHBar = ({ updated }) => {
+const DailyCountChargeSev = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyChargeSeverityCount(county);
 
@@ -19,14 +19,13 @@ const DailyCountChargeSevHBar = ({ updated }) => {
     });
   });
 
-
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange}
           name={'charge-radio'}
@@ -37,9 +36,9 @@ const DailyCountChargeSevHBar = ({ updated }) => {
           filename={`jdpdx-daily-chargeSeverity-${updated}-${county}.csv`}
           category={'Population by Top Charge Severity'}> 
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
-            <HBar 
+            <BarH 
               data={data} 
               county={county} 
               xLabel={'Number of People in Detention'} 
@@ -52,9 +51,9 @@ const DailyCountChargeSevHBar = ({ updated }) => {
   );
 };
 
-DailyCountChargeSevHBar.propTypes = {
+DailyCountChargeSev.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountChargeSevHBar;
+export default DailyCountChargeSev;
 

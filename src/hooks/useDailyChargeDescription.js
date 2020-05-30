@@ -3,20 +3,20 @@ import { getDailyTopCharges } from '../services/getDailyCounts';
 import { shapeChargeDescription } from '../utils/dailyCounts';
 
 const useDailyChargeDescription = county => {
-  const [chargeDescriptions, setChargeDescriptions] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchDailyChargeDescriptions = () => {
     setLoading(true);
     getDailyTopCharges(county)
       .then(shapeChargeDescription)
-      .then(setChargeDescriptions)
+      .then(setData)
       .finally(() => setLoading(false));
   };
 
   useEffect(fetchDailyChargeDescriptions, [county]);
 
-  return [chargeDescriptions, loading];
+  return [data, loading];
 };
 
 export default useDailyChargeDescription;

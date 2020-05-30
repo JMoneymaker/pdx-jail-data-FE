@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
-import Header from '../common/Header';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
 import Pie from '../chart-templates/Pie';
-import styles from './VerticalBar.css';
+import styles from './ChartScroll.css';
+import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 
-const DailyCountFacilityPie = ({ updated }) => {
+const DailyCountFacility = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyCountFacility(county);
 
@@ -19,14 +19,13 @@ const DailyCountFacilityPie = ({ updated }) => {
     });
   });
 
-
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange}
           name={'facility-radio'}
@@ -37,7 +36,7 @@ const DailyCountFacilityPie = ({ updated }) => {
           filename={`jdpdx-daily-facility-${updated}-${county}.csv`}
           category={'Population by Facility'}> 
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <Pie 
               county={county} 
@@ -50,9 +49,9 @@ const DailyCountFacilityPie = ({ updated }) => {
   );
 };
 
-DailyCountFacilityPie.propTypes = {
+DailyCountFacility.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountFacilityPie;
+export default DailyCountFacility;
 

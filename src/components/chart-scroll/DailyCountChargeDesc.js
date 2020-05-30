@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import useUpDated from '../../hooks/useUpDated';
-import Header from '../common/Header';
-import styles from './VerticalBar.css';
-import HBar from '../chart-templates/HBar';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
+import BarH from '../chart-templates/BarH';
+import styles from './ChartScroll.css';
 import useDailyChargeDescription from '../../hooks/useDailyChargeDescription';
 
-const DailyCountChargeDescHBar = ({ updated }) => {
+const DailyCountChargeDesc = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyChargeDescription(county);
 
@@ -26,9 +25,8 @@ const DailyCountChargeDescHBar = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
-          upDateHook={useUpDated} 
           handleChange={handleChange} 
           name={'description-radio'} 
           id={'description'}
@@ -39,9 +37,9 @@ const DailyCountChargeDescHBar = ({ updated }) => {
           data={csvData}  
         >
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
-            <HBar 
+            <BarH 
               data={data} 
               county={county} 
               xLabel={'Number of people in Detention'} /> 
@@ -52,10 +50,10 @@ const DailyCountChargeDescHBar = ({ updated }) => {
   );
 };
 
-DailyCountChargeDescHBar.propTypes = {
+DailyCountChargeDesc.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
 
-export default DailyCountChargeDescHBar;
+export default DailyCountChargeDesc;
 

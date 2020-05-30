@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import useDailyRaceCount from '../../hooks/useDailyRaceCount';
-import Header from '../common/Header';
 import ChartLoading from '../common/ChartLoading';
-import VBar from '../chart-templates/VBar';
-import styles from './VerticalBar.css';
+import Header from '../common/Header';
+import BarV from '../chart-templates/BarV';
+import styles from './ChartScroll.css';
+import useDailyRaceCount from '../../hooks/useDailyRaceCount';
 
-const DailyCountRaceVBar = ({ updated }) => {
+const DailyCountRace = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyRaceCount(county);
 
@@ -25,7 +25,7 @@ const DailyCountRaceVBar = ({ updated }) => {
 
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange} 
           name={'race-radio'} 
@@ -36,9 +36,9 @@ const DailyCountRaceVBar = ({ updated }) => {
           filename={`jdpdx-daily-race-${updated}-${county}.csv`}
           category={'Population by Race'}> 
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
-            <VBar 
+            <BarV 
               county={county} 
               data={data} 
               xLabel={'Number of People in Detention'} 
@@ -50,9 +50,9 @@ const DailyCountRaceVBar = ({ updated }) => {
   );
 };
 
-DailyCountRaceVBar.propTypes = {
+DailyCountRace.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountRaceVBar;
+export default DailyCountRace;
 

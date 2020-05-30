@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSVLink } from 'react-csv';
 import PropTypes from 'prop-types';
-import styles from '../chart-scroll/VerticalBar.css';
+import styles from '../chart-scroll/ChartScroll.css';
 import downloadImage from '../../assets/download6.png';
 
 const CSV = ({ data, filename }) => {
@@ -13,7 +13,7 @@ const CSV = ({ data, filename }) => {
         target='_blank'>
         <p className={styles.downloadContainer}>
           <img className={styles.downloadImage} src={downloadImage} alt='download' />
-          <span className={styles.toolTip}>Download</span>
+          <span className={styles.toolTip}></span>
         </p>
       </CSVLink>
     </div>

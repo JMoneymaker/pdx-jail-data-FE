@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../common/Header';
-import VBar from '../chart-templates/VBar';
 import ChartLoading from '../common/ChartLoading';
+import Header from '../common/Header';
+import BarV from '../chart-templates/BarV';
+import styles from './ChartScroll.css';
 import useDailyAge from '../../hooks/useDailyAgeRange';
-import styles from './VerticalBar.css';
 
-const DailyCountAgeVBar = ({ updated }) => {
+const DailyCountAge = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyAge(county);
 
@@ -25,7 +25,7 @@ const DailyCountAgeVBar = ({ updated }) => {
   
   return (
     <>
-      <section className={styles.VerticalBar}>
+      <section className={styles.ChartScroll}>
         <Header 
           handleChange={handleChange} 
           name={'age-radio'} 
@@ -37,9 +37,9 @@ const DailyCountAgeVBar = ({ updated }) => {
           updated={updated}
           county={county} >
         </Header>
-        <section className={styles.chartArea}>
+        <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
-            <VBar 
+            <BarV 
               data={data}
               county={county} 
               xLabel={'Number of People in Detention'} 
@@ -52,9 +52,9 @@ const DailyCountAgeVBar = ({ updated }) => {
   );
 };
 
-DailyCountAgeVBar.propTypes = {
+DailyCountAge.propTypes = {
   updated: PropTypes.string.isRequired
 };
 
-export default DailyCountAgeVBar;
+export default DailyCountAge;
 
