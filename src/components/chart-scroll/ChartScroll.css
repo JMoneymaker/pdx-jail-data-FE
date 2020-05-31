@@ -6,13 +6,13 @@
 @media screen and (min-width: 320px) {
   .ChartScroll {
     height: 30vh;
-    padding: 4em 3em 2em 3em;
+    padding: 2em 2em 2em 2em;
   }
 }
 
 @media screen and (min-width: 560px) {
   .ChartScroll {
-    height: 100%;
+    height: 90vh;
     padding: 3em 4em 3em 4em;
   }
 }
@@ -20,7 +20,7 @@
 @media only screen and (min-width: 1024px) {
   .ChartScroll {
     height: 100vh;
-    padding: 8em 10em 8em 10em;
+    padding: 8em 4em 8em 4em;
   }
 }
 
@@ -99,7 +99,7 @@
 @media screen and (min-width: 560px) {
   .radioContainer {
   width: 100%;
-  height: 8vh;
+  height: 5vh;
   }
 }
 

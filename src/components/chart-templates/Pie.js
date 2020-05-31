@@ -18,10 +18,10 @@ const Pie = ({ county, data }) => {
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={188} 
+        x={175} 
         y={4}
         style={{
-          fontSize: 9
+          fontSize: 12
         }}          
       />
       <VictoryPie
@@ -51,10 +51,10 @@ const Pie = ({ county, data }) => {
         rowGutter={{ top: 0, bottom: 0 }}
         style={{ 
           labels: {
-            fontSize: 5
+            fontSize: 10
           },
           title: {
-            fontSize: 7
+            fontSize: 12
           }
         }}
       />

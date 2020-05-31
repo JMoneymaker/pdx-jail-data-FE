@@ -10,7 +10,7 @@ const Header = ({ upDateHook }) => {
     <header className={styles.Header}>
       <h1>Jail Data PDX</h1>
       <h1>County Dashboard</h1>
-      <div className={styles.updateStatus}>Last Updated: {upDated}</div>
+      <div className={styles.updateStatus}><h2>Last Updated: {upDated}</h2></div>
     </header>
   );
 };

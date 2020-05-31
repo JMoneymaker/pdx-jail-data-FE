@@ -34,8 +34,8 @@
     align-items: center;
     justify-content: center;
     background-color: white;
-    height: 1.25em;
     text-align: center;
+    font-weight: 400;
   }
 
   @media screen and (min-width: 320px) {
@@ -56,7 +56,7 @@
     label {
       padding: .25em 0 .25em 0;
       margin-right: .25em;
-      width: 5em;
+      width: 7em;
       font-size: .4rem;
       border-left: .2em solid white;
       border-right: .2em solid white;

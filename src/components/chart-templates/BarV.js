@@ -8,16 +8,15 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
     <VictoryChart
       domainPadding={[10 + (100 / data.length), 10 + (100 / data.length)]}
       // width={400}
-      height={210}
-      padding={{ top: 15, bottom: 30, left: 45, right: 30 }}
-
+      height={205}
+      padding={{ top: 35, bottom: 30, left: 45, right: 30 }}
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={188} 
+        x={165} 
         y={4}
         style={{
-          fontSize: 9
+          fontSize: 12
         }}
       />
       <VictoryBar
@@ -28,7 +27,7 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
             fill: 'black'
           },
           labels: {
-            fontSize: 5
+            fontSize: 8
           }
         }}
          
@@ -41,7 +40,7 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
         style={{
           axisLabel: { padding: 15, fontSize: 8 },
           tickLabels: {
-            fontSize: 4.5,
+            fontSize: 7,
             fontFamily: 'Roboto Condensed, sans-serif',
             fillOpacity: 1,
             margin: 0,
@@ -52,13 +51,13 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
       <VictoryAxis dependentAxis
         label={xLabel}
         style={{
-          axisLabel: { padding: 20, fontSize: 8 },
+          axisLabel: { padding: 25, fontSize: 8 },
           tickLabels: {
-            fontSize: 5,
+            fontSize: 8,
             fontFamily: 'Roboto Condensed, sans-serif',
             fillOpacity: 1,
             margin: 0,
-            padding: 0
+            padding: 2
           }
         }}
       />
