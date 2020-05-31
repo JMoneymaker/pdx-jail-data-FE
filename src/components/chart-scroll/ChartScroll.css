@@ -5,7 +5,7 @@
 
 @media screen and (min-width: 320px) {
   .ChartScroll {
-    height: 30vh;
+    height: 35vh;
     padding: 2em 2em 2em 2em;
   }
 }
@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 @media screen and (min-width: 320px) {
@@ -59,7 +59,7 @@
 
 @media screen and (min-width: 320px) {
   .titleContainer {
-    align-items: flex-end;
+    align-items: flex-start;
   }
 }
 
@@ -92,7 +92,7 @@
 @media screen and (min-width: 320px) {
   .radioContainer {
   width: 100%;
-  height: 3vh;
+  height: 4vh;
   }
 }
 
@@ -106,12 +106,12 @@
 @media screen and (min-width: 1024px) {
   .radioContainer {
   width: 100%;
-  height: 5vh;
+  height: 6vh;
   }
 }
 
 .downloadImage {
-  width: 1rem;
+  width: .75rem;
 }
 
 @media screen and (min-width: 1024px) {
