@@ -1,22 +1,22 @@
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel, VictoryLegend } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HBar = ({ data, county, xLabel, legend }) => {
+const HBar = ({ data, county, xLabel }) => {
     
   return (
     <VictoryChart
-      domainPadding={5}
+      domainPadding={[10 + (100 / data.length), 10 + (100 / data.length)]}
       // width={400}
       height={210}
-      padding={{ top: 15, bottom: 30, left: 45, right: 30 }}
+      padding={{ top: 15, bottom: 30, left: 75, right: 40 }}
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={189} 
+        x={175} 
         y={4}
         style={{
-          fontSize: 9
+          fontSize: 12
         }}
       />
       <VictoryBar
@@ -26,7 +26,7 @@ const HBar = ({ data, county, xLabel, legend }) => {
             fill: 'black'
           },
           labels: {
-            fontSize: 5
+            fontSize: 7
           }
         }}
         data={data}
@@ -36,9 +36,9 @@ const HBar = ({ data, county, xLabel, legend }) => {
       />
       <VictoryAxis
         style={{
-          axisLabel: { padding: 15, fontSize: 8 },
+          axisLabel: { padding: 15, fontSize: 10 },
           tickLabels: {
-            fontSize: 4.5,
+            fontSize: 7,
             fontFamily: 'Roboto Condensed, sans-serif',
             fillOpacity: 1,
             margin: 0,
@@ -49,9 +49,9 @@ const HBar = ({ data, county, xLabel, legend }) => {
       <VictoryAxis dependentAxis
         label={xLabel}
         style={{
-          axisLabel: { padding: 15, fontSize: 8 },
+          axisLabel: { padding: 15, fontSize: 10 },
           tickLabels: {
-            fontSize: 5,
+            fontSize: 8,
             fontFamily: 'Roboto Condensed, sans-serif',
             fillOpacity: 1,
             margin: 0,
@@ -59,34 +59,6 @@ const HBar = ({ data, county, xLabel, legend }) => {
           }
         }}
       />
-      {/* {legend ? <VictoryLegend 
-        x={276} y={46}
-        title="Maximum Penalty"
-        titleOrientation='top'
-        centerTitle
-        orientation="vertical"
-        rowGutter={{ top: -1, bottom: -1 }}
-        borderPadding={{ top: 0, bottom: 2, right: -20 }}
-        style={{ 
-          border: { stroke: 'black' },
-          labels: { 
-            fontSize: 4, 
-            fontFamily: 'Roboto Condensed, sans-serif',
-          },
-          title: { fontSize: 5 },
-          fill: 'black'
-        }}
-        colorScale={['#FFFFFF', '#FFFFFF', '#FFFFFF']}
-        data={[
-          { name: 'A Felony - 20 years +/ $375,000' },
-          { name: 'B Felony - 10 years +/ $250,000 ' },
-          { name: 'C Felony - 5 years +/ $125,000' },
-          { name: 'A Misdemeanor - 364 days +/ $6,250' },
-          { name: 'B Misdemeanor - 6 months +/ $2,500' },
-          { name: 'C Misdemeanor - 30 days +/ $1,250' },
-          { name: 'U - Unclassified - Varies' }
-        ]}
-      /> : <></>} */}
     </VictoryChart>
   );
 };
