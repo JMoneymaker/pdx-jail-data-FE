@@ -91,12 +91,6 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .chartSpinner > div {
-
-  }
-}
-
 .chartSpinner .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
