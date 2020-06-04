@@ -20,6 +20,7 @@ const Pie = ({ county, data }) => {
         text={county.toUpperCase() + ' COUNTY'}
         x={175} 
         y={4}
+        renderInPortal={true}
         style={{
           fontSize: 12
         }}          

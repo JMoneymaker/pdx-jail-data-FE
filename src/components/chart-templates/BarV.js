@@ -15,8 +15,9 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
         text={county.toUpperCase() + ' COUNTY'}
         x={165} 
         y={4}
+        renderInPortal={true}
         style={{
-          fontSize: 12
+          fontSize: 12,
         }}
       />
       <VictoryBar
