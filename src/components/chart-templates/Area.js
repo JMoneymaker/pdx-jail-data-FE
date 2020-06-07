@@ -16,13 +16,12 @@ const Area = ({ data, yLabel, xLabel }) => {
           labelComponent={
             <VictoryTooltip
               orientation = {'top'}
-              pointerLength = {5}
+              pointerLength = {8}
               pointerWidth = {3}
               cornerRadius = {3}
+              padding = {0}
               style={{
                 fontSize: 8,
-                paddingLeft: 0,
-                paddingRight: 0,
                 overflow: 'visible',
               }} 
               flyoutStyle={{
