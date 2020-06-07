@@ -34,7 +34,7 @@
 @media screen and (min-width: 1025px) {
   .ChartScroll {
     max-width: 1300px;
-    height: 78vh;
+    height: 100vh;
     padding: 4em 4em 4em 4em;
   }
 }
