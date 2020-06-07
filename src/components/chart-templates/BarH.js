@@ -13,10 +13,11 @@ const HBar = ({ data, county, xLabel }) => {
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={175} 
+        x={190} 
         y={4}
         style={{
-          fontSize: 12
+          fontSize: 10,
+          fontFamily: 'Roboto Condensed, sans-serif'
         }}
       />
       <VictoryBar
@@ -26,7 +27,8 @@ const HBar = ({ data, county, xLabel }) => {
             fill: 'black'
           },
           labels: {
-            fontSize: 7
+            fontSize: 7,
+            fontFamily: 'Quattrocento Sans, sans-serif'
           }
         }}
         data={data}
@@ -36,7 +38,7 @@ const HBar = ({ data, county, xLabel }) => {
       />
       <VictoryAxis
         style={{
-          axisLabel: { padding: 15, fontSize: 10 },
+          axisLabel: { padding: 15, fontSize: 8 },
           tickLabels: {
             fontSize: 7,
             fontFamily: 'Roboto Condensed, sans-serif',
@@ -49,7 +51,11 @@ const HBar = ({ data, county, xLabel }) => {
       <VictoryAxis dependentAxis
         label={xLabel}
         style={{
-          axisLabel: { padding: 15, fontSize: 10 },
+          axisLabel: { 
+            padding: 18, 
+            fontSize: 10,
+            fontFamily: 'Quattrocento Sans, sans-serif'   
+          },
           tickLabels: {
             fontSize: 8,
             fontFamily: 'Roboto Condensed, sans-serif',
