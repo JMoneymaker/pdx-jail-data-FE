@@ -43,7 +43,7 @@ const DailyCountAgency = ({ updated }) => {
               : <BarH 
                 data={data} 
                 county={county} 
-                xLabel={'Number of People in Detention'} />}
+                xLabel={'number of people in detention'} />}
         </section>
       </section>
     </>

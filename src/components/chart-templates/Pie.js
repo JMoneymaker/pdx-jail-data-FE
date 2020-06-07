@@ -21,7 +21,7 @@ const Pie = ({ county, data }) => {
         x={175} 
         y={4}
         style={{
-          fontSize: 12
+          fontSize: 10
         }}          
       />
       <VictoryPie
@@ -51,10 +51,10 @@ const Pie = ({ county, data }) => {
         rowGutter={{ top: 0, bottom: 0 }}
         style={{ 
           labels: {
-            fontSize: 10
+            fontSize: 9
           },
           title: {
-            fontSize: 12
+            fontSize: 11
           }
         }}
       />

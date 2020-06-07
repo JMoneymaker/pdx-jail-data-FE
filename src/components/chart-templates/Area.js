@@ -7,27 +7,29 @@ const Area = ({ data, yLabel, xLabel }) => {
 
   return (
     <VictoryChart
-      // width={400}
       height={225}
-      padding={{ top: 40, bottom: 55, left: 45, right: 30 }}
+      padding={{ top: 40, bottom: 55, left: 50, right: 50 }}
       containerComponent={
         <VictoryVoronoiContainer
           // mouseFollowTooltips
           labels={({ datum }) => `${makePrettyDate(datum.x).slice(0, -9)}\n People in Detention: ${datum.y} `}
           labelComponent={
             <VictoryTooltip
-              cornerRadius={1.5}
-              pointerLength={12}
+              orientation = {'top'}
+              pointerLength = {5}
+              pointerWidth = {3}
+              cornerRadius = {3}
               style={{
-                fontSize: 8
+                fontSize: 8,
+                paddingLeft: 0,
+                paddingRight: 0,
+                overflow: 'visible',
               }} 
               flyoutStyle={{
                 fontFamily: 'Roboto Condensed, sans-serif',
                 stroke: '#525252',
                 strokeWidth: .5,
                 fill: '#FFFFFF',
-                padding: 0,
-                paddingLeft: -5
               }}
             />
           }
@@ -100,13 +102,13 @@ const Area = ({ data, yLabel, xLabel }) => {
           }
         }}
       />
-      <VictoryLegend x={45} y={10}
+      <VictoryLegend x={70} y={10}
         centerTitle
         orientation="horizontal"
         gutter={20}
         style={{ 
           labels: { 
-            fontSize: 10, 
+            fontSize: 8, 
             fontFamily: 'Roboto Condensed, sans-serif'
           }
         }}
