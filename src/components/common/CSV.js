@@ -13,7 +13,7 @@ const CSV = ({ data, filename }) => {
         target='_blank'>
         <p className={styles.downloadContainer}>
           <img className={styles.downloadImage} src={downloadImage} alt='download' />
-          <span className={styles.toolTip}>Download the CSV of this data</span>
+          <span className={styles.toolTip}>Download a CSV of this data</span>
         </p>
       </CSVLink>
     </div>

@@ -30,6 +30,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     display: flex;
     align-items: center;
+    margin-top: .25rem;
     justify-content: center;
     background-color: #f8f8f8;
     text-align: center;
@@ -42,7 +43,7 @@
       padding: .25em 0 .25em 0;
       margin-right: .25em;
       font-size: .25rem;
-      width: 8.5em;
+      width: 5.5em;
       border-left: .25em solid #f8f8f8;
       border-right: .25em solid #f8f8f8;
       border-bottom: .25em solid black;

@@ -10,6 +10,7 @@ import DailyCountChargeSev from './chart-scroll/DailyCountChargeSev';
 import DailyCountChargeDesc from './chart-scroll/DailyCountChargeDesc';
 import './App.css';
 import useUpDate from '../hooks/useUpDated';
+import Footer from './common/Footer';
 
 export default function App() {
   
@@ -27,6 +28,7 @@ export default function App() {
       <DailyAverageDetentionByRace updated={updated}/>
       <DailyCountChargeSev updated={updated}/>
       <DailyCountChargeDesc updated={updated}/>
+      <Footer />
     </>
   );
 }
