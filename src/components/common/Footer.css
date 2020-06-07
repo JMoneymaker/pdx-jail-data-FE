@@ -1,0 +1,23 @@
+.Footer {
+    display: block;
+    height: 100%;
+    background-color: black;
+    color: white;
+    padding: 40px 60px;
+
+    p {
+        margin-bottom: 1em;
+    }
+
+    .disclaimer {
+        font-size: .75rem;
+    }
+
+    a {
+        color: white
+    }
+
+    a:visited {
+        color: #888888
+    }
+}

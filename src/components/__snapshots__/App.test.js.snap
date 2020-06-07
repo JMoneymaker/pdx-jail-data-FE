@@ -27,5 +27,6 @@ exports[`App component renders App 1`] = `
   <DailyCountChargeDesc
     updated="loading"
   />
+  <Footer />
 </Fragment>
 `;
