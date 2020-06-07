@@ -138,20 +138,29 @@
   }
 }
 
+.downloadContainer {
+  position: absolute;  
+}
+
 .downloadContainer .toolTip {
   visibility: hidden;
-  width: 60px;
   background-color: black;
-  color: #fff;
+  opacity: .65;
+  color: #f8f8f8;
   text-align: center;
-  padding: 5px 0;
+  padding: 10px 5px;
   border-radius: 6px;
-  position: absolute;
+  position: relative;
+  right: 105%;
+  height: 5em;
+  top: -1rem;
   z-index: 1;
+  font-family: 'Roboto Condensed, sans-serif';
+  font-size: 1rem;
 }
 
 .downloadContainer:hover .toolTip {
-    visibility: visible;
+  visibility: visible;
 }
 
 .chartWrapper {
