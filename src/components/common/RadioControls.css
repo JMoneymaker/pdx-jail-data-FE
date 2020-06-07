@@ -2,12 +2,9 @@
     display: flex;
   }
 
-  @media screen and (min-width: 320px) {
+  @media only screen and (min-width: 320px) {
     .radioGroup {
-      display: inline-flex;
-      align-self: center;
-      margin-top: 2.5em;
-      margin-bottom: 2.5em;
+      margin: 23em 0 23em 0;
     }
   }
 
@@ -30,8 +27,10 @@
   }
   
   label {
+    font-family: 'Roboto Condensed', sans-serif;
     display: flex;
     align-items: center;
+    margin-top: .25rem;
     justify-content: center;
     background-color: #f8f8f8;
     text-align: center;
@@ -39,12 +38,12 @@
     font-family: 'Roboto Condensed', sans-serif;
   }
 
-  @media screen and (min-width: 320px) {
+  @media only screen and (min-width: 320px) {
     label {
       padding: .25em 0 .25em 0;
       margin-right: .25em;
       font-size: .25rem;
-      width: 8.5em;
+      width: 5.5em;
       border-left: .25em solid #f8f8f8;
       border-right: .25em solid #f8f8f8;
       border-bottom: .25em solid black;
@@ -67,7 +66,7 @@
     }
   }
 
-  @media screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1024px) {
     label {
       font-size: .75rem;
       width: 5.5rem;
