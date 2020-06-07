@@ -28,7 +28,7 @@ const Area = ({ data, yLabel, xLabel }) => {
                 fontFamily: 'Roboto Condensed, sans-serif',
                 stroke: '#525252',
                 strokeWidth: .5,
-                fill: '#FFFFFF',
+                fill: '#f8f8f8'
               }}
             />
           }

@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: #f8f8f8;
     text-align: center;
     font-weight: 500;
     font-family: 'Roboto Condensed', sans-serif;
@@ -45,8 +45,8 @@
       margin-right: .25em;
       font-size: .25rem;
       width: 8.5em;
-      border-left: .25em solid white;
-      border-right: .25em solid white;
+      border-left: .25em solid #f8f8f8;
+      border-right: .25em solid #f8f8f8;
       border-bottom: .25em solid black;
       border-top: .25em solid black;
       border-radius: .45em;
@@ -59,8 +59,8 @@
       margin-right: .25em;
       width: 7em;
       font-size: .4rem;
-      border-left: .2em solid white;
-      border-right: .2em solid white;
+      border-left: .2em solid #f8f8f8;
+      border-right: .2em solid #f8f8f8;
       border-bottom: .2em solid black;
       border-top: .2em solid black;
       border-radius: .5em;
@@ -76,10 +76,10 @@
   
   input[type=radio]:checked + label {
     background-color: black;
-    color: white;
+    color: #f8f8f8;
   }
   
   input[type=radio]:hover + label {
     background-color: black;
-    color: white;
+    color: #f8f8f8;
   }

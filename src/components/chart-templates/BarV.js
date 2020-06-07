@@ -13,7 +13,7 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
     >
       <VictoryLabel 
         text={county.toUpperCase() + ' COUNTY'}
-        x={195} 
+        x={190} 
         y={4}
         style={{
           fontSize: 10,
