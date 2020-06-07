@@ -11,7 +11,7 @@ const Header = ({ title, category, handleChange, name, id, data, updated, filena
       <div className={styles.titleContainer}>
         <div className={styles.titleWrapper}>
           <h3>{title} - {updated}</h3>
-          <h1>{category}</h1>
+          <h2>{category}</h2>
         </div>
         <CSV 
           data={data}
