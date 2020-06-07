@@ -39,10 +39,13 @@ const DailyCountChargeDesc = ({ updated }) => {
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
-            <BarH 
-              data={data} 
-              county={county} 
-              xLabel={'number of people in detention'} /> 
+            county !== 'multnomah' ?
+              <div className={styles.countyError}><h3>Data coming soon</h3></div>
+              :
+              <BarH 
+                data={data} 
+                county={county} 
+                xLabel={'number of people in detention'} /> 
           }
         </section>
       </section>
