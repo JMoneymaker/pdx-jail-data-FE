@@ -172,6 +172,24 @@ export const shapeAgency = res => {
     });
 };
 
+export const shapeGender = res => {
+  return alphabetize(res)
+    .map(item => {
+      if(item._id === 'F'){
+        item._id = 'Female';
+      } else if(item._id === 'M'){
+        item._id = 'Male';
+      } 
+      return item;
+    })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
+    });
+};
+
 export const shapeFacility = res => {
   return alphabetize(res)
     .map(item => {
