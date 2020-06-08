@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
-import BarV from '../chart-templates/BarV';
+import BarHDualAxes from '../chart-templates/BarHDualAxes';
 import styles from './ChartScroll.css';
 import useDailyGenderCount from '../../hooks/useDailyGenderCount';
 
@@ -38,7 +38,7 @@ const DailyCountGender = ({ updated }) => {
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
-            <BarV 
+            <BarHDualAxes
               data={data} 
               county={county} 
               xLabel={'Number of People in Detention'} 
