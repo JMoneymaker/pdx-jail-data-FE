@@ -13,6 +13,11 @@ export const getDailyFacilityCount = county => {
     .then(res => res.json());
 };
 
+export const getDailyGenderCount = county => {
+  return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyGenderCount`)
+    .then(res => res.json());
+};
+
 export const getDailyRaceCount = county => {
   return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyRaceCount`)
     .then(res => res.json());

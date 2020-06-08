@@ -77,7 +77,11 @@ const Area = ({ data, yLabel, xLabel }) => {
         label={yLabel}
         fixLabelOverlap={true}
         style={{
-          axisLabel: { padding: 25, fontSize: 10 },
+          axisLabel: { 
+            padding: 30, 
+            fontSize: 10,
+            fontFamily: 'Quattrocento Sans, sans-serif'   
+          },
           tickLabels: {
             fontSize: 8,
             fontFamily: 'Roboto Condensed, sans-serif',
@@ -91,7 +95,11 @@ const Area = ({ data, yLabel, xLabel }) => {
       <VictoryAxis dependentAxis
         label={xLabel}
         style={{
-          axisLabel: { padding: 25, fontSize: 10 },
+          axisLabel: { 
+            padding: 30, 
+            fontSize: 10,
+            fontFamily: 'Quattrocento Sans, sans-serif'   
+          },
           tickLabels: {
             fontSize: 8,
             fontFamily: 'Roboto Condensed, sans-serif',
