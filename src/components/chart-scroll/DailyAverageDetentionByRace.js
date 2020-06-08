@@ -43,8 +43,8 @@ const DailyAverageDetentionByRace = ({ updated }) => {
             <BarV 
               data={data} 
               county={county} 
-              xLabel={'number of days in detention'} 
-              yLabel={'race'} />
+              xLabel={'Number of Days in Detention'} 
+              yLabel={'Race'} />
           }
         </section>
       </section>

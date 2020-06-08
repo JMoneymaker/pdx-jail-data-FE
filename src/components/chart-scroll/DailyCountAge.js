@@ -42,8 +42,8 @@ const DailyCountAge = ({ updated }) => {
             <BarV 
               data={data}
               county={county} 
-              xLabel={'number of people in detention'} 
-              yLabel={'age range'}
+              xLabel={'Number of People in Detention'} 
+              yLabel={'Age Range'}
             />
           }
         </section>

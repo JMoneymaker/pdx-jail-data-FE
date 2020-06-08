@@ -55,8 +55,8 @@ const TrendTriCountyTotals = ({ updated }) => {
           {loading ? <ChartLoading /> :
             <Area 
               data={data}
-              xLabel={'number of people in detention'} 
-              yLabel={'date'}
+              xLabel={'Number of People in Detention'} 
+              yLabel={'Date'}
             />
           }
         </section>
