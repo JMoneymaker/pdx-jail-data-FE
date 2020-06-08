@@ -45,7 +45,7 @@ const DailyCountChargeDesc = ({ updated }) => {
               <BarH 
                 data={data} 
                 county={county} 
-                xLabel={'number of people in detention'} /> 
+                xLabel={'Number of People in Detention'} /> 
           }
         </section>
       </section>

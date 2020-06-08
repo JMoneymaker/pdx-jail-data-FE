@@ -41,8 +41,8 @@ const DailyCountRace = ({ updated }) => {
             <BarV 
               county={county} 
               data={data} 
-              xLabel={'number of people in detention'} 
-              yLabel={'race'} />
+              xLabel={'Number of People in Detention'} 
+              yLabel={'Race'} />
           }
         </section>
       </section>
