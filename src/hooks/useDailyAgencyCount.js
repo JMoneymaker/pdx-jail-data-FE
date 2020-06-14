@@ -13,6 +13,7 @@ const useDailyAgencyCount = county => {
       setLoading(true);
       getDailyAgencyCount(county)
         .then(shapeAgency)
+        .then((res) => res.reverse())
         .then(setData)
         .finally(() => setLoading(false));
     }
