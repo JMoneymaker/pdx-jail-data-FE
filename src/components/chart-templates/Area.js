@@ -1,4 +1,4 @@
-import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryVoronoiContainer, VictoryTooltip } from 'victory';
+import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryVoronoiContainer, VictoryTooltip, VictoryLabel } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makePrettyDate } from '../../utils/dailyCounts';
@@ -75,6 +75,7 @@ const Area = ({ data, yLabel, xLabel }) => {
       />
       <VictoryAxis
         label={yLabel}
+        tickLabelComponent={<VictoryLabel dx={20}/>}
         fixLabelOverlap={true}
         style={{
           axisLabel: { 
