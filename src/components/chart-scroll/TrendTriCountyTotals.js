@@ -24,7 +24,7 @@ const TrendTriCountyTotals = ({ updated }) => {
     let washington = [];
     let multnomah = [];
 
-    rawData.map(i => {
+    rawData.slice(0, 30).map(i => {
       clackamas.push({
         x: i.date.slice(0, 10),
         y: i.clack });
