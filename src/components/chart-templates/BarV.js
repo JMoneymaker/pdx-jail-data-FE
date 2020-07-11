@@ -45,7 +45,7 @@ const VBar = ({ data, county, yLabel, xLabel }) => {
             fontFamily: 'Quattrocento Sans, sans-serif'   
           },
           tickLabels: {
-            fontSize: 7,
+            fontSize: 6,
             fontFamily: 'Roboto Condensed, sans-serif',
             fillOpacity: 1,
             margin: 0,

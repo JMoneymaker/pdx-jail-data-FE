@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDailyRaceCount } from '../services/getDailyCounts';
-import { shapeMult, shapeClack, shapeWash } from '../utils/dailyCounts';
+import { vForVictory } from '../utils/dailyCounts';
 
 const useDailyRaceCount = county => {
   const [data, setData] = useState([]);
@@ -9,9 +9,7 @@ const useDailyRaceCount = county => {
   const fetchDailyRaceCount = () => {
     setLoading(true);
     getDailyRaceCount(county)
-      .then((county === 'multnomah') ? shapeMult
-        : (county === 'clackamas') ? shapeClack
-          : shapeWash)
+      .then(res => vForVictory(res))
       .then(setData)
       .finally(() => setLoading(false));
   };

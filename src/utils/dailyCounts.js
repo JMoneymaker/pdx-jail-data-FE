@@ -76,7 +76,7 @@ export const findUpDate = res => {
   const iT = counts.length - 1;
   const lastUpdated = counts[iT].date;
 
-  return moment(lastUpdated).format('MMMM Do YYYY, h:mm a');
+  return moment(lastUpdated).format('MMMM D YYYY, h:mm a');
 };
 
 const alphabetize = res => {
@@ -106,6 +106,16 @@ export const shapeMult = res => {
         item._id = 'Pacific Islander';
       } return item;
     })
+    .map(item => {
+      return ({
+        x: item._id,
+        y: item.total
+      });
+    });
+};
+
+export const vForVictory = res => {
+  return alphabetize(res)
     .map(item => {
       return ({
         x: item._id,
