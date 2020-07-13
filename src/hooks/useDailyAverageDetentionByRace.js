@@ -7,7 +7,8 @@ const useDailyAverageDetentionByRace = county => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchDailyAverageDetentionByRace = () => {      setLoading(true);
+  const fetchDailyAverageDetentionByRace = () => {
+    setLoading(true);
     getDailyAverageDetentionByRace(county)
       .then((county === 'multnomah') ? shapeMultDetAvg
         : (county === 'clackamas') ? shapeClackDetAvg
