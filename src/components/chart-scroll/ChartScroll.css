@@ -140,7 +140,7 @@
 }
 
 .downloadContainer {
-  position: absolute;  
+  position: absolute; 
 }
 
 .downloadContainer .toolTip {
@@ -176,7 +176,7 @@
   }
 }
 
-.downloadContainer:hover .toolTip {
+.downloadHider:hover .toolTip {
   visibility: visible;
 }
 
