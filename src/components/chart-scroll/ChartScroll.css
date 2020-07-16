@@ -239,7 +239,30 @@ justify-content: center;
 }
 
 .csv {
-  margin-left: 1.5em;
+  
+  text-align: center;
+  margin-bottom: 2vh;
 }
 
-
+.modal {
+  background-color: white;
+  opacity: 95%;
+  height: 40vh;
+  margin: 20vh 20vw 0 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.modal:focus {
+  outline: black 2px solid;
+}
+.modal button{
+  font-family: roboto-mono, Helvetica, Arial, sans-serif;
+  width: 50px;
+  height: 30px;
+  align-self: center;
+}
+.modal a{
+  text-decoration: none;
+  color: grey;
+}

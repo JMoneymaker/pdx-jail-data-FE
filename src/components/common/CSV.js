@@ -31,14 +31,27 @@ const CSV = ({ data, filename }) => {
       </div>
       <Modal
         isOpen={modalIsOpen}
+        className={styles.modal}
       >
-        <div className={styles.csv}>
-          <CSVLink 
-            data={[...data]}
-            filename={filename}
-            target='_blank'>
-            download
-          </CSVLink>
+        <div>
+          <p className={styles.csv}>
+            <CSVLink 
+              data={[...data]}
+              filename={filename}
+              target='_blank'>
+            download complete data
+              <br/>
+            </CSVLink>
+          </p>
+         
+          <p className={styles.csv}>
+            <CSVLink 
+              data={[...data].slice(-1)}
+              filename={filename}
+              target='_blank'>
+            download data for today
+            </CSVLink>
+          </p>
         </div>
         <button onClick={closeModal}>close</button>
       </Modal>
