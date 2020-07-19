@@ -25,7 +25,7 @@ const CSV = ({ data, filename }) => {
             src={downloadImage}
           />
           <p className={styles.downloadContainer}>
-            <span className={styles.toolTip}>Download a CSV of this data</span>
+            {/* <span className={styles.toolTip}>Download a CSV of this data</span> */}
           </p>
         </button>
       </div>
