@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDailyAgencyCount } from '../services/getDailyCounts';
-import { shapeAgency } from '../utils/dailyCounts';
+import { vForVictory } from '../utils/dailyCounts';
 
 const useDailyAgencyCount = county => {
   const [data, setData] = useState([]);
@@ -12,7 +12,7 @@ const useDailyAgencyCount = county => {
     } else {
       setLoading(true);
       getDailyAgencyCount(county)
-        .then(shapeAgency)
+        .then(vForVictory)
         .then((res) => res.reverse())
         .then(setData)
         .finally(() => setLoading(false));

@@ -1,6 +1,3 @@
-// let numbers = [0, 1, 2, 3, 10, 20, 30];
-// numbers.sort((a, b) => a - b);
-
 const moment = require('moment');
 moment().format();
 
@@ -97,101 +94,8 @@ export const shapeClack = res => {
     });
 };
 
-export const shapeMult = res => {
-  return alphabetize(res)
-    .map(item => {
-      if(item._id === ''){
-        item._id === 'Undefined';
-      } else if(item._id === 'P'){
-        item._id = 'Pacific Islander';
-      } return item;
-    })
-    .map(item => {
-      return ({
-        x: item._id,
-        y: item.total
-      });
-    });
-};
-
 export const vForVictory = res => {
   return alphabetize(res)
-    .map(item => {
-      return ({
-        x: item._id,
-        y: item.total
-      });
-    });
-};
-
-export const shapeWash = res => {
-  return alphabetize(res)
-    .map(item => {
-      if(item._id === 'A'){
-        item._id = 'Asian';
-      } else if(item._id === 'B'){
-        item._id = 'Black';
-      } else if(item._id === 'I'){
-        item._id = 'Native American';
-      } else if(item._id === 'U'){
-        item._id = 'Unknown';
-      } else if(item._id === 'W'){
-        item._id = 'White';
-      } 
-      return item;
-    })
-    .map(item => {
-      return ({
-        x: item._id,
-        y: item.total
-      });
-    });
-};
-
-export const shapeAgency = res => {
-  return alphabetize(res)
-    .map(item => {
-      if(item._id === 'Portland Police, North Precinct'){
-        item._id = 'PPB, North Precinct';
-      } else if(item._id === 'Portland Police, Central Precinct'){
-        item._id = 'PPB, Central Precinct';
-      } else if(item._id === 'Portland Police, East Precinct'){
-        item._id = 'PPB, East Precinct';
-      } else if(item._id === 'Portland Police, Other'){
-        item._id = 'PPB, Other';
-      } else if(item._id === 'Multnomah County Sheriff Booking'){
-        item._id = 'MCSO Booking';
-      } else if(item._id === 'Gresham Police Department'){
-        item._id = 'Gresham PD';
-      } else if(item._id === 'Drug Enforcement Administration'){
-        item._id = 'DEA';
-      } else if(item._id === 'WASHINGTON COUNTY COMM CORR'){
-        item._id = 'WACO COMM CORR';
-      } else if(item._id === 'SO WASHINGTON COUNTY JAIL'){
-        item._id = 'SO WACO JAIL';
-      } else if(item._id === 'SO WASHINGTON COUNTY'){
-        item._id = 'WACO SO';
-      }
-      return item;
-    })
-    .map(item => {
-      return ({
-        x: item._id,
-        y: item.total
-      });
-    });
-};
-
-export const shapeGender = res => {
-  return alphabetize(res)
-    .map(item => {
-      if(item._id === 'F'){
-        item._id = 'Female';
-      } else if(item._id === 'M'){
-        item._id = 'Male';
-      } 
-      return item;
-    })
     .map(item => {
       return ({
         x: item._id,
@@ -226,60 +130,31 @@ export const shapeFacility = res => {
     });
 };
 
-export const shapeAge = res => {
-  return res
-    .map(item => {
-      if(item._id === 0){
-        item._id = 'Under 18';
-      } else if(item._id === 18){
-        item._id = '18 - 20';
-      } else if(item._id === 21){
-        item._id = '21 - 25';
-      } else if(item._id === 26){
-        item._id = '26 - 30';
-      } else if(item._id === 31){
-        item._id = '31 - 35';
-      } else if(item._id === 36){
-        item._id = '36 - 40';
-      } else if(item._id === 41){
-        item._id = '41 - 45';
-      } else if(item._id === 46){
-        item._id = '46 - 50';
-      } else if(item._id === 51){
-        item._id = '51 - 60';
-      } else if(item._id === 56){
-        item._id = '56 - 60';
-      } else if(item._id === 61){
-        item._id = '61 - 65';
-      } else {
-        item._id = 'Over 65';
-      }
-      return item;
-    })
-    .map(item => {
-      return ({
-        x: item._id,
-        y: item.total
-      });
-    });
+const ageMap = {
+  0: 'Under 18',
+  18: '18 - 20',
+  21: '21 - 25',
+  26: '26 - 30',
+  31: '31 - 35',
+  36: '36 - 40',
+  41: '41 - 45',
+  46: '46 - 50',
+  51: '51 - 60',
+  56: '56 - 60',
+  61: '61 - 65',
 };
 
-export const shapeChargeSeverity = res => {
-  return res.map(item => {
+export const shapeAge = arr => {
+  return arr.map(obj => 
+    Object.keys(obj).reduce((acc, key) => ({ 
+      ...acc, ...{ _id: ageMap[obj._id] || 'Over 65', total: obj[key] }
+    }), {})
+  ).map(item => {
     return ({
       x: item._id,
       y: item.total
     });
-  });
-};
-
-export const shapeChargeDescription = res => {
-  return res.map((item) => {
-    return ({
-      x: item._id,
-      y: item.total
-    });
-  });
+  }); 
 };
 
 export const shapeCSVCharge = res => {
