@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from '../chart-scroll/ChartScroll.css';
 import downloadImage from '../../assets/download6.png';
 import Modal from 'react-modal';
+Modal.setAppElement('#root');
 
 const CSV = ({ data, filename }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
