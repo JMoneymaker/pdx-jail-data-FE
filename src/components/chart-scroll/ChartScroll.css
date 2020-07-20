@@ -140,7 +140,7 @@
 }
 
 .downloadContainer {
-  position: absolute;  
+  position: absolute; 
 }
 
 .downloadContainer .toolTip {
@@ -176,7 +176,7 @@
   }
 }
 
-.downloadContainer:hover .toolTip {
+.downloadHider:hover .toolTip {
   visibility: visible;
 }
 
@@ -238,8 +238,39 @@ justify-content: center;
   }
 }
 
-.csv {
-  margin-left: 1.5em;
+button{
+  background-color: #f8f8f8;
+  border-width: 1px;
+  border-radius: .25em;
+  padding: 2px 3px 1px;
 }
 
+.csv {
+  text-align: center;
+  margin-bottom: 2vh;
+}
 
+.modal {
+  background-color: white;
+  opacity: 95%;
+  height: 40vh;
+  margin-top: 20vh;
+  margin-bottom: 0;
+  margin-left: calc(45vw - 80px);
+  margin-right: calc(45vw - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.modal:focus {
+  outline: black 2px solid;
+}
+.modal button{
+  font-family: roboto-mono, Helvetica, Arial, sans-serif;
+  height: 30px;
+  align-self: center;
+}
+.modal a{
+  text-decoration: none;
+  color: grey;
+}

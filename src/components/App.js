@@ -13,6 +13,7 @@ import useUpDate from '../hooks/useUpDated';
 import Footer from './common/Footer';
 import DailyCountGender from './chart-scroll/DailyCountGender';
 
+
 export default function App() {
   
   const { upDated } = useUpDate();

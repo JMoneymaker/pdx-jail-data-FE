@@ -43,7 +43,6 @@
 	position: absolute;
 	width: 100%;
 	bottom: 60px;
-	z-index: 2;
 	box-sizing: border-box;
 	padding: 0px 20px 0 20px;
 }
