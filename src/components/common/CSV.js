@@ -6,6 +6,7 @@ import downloadImage from '../../assets/download6.png';
 import Modal from 'react-modal';
 
 const CSV = ({ data, filename }) => {
+
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -43,15 +44,17 @@ const CSV = ({ data, filename }) => {
               <br/>
             </CSVLink>
           </p>
-         
-          <p className={styles.csv}>
-            <CSVLink 
-              data={[...data].slice(-1)}
-              filename={filename}
-              target='_blank'>
+
+          {data[15] &&
+            <p className={styles.csv}>
+              <CSVLink 
+                data={[...data].slice(-1)}
+                filename={filename}
+                target='_blank'>
             download data for today
-            </CSVLink>
-          </p>
+              </CSVLink>
+            </p>
+          }
         </div>
         <button onClick={closeModal}>close</button>
       </Modal>
