@@ -2,12 +2,24 @@ import { VictoryChart, VictoryLabel, VictoryPie, VictoryAxis, VictoryLegend } fr
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Pie = ({ county, data }) => {
+const Pie = ({ data }) => {
+  console.log(data, 'pie data');
 
-  const labelData = (data) => {
-    return data.map(facility => ({
-      name: facility.x
-    }));
+  const makeLabel = array => {
+    return array.map(obj => {
+      return ({
+        name: obj.facility
+      });
+    });
+  };
+
+  const vForVictory = array => {
+    return array.map(item => {
+      return ({
+        x: item.facility,
+        y: item.total
+      });
+    });
   };
 
   return (
@@ -17,7 +29,7 @@ const Pie = ({ county, data }) => {
       padding={{ top: 30, bottom: 30, left: 30, right: 120 }}
     >
       <VictoryLabel 
-        text={county.toUpperCase() + ' COUNTY'}
+        text={data[0].county + ' ' + 'County'}
         x={175} 
         y={4}
         style={{
@@ -25,7 +37,7 @@ const Pie = ({ county, data }) => {
         }}          
       />
       <VictoryPie
-        data={data}
+        data={vForVictory(data)}
         responsive={false}
         labelRadius={({ innerRadius }) => innerRadius + 30 }
         labels={({ datum }) => datum.y}
@@ -44,7 +56,7 @@ const Pie = ({ county, data }) => {
         }} 
       />
       <VictoryLegend x={280} y={55}
-        data={labelData(data)}
+        data={makeLabel(data)}
         title='Facility'
         orientation='vertical'
         gutter={0}
@@ -63,7 +75,6 @@ const Pie = ({ county, data }) => {
 };
 
 Pie.propTypes = {
-  county: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired
 };
 

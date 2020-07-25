@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+// import PropTypes from 'prop-types';
 import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
 import Pie from '../chart-templates/Pie';
 import styles from './ChartScroll.css';
 import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 
-const DailyCountFacility = ({ updated }) => {
+const DailyCountFacility = () => {
   const [county, setCounty] = useState('multnomah');
-  const [data, loading] = useDailyCountFacility(county);
+  const [clack, mult, wash, loading] = useDailyCountFacility();
+  const [data, setData] = useState([]);
 
-  const csvData = data.map(item => {
-    return ({
-      date: updated,
-      county: county,
-      facility: item.x,
-      count: item.y
-    });
-  });
+  console.log(clack, 'clack', mult, 'mult', wash, 'wash');
 
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
+
+  console.log(county, 'county');
+
+  useEffect(() => {
+    county === 'clackamas' ? setData(clack) : 
+      county === 'multnomah' ? setData(mult) : 
+        setData(wash);
+  }, [county]);
+
+  console.log(data, 'container data');
 
   return (
     <>
@@ -31,16 +35,14 @@ const DailyCountFacility = ({ updated }) => {
           name={'facility-radio'}
           id={'facility'}
           title={'Daily Snapshot'}
-          updated={updated}
-          data={csvData}
-          filename={`jdpdx-daily-facility-${updated}-${county}.csv`}
+          updated={clack.date}
+          filename={`jdpdx-daily-facility-${clack.date}-${county}.csv`}
           category={'Population by Facility'}> 
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <Pie 
-              county={county} 
-              data={data} 
+              data={mult} 
             />
           }
         </section>
@@ -50,8 +52,7 @@ const DailyCountFacility = ({ updated }) => {
 };
 
 DailyCountFacility.propTypes = {
-  updated: PropTypes.string.isRequired
+  // updated: PropTypes.string.isRequired
 };
 
 export default DailyCountFacility;
-
