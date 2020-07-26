@@ -1,22 +1,28 @@
 import { useState, useEffect } from 'react';
 import { getDailyGenderCount } from '../services/getDailyCounts';
-import { vForVictory } from '../utils/dailyCounts';
+import { groupByCounty } from '../utils/dailyCounts';
 
-const useDailyCountGender = county => {
-  const [data, setData] = useState([]);
+const useDailyCountGender = () => {
+  const [clack, setClack] = useState([]);
+  const [mult, setMult] = useState([]);
+  const [wash, setWash] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchDailyGenderCount = () => {
     setLoading(true);
-    getDailyGenderCount(county)
-      .then(vForVictory)
-      .then(setData)
+    getDailyGenderCount()
+      .then(res => groupByCounty(res, 'county'))
+      .then(res => {
+        setClack(res.Clackamas), 
+        setMult(res.Multnomah), 
+        setWash(res.Washington);
+      })
       .finally(() => setLoading(false));
   };
 
-  useEffect(fetchDailyGenderCount, [county]);
+  useEffect(fetchDailyGenderCount, []);
 
-  return [data, loading];
+  return [clack, mult, wash, loading];
 };
 
 export default useDailyCountGender;

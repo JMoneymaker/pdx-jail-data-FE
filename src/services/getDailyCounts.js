@@ -13,10 +13,10 @@ export const getDailyFacilityCount = () => {
     .then(res => res.json());
 };
 
-// export const getDailyGenderCount = county => {
-//   return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyGenderCount`)
-//     .then(res => res.json());
-// };
+export const getDailyGenderCount = () => {
+  return fetch('https://nameless-brushlands-51346.herokuapp.com/api/v1/dailyCounts/gender')
+    .then(res => res.json());
+};
 
 // export const getDailyRaceCount = county => {
 //   return fetch(`https://pdx-jail-data.herokuapp.com/api/v1/${county}/dailyRaceCount`)

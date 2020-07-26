@@ -104,8 +104,8 @@ export const vForVictory = res => {
     });
 };
 
-export const groupFacility = (facilityArray, county) => {
-  return facilityArray.reduce((acc, obj) => {
+export const groupByCounty = (array, county) => {
+  return array.reduce((acc, obj) => {
     let key = obj[county];
     if(!acc[key]) {
       acc[key] = [];

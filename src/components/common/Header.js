@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../chart-scroll/ChartScroll.css';
 import RadioControls from './RadioControls';
-// import CSV from './CSV';
+import CSV from './CSV';
 
-const Header = ({ title, category, handleChange, name, id, updated }) => {
+const Header = ({ title, category, handleChange, name, id, data, filename, updated }) => {
 
   return (
     <header className={styles.headWrapper}>
@@ -13,10 +13,10 @@ const Header = ({ title, category, handleChange, name, id, updated }) => {
           <h3>{title} - {updated}</h3>
           <h2>{category}</h2>
         </div>
-        {/* <CSV 
+        <CSV 
           data={data}
           filename={filename}
-        ></CSV> */}
+        ></CSV>
       </div>
       <div className={styles.radioContainer}>
         <RadioControls 
@@ -34,9 +34,9 @@ Header.propTypes = {
   handleChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  // data: PropTypes.array,
+  data: PropTypes.array,
   updated: PropTypes.string,
-  // filename: PropTypes.string.isRequired
+  filename: PropTypes.string.isRequired
 };
 
 export default Header;

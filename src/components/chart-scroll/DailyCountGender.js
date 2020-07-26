@@ -6,22 +6,28 @@ import BarHDualAxes from '../chart-templates/BarHDualAxes';
 import styles from './ChartScroll.css';
 import useDailyGenderCount from '../../hooks/useDailyGenderCount';
 
-const DailyCountGender = ({ updated }) => {
+const DailyCountGender = () => {
   const [county, setCounty] = useState('multnomah');
-  const [data, loading] = useDailyGenderCount(county);
+  const [clack, mult, wash, loading] = useDailyGenderCount();
   
-  const csvData = data.map(item => {
-    return ({
-      date: updated,
-      county: county,
-      gender: item.x,
-      count: item.y
-    });
-  });
+  // const csvData = data.map(item => {
+  //   return ({
+  //     date: updated,
+  //     county: county,
+  //     gender: item.x,
+  //     count: item.y
+  //   });
+  // });
 
-  const handleChange = ({ target }) => {
-    setCounty(target.value);
+  const countyToData = {
+    multnomah: mult,
+    clackamas: clack,
+    washington: wash
   };
+  const data = countyToData[county];
+
+
+  const handleChange = ({ target }) => setCounty(target.value);
 
   return (
     <>
@@ -31,16 +37,15 @@ const DailyCountGender = ({ updated }) => {
           name={'gender-radio'} 
           id={'gender'}
           title={'Daily Snapshot'}  
-          updated={updated} 
-          data={csvData}
-          filename={`jdpdx-daily-gender-${updated}-${county}.csv`}
+          data={data}
+          updated={data[0] ? data[0].date : 'loading'} 
+          filename={`jdpdx-daily-gender-${data[0] ? data[0].date : 'loading'}-${county}.csv`}
           category={'Population by Gender'}>
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <BarHDualAxes
               data={data} 
-              county={county} 
               xLabel={'Number of People in Detention'} 
               yLabel={'Gender'}/>}
         </section>

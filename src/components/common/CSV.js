@@ -21,7 +21,7 @@ const CSV = ({ data, filename }) => {
 };
 
 CSV.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.array.isRequired,
   filename: PropTypes.string.isRequired
 };
 
