@@ -5,7 +5,7 @@ import DailyCountAge from './chart-scroll/DailyCountAge';
 import DailyCountAgency from './chart-scroll/DailyCountAgency';
 import DailyCountFacility from './chart-scroll/DailyCountFacility';
 import DailyCountRace from './chart-scroll/DailyCountRace';
-import DailyAverageDetentionByRace from './chart-scroll/DailyAverageDetentionByRace';
+// import DailyAverageDetentionByRace from './chart-scroll/DailyAverageDetentionByRace';
 import DailyCountChargeSev from './chart-scroll/DailyCountChargeSev';
 import DailyCountChargeDesc from './chart-scroll/DailyCountChargeDesc';
 import './App.css';
@@ -27,7 +27,7 @@ export default function App() {
       <DailyCountFacility updated={updated}/>
       <DailyCountGender updated={updated}/>
       <DailyCountRace updated={updated}/>
-      <DailyAverageDetentionByRace updated={updated}/>
+      {/* <DailyAverageDetentionByRace updated={updated}/> */}
       <DailyCountChargeSev updated={updated}/>
       <DailyCountChargeDesc updated={updated}/>
       <Footer />
