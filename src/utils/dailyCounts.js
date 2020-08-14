@@ -1,6 +1,3 @@
-// let numbers = [0, 1, 2, 3, 10, 20, 30];
-// numbers.sort((a, b) => a - b);
-
 const moment = require('moment');
 moment().format();
 
@@ -265,27 +262,7 @@ export const shapeAge = res => {
 };
 
 
-const sortSeverity = res => {
-  let ordering = {}, // map for efficient lookup of sortIndex
-    sortOrder = ['A Felony', 'B Felony', 'C Felony', 'U Felony', 'A Misdemeanor', 'B Misdemeanor', 'C Misdemeanor', 'U Misdemeanor', 'U Unknown'];
-  for(let i = 0; i < sortOrder.length; i++)
-    ordering[sortOrder[i]] = i;
-  res.sort(function(a, b) {
-    return (ordering[b._id] - ordering[a._id]);
-  });
-  return res;
-};
 
-
-export const shapeChargeSeverity = res => {
-  const sortedArray = sortSeverity(res);
-  return sortedArray.map(item => {
-    return ({
-      x: item._id,
-      y: item.total
-    });
-  });
-};
 
 export const shapeChargeDescription = res => {
   return res.map((item) => {

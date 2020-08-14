@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDailyChargeSeverityCount } from '../services/getDailyCounts';
-import { shapeChargeSeverity } from '../utils/dailyCounts';
+import { shapeChargeSeverity } from '../data-shapers/shapeChargeSeverity';
 
 const useDailyChargeDescription = county => {
   const [data, setData] = useState([]);
