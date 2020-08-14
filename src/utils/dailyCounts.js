@@ -1,6 +1,3 @@
-// let numbers = [0, 1, 2, 3, 10, 20, 30];
-// numbers.sort((a, b) => a - b);
-
 const moment = require('moment');
 moment().format();
 
@@ -264,14 +261,8 @@ export const shapeAge = res => {
     });
 };
 
-export const shapeChargeSeverity = res => {
-  return res.map(item => {
-    return ({
-      x: item._id,
-      y: item.total
-    });
-  });
-};
+
+
 
 export const shapeChargeDescription = res => {
   return res.map((item) => {
