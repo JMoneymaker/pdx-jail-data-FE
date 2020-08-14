@@ -140,7 +140,7 @@ export const shapeAge = arr => {
       x: item._id,
       y: item.total
     });
-  }); 
+  });
 };
 
 export const shapeCSVCharge = res => {
