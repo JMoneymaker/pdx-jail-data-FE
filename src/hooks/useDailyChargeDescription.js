@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDailyTopCharges } from '../services/getDailyCounts';
-import { shapeChargeDescription } from '../utils/dailyCounts';
+import { vForVictory } from '../utils/dailyCounts';
 
 const useDailyChargeDescription = county => {
   const [data, setData] = useState([]);
@@ -9,7 +9,7 @@ const useDailyChargeDescription = county => {
   const fetchDailyChargeDescriptions = () => {
     setLoading(true);
     getDailyTopCharges(county)
-      .then(shapeChargeDescription)
+      .then(vForVictory)
       .then(setData)
       .finally(() => setLoading(false));
   };

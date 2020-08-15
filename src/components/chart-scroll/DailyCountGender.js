@@ -10,18 +10,25 @@ const DailyCountGender = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyGenderCount(county);
   
-  const csvData = data.map(item => {
-    return ({
-      date: updated,
-      county: county,
-      gender: item.x,
-      count: item.y
-    });
-  });
+  console.log(county);
+  // const csvData = data.map(item => {
+  //   return ({
+  //     date: updated,
+  //     county: county,
+  //     gender: item.x,
+  //     count: item.y
+  //   });
+  // });
 
-  const handleChange = ({ target }) => {
-    setCounty(target.value);
-  };
+  // const countyToData = {
+  //   multnomah: mult,
+  //   clackamas: clack,
+  //   washington: wash
+  // };
+  // const data = countyToData[county];
+
+
+  const handleChange = ({ target }) => setCounty(target.value);
 
   return (
     <>
@@ -31,16 +38,16 @@ const DailyCountGender = ({ updated }) => {
           name={'gender-radio'} 
           id={'gender'}
           title={'Daily Snapshot'}  
+          data={data}
           updated={updated} 
-          data={csvData}
-          filename={`jdpdx-daily-gender-${updated}-${county}.csv`}
+          filename={`jdpdx-daily-gender-${county}.csv`}
           category={'Population by Gender'}>
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <BarHDualAxes
-              data={data} 
-              county={county} 
+              data={data}
+              county={county}
               xLabel={'Number of People in Detention'} 
               yLabel={'Gender'}/>}
         </section>
