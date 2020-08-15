@@ -28,7 +28,7 @@ export default function App() {
       <DailyCountGender updated={updated}/>
       <DailyCountRace updated={updated}/>
       <DailyCountChargeSev updated={updated}/>
-      {/* <DailyCountChargeDesc updated={updated}/> */}
+      <DailyCountChargeDesc updated={updated}/>
       <Footer />
     </>
   );
