@@ -7,7 +7,7 @@ const useDailyCountFacility = (county) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchDailyAge = () => {
+  const fetchDailyFacility = () => {
     setLoading(true);
     getDailyFacilityCount(county)
       .then(shapeFacility)
@@ -15,7 +15,7 @@ const useDailyCountFacility = (county) => {
       .finally(() => setLoading(false));
   };
 
-  useEffect(fetchDailyAge, [county]);
+  useEffect(fetchDailyFacility, [county]);
 
   return [data, loading];
 };

@@ -2,16 +2,17 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HBar = ({ data, xLabel, yLabel }) => {
+const HBar = ({ data, county, xLabel, yLabel }) => {
+  console.log(data);
 
-  const vForVictory = (array) => {
-    return array.map(item => {
-      return ({
-        x: item.gender,
-        y: item.total
-      });
-    });
-  };
+  // const vForVictory = (array) => {
+  //   return array.map(item => {
+  //     return ({
+  //       x: item.gender,
+  //       y: item.total
+  //     });
+  //   });
+  // };
     
   return (
     <VictoryChart
@@ -21,7 +22,7 @@ const HBar = ({ data, xLabel, yLabel }) => {
       padding={{ top: 15, bottom: 30, left: 75, right: 40 }}
     >
       <VictoryLabel 
-        text={data[0].county + ' ' + ' County'}
+        text={county.toUpperCase() + ' ' + ' COUNTY'}
         x={190} 
         y={4}
         style={{
@@ -40,7 +41,7 @@ const HBar = ({ data, xLabel, yLabel }) => {
             fontFamily: 'Quattrocento Sans, sans-serif'
           }
         }}
-        data={vForVictory(data)}
+        data={data}
         horizontal={true}
         padding={{ bottom: 20 }}
         labels={({ datum }) => datum.y}
@@ -97,6 +98,7 @@ const HBar = ({ data, xLabel, yLabel }) => {
 
 HBar.propTypes = {
   data: PropTypes.array.isRequired,
+  county: PropTypes.string.isRequired,
   xLabel: PropTypes.string.isRequired,
   yLabel: PropTypes.string.isRequired,
   legend: PropTypes.bool
