@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDailyFacilityCount } from '../services/getDailyCounts';
-import { vForVictory } from '../utils/dailyCounts';
+import { shapeFacility } from '../data-shapers/shapeFacility';
 
 
 const useDailyCountFacility = (county) => {
@@ -10,7 +10,7 @@ const useDailyCountFacility = (county) => {
   const fetchDailyAge = () => {
     setLoading(true);
     getDailyFacilityCount(county)
-      .then(vForVictory)
+      .then(shapeFacility)
       .then(setData)
       .finally(() => setLoading(false));
   };

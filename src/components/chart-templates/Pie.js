@@ -6,7 +6,7 @@ const Pie = ({ data, county }) => {
   const makeLabel = array => {
     return array.map(obj => {
       return ({
-        name: obj.x ?? 'Clackamas County Jail'
+        name: obj.x
       });
     });
   };
@@ -18,7 +18,7 @@ const Pie = ({ data, county }) => {
         padding={{ top: 30, bottom: 30, left: 30, right: 120 }}
       >
         <VictoryLabel 
-          text={county + ' ' + 'County'}
+          text={county.toUpperCase() + ' ' + 'COUNTY'}
           x={175} 
           y={4}
           style={{
@@ -64,7 +64,8 @@ const Pie = ({ data, county }) => {
 };
 
 Pie.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  county: PropTypes.string.isRequired
 };
 
 export default Pie;
