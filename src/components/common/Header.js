@@ -4,7 +4,7 @@ import styles from '../chart-scroll/ChartScroll.css';
 import RadioControls from './RadioControls';
 import CSV from './CSV';
 
-const Header = ({ title, category, handleChange, name, id, data, updated, filename }) => {
+const Header = ({ title, category, handleChange, name, id, data, filename, updated }) => {
 
   return (
     <header className={styles.headWrapper}>
@@ -31,11 +31,11 @@ const Header = ({ title, category, handleChange, name, id, data, updated, filena
 Header.propTypes = {
   category: PropTypes.string,
   title: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired,
-  updated: PropTypes.string.isRequired,
+  data: PropTypes.array,
+  updated: PropTypes.string,
   filename: PropTypes.string.isRequired
 };
 

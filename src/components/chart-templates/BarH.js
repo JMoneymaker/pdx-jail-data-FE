@@ -3,16 +3,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const HBar = ({ data, county, xLabel }) => {
-    
+
   return (
     <VictoryChart
       domainPadding={[10 + (100 / data.length), 10 + (100 / data.length)]}
-      // width={400}
       height={210}
       padding={{ top: 15, bottom: 30, left: 75, right: 40 }}
     >
       <VictoryLabel 
-        text={county.toUpperCase() + ' COUNTY'}
+        text={county.toUpperCase() + ' ' + ' COUNTY'}
         x={190} 
         y={4}
         style={{
@@ -70,9 +69,9 @@ const HBar = ({ data, county, xLabel }) => {
 };
 
 HBar.propTypes = {
-  county: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
   xLabel: PropTypes.string.isRequired,
+  county: PropTypes.string.isRequired,
   legend: PropTypes.bool
 };
 

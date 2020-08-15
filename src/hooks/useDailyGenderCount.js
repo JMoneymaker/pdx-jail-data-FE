@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { getDailyGenderCount } from '../services/getDailyCounts';
-import { shapeGender } from '../utils/dailyCounts';
+import { vForVictory } from '../utils/dailyCounts';
 
-const useDailyCountGender = county => {
+const useDailyCountGender = (county) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchDailyGenderCount = () => {
     setLoading(true);
     getDailyGenderCount(county)
-      .then(shapeGender)
+      .then(vForVictory)
       .then(setData)
       .finally(() => setLoading(false));
   };

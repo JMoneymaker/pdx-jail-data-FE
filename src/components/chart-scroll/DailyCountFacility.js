@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import ChartLoading from '../common/ChartLoading';
 import Header from '../common/Header';
 import Pie from '../chart-templates/Pie';
@@ -10,18 +10,7 @@ const DailyCountFacility = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyCountFacility(county);
 
-  const csvData = data.map(item => {
-    return ({
-      date: updated,
-      county: county,
-      facility: item.x,
-      count: item.y
-    });
-  });
-
-  const handleChange = ({ target }) => {
-    setCounty(target.value);
-  };
+  const handleChange = ({ target }) => setCounty(target.value);
 
   return (
     <>
@@ -31,16 +20,16 @@ const DailyCountFacility = ({ updated }) => {
           name={'facility-radio'}
           id={'facility'}
           title={'Daily Snapshot'}
+          data={data}
           updated={updated}
-          data={csvData}
-          filename={`jdpdx-daily-facility-${updated}-${county}.csv`}
+          filename={`jdpdx-daily-facility-${county}.csv`}
           category={'Population by Facility'}> 
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <Pie 
+              data={data}
               county={county} 
-              data={data} 
             />
           }
         </section>
@@ -50,8 +39,7 @@ const DailyCountFacility = ({ updated }) => {
 };
 
 DailyCountFacility.propTypes = {
-  updated: PropTypes.string.isRequired
+  // updated: PropTypes.string.isRequired
 };
 
 export default DailyCountFacility;
-

@@ -10,15 +10,15 @@ const DailyCountChargeDesc = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyChargeDescription(county);
 
-  const csvData = data.map(item => {
-    return ({
-      date: updated,
-      county: county,
-      charge: item.x,
-      count: item.y
-    });
-  });
-
+  // const csvData = data.map(item => {
+  //   return ({
+  //     date: updated,
+  //     county: county,
+  //     charge: item.x,
+  //     count: item.y
+  //   });
+  // });
+  console.log(data);
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };
@@ -34,7 +34,7 @@ const DailyCountChargeDesc = ({ updated }) => {
           category={'Most Common Charges'}
           updated={updated} 
           filename={`jdpdx-daily-chargeDescription-${updated}-${county}.csv`}
-          data={csvData}  
+          data={data}  
         >
         </Header>
         <section className={styles.chartWrapper}>

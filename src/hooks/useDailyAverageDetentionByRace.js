@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDailyAverageDetentionByRace } from '../services/getDailyAverages';
-import { shapeMultDetAvg, shapeClackDetAvg, shapeWashDetAvg } from '../utils/dailyAverages';
+import { shapeDetAvg } from '../utils/dailyAverages';
 
 
 const useDailyAverageDetentionByRace = county => {
@@ -10,9 +10,7 @@ const useDailyAverageDetentionByRace = county => {
   const fetchDailyAverageDetentionByRace = () => {
     setLoading(true);
     getDailyAverageDetentionByRace(county)
-      .then((county === 'multnomah') ? shapeMultDetAvg
-        : (county === 'clackamas') ? shapeClackDetAvg
-          : shapeWashDetAvg)
+      .then(shapeDetAvg)
       .then(setData)
       .finally(() => setLoading(false));  
   };
