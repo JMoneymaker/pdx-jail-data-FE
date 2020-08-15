@@ -4,31 +4,28 @@ exports[`App component renders App 1`] = `
 <Fragment>
   <Landing />
   <TrendTriCountyTotals
-    updated="loading"
+    updated=""
   />
   <DailyCountAge
-    updated="loading"
+    updated=""
   />
   <DailyCountAgency
-    updated="loading"
+    updated=""
   />
   <DailyCountFacility
-    updated="loading"
+    updated=""
   />
   <DailyCountGender
-    updated="loading"
+    updated=""
   />
   <DailyCountRace
-    updated="loading"
-  />
-  <DailyAverageDetentionByRace
-    updated="loading"
+    updated=""
   />
   <DailyCountChargeSev
-    updated="loading"
+    updated=""
   />
   <DailyCountChargeDesc
-    updated="loading"
+    updated=""
   />
   <Footer />
 </Fragment>
