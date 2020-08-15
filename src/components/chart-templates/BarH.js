@@ -2,26 +2,16 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HBar = ({ data, xLabel }) => {
+const HBar = ({ data, county, xLabel }) => {
 
-  const vForVictory = (array, category) => {
-    return array.map(item => {
-      return ({
-        x: category,
-        y: item.total
-      });
-    });
-  };
-    
   return (
     <VictoryChart
       domainPadding={[10 + (100 / data.length), 10 + (100 / data.length)]}
-      // width={400}
       height={210}
       padding={{ top: 15, bottom: 30, left: 75, right: 40 }}
     >
       <VictoryLabel 
-        text={data[0].county + ' ' + ' COUNTY'}
+        text={county.toUpperCase() + ' ' + ' COUNTY'}
         x={190} 
         y={4}
         style={{
@@ -40,7 +30,7 @@ const HBar = ({ data, xLabel }) => {
             fontFamily: 'Quattrocento Sans, sans-serif'
           }
         }}
-        data={vForVictory(data, 'item.gender')}
+        data={data}
         horizontal={true}
         padding={{ bottom: 20 }}
         labels={({ datum }) => datum.y}
@@ -81,6 +71,7 @@ const HBar = ({ data, xLabel }) => {
 HBar.propTypes = {
   data: PropTypes.array.isRequired,
   xLabel: PropTypes.string.isRequired,
+  county: PropTypes.string.isRequired,
   legend: PropTypes.bool
 };
 

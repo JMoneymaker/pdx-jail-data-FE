@@ -1,4 +1,4 @@
-export const shapeChargeSeverity = res => {
+const sortSeverity = res => {
   let ordering = {},
     sortOrder = [
       'A Felony', 
@@ -18,12 +18,12 @@ export const shapeChargeSeverity = res => {
   return res;
 };
   
-// export const shapeChargeSeverity = res => {
-//   const sortedArray = sortSeverity(res);
-//   return sortedArray.map(item => {
-//     return ({
-//       x: item._id,
-//       y: item.total
-//     });
-//   });
-// };
+export const shapeChargeSeverity = res => {
+  const sortedArray = sortSeverity(res);
+  return sortedArray.map(item => {
+    return ({
+      x: item._id,
+      y: item.total
+    });
+  });
+};

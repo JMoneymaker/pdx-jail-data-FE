@@ -2,35 +2,23 @@ import { VictoryChart, VictoryLabel, VictoryPie, VictoryAxis, VictoryLegend } fr
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Pie = ({ data }) => {
-
+const Pie = ({ data, county }) => {
   const makeLabel = array => {
     return array.map(obj => {
       return ({
-        name: obj.facility
+        name: obj.x ?? 'Clackamas County Jail'
       });
     });
   };
-
-  const vForVictory = (array, category) => {
-    return array.map(item => {
-      return ({
-        x: category,
-        y: item.total
-      });
-    });
-  };
-
 
   return data.length > 0 ?
     (
       <VictoryChart
-      // width={400}
         height={220}
         padding={{ top: 30, bottom: 30, left: 30, right: 120 }}
       >
         <VictoryLabel 
-          text={data[0].county + ' ' + 'County'}
+          text={county + ' ' + 'County'}
           x={175} 
           y={4}
           style={{
@@ -38,7 +26,7 @@ const Pie = ({ data }) => {
           }}          
         />
         <VictoryPie
-          data={vForVictory(data, 'item.facility')}
+          data={data}
           responsive={false}
           labelRadius={({ innerRadius }) => innerRadius + 30 }
           labels={({ datum }) => datum.y}

@@ -6,16 +6,9 @@ import Pie from '../chart-templates/Pie';
 import styles from './ChartScroll.css';
 import useDailyCountFacility from '../../hooks/useDailyFacilityCount';
 
-const DailyCountFacility = () => {
+const DailyCountFacility = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
-  const [clack, mult, wash, loading] = useDailyCountFacility();
-
-  const countyToData = {
-    multnomah: mult,
-    clackamas: clack,
-    washington: wash
-  };
-  const data = countyToData[county];
+  const [data, loading] = useDailyCountFacility(county);
 
   const handleChange = ({ target }) => setCounty(target.value);
 
@@ -28,14 +21,15 @@ const DailyCountFacility = () => {
           id={'facility'}
           title={'Daily Snapshot'}
           data={data}
-          updated={data[0] ? data[0].date : 'loading'}
-          filename={`jdpdx-daily-facility-${data[0] ? data[0].date : 'loading'}-${county}.csv`}
+          updated={updated}
+          filename={`jdpdx-daily-facility-${county}.csv`}
           category={'Population by Facility'}> 
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <Pie 
-              data={data} 
+              data={data}
+              county={county} 
             />
           }
         </section>

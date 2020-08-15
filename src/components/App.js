@@ -23,11 +23,11 @@ export default function App() {
       <Landing />
       <TrendTriCountyTotals updated={updated}/>
       <DailyCountAge updated={updated}/>
-      {/* <DailyCountAgency updated={updated}/> */}
-      {/* <DailyCountFacility updated={updated}/> */}
+      <DailyCountAgency updated={updated}/>
+      <DailyCountFacility updated={updated}/>
       {/* <DailyCountGender updated={updated}/> */}
       <DailyCountRace updated={updated}/>
-      {/* <DailyCountChargeSev updated={updated}/> */}
+      <DailyCountChargeSev updated={updated}/>
       {/* <DailyCountChargeDesc updated={updated}/> */}
       <Footer />
     </>
