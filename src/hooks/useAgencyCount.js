@@ -10,17 +10,14 @@ const useAgencyCount = county => {
   const updated = 'today';
 
   const fetchAgencyCount = () => {
-    if(county === 'clackamas'){
-      console.log('error');
-    } else {
-      setLoading(true);
-      getCategoryCount(county, 'Agency')
-        .then(res => {
-          setData(vForVictory(res));
-          setCSV(makeCSV(res, county, updated, 'agency'));
-        })
-        .finally(() => setLoading(false));
-    }
+    if(county === 'clackamas') return;
+    setLoading(true);
+    getCategoryCount(county, 'Agency')
+      .then(res => {
+        setData(vForVictory(res));
+        setCSV(makeCSV(res, county, updated, 'agency'));
+      })
+      .finally(() => setLoading(false));
   };
   
   useEffect(fetchAgencyCount, [county]);

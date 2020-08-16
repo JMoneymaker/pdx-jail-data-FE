@@ -20,50 +20,71 @@ export default function App() {
   return (
     <>
       {/* <Landing /> */}
-      <ChartContainer 
-        category={'Trend Data'}
+      <ChartContainer
+        chartType={'Trend Data'} 
         title={'Daily Population Total'}
         template={'Area'}
         yLabel={'Date'}
         hook={useTriCountyTrend}
+        displayRadios={false}
       />
       <ChartContainer 
+        chartType={'Daily Snapshot'} 
         category={'Age'}
-        title={'Daily Population by Age'}
+        title={'Population by Age Range'}
         template={'VBar'}
         yLabel={'Age Range'}
         hook={useAgeCount}
+        displayRadios={true}
       />
       <ChartContainer
+        chartType={'Daily Snapshot'} 
         category={'Agency'}
-        title={'Daily Population by Arresting Agency'}
+        title={'Population by Arresting Agency'}
         template={'HBar'}
-        hook={useAgencyCount}/>
-      <ChartContainer 
+        hook={useAgencyCount}
+        displayRadios={true}
+      />
+      <ChartContainer
+        chartType={'Daily Snapshot'}  
         category={'Facility'}
-        title={'Daily Population by Facility'}
+        title={'Population by Facility'}
         template={'Pie'}
-        hook={useFacilityCount}/>
-      <ChartContainer 
+        hook={useFacilityCount}
+        displayRadios={true}
+      />
+      <ChartContainer
+        chartType={'Daily Snapshot'}  
         category={'Gender'}
-        title={'Daily Population by Gender'}
+        title={'Population by Gender'}
         template={'HBar'}
-        hook={useGenderCount}/>
-      <ChartContainer 
+        hook={useGenderCount}
+        displayRadios={true}
+      />
+      <ChartContainer
+        chartType={'Daily Snapshot'}  
         category={'Race'}
-        title={'Daily Population by Race'}
+        title={'Population by Race'}
         template={'VBar'}
-        hook={useRaceCount}/>
-      <ChartContainer 
+        hook={useRaceCount}
+        displayRadios={true}
+      />
+      <ChartContainer
+        chartType={'Daily Snapshot'}  
         category={'ChargeSeverity'}
-        title={'Daily Population by Top Charge Severity'}
+        title={'Population by Top Charge Severity'}
         template={'HBar'}
-        hook={useChargeSeverity}/>
+        hook={useChargeSeverity}
+        displayRadios={false}
+      />
       <ChartContainer 
+        chartType={'Daily Snapshot'} 
         category={'Top 20 Charges'}
-        title={'Daily Population by Top Charge'}
+        title={'Most Common Charges'}
         template={'HBar'}
-        hook={useChargeDescription}/>
+        hook={useChargeDescription}
+        displayRadios={false}
+      />
       <Footer />
     </>
   );

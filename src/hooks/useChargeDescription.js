@@ -10,8 +10,9 @@ const useChargeDescription = county => {
   const updated = 'today';
 
   const fetchChargeDescriptions = () => {
+    if(county === 'washington' || county === 'clackamas') return;
     setLoading(true);
-    getTop20Charges(county)
+    getTop20Charges('multnomah')
       .then(res => {
         setData(vForVictory(res));
         setCSV(makeCSV(res, county, updated, 'top20Charges'));
@@ -19,7 +20,7 @@ const useChargeDescription = county => {
       .finally(() => setLoading(false));
   };
 
-  useEffect(fetchChargeDescriptions, [county]);
+  useEffect(fetchChargeDescriptions, []);
 
   return [data, csv, loading];
 };

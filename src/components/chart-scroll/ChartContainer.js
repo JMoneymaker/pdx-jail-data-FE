@@ -6,7 +6,7 @@ import ChartLoading from '../common/ChartLoading';
 import useUpDated from '../../hooks/useUpDated';
 import styles from './ChartScroll.css';
 
-const ChartContainer = ({ category, title, template, yLabel, hook }) => {
+const ChartContainer = ({ chartType, category, title, template, yLabel, hook, displayRadios }) => {
   const upDated = useUpDated();
   const [county, setCounty] = useState('multnomah');
   const [data, csv, loading] = hook(county);
@@ -20,13 +20,15 @@ const ChartContainer = ({ category, title, template, yLabel, hook }) => {
     <>
       <section className={styles.ChartScroll}>
         <Header
+          chartType={chartType}
           title={title}
           category={category}
           updated={updated}
           name={`${category}-radio`}
           id={category}
           handleChange={handleChange}
-          csv={csv}>
+          csv={csv}
+          displayRadios={displayRadios}>
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
@@ -45,11 +47,13 @@ const ChartContainer = ({ category, title, template, yLabel, hook }) => {
 };
 
 ChartContainer.propTypes = {
+  chartType: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   template: PropTypes.string.isRequired,
   yLabel: PropTypes.string,
-  hook: PropTypes.func.isRequired
+  hook: PropTypes.func.isRequired,
+  displayRadios: PropTypes.bool
 };
 
 export default ChartContainer;

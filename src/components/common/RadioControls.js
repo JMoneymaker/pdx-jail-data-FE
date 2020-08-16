@@ -12,8 +12,9 @@ const RadioControls = ({ handleChange, name, id }) => {
         name={name}
         id={id + '-clackamas'}
         onChange={handleChange}
+        disabled={name === 'Agency-radio'}
       />
-      <label htmlFor={id + '-clackamas'}>C</label>
+      <label  htmlFor={id + '-clackamas'}>C</label>
 
       <input
         type='radio'
