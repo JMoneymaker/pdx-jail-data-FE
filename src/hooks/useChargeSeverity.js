@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getChargeCount } from '../services/jailDataApi';
 import { shapeChargeSeverity } from '../data-shapers/shapeChargeSeverity';
-import { makeCSV } from '../utils/makeCSV';
+import { makeCSV } from '../data-shapers/makeCSV';
 
 const useChargeSeverity = county => {
   const [data, setData] = useState([]);

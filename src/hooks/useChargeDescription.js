@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getTop20Charges } from '../services/jailDataApi';
 import { vForVictory } from '../utils/dailyCounts';
-import { makeCSV } from '../utils/makeCSV';
+import { makeCSV } from '../data-shapers/makeCSV';
 
 const useChargeDescription = county => {
   const [data, setData] = useState([]);

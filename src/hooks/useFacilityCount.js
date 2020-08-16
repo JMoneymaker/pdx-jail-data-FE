@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getCategoryCount } from '../services/jailDataApi';
 import { shapeFacility } from '../data-shapers/shapeFacility';
-import { makeCSV } from '../utils/makeCSV';
+import { makeCSV } from '../data-shapers/makeCSV';
 
 const useFacilityCount = (county) => {
   const [data, setData] = useState([]);

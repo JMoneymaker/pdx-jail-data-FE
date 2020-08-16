@@ -4,6 +4,7 @@ import Header from '../common/Header';
 import ChartDisplay from './ChartDisplay';
 import ChartLoading from '../common/ChartLoading';
 import useUpDated from '../../hooks/useUpDated';
+import styles from './ChartScroll.css';
 
 const ChartContainer = ({ category, title, template, yLabel, hook }) => {
   const upDated = useUpDated();
@@ -16,8 +17,8 @@ const ChartContainer = ({ category, title, template, yLabel, hook }) => {
   };
 
   return (
-    loading ? <ChartLoading /> :
-      <>
+    <>
+      <section className={styles.ChartScroll}>
         <Header
           title={title}
           category={category}
@@ -27,14 +28,19 @@ const ChartContainer = ({ category, title, template, yLabel, hook }) => {
           handleChange={handleChange}
           csv={csv}>
         </Header>
-        <ChartDisplay
-          county={county}
-          data={data}
-          loading={loading}
-          template={template}
-          yLabel={yLabel}
-        ></ChartDisplay>
-      </>
+        <section className={styles.chartWrapper}>
+          {loading ? <ChartLoading /> :
+            <ChartDisplay
+              county={county}
+              data={data}
+              loading={loading}
+              template={template}
+              yLabel={yLabel}
+            />
+          }
+        </section>
+      </section>
+    </>
   );
 };
 

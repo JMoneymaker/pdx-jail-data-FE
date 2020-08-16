@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getDailyCounts } from '../services/jailDataApi';
 import { shapeTrend } from '../utils/trends';
-import { makeTrendCSV } from '../utils/makeCSV';
+import { makeTrendCSV } from '../data-shapers/makeCSV';
 
 const useTriCountyTrend = () => {
   const [data, setData] = useState([]);

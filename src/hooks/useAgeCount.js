@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getCategoryCount } from '../services/jailDataApi';
 import { shapeAge } from '../utils/dailyCounts';
+import { makeCSV } from '../data-shapers/makeCSV';
 
 const useAgeCount = county => {
   const [data, setData] = useState([]);
@@ -8,26 +9,12 @@ const useAgeCount = county => {
   const [loading, setLoading] = useState(true);
   const updated = 'today';
 
-  const makeCSV = data => {
-    return ({
-      fileName: `jdpdx-dailyAgeCount-${county}-${updated}.csv`,
-      data: data.map(object => {
-        return ({
-          date: updated,
-          county: county,
-          age: object._id,
-          count: object.total
-        });
-      })
-    });
-  };
-
   const fetchDailyAgencyCount = () => {
     setLoading(true);
     getCategoryCount(county, 'Age')
       .then(res => {
         setData(shapeAge(res));
-        setCSV(makeCSV(res));
+        setCSV(makeCSV(res, county, updated, 'age range'));
       })
       .finally(() => setLoading(false));
   };

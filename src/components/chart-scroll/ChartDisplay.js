@@ -17,14 +17,20 @@ const ChartDisplay = ({ county, data, loading, template, yLabel }) => {
       county={county} 
       data={data} 
       loading={loading}></HBar>,
-    Area: <Area data={data} loading={loading} yLabel={yLabel}></Area>,
-    Pie: <Pie county={county} data={data} loading={loading}></Pie>
+    Area: <Area 
+      data={data} l
+      oading={loading} 
+      yLabel={yLabel}></Area>,
+    Pie: <Pie 
+      county={county} 
+      data={data} 
+      loading={loading}></Pie>
   };
 
   return (
-    <div>
+    <>
       {CHART_TEMPLATES[template]}
-    </div>
+    </>
   );
 };
 
