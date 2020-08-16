@@ -1,18 +1,16 @@
 import React from 'react';
 // import Landing from './landing/Landing';
-// import TrendTriCountyTotals from './chart-scroll/TrendTriCountyTotals';
-// import DailyCountAge from './chart-scroll/DailyCountAge';
-// import DailyCountAgency from './chart-scroll/DailyCountAgency';
-// import DailyCountFacility from './chart-scroll/DailyCountFacility';
-// import DailyCountGender from './chart-scroll/DailyCountGender';
-// import DailyCountRace from './chart-scroll/DailyCountRace';
-// import DailyCountChargeSev from './chart-scroll/DailyCountChargeSev';
-// import DailyCountChargeDesc from './chart-scroll/DailyCountChargeDesc';
-// import Footer from './common/Footer';
-import './App.css';
-
-// import useUpDate from '../hooks/useUpDated';
 import ChartContainer from './chart-scroll/ChartContainer';
+import Footer from './common/Footer';
+import useAgeCount from '../hooks/useAgeCount';
+import useAgencyCount from '../hooks/useAgencyCount';
+import useFacilityCount from '../hooks/useFacilityCount';
+import useGenderCount from '../hooks/useGenderCount';
+import useRaceCount from '../hooks/useRaceCount';
+import useChargeSeverity from '../hooks/useChargeSeverity';
+import useChargeDescription from '../hooks/useChargeDescription';
+import useTriCountyTrend from '../hooks/useTriCountyTrend';
+import './App.css';
 
 export default function App() {
   
@@ -22,19 +20,51 @@ export default function App() {
   return (
     <>
       {/* <Landing /> */}
-      {/* <TrendTriCountyTotals updated={updated}/> */}
+      <ChartContainer 
+        category={'Trend Data'}
+        title={'Daily Population Total'}
+        template={'Area'}
+        yLabel={'Date'}
+        hook={useTriCountyTrend}
+      />
       <ChartContainer 
         category={'Age'}
         title={'Daily Population by Age'}
-        template={'BarV'}
+        template={'VBar'}
+        yLabel={'Age Range'}
+        hook={useAgeCount}
       />
-      {/* <DailyCountAgency updated={updated}/>
-      <DailyCountFacility updated={updated}/>
-      <DailyCountGender updated={updated}/>
-      <DailyCountRace updated={updated}/>
-      <DailyCountChargeSev updated={updated}/>
-      <DailyCountChargeDesc updated={updated}/> */}
-      {/* <Footer /> */}
+      <ChartContainer
+        category={'Agency'}
+        title={'Daily Population by Arresting Agency'}
+        template={'HBar'}
+        hook={useAgencyCount}/>
+      <ChartContainer 
+        category={'Facility'}
+        title={'Daily Population by Facility'}
+        template={'Pie'}
+        hook={useFacilityCount}/>
+      <ChartContainer 
+        category={'Gender'}
+        title={'Daily Population by Gender'}
+        template={'HBar'}
+        hook={useGenderCount}/>
+      <ChartContainer 
+        category={'Race'}
+        title={'Daily Population by Race'}
+        template={'VBar'}
+        hook={useRaceCount}/>
+      <ChartContainer 
+        category={'ChargeSeverity'}
+        title={'Daily Population by Top Charge Severity'}
+        template={'HBar'}
+        hook={useChargeSeverity}/>
+      <ChartContainer 
+        category={'Top 20 Charges'}
+        title={'Daily Population by Top Charge'}
+        template={'HBar'}
+        hook={useChargeDescription}/>
+      <Footer />
     </>
   );
 }
