@@ -10,7 +10,6 @@ const DailyCountGender = ({ updated }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, loading] = useDailyGenderCount(county);
   
-  console.log(county);
   // const csvData = data.map(item => {
   //   return ({
   //     date: updated,

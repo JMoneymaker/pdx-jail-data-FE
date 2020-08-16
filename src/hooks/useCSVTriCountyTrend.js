@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
-import { getCSVTriCountyTrend } from '../services/getCSV';
-import { makeCSVTriCountyTrend } from '../utils/dailyCounts';
+// import { useState, useEffect } from 'react';
+// import { getCSVTriCountyTrend } from '../services/getCSV';
+// import { makeCSVTriCountyTrend } from '../utils/dailyCounts';
 
-const useCSVTriCountyTrend = () => {
-  const [data, setData] = useState([]);
+// const useCSVTriCountyTrend = () => {
+//   const [data, setData] = useState([]);
 
-  const fetchCSV = () => {
-    getCSVTriCountyTrend()
-      .then(makeCSVTriCountyTrend)
-      .then(setData);
-  };
+//   const fetchCSV = () => {
+//     getCSVTriCountyTrend()
+//       .then(makeCSVTriCountyTrend)
+//       .then(setData);
+//   };
 
-  useEffect(fetchCSV, []);
-  return data;
-};
+//   useEffect(fetchCSV, []);
+//   return data;
+// };
 
-export default useCSVTriCountyTrend;
+// export default useCSVTriCountyTrend;

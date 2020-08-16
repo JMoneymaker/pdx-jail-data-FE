@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../chart-scroll/ChartScroll.css';
-import RadioControls from './RadioControls';
 import CSV from './CSV';
+import RadioControls from './RadioControls';
 
-const Header = ({ title, category, handleChange, name, id, data, filename, updated }) => {
+const Header = ({ title, category, csv, name, id, handleChange, updated }) => {
 
   return (
     <header className={styles.headWrapper}>
@@ -13,16 +13,14 @@ const Header = ({ title, category, handleChange, name, id, data, filename, updat
           <h3>{title} - {updated}</h3>
           <h2>{category}</h2>
         </div>
-        <CSV 
-          data={data}
-          filename={filename}
-        ></CSV>
+        <CSV csv={csv}></CSV>
       </div>
       <div className={styles.radioContainer}>
-        <RadioControls 
-          handleChange={handleChange}  
-          name={name}  
-          id={id} />
+        <RadioControls
+          name={name}
+          id={id}
+          handleChange={handleChange}
+        ></RadioControls>
       </div>
     </header>
   );
@@ -31,12 +29,11 @@ const Header = ({ title, category, handleChange, name, id, data, filename, updat
 Header.propTypes = {
   category: PropTypes.string,
   title: PropTypes.string.isRequired,
-  handleChange: PropTypes.func,
+  csv: PropTypes.object,
+  updated: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  data: PropTypes.array,
-  updated: PropTypes.string,
-  filename: PropTypes.string.isRequired
+  handleChange: PropTypes.func.isRequired
 };
 
 export default Header;

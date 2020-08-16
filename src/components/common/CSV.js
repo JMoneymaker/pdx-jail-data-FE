@@ -4,25 +4,25 @@ import PropTypes from 'prop-types';
 import styles from '../chart-scroll/ChartScroll.css';
 import downloadImage from '../../assets/download6.png';
 
-const CSV = ({ data, filename }) => {
+const CSV = ({ csv }) => {
+
   return (
     <div className={styles.csv}>
-      <CSVLink 
-        data={[...data]}
-        filename={filename}
+      {csv.data ? <CSVLink 
+        data={csv.data}
+        filename={csv.filename}
         target='_blank'>
         <p className={styles.downloadContainer}>
           <img className={styles.downloadImage} src={downloadImage} alt='download' />
           <span className={styles.toolTip}>Download a CSV of this data</span>
         </p>
-      </CSVLink>
+      </CSVLink> : null}
     </div>
   );
 };
 
 CSV.propTypes = {
-  data: PropTypes.array.isRequired,
-  filename: PropTypes.string.isRequired
+  csv: PropTypes.object.isRequired
 };
 
 export default CSV;

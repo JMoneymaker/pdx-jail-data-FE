@@ -18,7 +18,6 @@ const DailyCountChargeDesc = ({ updated }) => {
   //     count: item.y
   //   });
   // });
-  console.log(data);
   const handleChange = ({ target }) => {
     setCounty(target.value);
   };

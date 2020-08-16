@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const HBar = ({ data, county, xLabel, yLabel }) => {
-  console.log(data);
 
   // const vForVictory = (array) => {
   //   return array.map(item => {

@@ -1,5 +1,4 @@
 export const shapeTrend = rawData => {
-  console.log(rawData, 'shaper');
   let clackamas = [];
   let washington = [];
   let multnomah = [];
