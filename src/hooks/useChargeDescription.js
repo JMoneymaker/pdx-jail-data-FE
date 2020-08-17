@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { getTop20Charges } from '../services/jailDataApi';
 import { vForVictory } from '../utils/dailyCounts';
 import { makeCSV } from '../data-shapers/makeCSV';
+import { UpdatedContext } from './updatedContext';
+
 
 const useChargeDescription = county => {
+  const updated = useContext(UpdatedContext);
   const [data, setData] = useState([]);
   const [csv, setCSV] = useState({});
   const [loading, setLoading] = useState(true);
-  const updated = 'today';
 
   const fetchChargeDescriptions = () => {
     if(county === 'washington' || county === 'clackamas') return;

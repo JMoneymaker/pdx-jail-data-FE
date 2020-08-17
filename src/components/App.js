@@ -1,5 +1,5 @@
 import React from 'react';
-// import Landing from './landing/Landing';
+import Landing from './landing/Landing';
 import ChartContainer from './chart-scroll/ChartContainer';
 import Footer from './common/Footer';
 import useAgeCount from '../hooks/useAgeCount';
@@ -19,9 +19,10 @@ export default function App() {
 
   return (
     <>
-      {/* <Landing /> */}
+      <Landing />
       <ChartContainer
         chartType={'Trend Data'} 
+        categity={'totals'}
         title={'Daily Population Total'}
         template={'Area'}
         yLabel={'Date'}

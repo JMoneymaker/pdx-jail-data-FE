@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { getCategoryCount } from '../services/jailDataApi';
 import { shapeAge } from '../utils/dailyCounts';
 import { makeCSV } from '../data-shapers/makeCSV';
+import { UpdatedContext } from './updatedContext';
 
 const useAgeCount = county => {
+  const updated = useContext(UpdatedContext);
   const [data, setData] = useState([]);
   const [csv, setCSV] = useState({});
   const [loading, setLoading] = useState(true);
-  const updated = 'today';
 
   const fetchDailyAgencyCount = () => {
     setLoading(true);

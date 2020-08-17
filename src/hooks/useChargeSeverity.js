@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { getChargeCount } from '../services/jailDataApi';
 import { shapeChargeSeverity } from '../data-shapers/shapeChargeSeverity';
 import { makeCSV } from '../data-shapers/makeCSV';
+import { UpdatedContext } from './updatedContext';
 
 const useChargeSeverity = county => {
+  const updated = useContext(UpdatedContext);
   const [data, setData] = useState([]);
   const [csv, setCSV] = useState({});
   const [loading, setLoading] = useState(true);
-  const updated = 'today';
 
   const fetchChargeSeverityCount = () => {
     if(county === 'washington' || county === 'clackamas') return;

@@ -133,7 +133,7 @@ const Area = ({ data, yLabel }) => {
 
 Area.propTypes = {
   data: PropTypes.array.isRequired,
-  yLabel: PropTypes.string.isRequired,
+  yLabel: PropTypes.string,
 };
 
 export default Area;

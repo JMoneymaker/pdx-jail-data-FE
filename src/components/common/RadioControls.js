@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './RadioControls.css';
 
-const RadioControls = ({ handleChange, name, id }) => {
+const RadioControls = ({ handleChange, name, category }) => {
 
   return (
     <div className={styles.radioGroup}>
@@ -10,30 +10,30 @@ const RadioControls = ({ handleChange, name, id }) => {
         type='radio'
         value='clackamas'
         name={name}
-        id={id + '-clackamas'}
+        id={category + '-clackamas'}
         onChange={handleChange}
         disabled={name === 'Agency-radio'}
       />
-      <label  htmlFor={id + '-clackamas'}>C</label>
+      <label  htmlFor={category + '-clackamas'}>C</label>
 
       <input
         type='radio'
         value='multnomah'
         name={name}
-        id={id + '-multnomah'}
+        id={category + '-multnomah'}
         defaultChecked
         onChange={handleChange}
       />
-      <label htmlFor={id + '-multnomah'}>M</label>
+      <label htmlFor={category + '-multnomah'}>M</label>
 
       <input
         type='radio'
         value='washington'
         name={name}
-        id={id + '-washington'}
+        id={category + '-washington'}
         onChange={handleChange}
       />
-      <label htmlFor={id + '-washington'}>W</label>
+      <label htmlFor={category + '-washington'}>W</label>
     </div>
   );
 };
@@ -41,7 +41,7 @@ const RadioControls = ({ handleChange, name, id }) => {
 RadioControls.propTypes = {
   handleChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
+  category: PropTypes.string.isRequired
 };
 
 export default RadioControls;

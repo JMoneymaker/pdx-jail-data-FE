@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { getDailyCounts } from '../services/jailDataApi';
 import { shapeTrend } from '../utils/trends';
 import { makeTrendCSV } from '../data-shapers/makeCSV';
+import { UpdatedContext } from './updatedContext';
 
 const useTriCountyTrend = () => {
+  const updated = useContext(UpdatedContext);
   const [data, setData] = useState([]);
   const [csv, setCSV] = useState({});
   const [loading, setLoading] = useState(true);
-  const updated = 'today';
 
   const fetchTriCountyTrend = () => {
     setLoading(true);

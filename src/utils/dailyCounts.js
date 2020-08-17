@@ -5,11 +5,20 @@ export const makePrettyDate = date => {
   return moment(date).format('LLLL');
 };
 
-export const findUpDate = res => {
-  const iT = res.length - 1;
-  const lastUpdated = res[iT].date;
+export const findLatest = res => {
+  const [latest] = res.slice(-1);
+  const lastUpdated = latest.date;
 
   return moment(lastUpdated).format('MMMM D YYYY, h:mm a');
+};
+
+export const findTwoDayTotals = res => {
+  const ti = res.length - 1;
+  const yi = res.length - 2;
+  const today = res[ti];
+  const yesterday = res[yi];
+
+  return [today, yesterday];
 };
 
 const alphabetize = res => {
