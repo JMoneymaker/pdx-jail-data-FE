@@ -26,6 +26,7 @@
   "license": "ISC",
   "dependencies": {
     "@nivo/bar": "^0.61.1",
+    "abort-controller": "^3.0.0",
     "moment": "^2.26.0",
     "nivo": "^0.31.0",
     "react": "^16.13.1",

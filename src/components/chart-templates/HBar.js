@@ -2,7 +2,7 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HBar = ({ data, county, xLabel }) => {
+const HBar = ({ data, county }) => {
 
   return (
     <VictoryChart
@@ -48,7 +48,7 @@ const HBar = ({ data, county, xLabel }) => {
         }} 
       />
       <VictoryAxis dependentAxis
-        label={xLabel}
+        label={'Number of People in Detention'}
         style={{
           axisLabel: { 
             padding: 18, 
@@ -70,9 +70,7 @@ const HBar = ({ data, county, xLabel }) => {
 
 HBar.propTypes = {
   data: PropTypes.array.isRequired,
-  xLabel: PropTypes.string.isRequired,
-  county: PropTypes.string.isRequired,
-  legend: PropTypes.bool
+  county: PropTypes.string.isRequired
 };
 
 export default HBar;

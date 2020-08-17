@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './Landing.css';
 import MainStat from './MainStat';
 import Header from './Header';
-import useMultTotal from '../../hooks/useMultTotal';
-import useMultChange from '../../hooks/useMultChange';
-import useClackChange from '../../hooks/useClackChange';
-import useClackTotal from '../../hooks/useClackTotal';
-import useWashTotal from '../../hooks/useWashTotal';
-import useWashChange from '../../hooks/useWashChange';
-import useUpDate from '../../hooks/useUpDated';
+import useMainStats from '../../hooks/useMainStats';
+import { UpdatedContext } from '../../hooks/updatedContext';
 
 const Landing = () => {
+  const updated = useContext(UpdatedContext);
+  const [today, yesterday, loading] = useMainStats();
 
   return (
   
     <div className={styles.Landing}>
-      <Header upDateHook={useUpDate}/>
+      <Header updated={updated}/>
       <main className={styles.mainStats}>
         <section className={styles.countiesInner}>
           <div className={styles.counties}>
@@ -26,18 +23,21 @@ const Landing = () => {
         </section>
         <section className={styles.mainStatsInner}>
           <MainStat 
-            totalHook={useClackTotal} 
-            changeHook={useClackChange}>
+            total={today.clack} 
+            change={today.clack - yesterday.clack}
+            loading={loading}>
           </MainStat>
 
           <MainStat 
-            totalHook={useMultTotal} 
-            changeHook={useMultChange}>
+            total={today.mult} 
+            change={today.mult - yesterday.mult}
+            loading={loading}>
           </MainStat>
 
           <MainStat 
-            totalHook={useWashTotal} 
-            changeHook={useWashChange}>
+            total={today.wash} 
+            change={today.wash - yesterday.wash}
+            loading={loading}>
           </MainStat>
         </section>
       </main>

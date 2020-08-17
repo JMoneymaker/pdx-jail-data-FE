@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makePrettyDate } from '../../utils/dailyCounts';
 
-const Area = ({ data, yLabel, xLabel }) => {
+const Area = ({ data, yLabel }) => {
 
   return (
     <VictoryChart
@@ -94,7 +94,7 @@ const Area = ({ data, yLabel, xLabel }) => {
         }} 
       />
       <VictoryAxis dependentAxis
-        label={xLabel}
+        label={'Number of People in Detention'}
         style={{
           axisLabel: { 
             padding: 30, 
@@ -133,8 +133,7 @@ const Area = ({ data, yLabel, xLabel }) => {
 
 Area.propTypes = {
   data: PropTypes.array.isRequired,
-  yLabel: PropTypes.string.isRequired,
-  xLabel: PropTypes.string.isRequired
+  yLabel: PropTypes.string,
 };
 
 export default Area;

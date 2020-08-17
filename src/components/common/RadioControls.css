@@ -77,7 +77,11 @@
     background-color: black;
     color: #f8f8f8;
   }
-  
+
+  input[type=radio]:disabled + label {
+    visibility: hidden;
+  }
+
   input[type=radio]:hover + label {
     background-color: black;
     color: #f8f8f8;

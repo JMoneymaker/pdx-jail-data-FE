@@ -5,75 +5,20 @@ export const makePrettyDate = date => {
   return moment(date).format('LLLL');
 };
 
-export const calculateMultChange = counts => {
-  
-  const yesterday = findMultYesterday(counts);
-  const today = findMultToday(counts);
-
-  const dailyChange = today - yesterday;
-  return (dailyChange > 0) ? '+' + dailyChange : dailyChange;
-};
-
-export const calculateWashChange = counts => {
-  
-  const yesterday = findWashYesterday(counts);
-  const today = findWashToday(counts);
-
-  const dailyChange = today - yesterday;
-  return (dailyChange > 0) ? '+' + dailyChange : dailyChange;
-};
-
-export const calculateClackChange = counts => {
-  
-  const yesterday = findClackYesterday(counts);
-  const today = findClackToday(counts);
-
-  const dailyChange = today - yesterday;
-  return (dailyChange > 0) ? '+' + dailyChange : dailyChange;
-};
-
-const findMultYesterday = res => {
-  const counts = res[0].counts;
-  const iY = counts.length - 2;
-  return counts[iY].mult;
-};
-
-const findClackYesterday = res => {
-  const counts = res[0].counts;
-  const iY = counts.length - 2;
-  return counts[iY].clack;
-};
-
-const findWashYesterday = res => {
-  const counts = res[0].counts;
-  const iY = counts.length - 2;
-  return counts[iY].wash;
-};
-
-export const findMultToday = res => {
-  const counts = res[0].counts;
-  const iT = counts.length - 1;
-  return counts[iT].mult;
-};
-
-export const findClackToday = res => {
-  const counts = res[0].counts;
-  const iT = counts.length - 1;
-  return counts[iT].clack;
-};
-
-export const findWashToday = res => {
-  const counts = res[0].counts;
-  const iT = counts.length - 1;
-  return counts[iT].wash;
-};
-
-export const findUpDate = res => {
-  const counts = res[0].counts;
-  const iT = counts.length - 1;
-  const lastUpdated = counts[iT].date;
+export const findLatest = res => {
+  const [latest] = res.slice(-1);
+  const lastUpdated = latest.date;
 
   return moment(lastUpdated).format('MMMM D YYYY, h:mm a');
+};
+
+export const findTwoDayTotals = res => {
+  const ti = res.length - 1;
+  const yi = res.length - 2;
+  const today = res[ti];
+  const yesterday = res[yi];
+
+  return [today, yesterday];
 };
 
 const alphabetize = res => {
