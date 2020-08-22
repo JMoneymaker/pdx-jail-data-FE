@@ -21,8 +21,10 @@ const useFacilityCount = (county) => {
         setData(vForVictory(deacronymizefacilities(res)));
         setCSV(makeCSV(res, county, updated, 'facility'));
       })
-      .then(() => setLoading(false))
-      .finally(() => abortController.abort());
+      .finally(() => setLoading(false));
+
+    return () => abortController.abort();
+
   };
 
   useEffect(fetchDailyFacility, [county]);

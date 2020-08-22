@@ -22,8 +22,10 @@ const useChargeSeverity = county => {
         setData(vForVictory(sortByChargeSeverity(res)));
         setCSV(makeCSV(res, county, updated, 'charge-category'));
       })
-      .then(() => setLoading(false))
-      .finally(() => abortController.abort());
+      .finally(() => setLoading(false));
+      
+    return () => abortController.abort();
+
   };
 
   useEffect(fetchChargeSeverity, []);

@@ -14,18 +14,20 @@ const useAgeCount = county => {
   const [csv, setCSV] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const fetchDailyAgencyCount = () => {
+  const fetchDailyAgeCount = () => {
     setLoading(true);
     getCountByCategory(county, 'Age', signal)
       .then(res => {
         setData(vForVictory(makeAgeRanges(res)));
         setCSV(makeCSV(res, county, updated, 'age range'));
       })
-      .then(() => setLoading(false))
-      .finally(() => abortController.abort());
+      .finally(() => setLoading(false));
+
+    return () => abortController.abort();
+    
   };
   
-  useEffect(fetchDailyAgencyCount, [county]);
+  useEffect(fetchDailyAgeCount, [county]);
 
   return [data, csv, loading];
 };

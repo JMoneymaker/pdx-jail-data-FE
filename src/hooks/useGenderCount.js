@@ -20,8 +20,10 @@ const useDailyCountGender = (county) => {
         setData(vForVictory(res));
         setCSV(makeCSV(res, county, updated, 'gender'));
       })
-      .then(() => setLoading(false))
-      .finally(() => abortController.abort());
+      .finally(() => setLoading(false));
+      
+    return () => abortController.abort();
+
   };
 
   useEffect(fetchDailyGenderCount, [county]);

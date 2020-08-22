@@ -22,8 +22,10 @@ const useChargeDescription = county => {
         setData(vForVictory(res));
         setCSV(makeCSV(res, county, updated, 'top20Charges'));
       })
-      .then(() => setLoading(false))
-      .finally(() => abortController.abort());
+      .finally(() => setLoading(false));
+    
+    return () => abortController.abort();
+
   };
 
   useEffect(fetchChargeDescriptions, []);

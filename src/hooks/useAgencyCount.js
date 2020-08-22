@@ -22,8 +22,10 @@ const useAgencyCount = county => {
         setData(vForVictory(alphabetize(res)));
         setCSV(makeCSV(res, county, updated, 'agency'));
       })
-      .then(() => setLoading(false))
-      .finally(() => abortController.abort());
+      .finally(() => setLoading(false));
+
+    return () => abortController.abort();
+
   };
   
   useEffect(fetchAgencyCount, [county]);
