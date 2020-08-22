@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import styles from '../chart-scroll/ChartScroll.css';
-import CSV from './CSV';
-import RadioControls from './RadioControls';
-import { UpdatedContext } from '../../hooks/updatedContext';
+import CSV from './CSV/CSV';
+import RadioControls from './Radios/RadioControls';
+import { UpdatedContext } from '../../../hooks/useUpdatedContext';
+import styles from '../ChartScroll.css';
 
 const Header = ({ title, category, chartType, csv, displayRadios, name, handleChange }) => {
   const updated = useContext(UpdatedContext);

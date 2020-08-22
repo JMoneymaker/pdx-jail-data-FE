@@ -1,7 +1,7 @@
-import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryVoronoiContainer, VictoryTooltip, VictoryLabel } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makePrettyDate } from '../../utils/dailyCounts';
+import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryVoronoiContainer, VictoryTooltip, VictoryLabel } from 'victory';
+import { makePrettyDate } from '../../../utils/dailyCounts';
 
 const Area = ({ data, yLabel }) => {
 

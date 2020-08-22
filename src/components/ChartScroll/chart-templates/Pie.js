@@ -1,6 +1,6 @@
-import { VictoryChart, VictoryLabel, VictoryPie, VictoryAxis, VictoryLegend } from 'victory';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { VictoryChart, VictoryLabel, VictoryPie, VictoryAxis, VictoryLegend } from 'victory';
 
 const Pie = ({ data, county }) => {
   const makeLabel = array => {

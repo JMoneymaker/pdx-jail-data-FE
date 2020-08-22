@@ -1,7 +1,7 @@
 import React from 'react';
-import Landing from './landing/Landing';
-import ChartScroll from './chart-scroll/ChartScroll';
-import Footer from './common/Footer';
+import Landing from './Landing/Landing';
+import ChartScroll from './ChartScroll/ChartScroll';
+import Footer from './Footer/Footer';
 import './App.css';
 
 export default function App() {

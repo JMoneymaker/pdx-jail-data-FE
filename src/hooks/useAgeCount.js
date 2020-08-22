@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { getCategoryCount } from '../services/jailDataApi';
 import { shapeAge } from '../utils/dailyCounts';
 import { makeCSV } from '../data-shapers/makeCSV';
-import { UpdatedContext } from './updatedContext';
+import { UpdatedContext } from './useUpdatedContext';
 
 const useAgeCount = county => {
   const updated = useContext(UpdatedContext);

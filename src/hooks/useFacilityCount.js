@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { getCategoryCount } from '../services/jailDataApi';
 import { shapeFacility } from '../data-shapers/shapeFacility';
 import { makeCSV } from '../data-shapers/makeCSV';
-import { UpdatedContext } from './updatedContext';
+import { UpdatedContext } from './useUpdatedContext';
 
 const useFacilityCount = (county) => {
   const updated = useContext(UpdatedContext);
