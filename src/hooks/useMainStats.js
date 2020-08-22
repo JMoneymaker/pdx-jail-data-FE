@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDailyCounts } from '../services/jailDataApi';
-import { findTwoDayTotals } from '../utils/dailyCounts';
+import { findTwoDayTotals } from '../data-shapers/findTwoDayTotals';
 
 const useMainStats = () => {
   const [today, setToday] = useState({});

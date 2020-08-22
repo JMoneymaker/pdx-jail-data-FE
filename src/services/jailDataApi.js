@@ -1,4 +1,4 @@
-export const getCategoryCount = (county = 'multnomah', category = 'Agency') => {
+export const getCountByCategory = (county = 'multnomah', category = 'Agency') => {
   return fetch(`http://157.245.170.56/api/v1/${county}/daily${category}Count`)
     .then(res => res.json());
 };

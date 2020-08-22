@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
-import { getCategoryCount } from '../services/jailDataApi';
-import { shapeAge } from '../utils/dailyCounts';
+import { getCountByCategory } from '../services/jailDataApi';
+import makeAgeRanges from '../data-shapers/makeAgeRanges';
+import { vForVictory } from '../data-shapers/vForVictory';
 import { makeCSV } from '../data-shapers/makeCSV';
 import { UpdatedContext } from './useUpdatedContext';
 
@@ -12,9 +13,9 @@ const useAgeCount = county => {
 
   const fetchDailyAgencyCount = () => {
     setLoading(true);
-    getCategoryCount(county, 'Age')
+    getCountByCategory(county, 'Age')
       .then(res => {
-        setData(shapeAge(res));
+        setData(vForVictory(makeAgeRanges(res)));
         setCSV(makeCSV(res, county, updated, 'age range'));
       })
       .finally(() => setLoading(false));

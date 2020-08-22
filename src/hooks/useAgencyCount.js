@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
-import { getCategoryCount } from '../services/jailDataApi';
-import { vForVictory } from '../utils/dailyCounts';
+import { getCountByCategory } from '../services/jailDataApi';
+import { vForVictory } from '../data-shapers/vForVictory';
 import { makeCSV } from '../data-shapers/makeCSV';
 import { UpdatedContext } from './useUpdatedContext';
+import { alphabetize } from '../data-shapers/alphabetize';
 
 const useAgencyCount = county => {
   const updated = useContext(UpdatedContext);
@@ -13,9 +14,9 @@ const useAgencyCount = county => {
   const fetchAgencyCount = () => {
     if(county === 'clackamas') return;
     setLoading(true);
-    getCategoryCount(county, 'Agency')
+    getCountByCategory(county, 'Agency')
       .then(res => {
-        setData(vForVictory(res));
+        setData(vForVictory(alphabetize(res)));
         setCSV(makeCSV(res, county, updated, 'agency'));
       })
       .finally(() => setLoading(false));

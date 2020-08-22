@@ -7,15 +7,11 @@ const facilityMap = {
   null: 'Clackamas County Jail'
 };
 
-export const shapeFacility = arr => {
+const deacvonymizeFacility = arr => {
   return arr.map(obj => 
     Object.keys(obj).reduce((acc, key) => ({ 
       ...acc, ...{ _id: facilityMap[`${obj._id}`] || obj._id, total: obj[key] }
-    }), {})
-  ).map(item => {
-    return ({
-      x: item._id,
-      y: item.total
-    });
-  });
+    }), {}));
 };
+
+export default deacvonymizeFacility;

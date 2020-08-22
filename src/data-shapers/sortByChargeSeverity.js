@@ -1,4 +1,4 @@
-const sortSeverity = res => {
+const descendingSeverity = res => {
   let ordering = {},
     sortOrder = [
       'A Felony', 
@@ -18,12 +18,8 @@ const sortSeverity = res => {
   return res;
 };
   
-export const shapeChargeSeverity = res => {
-  const sortedArray = sortSeverity(res);
-  return sortedArray.map(item => {
-    return ({
-      x: item._id,
-      y: item.total
-    });
-  });
+const sortByChargeSeverity = res => {
+  return descendingSeverity(res);
 };
+
+export default sortByChargeSeverity;

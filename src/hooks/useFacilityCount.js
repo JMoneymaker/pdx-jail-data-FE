@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
-import { getCategoryCount } from '../services/jailDataApi';
-import { shapeFacility } from '../data-shapers/shapeFacility';
+import { getCountByCategory } from '../services/jailDataApi';
+import deacronymizefacilities from '../data-shapers/deacronymizefacilities';
 import { makeCSV } from '../data-shapers/makeCSV';
 import { UpdatedContext } from './useUpdatedContext';
+import { vForVictory } from '../data-shapers/vForVictory';
 
 const useFacilityCount = (county) => {
   const updated = useContext(UpdatedContext);
@@ -12,9 +13,9 @@ const useFacilityCount = (county) => {
 
   const fetchDailyFacility = () => {
     setLoading(true);
-    getCategoryCount(county, 'Facility')
+    getCountByCategory(county, 'Facility')
       .then(res => {
-        setData(shapeFacility(res));
+        setData(vForVictory(deacronymizefacilities(res)));
         setCSV(makeCSV(res, county, updated, 'facility'));
       })
       .finally(() => setLoading(false));

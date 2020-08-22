@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
-import { getCategoryCount } from '../services/jailDataApi';
-import { vForVictory } from '../utils/dailyCounts';
+import { getCountByCategory } from '../services/jailDataApi';
+import { vForVictory } from '../data-shapers/vForVictory';
 import { makeCSV } from '../data-shapers/makeCSV';
 import { UpdatedContext } from './useUpdatedContext';
+import { alphabetize } from '../data-shapers/alphabetize';
 
 const useRaceCount = county => {
   const updated = useContext(UpdatedContext);
@@ -12,9 +13,9 @@ const useRaceCount = county => {
 
   const fetchRaceCount = () => {
     setLoading(true);
-    getCategoryCount(county, 'Race')
+    getCountByCategory(county, 'Race')
       .then(res => {
-        setData(vForVictory(res));
+        setData(vForVictory(alphabetize(res)));
         setCSV(makeCSV(res, county, updated, 'race'));
       })
       .finally(() => setLoading(false));

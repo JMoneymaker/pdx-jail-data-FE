@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
-import { getCategoryCount } from '../services/jailDataApi';
-import { vForVictory } from '../utils/dailyCounts';
+import { getCountByCategory } from '../services/jailDataApi';
+import { vForVictory } from '../data-shapers/vForVictory';
 import { makeCSV } from '../data-shapers/makeCSV';
 import { UpdatedContext } from './useUpdatedContext';
 
@@ -12,7 +12,7 @@ const useDailyCountGender = (county) => {
 
   const fetchDailyGenderCount = () => {
     setLoading(true);
-    getCategoryCount(county, 'Gender')
+    getCountByCategory(county, 'Gender')
       .then(res => {
         setData(vForVictory(res));
         setCSV(makeCSV(res, county, updated, 'gender'));
