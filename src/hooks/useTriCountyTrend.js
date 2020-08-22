@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { getDailyCounts } from '../services/jailDataApi';
 import { shapeTrend } from '../utils/trends';
 import { makeTrendCSV } from '../data-shapers/makeCSV';
-import { UpdatedContext } from './updatedContext';
+import { UpdatedContext } from './useUpdatedContext';
 
 const useTriCountyTrend = () => {
   const updated = useContext(UpdatedContext);

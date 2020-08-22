@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import styles from './Landing.css';
-import MainStat from './MainStat';
 import Header from './Header';
+import MainStat from './MainStat';
+import { UpdatedContext } from '../../hooks/useUpdatedContext';
 import useMainStats from '../../hooks/useMainStats';
-import { UpdatedContext } from '../../hooks/updatedContext';
+import styles from './Landing.css';
 
 const Landing = () => {
   const updated = useContext(UpdatedContext);
@@ -44,6 +44,7 @@ const Landing = () => {
     </div>
 
   );
+  
 };
 
 export default Landing;

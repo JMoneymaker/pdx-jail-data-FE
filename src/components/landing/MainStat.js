@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loading from '../Loading/Loading';
 import styles from './Landing.css';
-import Loading from '../common/Loading';
 
 const MainStat = ({ total, change, loading }) => {
 
   return (
+
     <>
       <div className={styles.mainStat}>
-        { loading ? <Loading></Loading> :
+        { loading ? <Loading /> :
           <>
             <h1 className={styles.digit}>{total}</h1>
             <h3 className={styles.caption}>In Custody</h3>
@@ -16,7 +17,10 @@ const MainStat = ({ total, change, loading }) => {
           </>
         }
       </div>
-    </>);
+    </>
+    
+  );
+    
 };
 
 MainStat.propTypes = {

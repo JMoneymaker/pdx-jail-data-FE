@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { UpdatedContext } from '../src/hooks/updatedContext';
+import { UpdatedContext } from '../src/hooks/useUpdatedContext';
 import { findLatest } from '../src/utils/dailyCounts';
 import { getDailyCounts } from '../src/services/jailDataApi';
 

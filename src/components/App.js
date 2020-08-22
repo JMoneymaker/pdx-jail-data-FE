@@ -1,7 +1,7 @@
 import React from 'react';
-import Landing from './landing/Landing';
-import ChartContainer from './chart-scroll/ChartContainer';
-import Footer from './common/Footer';
+import Landing from './Landing/Landing';
+import ChartContainer from './ChartScroll/ChartContainer';
+import Footer from '../components/Footer/Footer';
 import useAgeCount from '../hooks/useAgeCount';
 import useAgencyCount from '../hooks/useAgencyCount';
 import useFacilityCount from '../hooks/useFacilityCount';
@@ -13,9 +13,6 @@ import useTriCountyTrend from '../hooks/useTriCountyTrend';
 import './App.css';
 
 export default function App() {
-  
-  // const { upDated } = useUpDate();
-  // const updated = upDated.slice(0, -13);
 
   return (
     <>

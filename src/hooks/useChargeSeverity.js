@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { getChargeCount } from '../services/jailDataApi';
 import { shapeChargeSeverity } from '../data-shapers/shapeChargeSeverity';
 import { makeCSV } from '../data-shapers/makeCSV';
-import { UpdatedContext } from './updatedContext';
+import { UpdatedContext } from './useUpdatedContext';
 
 const useChargeSeverity = county => {
   const updated = useContext(UpdatedContext);

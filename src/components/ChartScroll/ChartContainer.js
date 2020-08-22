@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../common/Header';
+import Header from './Header/Header';
+import ChartLoading from '../Loading/ChartLoading';
 import ChartDisplay from './ChartDisplay';
-import ChartLoading from '../common/ChartLoading';
 import styles from './ChartScroll.css';
 
-const ChartContainer = ({ chartType, category, title, template, yLabel, hook, displayRadios }) => {
+const ChartContainer = ({ hook, chartType, category, title, displayRadios, template, yLabel }) => {
   const [county, setCounty] = useState('multnomah');
   const [data, csv, loading] = hook(county);
 
@@ -18,22 +18,22 @@ const ChartContainer = ({ chartType, category, title, template, yLabel, hook, di
       <section className={styles.ChartScroll}>
         <Header
           chartType={chartType}
-          title={title}
           category={category}
+          title={title}
+          displayRadios={displayRadios}
           name={`${category}-radio`}
           id={category}
-          handleChange={handleChange}
           csv={csv}
-          displayRadios={displayRadios}>
+          handleChange={handleChange}>
         </Header>
         <section className={styles.chartWrapper}>
           {loading ? <ChartLoading /> :
             <ChartDisplay
+              template={template}
+              yLabel={yLabel}
               county={county}
               data={data}
               loading={loading}
-              template={template}
-              yLabel={yLabel}
             />
           }
         </section>
@@ -43,13 +43,13 @@ const ChartContainer = ({ chartType, category, title, template, yLabel, hook, di
 };
 
 ChartContainer.propTypes = {
+  hook: PropTypes.func.isRequired,
   chartType: PropTypes.string.isRequired,
   category: PropTypes.string,
   title: PropTypes.string.isRequired,
+  displayRadios: PropTypes.bool,
   template: PropTypes.string.isRequired,
   yLabel: PropTypes.string,
-  hook: PropTypes.func.isRequired,
-  displayRadios: PropTypes.bool
 };
 
 export default ChartContainer;

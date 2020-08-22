@@ -3,29 +3,71 @@
 exports[`App component renders App 1`] = `
 <Fragment>
   <Landing />
-  <TrendTriCountyTotals
-    updated=""
+  <ChartContainer
+    categity="totals"
+    chartType="Trend Data"
+    displayRadios={false}
+    hook={[Function]}
+    template="Area"
+    title="Daily Population Total"
+    yLabel="Date"
   />
-  <DailyCountAge
-    updated=""
+  <ChartContainer
+    category="Age"
+    chartType="Daily Snapshot"
+    displayRadios={true}
+    hook={[Function]}
+    template="VBar"
+    title="Population by Age Range"
+    yLabel="Age Range"
   />
-  <DailyCountAgency
-    updated=""
+  <ChartContainer
+    category="Agency"
+    chartType="Daily Snapshot"
+    displayRadios={true}
+    hook={[Function]}
+    template="HBar"
+    title="Population by Arresting Agency"
   />
-  <DailyCountFacility
-    updated=""
+  <ChartContainer
+    category="Facility"
+    chartType="Daily Snapshot"
+    displayRadios={true}
+    hook={[Function]}
+    template="Pie"
+    title="Population by Facility"
   />
-  <DailyCountGender
-    updated=""
+  <ChartContainer
+    category="Gender"
+    chartType="Daily Snapshot"
+    displayRadios={true}
+    hook={[Function]}
+    template="HBar"
+    title="Population by Gender"
   />
-  <DailyCountRace
-    updated=""
+  <ChartContainer
+    category="Race"
+    chartType="Daily Snapshot"
+    displayRadios={true}
+    hook={[Function]}
+    template="VBar"
+    title="Population by Race"
   />
-  <DailyCountChargeSev
-    updated=""
+  <ChartContainer
+    category="ChargeSeverity"
+    chartType="Daily Snapshot"
+    displayRadios={false}
+    hook={[Function]}
+    template="HBar"
+    title="Population by Top Charge Severity"
   />
-  <DailyCountChargeDesc
-    updated=""
+  <ChartContainer
+    category="Top 20 Charges"
+    chartType="Daily Snapshot"
+    displayRadios={false}
+    hook={[Function]}
+    template="HBar"
+    title="Most Common Charges"
   />
   <Footer />
 </Fragment>
