@@ -9,22 +9,26 @@ const ChartDisplay = ({ county, data, loading, template, yLabel }) => {
   
   const CHART_TEMPLATES = {
     VBar: <VBar 
-      county={county} 
-      data={data} 
       loading={loading} 
-      yLabel={yLabel}></VBar>,
+      data={data} 
+      county={county} 
+      yLabel={yLabel}>
+    </VBar>,
     HBar: <HBar 
-      county={county} 
+      loading={loading}
       data={data} 
-      loading={loading}></HBar>,
+      county={county}>
+    </HBar>,
     Area: <Area 
-      data={data} l
-      oading={loading} 
-      yLabel={yLabel}></Area>,
+      loading={loading} 
+      data={data}
+      yLabel={yLabel}>
+    </Area>,
     Pie: <Pie 
-      county={county} 
+      loading={loading}
       data={data} 
-      loading={loading}></Pie>
+      county={county}>
+    </Pie>
   };
 
   return (
