@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { getChargeCount } from '../services/jailDataApi';
-import { shapeChargeSeverity } from '../data-shapers/shapeChargeSeverity';
+import sortByChargeSeverity from '../data-shapers/sortByChargeSeverity';
+import { vForVictory } from '../data-shapers/vForVictory';
 import { makeCSV } from '../data-shapers/makeCSV';
 import { UpdatedContext } from './useUpdatedContext';
 
@@ -15,7 +16,7 @@ const useChargeSeverity = county => {
     setLoading(true);
     getChargeCount()
       .then(res => {
-        setData(shapeChargeSeverity(res));
+        setData(vForVictory(sortByChargeSeverity(res)));
         setCSV(makeCSV(res, county, updated, 'charge-category'));
       })
       .finally(() => setLoading(false));
