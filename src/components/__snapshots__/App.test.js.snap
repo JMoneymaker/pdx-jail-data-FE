@@ -3,72 +3,7 @@
 exports[`App component renders App 1`] = `
 <Fragment>
   <Landing />
-  <ChartContainer
-    categity="totals"
-    chartType="Trend Data"
-    displayRadios={false}
-    hook={[Function]}
-    template="Area"
-    title="Daily Population Total"
-    yLabel="Date"
-  />
-  <ChartContainer
-    category="Age"
-    chartType="Daily Snapshot"
-    displayRadios={true}
-    hook={[Function]}
-    template="VBar"
-    title="Population by Age Range"
-    yLabel="Age Range"
-  />
-  <ChartContainer
-    category="Agency"
-    chartType="Daily Snapshot"
-    displayRadios={true}
-    hook={[Function]}
-    template="HBar"
-    title="Population by Arresting Agency"
-  />
-  <ChartContainer
-    category="Facility"
-    chartType="Daily Snapshot"
-    displayRadios={true}
-    hook={[Function]}
-    template="Pie"
-    title="Population by Facility"
-  />
-  <ChartContainer
-    category="Gender"
-    chartType="Daily Snapshot"
-    displayRadios={true}
-    hook={[Function]}
-    template="HBar"
-    title="Population by Gender"
-  />
-  <ChartContainer
-    category="Race"
-    chartType="Daily Snapshot"
-    displayRadios={true}
-    hook={[Function]}
-    template="VBar"
-    title="Population by Race"
-  />
-  <ChartContainer
-    category="ChargeSeverity"
-    chartType="Daily Snapshot"
-    displayRadios={false}
-    hook={[Function]}
-    template="HBar"
-    title="Population by Top Charge Severity"
-  />
-  <ChartContainer
-    category="Top 20 Charges"
-    chartType="Daily Snapshot"
-    displayRadios={false}
-    hook={[Function]}
-    template="HBar"
-    title="Most Common Charges"
-  />
+  <ChartScroll />
   <Footer />
 </Fragment>
 `;
