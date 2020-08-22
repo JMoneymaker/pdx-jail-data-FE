@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { getTop20Charges } from '../services/jailDataApi';
-import { vForVictory } from '../utils/dailyCounts';
+import { vForVictory } from '../data-shapers/vForVictory';
 import { makeCSV } from '../data-shapers/makeCSV';
 import { UpdatedContext } from './useUpdatedContext';
 

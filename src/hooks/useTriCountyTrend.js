@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { getDailyCounts } from '../services/jailDataApi';
-import { shapeTrend } from '../utils/trends';
+import { shapeTrend } from '../data-shapers/makeCountyTrendArrays';
 import { makeTrendCSV } from '../data-shapers/makeCSV';
 import { UpdatedContext } from './useUpdatedContext';
 

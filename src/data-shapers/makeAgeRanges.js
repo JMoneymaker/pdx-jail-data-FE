@@ -12,11 +12,11 @@ const ageMap = {
   61: '61 - 65',
 };
   
-const shapeAge = arr => {
+const makeAgeRanges = arr => {
   return arr.map(obj => 
     Object.keys(obj).reduce((acc, key) => ({ 
       ...acc, ...{ _id: ageMap[obj._id] || 'Over 65', total: obj[key] }
     }), {}));
 };
 
-export default shapeAge;
+export default makeAgeRanges;
