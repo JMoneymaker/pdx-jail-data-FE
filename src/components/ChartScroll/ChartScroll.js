@@ -15,73 +15,74 @@ export default function ChartScroll() {
 
     <>
       <ChartContainer
-        hook={useTriCountyTrend}
-        displayRadios={false}
         chartType={'Trend Data'} 
-        category={'totals'}
+        categity={'totals'}
         title={'Daily Population Total'}
         template={'Area'}
         yLabel={'Date'}
+        hook={useTriCountyTrend}
+        displayRadios={false}
       />
       <ChartContainer
-        hook={useAgencyCount}
-        displayRadios={true}
         chartType={'Daily Snapshot'} 
         category={'Agency'}
         title={'Population by Arresting Agency'}
         template={'HBar'}
+        hook={useAgencyCount}
+        displa
+        yRadios={true}
       />
       <ChartContainer 
-        hook={useChargeDescription}
-        displayRadios={false}
         chartType={'Daily Snapshot'} 
         category={'Top 20 Charges'}
         title={'Most Common Charges'}
         template={'HBar'}
+        hook={useChargeDescription}
+        displayRadios={false}
       />
       <ChartContainer
-        hook={useChargeSeverity}
-        displayRadios={false}
         chartType={'Daily Snapshot'}  
         category={'ChargeSeverity'}
         title={'Population by Top Charge Severity'}
         template={'HBar'}
+        hook={useChargeSeverity}
+        displayRadios={false}
       />
       <ChartContainer
-        hook={useFacilityCount}
-        displayRadios={true}
         chartType={'Daily Snapshot'}  
         category={'Facility'}
         title={'Population by Facility'}
         template={'Pie'}
+        hook={useFacilityCount}
+        displayRadios={true}
       />
       <ChartContainer 
-        hook={useAgeCount}
-        displayRadios={true}
         chartType={'Daily Snapshot'} 
         category={'Age'}
         title={'Population by Age Range'}
         template={'VBar'}
         yLabel={'Age Range'}
+        hook={useAgeCount}
+        displayRadios={true}
       />
       <ChartContainer
-        hook={useGenderCount}
-        displayRadios={true}
         chartType={'Daily Snapshot'}  
         category={'Gender'}
         title={'Population by Gender'}
         template={'HBar'}
+        hook={useGenderCount}
+        displayRadios={true}
       />
       <ChartContainer
-        hook={useRaceCount}
-        displayRadios={true}
         chartType={'Daily Snapshot'}  
         category={'Race'}
         title={'Population by Race'}
         template={'VBar'}
+        hook={useRaceCount}
+        displayRadios={true}
       />
     </>
-
+      
   );
 
 }

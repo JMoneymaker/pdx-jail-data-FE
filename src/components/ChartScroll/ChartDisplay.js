@@ -19,7 +19,8 @@ const ChartDisplay = ({ county, data, loading, yLabel, template }) => {
     HBar: <HBar 
       county={county} 
       data={data} 
-      loading={loading}></HBar>,
+      loading={loading}>
+    </HBar>,
     VBar: <VBar 
       county={county} 
       data={data} 
