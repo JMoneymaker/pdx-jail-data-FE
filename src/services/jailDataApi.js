@@ -1,9 +1,9 @@
-export const getCategoryCount = (county = 'multnomah', category = 'Age') => {
+export const getCategoryCount = (county = 'multnomah', category = 'Agency') => {
   return fetch(`http://157.245.170.56/api/v1/${county}/daily${category}Count`)
     .then(res => res.json());
 };
 
-export const getChargeCount = (county = 'multnomah', category = 'Age') => {
+export const getChargeCount = (county = 'multnomah', category = 'ChargeCategory') => {
   return fetch(`http://157.245.170.56/api/v1/${county}/daily${category}`)
     .then(res => res.json());
 };

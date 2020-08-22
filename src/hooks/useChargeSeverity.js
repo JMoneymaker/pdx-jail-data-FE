@@ -10,10 +10,10 @@ const useChargeSeverity = county => {
   const [csv, setCSV] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const fetchChargeSeverityCount = () => {
+  const fetchChargeSeverity = () => {
     if(county === 'washington' || county === 'clackamas') return;
     setLoading(true);
-    getChargeCount('multnomah', 'ChargeCategory')
+    getChargeCount()
       .then(res => {
         setData(shapeChargeSeverity(res));
         setCSV(makeCSV(res, county, updated, 'charge-category'));
@@ -21,7 +21,7 @@ const useChargeSeverity = county => {
       .finally(() => setLoading(false));
   };
 
-  useEffect(fetchChargeSeverityCount, []);
+  useEffect(fetchChargeSeverity, []);
 
   return [data, csv, loading];
 };
