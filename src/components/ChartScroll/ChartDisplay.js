@@ -11,21 +11,20 @@ const ChartDisplay = ({ county, data, loading, yLabel, template }) => {
     Area: <Area 
       data={data}
       loading={loading} 
-      yLabel={yLabel}></Area>,
+      yLabel={yLabel}/>,
     Pie: <Pie 
       county={county} 
       data={data} 
-      loading={loading}></Pie>,
+      loading={loading}/>,
     HBar: <HBar 
       county={county} 
       data={data} 
-      loading={loading}>
-    </HBar>,
+      loading={loading}/>,
     VBar: <VBar 
       county={county} 
       data={data} 
       loading={loading} 
-      yLabel={yLabel}></VBar>
+      yLabel={yLabel}/>
   };
 
   return (

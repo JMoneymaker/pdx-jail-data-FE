@@ -16,7 +16,7 @@ export default function ChartScroll() {
     <>
       <ChartContainer
         chartType={'Trend Data'} 
-        categity={'totals'}
+        category={'totals'}
         title={'Daily Population Total'}
         template={'Area'}
         yLabel={'Date'}
@@ -29,8 +29,7 @@ export default function ChartScroll() {
         title={'Population by Arresting Agency'}
         template={'HBar'}
         hook={useAgencyCount}
-        displa
-        yRadios={true}
+        displayRadios={true}
       />
       <ChartContainer 
         chartType={'Daily Snapshot'} 
