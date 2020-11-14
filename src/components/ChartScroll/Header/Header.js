@@ -7,7 +7,7 @@ import styles from '../ChartScroll.css';
 
 const Header = ({ title, category, chartType, csv, displayRadios, name, handleChange }) => {
   const updated = useContext(UpdatedContext);
-  const shortDate = updated.slice(0, -13);
+  const shortDate = updated.slice(0, -9);
 
   return (
     <header className={styles.headWrapper}>

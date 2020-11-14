@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import Header from './Header';
 import MainStat from './MainStat';
 import { UpdatedContext } from '../../hooks/useUpdatedContext';
-import useMainStats from '../../hooks/useMainStats';
+// import useMainStats from '../../hooks/useMainStats';
 import styles from './Landing.css';
+import useTriCountyTrend from '../../hooks/useTriCountyTrend';
 
 const Landing = () => {
   const updated = useContext(UpdatedContext);
-  const [today, yesterday, loading] = useMainStats();
+  const [clackToday, clackChange, multToday, multChange, washToday, washChange, loading] = useTriCountyTrend();
 
   return (
   
@@ -23,20 +24,20 @@ const Landing = () => {
         </section>
         <section className={styles.mainStatsInner}>
           <MainStat 
-            total={today.clack} 
-            change={today.clack - yesterday.clack}
+            total={clackToday} 
+            change={clackChange}
             loading={loading}>
           </MainStat>
 
           <MainStat 
-            total={today.mult} 
-            change={today.mult - yesterday.mult}
+            total={multToday} 
+            change={multChange}
             loading={loading}>
           </MainStat>
 
           <MainStat 
-            total={today.wash} 
-            change={today.wash - yesterday.wash}
+            total={washToday} 
+            change={washChange}
             loading={loading}>
           </MainStat>
         </section>
