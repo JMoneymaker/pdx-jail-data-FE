@@ -13,19 +13,13 @@ export const getTop20Charges = (county, signal) => {
     .then(res => res.json());
 };
 
-// export const getDailyCounts = () => {
-//   return fetch('https://pdx-jail-data.herokuapp.com/api/v1/dailyCounts')
-//     .then(res => res.json())
-//     .then(([resArray]) => resArray.counts);
-// };
-
 // export const getCSVTriCountyTrend = () => {
 //   return fetch('https://pdx-jail-data.herokuapp.com/api/v1/dailyCounts/download')
 //     .then(res => res.json());
 // };
 
 export const getTwoDayTotal = (county, signal) => {
-  return fetch(`http://localhost:7890/api/v1/${county}/twoDayTotals`, signal)
+  return fetch(`http://157.245.170.56/api/v1/${county}/twoDayTotals`, signal)
     .then(res => res.json())
     .then(res => ({
       county,
@@ -36,7 +30,4 @@ export const getTwoDayTotal = (county, signal) => {
       change: res[0].total - res[1].total
     }));
 };
-
-getTwoDayTotal('multnomah')
-  .then(console.log);
 
