@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getDailyCounts } from '../services/jailDataApi';
+import { getDailyPopulationTotals } from '../services/jailDataApi';
 import { findTwoDayTotals } from '../data-shapers/findTwoDayTotals';
 
 const useMainStats = () => {
@@ -9,7 +9,7 @@ const useMainStats = () => {
 
   const fetchTriCountyTrend = () => {
     setLoading(true);
-    getDailyCounts()
+    getDailyPopulationTotals()
       .then(res => findTwoDayTotals(res))
       .then(totals => {
         setToday(totals[0]);

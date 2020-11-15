@@ -1,6 +1,6 @@
 import React from 'react';
 import ChartContainer from './ChartContainer';
-// import useTriCountyTrend from '../../hooks/useTriCountyTrend';
+import useTriCountyTotals from '../../hooks/useTriCountyTotals';
 import useAgencyCount from '../../hooks/useAgencyCount';
 import useChargeDescription from '../../hooks/useChargeDescription';
 import useChargeSeverity from '../../hooks/useChargeSeverity';
@@ -14,15 +14,15 @@ export default function ChartScroll() {
   return (
 
     <>
-      {/* <ChartContainer
+      <ChartContainer
         chartType={'Trend Data'} 
         category={'totals'}
         title={'Daily Population Total'}
         template={'Area'}
         yLabel={'Date'}
-        hook={useTriCountyTrend}
+        hook={useTriCountyTotals}
         displayRadios={false}
-      /> */}
+      />
       <ChartContainer
         chartType={'Daily Snapshot'} 
         category={'Agency'}

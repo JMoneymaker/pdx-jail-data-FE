@@ -17,9 +17,10 @@ export const makeTrendCSV = (data, updated, category) => {
     fileName: `jdpdx-daily${category}Count-${updated}.csv`,
     data: data.map(object => {
       return ({
-        date: updated,
-        [category]: object._id,
-        count: object.total
+        date: object.date,
+        Clackamas: object.clack,
+        Multnomah: object.mult,
+        Washington: object.wash
       });
     })
   });

@@ -4,7 +4,6 @@ import { VictoryArea, VictoryChart, VictoryAxis, VictoryLegend, VictoryVoronoiCo
 import { makePrettyDate } from '../../../data-shapers/shapeDates';
 
 const Area = ({ data, yLabel }) => {
-
   return (
     <VictoryChart
       height={225}

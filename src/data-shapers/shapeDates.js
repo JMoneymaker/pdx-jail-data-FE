@@ -2,7 +2,12 @@ const moment = require('moment');
 moment().format();
 
 export const makePrettyDate = date => {
-  return moment(date).format('LLLL');
+  return moment(date).format('LLL');
+};
+
+export const makeShortDate = date => {
+  console.log(date);
+  return moment(date).format('dddd, MMMM Do');
 };
 
 export const findLatest = res => {

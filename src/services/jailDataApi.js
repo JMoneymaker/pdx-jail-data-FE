@@ -13,21 +13,14 @@ export const getTop20Charges = (county, signal) => {
     .then(res => res.json());
 };
 
-// export const getCSVTriCountyTrend = () => {
-//   return fetch('https://pdx-jail-data.herokuapp.com/api/v1/dailyCounts/download')
-//     .then(res => res.json());
-// };
-
-export const getTwoDayTotal = (county, signal) => {
-  return fetch(`http://157.245.170.56/api/v1/${county}/twoDayTotals`, signal)
+export const getDailyPopulationTotals = (signal) => {
+  return fetch('http://157.245.170.56/api/v1/dailyTotals', signal)
     .then(res => res.json())
-    .then(res => ({
-      county,
-      date: res[0].date,
-      time: res[0].time,
-      today: res[0].total,
-      yesterday: res[1].total,
-      change: res[0].total - res[1].total
-    }));
+    .then(data => (data.counts));
 };
 
+export const getMostRecentUpdate = () => {
+  return fetch('http://157.245.170.56/api/v1/multnomah/mostRecent')
+    .then(res => res.json())
+    .then(res => res[0].createdAt);
+};

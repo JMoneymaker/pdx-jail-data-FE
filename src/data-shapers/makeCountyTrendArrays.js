@@ -17,3 +17,4 @@ export const shapeTrend = rawData => {
   return [clackamas, multnomah, washington];
 };
 
+

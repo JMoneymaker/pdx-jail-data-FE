@@ -9,7 +9,7 @@ import { vForVictory } from '../data-shapers/vForVictory';
 const useFacilityCount = (county) => {
   const abortController = new AbortController();
   const signal = abortController.signal;
-  const updated = useContext(UpdatedContext);
+  const { updated } = useContext(UpdatedContext);
   const [data, setData] = useState([]);
   const [csv, setCSV] = useState({});
   const [loading, setLoading] = useState(true);

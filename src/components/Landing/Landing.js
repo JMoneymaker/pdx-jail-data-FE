@@ -2,18 +2,17 @@ import React, { useContext } from 'react';
 import Header from './Header';
 import MainStat from './MainStat';
 import { UpdatedContext } from '../../hooks/useUpdatedContext';
-// import useMainStats from '../../hooks/useMainStats';
+import useMainStats from '../../hooks/useMainStats';
 import styles from './Landing.css';
-import useTriCountyTrend from '../../hooks/useTriCountyTrend';
 
 const Landing = () => {
-  const updated = useContext(UpdatedContext);
-  const [clackToday, clackChange, multToday, multChange, washToday, washChange, loading] = useTriCountyTrend();
+  const { updated } = useContext(UpdatedContext);
+  const [today, yesterday, loading] = useMainStats();
 
   return (
   
     <div className={styles.Landing}>
-      <Header updated={updated}/>
+      <Header updated={updated ? updated : 'loading'}/>
       <main className={styles.mainStats}>
         <section className={styles.countiesInner}>
           <div className={styles.counties}>
@@ -24,20 +23,20 @@ const Landing = () => {
         </section>
         <section className={styles.mainStatsInner}>
           <MainStat 
-            total={clackToday} 
-            change={clackChange}
+            total={today.clack} 
+            change={today.clack - yesterday.clack}
             loading={loading}>
           </MainStat>
 
           <MainStat 
-            total={multToday} 
-            change={multChange}
+            total={today.mult} 
+            change={today.mult - yesterday.mult}
             loading={loading}>
           </MainStat>
 
           <MainStat 
-            total={washToday} 
-            change={washChange}
+            total={today.wash} 
+            change={today.wash - yesterday.wash}
             loading={loading}>
           </MainStat>
         </section>

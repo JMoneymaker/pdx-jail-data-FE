@@ -6,14 +6,13 @@ import { UpdatedContext } from '../../../hooks/useUpdatedContext';
 import styles from '../ChartScroll.css';
 
 const Header = ({ title, category, chartType, csv, displayRadios, name, handleChange }) => {
-  const updated = useContext(UpdatedContext);
-  const shortDate = updated.slice(0, -9);
+  const { shortUpdated } = useContext(UpdatedContext);
 
   return (
     <header className={styles.headWrapper}>
       <div className={styles.titleContainer}>
         <div className={styles.titleWrapper}>
-          <h3>{chartType} - {shortDate}</h3>
+          <h3>{chartType} - {shortUpdated ? shortUpdated : 'loading'}</h3>
           <h2>{title}</h2>
         </div>
         <CSV csv={csv}></CSV>

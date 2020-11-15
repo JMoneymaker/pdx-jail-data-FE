@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { UpdatedContext } from '../src/hooks/useUpdatedContext';
-import { getTwoDayTotal } from '../src/services/jailDataApi';
+import { makePrettyDate, makeShortDate } from '../src/data-shapers/shapeDates';
+import { getMostRecentUpdate } from '../src/services/jailDataApi';
+
 
 // eslint-disable-next-line react/prop-types
 const UpdatedProvider = ({ children }) => {
   const [updated, setUpdated] = useState('');
+  const [shortUpdated, setShortUpdated] = useState('');
+  
 
   useEffect(() => {
-    getTwoDayTotal('multnomah')
-      .then(res => setUpdated(res.date + ' at ' + res.time));
+    getMostRecentUpdate()
+      .then(res => {
+        setUpdated(makePrettyDate(res));
+        setShortUpdated(makeShortDate(res));
+      });
   }, []);
 
   return (
-    <UpdatedContext.Provider value={updated}>
+    <UpdatedContext.Provider value={{ updated, shortUpdated }}>
       {children}
     </UpdatedContext.Provider>
   );
