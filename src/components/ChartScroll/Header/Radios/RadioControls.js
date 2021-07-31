@@ -32,6 +32,7 @@ const RadioControls = ({ handleChange, name, category }) => {
         name={name}
         id={category + '-washington'}
         onChange={handleChange}
+        disabled={name === 'Age-radio'}
       />
       <label htmlFor={category + '-washington'}>W</label>
     </div>

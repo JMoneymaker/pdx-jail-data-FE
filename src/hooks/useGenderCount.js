@@ -13,8 +13,6 @@ const useDailyCountGender = (county) => {
   const [csv, setCSV] = useState({});
   const [loading, setLoading] = useState(true);
 
-  console.log(updated);
-
   const fetchDailyGenderCount = () => {
     setLoading(true);
     getCountByCategory(county, 'Gender', signal)

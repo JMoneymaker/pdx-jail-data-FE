@@ -3,7 +3,7 @@ export const shapeTrend = rawData => {
   let washington = [];
   let multnomah = [];
 
-  rawData.map(i => {
+  rawData.map(i => {    
     clackamas.push({
       x: i.date.slice(0, 10),
       y: i.clack });
@@ -14,6 +14,7 @@ export const shapeTrend = rawData => {
       x: i.date.slice(0, 10),
       y: i.wash });
   });
+
   return [clackamas, multnomah, washington];
 };
 

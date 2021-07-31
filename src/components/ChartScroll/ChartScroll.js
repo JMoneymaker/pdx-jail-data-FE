@@ -1,13 +1,13 @@
 import React from 'react';
 import ChartContainer from './ChartContainer';
-import useTriCountyTotals from '../../hooks/useTriCountyTotals';
-import useAgencyCount from '../../hooks/useAgencyCount';
-import useChargeDescription from '../../hooks/useChargeDescription';
-import useChargeSeverity from '../../hooks/useChargeSeverity';
-import useFacilityCount from '../../hooks/useFacilityCount';
-import useAgeCount from '../../hooks/useAgeCount';
-import useGenderCount from '../../hooks/useGenderCount';
-import useRaceCount from '../../hooks/useRaceCount';
+import useTriCountyTotals from '../../hooks/staticHooks/staticUseTriCountyTotals';
+import useAgencyCount from '../../hooks/staticHooks/staticUseAgencyCount';
+import useChargeDescription from '../../hooks/staticHooks/staticUseChargeDescription';
+import useChargeSeverity from '../../hooks/staticHooks/staticUseChargeSeverity';
+import useFacilityCount from '../../hooks/staticHooks/staticUseFacilityCount';
+import useAgeCount from '../../hooks/staticHooks/staticUseAgeCount';
+import useGenderCount from '../../hooks/staticHooks/staticUseGenderCount';
+import useRaceCount from '../../hooks/staticHooks/staticUseRaceCount';
 
 export default function ChartScroll() {
 
@@ -77,6 +77,7 @@ export default function ChartScroll() {
         category={'Race'}
         title={'Population by Race'}
         template={'VBar'}
+        yLabel={'Race'}
         hook={useRaceCount}
         displayRadios={true}
       />

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Header from './Header';
 import MainStat from './MainStat';
 import { UpdatedContext } from '../../hooks/useUpdatedContext';
-import useMainStats from '../../hooks/useMainStats';
+import useMainStats from '../../hooks/staticHooks/staticUseMainStats';
 import styles from './Landing.css';
 
 const Landing = () => {
